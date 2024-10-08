@@ -1,8 +1,7 @@
-import React from 'react'
 
-type Props = {}
 
-const ContactMainPage = (props: Props) => {
+
+const ContactMainPage = () => {
   return (
     <div>ContactMainPage</div>
   )

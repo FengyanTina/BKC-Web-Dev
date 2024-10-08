@@ -1,8 +1,7 @@
-import React from 'react'
 
-type Props = {}
 
-const ServicesMainPage = (props: Props) => {
+
+const ServicesMainPage = () => {
   return (
     <div>ServicesMainPage</div>
   )

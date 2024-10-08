@@ -1,8 +1,7 @@
-import React from 'react'
 
-type Props = {}
 
-const NewsMainPage  = (props: Props) => {
+
+const NewsMainPage  = () => {
   return (
     <div>NewsMainPage </div>
   )

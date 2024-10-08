@@ -1,8 +1,7 @@
-import React from 'react'
 
-type Props = {}
 
-const SchedulesMainPage = (props: Props) => {
+
+const SchedulesMainPage = () => {
   return (
     <div>SchedulesMainPage</div>
   )

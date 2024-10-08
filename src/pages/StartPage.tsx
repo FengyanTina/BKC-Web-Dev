@@ -1,8 +1,7 @@
-import React from 'react'
 
-type Props = {}
 
-const StartPage = (props: Props) => {
+
+const StartPage = () => {
   return (
     <div>StartPage</div>
   )

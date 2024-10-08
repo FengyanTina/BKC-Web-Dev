@@ -1,8 +1,7 @@
-import React from 'react'
 
-type Props = {}
 
-const ActivitiesMainPage = (props: Props) => {
+
+const ActivitiesMainPage = () => {
   return (
     <div>ActivitiesMainPage</div>
   )

@@ -9,7 +9,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Typography } from '@mui/material';
-import HuvudloggaBKC3 from '../../assets/Huvudlogga-BKC3.png'; 
+import HuvudloggaBKC3 from "../../assets/Huvudlogga-BKC3.png";
+
 interface TabDrawerProps {
     open: boolean;
     onClose: () => void;
