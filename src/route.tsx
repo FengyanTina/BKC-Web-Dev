@@ -15,12 +15,13 @@ export const router = createBrowserRouter([
     children: [
       { path: "home", element: <StartPage /> },
       { path: "services", element: <ServicesMainPage /> },
-      { path: "schedules", element: <SchedulesMainPage /> },
-    
+      { path: "schedules", element: <SchedulesMainPage /> },  
       { path: "activities", element: <ActivitiesMainPage /> },
       { path: "news", element: <NewsMainPage /> },
       { path: "contact", element: <ContactMainPage /> },
-      { path: "BKC-Web-Dev", element: <StartPage /> },
+      
     ],
   },
-]);
+],
+{ basename: "/BKC-Web-Dev" },
+);

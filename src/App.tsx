@@ -1,16 +1,16 @@
 import { Box } from "@mui/material";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
-import { useEffect } from "react";
+
 import TabBar from "./components/appBar/TabBar";
 import Footer from "./components/footer/Footer";
 
 
 export default function App() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate("/home"); // Adjust this to the default route (start page)
-  }, [navigate]);
+//   const navigate = useNavigate();
+//   useEffect(() => {
+//     navigate("/home"); // Adjust this to the default route (start page)
+//   }, [navigate]);
 
   return (
     <>
