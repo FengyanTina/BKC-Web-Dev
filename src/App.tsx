@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Box } from "@mui/material";
+import { Outlet, useNavigate } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { useEffect } from "react";
+import TabBar from "./components/appBar/TabBar";
+import Footer from "./components/footer/Footer";
+
+
+export default function App() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/home"); // Adjust this to the default route (start page)
+  }, [navigate]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Box
+        component="main"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh", // Ensure the container takes up the full height of the viewport
+          backgroundColor: "#f0f4f8", // Background color that covers the whole screen
+        }}
+      >
+        {/* <DrawerAppBar /> */}
+        <TabBar />
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <Outlet />
+        </Box>
+        <Box
+          component="footer"
+          sx={{
+            backgroundColor: "#f0f4f8",
+            mt: "auto",
+          }}
+        >
+          <Footer />
+        </Box>
+      </Box>
     </>
-  )
+  );
 }
-
-export default App
