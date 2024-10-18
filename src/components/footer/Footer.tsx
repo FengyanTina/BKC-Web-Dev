@@ -27,15 +27,19 @@ const Footer: React.FC = () => {
         reserved.
       </Typography>
       <Box>
+      <Typography variant="body2">
         <Link href="#" color="inherit" sx={{ mx: 1 }}>
           Privacy Policy
         </Link>
+       
         <Link href="#" color="inherit" sx={{ mx: 1 }}>
           Terms of Service
         </Link>
+
         <Link href="#" color="inherit" sx={{ mx: 1 }}>
           Contact Us
         </Link>
+        </Typography>
       </Box>
       <Box>
         <SocialIcon network="pinterest" style={{ height: 25, width: 25 }} />

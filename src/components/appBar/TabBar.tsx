@@ -96,7 +96,7 @@ export default function TabBar() {
               aria-label="secondary tabs"
             >
               <Tab
-                value="/home"
+                value="/"
                 label="Home"
                 sx={{
                   fontSize: "1.2rem",

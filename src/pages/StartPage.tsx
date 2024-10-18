@@ -1,13 +1,10 @@
-
 import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Worship from "../assets/Worship.jpeg";
 import { Link } from "react-router-dom";
+import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCalendar";
 
-
-const StartPage = () =>{
-
-
+const StartPage = () => {
   return (
     <Box>
       <Grid
@@ -22,7 +19,7 @@ const StartPage = () =>{
           alignItems: "center",
           justifyContent: "space-evenly",
           width: "100%", // Full width of the container
-          height: "100vh", // Full viewport height
+         height:"100%",
           backgroundAttachment: "fixed",
         }}
       >
@@ -62,7 +59,7 @@ const StartPage = () =>{
               alignItems: "center", // Center horizontally
               textAlign: "center", // Center text content
               position: "relative", // To move the box up
-              top: { sm: "-30px" },
+              marginTop: { xs: "100px",  },
             }}
           >
             {/* First Typography - Borås Kristna Center */}
@@ -70,20 +67,18 @@ const StartPage = () =>{
               variant="h5"
               sx={{
                 fontWeight: {
-                  xs: 700, // Lighter font weight for small screens (mobile devices)
-                  sm: 900, // Default font weight for larger screens
+                  xs: 700, 
+                  sm: 900, 
                 },
                 fontSize: {
-                  xs: "2rem", // Smaller font size for small screens (mobile devices)
-                  sm: "5rem", // Default font size for larger screens (tablets and up)
+                  xs: "2rem", 
+                  sm: "5rem",
                 },
                 lineHeight: {
-                  xs: "0.5em", // Smaller font size for small screens (mobile devices)
-
-                  sm: "1em", // Default font size for larger screens (tablets and up)
+                  xs: "0.5em", 
+                  sm: "1em", 
                 },
-                color: "white",
-
+                color: "white",           
                 marginBottom: "30px",
               }}
             >
@@ -95,10 +90,15 @@ const StartPage = () =>{
                 marginTop: "30px",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start", // Align links to the left
-                textAlign: "left", // Ensure text aligns left
-                width: "100%", // Take full width so alignment works properly
-                maxWidth: "400px", // You can adjust max width for better control
+                alignItems: "flex-start", 
+                textAlign: "left", 
+                width: "100%", 
+                maxWidth: {
+                    md:"400px",
+                    sm:"300px",
+                    xs:"200px",
+                }
+               
               }}
             >
               <Typography
@@ -112,8 +112,8 @@ const StartPage = () =>{
 
                   marginBottom: "50px",
                   fontSize: {
-                    xs: "1rem", // Smaller font size for small screens (mobile devices)
-                    sm: "1.5rem", // Default font size for larger screens (tablets and up)
+                    xs: "1rem", 
+                    sm: "1.5rem", 
                   },
                 }}
               >
@@ -131,36 +131,39 @@ const StartPage = () =>{
               >
                 Find Us
               </Link>
-              {/* Find Us link with onClick */}
-            
-
             </Box>
           </Box>
         </Grid>
 
         <Grid
           sx={{
-            marginRight: "0",
+            maxWidth: {
+                xs: "90%", 
+                sm: "90%", 
+              },
             marginTop: {
-              xs: "10px", // Apply 10px margin on small screens (mobile devices)
-              sm: "340px", // Apply 350px margin on larger screens (tablets and up)
+              xs: "10px", 
+              sm: "340px", 
             },
             height: {
-              xs: "40vh", // Set height to 40% of the viewport height for small screens
+              xs: "45vh", 
               sm: "50vh", // 50% of viewport height for medium screens
-              md: "50vh", // Default height for larger screens
+              md: "50vh", 
               lg: "60vh",
             },
             marginBottom: {
               md: "10px",
+              sm:"10px",
+              xs:"10px",
             },
             overflowY: "auto",
           }}
-          size={{ xs: 12, sm: 3, md: 2 }}
+          size={{ xs: 12, sm: 12, md: 3 }}
         >
-       
+          <CurrentWeekEventCalendar />
         </Grid>
       </Grid>
+
       {/* --------------Body----------- */}
       <Box
         sx={{
@@ -168,17 +171,13 @@ const StartPage = () =>{
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          gap: "20px",
-          paddingTop: "30px",
+
           backgroundColor: "#dbe1e8",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           marginBottom: "30px",
         }}
-      >
-          
-        </Box>
-      </Box>
-
+      ></Box>
+    </Box>
   );
-}
-export default StartPage
+};
+export default StartPage;

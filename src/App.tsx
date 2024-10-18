@@ -7,10 +7,6 @@ import Footer from "./components/footer/Footer";
 
 
 export default function App() {
-//   const navigate = useNavigate();
-//   useEffect(() => {
-//     navigate("/home"); // Adjust this to the default route (start page)
-//   }, [navigate]);
 
   return (
     <>
@@ -19,13 +15,12 @@ export default function App() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          minHeight: "100vh", // Ensure the container takes up the full height of the viewport
-          backgroundColor: "#f0f4f8", // Background color that covers the whole screen
+          minHeight: "100vh", 
+          backgroundColor: "#f0f4f8", 
         }}
       >
-        {/* <DrawerAppBar /> */}
         <TabBar />
-        <Box component="main" sx={{ flexGrow: 1 }}>
+        <Box  sx={{ flexGrow: 1 }}>
           <Outlet />
         </Box>
         <Box
