@@ -8,20 +8,20 @@ import ActivitiesMainPage from "./pages/activities/ActivitiesMainPage.tsx";
 import NewsMainPage from "./pages/news/NewsMainPage .tsx";
 import ContactMainPage from "./pages/contact/ContactMainPage.tsx";
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
         { index: true, element: <StartPage /> },
-      { path: "services", element: <ServicesMainPage /> },
-      { path: "schedules", element: <SchedulesMainPage /> },  
-      { path: "activities", element: <ActivitiesMainPage /> },
-      { path: "news", element: <NewsMainPage /> },
-      { path: "contact", element: <ContactMainPage /> },
-      
-    ],
-  },
-],
-{ basename: "/BKC-Web-Dev" },
+        { path: "services", element: <ServicesMainPage /> },
+        { path: "schedules", element: <SchedulesMainPage /> },
+        { path: "activities", element: <ActivitiesMainPage /> },
+        { path: "news", element: <NewsMainPage /> },
+        { path: "contact", element: <ContactMainPage /> },
+      ],
+    },
+  ],
+  { basename: "/BKC-Web-Dev" }
 );
