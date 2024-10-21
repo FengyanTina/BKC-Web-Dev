@@ -1,4 +1,4 @@
-import { Box, Dialog, DialogContent, Typography } from "@mui/material";
+import { Box, Dialog, DialogContent, IconButton, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Worship from "../assets/Worship.jpeg";
 import { Link } from "react-router-dom";
@@ -13,6 +13,7 @@ import SlickSlider from "../components/slides/SlickSlider";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
 import MyMap from "../apis/GoogleMap";
+import CloseIcon from "@mui/icons-material/Close";
 
 const StartPage = () => {
     const [openMap, setOpenMap] = useState(false);
@@ -162,6 +163,15 @@ const StartPage = () => {
                 fullWidth
                 style={{ color: "white", textDecoration: "none" }}
               >
+                 <IconButton
+                  edge="end"
+                  color="inherit"
+                  onClick={handleCloseMap} // Close the dialog when clicked
+                  aria-label="close"
+                  style={{ position: "absolute", right: 30, top: 15 }} // Position the button
+                >
+                  <CloseIcon />
+                </IconButton>
                 <DialogContent>
                   <MyMap/>
                 </DialogContent>
