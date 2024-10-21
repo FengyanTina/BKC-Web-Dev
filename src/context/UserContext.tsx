@@ -1,6 +1,7 @@
 import React, { createContext } from 'react'
 import { User } from '../models/User';
 import { useLocalStorage } from '../hooks/UseLocalStorage';
+import initialUsers from '../data';
 
 export const UserContext = createContext({
     users: [] as User[],
@@ -13,7 +14,7 @@ export const UserContext = createContext({
 export function UserProvider({ children }: { children: React.ReactNode }) {
   
   
-    const [users, setUsers] = useLocalStorage<User[]>("users", []);
+    const [users, setUsers] = useLocalStorage<User[]>("users", initialUsers);
 
     
     const addUser = (newUser: User) => {
