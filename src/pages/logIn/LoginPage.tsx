@@ -13,38 +13,25 @@ import {
   import Grid from "@mui/material/Grid2";
   import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
   import { Link as RouterLink } from "react-router-dom";
-  import { useEffect, useState } from "react";
-  
-  import { User, UserCategory } from "../../models/User";
+  import { useState } from "react";
   import { useAuth } from "../../context/AuthContext";
   
   interface LoginPageProp {
     onClose: () => void;
   }
   const LoginPage = ({ onClose }: LoginPageProp) => {
-      const [username, setUsername] = useState<string>(""); // State for user username
-      const [password, setPassword] = useState<string>(""); // State for user password
-      const { login,error } = useAuth(); // Get login function and error from Auth context
-    
-   
-    
-  
-  
+      const [username, setUsername] = useState<string>(""); 
+      const [password, setPassword] = useState<string>(""); 
+      const { login,error } = useAuth(); 
       const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
-          login(username, password); // Call the login function with username and password
-      
-          // If login is successful, you can close the modal or perform other actions here
+          login(username, password);  
           if (!error) {
             onClose();
           }
         };
   
-   
-  
-  
-   
-  
+
     return (
       <Container maxWidth="xs">
         <Paper elevation={10} sx={{ marginTop: 8, padding: 2 }}>
