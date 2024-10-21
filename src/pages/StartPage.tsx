@@ -3,6 +3,13 @@ import Grid from "@mui/material/Grid2";
 import Worship from "../assets/Worship.jpeg";
 import { Link } from "react-router-dom";
 import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCalendar";
+import SectionLine from "../components/pageSections/SectionLine";
+import { comingEvents, homeGroupActivityCardInfor, newHere, news, socialMediaActivityCardInfor, sundaySchoolActivityCardInfor, sundayServiceCardInfor, youthActivityCardInfor } from "../data";
+import Carousel from "../components/slides/Carousel";
+import NewHereSectionGrid from "../components/pageSections/NewHereSection";
+import ImgInforCardSection from "../components/pageSections/ImgInforCardSection";
+import ActivitySocialMediaScetionCard from "../components/cards/customizedCards/ActivitySocialMediaScetionCard";
+import SlickSlider from "../components/slides/SlickSlider";
 
 const StartPage = () => {
   return (
@@ -166,17 +173,119 @@ const StartPage = () => {
 
       {/* --------------Body----------- */}
       <Box
+         sx={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: "20px",
+            paddingTop: "30px",
+            backgroundColor: "#dbe1e8",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            marginBottom: "30px",
+          }}
+      >
+        {/* --------------COMMING EVENTS----------- */}
+
+        <SectionLine text="Comming Events" useWhiteStroke={true} />
+        <Box sx={{ width: "80%" }}>
+          <Carousel events={comingEvents} />
+        </Box>
+    
+
+       {/* --------------WELCOME NEW----------- */}
+       <SectionLine text="Welcome" useWhiteStroke={true} />
+        <NewHereSectionGrid
+        inforSectionId=""
+        id={newHere.id}
+          title={newHere.title}
+         description={newHere.description}
+          images={newHere.images}
+          subtitle={newHere.subtitle}
+        />
+      </Box>
+     {/* --------------ACTIVITIES----------- */}
+
+     <SectionLine text=" Activities And Services" />
+      <ActivitySocialMediaScetionCard
+      inforSectionId=""
+      id={socialMediaActivityCardInfor.id}
+        title={socialMediaActivityCardInfor.title}
+        subtitle={socialMediaActivityCardInfor.subtitle}
+        description={socialMediaActivityCardInfor.description}
+        images={socialMediaActivityCardInfor.images}
+        category={socialMediaActivityCardInfor.category}
+      />
+
+      {/* --------------ACTIVITIES-Sunday Service----------- */}
+      <ImgInforCardSection
+      inforSectionId=""
+      id={sundayServiceCardInfor.id}
+        title={sundayServiceCardInfor.title}
+        subtitle={sundayServiceCardInfor.subtitle}
+        description={sundayServiceCardInfor.description}
+        images={sundayServiceCardInfor.images}
+        category={sundayServiceCardInfor.category}
+        imageLeft={false}
+      />
+
+      {/* --------------ACTIVITIES-BKC Kids----------- */}
+      <ImgInforCardSection
+      inforSectionId=""
+      id={sundaySchoolActivityCardInfor.id}
+        title={sundaySchoolActivityCardInfor.title}
+        subtitle={sundaySchoolActivityCardInfor.subtitle}
+        description={sundaySchoolActivityCardInfor.description}
+        images={sundaySchoolActivityCardInfor.images}
+        category={sundaySchoolActivityCardInfor.category}
+        
+      />
+      {/* --------------ACTIVITIES-Youth----------- */}
+      <ImgInforCardSection
+      inforSectionId=""
+      id={youthActivityCardInfor.id}
+        title={youthActivityCardInfor.title}
+        subtitle={youthActivityCardInfor.subtitle}
+        description={youthActivityCardInfor.description}
+        images={youthActivityCardInfor.images}
+        category={youthActivityCardInfor.category}
+        imageLeft={false}
+      />
+
+      {/* --------------ACTIVITIES-Home Group----------- */}
+      <ImgInforCardSection
+      id={homeGroupActivityCardInfor.id}
+      inforSectionId=""
+        title={homeGroupActivityCardInfor.title}
+        subtitle={homeGroupActivityCardInfor.subtitle}
+        description={homeGroupActivityCardInfor.description}
+        images={homeGroupActivityCardInfor.images}
+        category={homeGroupActivityCardInfor.category}
+       
+      />
+      {/* --------------NEWS SLIDES----------- */}
+      <Box
         sx={{
           width: "100%",
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-
-          backgroundColor: "#dbe1e8",
+          justifyContent: "center",
+          backgroundColor: "#f0f4f8",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-          marginBottom: "30px",
         }}
-      ></Box>
+      >
+       <SectionLine text=" News" />
+        <Box
+          sx={{
+            backgroundColor: "#f0f4f8",
+            width: "100%",
+            marginBottom: "10px",
+          }}
+        > 
+          <SlickSlider events={news} />
+        </Box>
+      </Box>
     </Box>
   );
 };

@@ -48,3 +48,11 @@ export default tseslint.config({
   },
 })
 ```
+
+install:
+npm i --save-dev @types/react-slick
+npm install react-icons
+ npm i swiper                   
+  npm install react-slick slick-carousel --save
+  npm i --save-dev @types/react-router-hash-link
+
