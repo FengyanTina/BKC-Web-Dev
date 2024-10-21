@@ -56,4 +56,5 @@ npm install react-icons
   npm install react-slick slick-carousel --save
   npm i --save-dev @types/react-router-hash-link
 npm install react-hook-form
+npm i --save-dev @types/google-map-react
 

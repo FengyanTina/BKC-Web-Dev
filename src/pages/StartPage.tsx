@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Dialog, DialogContent, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Worship from "../assets/Worship.jpeg";
 import { Link } from "react-router-dom";
@@ -10,8 +10,19 @@ import NewHereSectionGrid from "../components/pageSections/NewHereSection";
 import ImgInforCardSection from "../components/pageSections/ImgInforCardSection";
 import ActivitySocialMediaScetionCard from "../components/cards/customizedCards/ActivitySocialMediaScetionCard";
 import SlickSlider from "../components/slides/SlickSlider";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { useState } from "react";
+import MyMap from "../apis/GoogleMap";
 
 const StartPage = () => {
+    const [openMap, setOpenMap] = useState(false);
+
+    const handleOpenMap = () => {
+      setOpenMap(true);
+    };
+    const handleCloseMap = () => {
+      setOpenMap(false);
+    };
   return (
     <Box>
       <Grid
@@ -129,7 +140,7 @@ const StartPage = () => {
                 A place to pray
                 <br />A place to learn the word
               </Typography>
-              <Link style={{ color: "white", textDecoration: "none" }} to="/">
+              <Link style={{ color: "white", textDecoration: "none" }} to="/aboutUs">
                 About Us
               </Link>
               <Link
@@ -138,6 +149,23 @@ const StartPage = () => {
               >
                 Find Us
               </Link>
+              <FaMapMarkerAlt
+                onClick={handleOpenMap}
+                style={{ fontSize: "2rem", color: "white", cursor: "pointer" }}
+              />
+
+              {/* Open Google Map component */}
+              <Dialog
+                open={openMap}
+                onClose={handleCloseMap}
+                maxWidth="md"
+                fullWidth
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                <DialogContent>
+                  <MyMap/>
+                </DialogContent>
+              </Dialog>
             </Box>
           </Box>
         </Grid>
