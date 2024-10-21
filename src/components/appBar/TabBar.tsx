@@ -2,31 +2,60 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-
+import TabDrawer from "./TabDrawer";
 import {
   AppBar,
+  Button,
   CssBaseline,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
 import HuvudloggaBKC3 from "../../assets/Huvudlogga-BKC3.png";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
-import TabDrawer from "./TabDrawer";
+import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
+import LoginModal from "../../pages/logIn/LoginModal";
 
 export default function TabBar() {
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentTab = location.pathname;
+  const { currentUser, logout } = useAuth();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [logOutFormOpen, setlogOutFormOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const handleLoginOpen = () => {
+    setIsLoginOpen(true);
+
+    setDrawerOpen(false);
+  };
+
+  const handleLoginClose = () => {
+    setIsLoginOpen(false);
+  };
+
   const handleDrawerToggle = () => {
     setDrawerOpen((prevOpen) => !prevOpen);
   };
-  const navigate = useNavigate();
-  const location = useLocation(); // Get the current location
-  const currentTab = location.pathname;
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     navigate(newValue); // Navigate to the new route
+  };
+
+  const handleLogout = () => {
+    logout(); // Call the logout function from AuthContext to clear the user state
+    setlogOutFormOpen(true);
+  };
+  const handleClose = () => {
+    setlogOutFormOpen(false); // Close the dialog
   };
 
   return (
@@ -35,10 +64,7 @@ export default function TabBar() {
       <AppBar
         component="nav"
         sx={{
-          //backgroundColor: "transparent", // Make the background transparent
-          //backgroundColor: "rgba(255, 255, 255, 0.1)", // Slight white tint with transparency
           backgroundColor: "rgba(0, 0, 0, 0.3)",
-
           backdropFilter: "blur(10px)",
           boxShadow: "none",
           position: "fixed", // Ensure it stays at the top
@@ -57,7 +83,7 @@ export default function TabBar() {
             onClick={handleDrawerToggle}
             sx={{
               mr: 2,
-              display: { sm: "none" },
+              display: { lg: "none", md: "block", sm: "block", xs: "block" },
               color: "white",
               "& svg": {
                 fontSize: "2rem",
@@ -72,7 +98,7 @@ export default function TabBar() {
             component="div"
             sx={{
               flexGrow: 1,
-              display: { xs: "none", sm: "block" },
+              display: { md: "block", sm: "block", xs: "none" },
               fontSize: "4rem",
             }}
           >
@@ -80,7 +106,7 @@ export default function TabBar() {
           </Typography>
           <Box
             sx={{
-              display: { xs: "none", sm: "flex" },
+              display: { lg: "flex", md: "none", sm: "none", xs: "none" },
               gap: "50px",
               fontSize: "4rem",
               justifyContent: "center", // Center the MenuItems
@@ -96,8 +122,17 @@ export default function TabBar() {
               aria-label="secondary tabs"
             >
               <Tab
-                value="/"
+                value="/home"
                 label="Home"
+                sx={{
+                  fontSize: "1.2rem",
+                  color: "white",
+                  fontWeight: 800,
+                }}
+              />
+              <Tab
+                value="/aboutUs"
+                label="About us"
                 sx={{
                   fontSize: "1.2rem",
                   color: "white",
@@ -140,23 +175,89 @@ export default function TabBar() {
                   fontWeight: 800,
                 }}
               />
-              <Tab
-                value="/logIn"
-                label="Log In"
-                sx={{
-                  fontSize: "1.2rem",
-                  color: "white",
-                  fontWeight: 800,
-                }}
-              />
+
+              {currentUser ? (
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
+                    marginLeft: "auto",
+                    fontWeight: 800,
+                    ml: 3,
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: "#9c27b0",
+                      fontWeight: 800,
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {currentUser.firstName} 
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      color: "#9c27b0",
+                      fontWeight: 800,
+                      marginLeft: "5px",
+                    }}
+                  >
+                    /
+                  </Typography>
+                  <Button
+                    color="inherit"
+                    onClick={handleLogout}
+                    sx={{
+                      color: "#9c27b0",
+                      fontWeight: 800,
+                      fontSize: "1.2rem",
+                    }}
+                  >
+                    Logout
+                  </Button>
+                </Box>
+              ) : (
+                <Tab
+                  label="Log In"
+                  onClick={handleLoginOpen}
+                  sx={{
+                    fontSize: "1.2rem",
+                    color: "white",
+                    fontWeight: 800,
+                  }}
+                />
+              )}
             </Tabs>
           </Box>
         </Toolbar>
       </AppBar>
 
+      <LoginModal open={isLoginOpen} handleClose={handleLoginClose} />
       <nav>
-        <TabDrawer open={drawerOpen} onClose={handleDrawerToggle} />
+        <TabDrawer
+          open={drawerOpen}
+          onClose={handleDrawerToggle}
+          handleLogin={handleLoginOpen} 
+          handleLogout={handleLogout}
+        />
       </nav>
+      {/* Modal for confirm delte */}
+      <Dialog open={logOutFormOpen} onClose={handleClose}>
+        <DialogTitle>Logout Successful</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            You have logged out successfully.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

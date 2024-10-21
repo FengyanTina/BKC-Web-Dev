@@ -9,6 +9,7 @@ import Prayer from "./assets/Prayer.jpg";
 import Bible from "./assets/Bible.jpg";
 import welcome2 from "./assets/welcome2.jpg"
 import Varhistoria from "./assets/Varhistoria.jpg"
+import DavidB from "./assets/DavidB.jpg"
 import { EventCategory,Event } from "./models/Event";
 import { ActivitySocialMediaScetionCardModel } from "./models/ActivitySocialMediaSectionModel";
 import { ImageInforSectionModel } from "./models/ImageInforSection";
@@ -213,4 +214,9 @@ export const imageGallarytemData = [
         "Savor delicious dishes from a variety of food vendors and enjoy live entertainment.",
     },
   ];
-  
+  export const Pastor= {
+    title:"David B",
+    subTitle:"Main Pastor",
+    content: "BKC pastor, Blog,\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.\n\nPrior to the senior pastorate, he had been a frequent and well-loved speaker at Times Square Church for over 25 years.\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.\n\nPrior to the senior pastorate, he had been a frequent and well-loved speaker at Times Square Church for over 25 years.\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.",
+    image: DavidB   
+    }
