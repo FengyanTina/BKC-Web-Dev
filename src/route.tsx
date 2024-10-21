@@ -27,7 +27,6 @@ export const router = createBrowserRouter(
         { path: "aboutUs", element: <AboutUsPage /> },
         { path: "user/new", element:<UserDialog mode={UserDialogMode.Add} /> },
         { path: "user/:id", element:<UserDialog mode={UserDialogMode.Edit} /> },
-      //   <Route
       ],
     },
   ],
