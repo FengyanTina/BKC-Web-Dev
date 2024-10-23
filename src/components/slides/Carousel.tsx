@@ -3,26 +3,43 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import './slide.css'
+import "./slide.css";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import { Event } from "../../models/Event";
+import { useState } from "react";
+import EventDetailsModal from "../forms/EventDetailModel";
 
 const Carousel = ({ events }: { events: Event[] }) => {
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const handleSlideClick = (event: Event) => {
+    setSelectedEvent(event);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedEvent(null);
+  };
   const displayEvents = events.map((event) => {
     let imageUrl: string | undefined;
+
     // Handle different cases for `event.image`
     if (typeof event.image === "string") {
-      imageUrl = event.image; // Single image string
+      imageUrl = event.image;
     } else if (Array.isArray(event.image)) {
-      // Handle an array of images (string or ImageGallary)
       imageUrl =
-        typeof event.image[0] === "string" ? event.image[0] : undefined; // Use the first image if available
+        typeof event.image[0] === "string" ? event.image[0] : undefined;
     }
 
     return (
-      <SwiperSlide className="single-slide" key={event.id}>
+      <SwiperSlide
+        className="single-slide"
+        key={event.id}
+        onClick={() => handleSlideClick(event)}
+      >
         {imageUrl && <img src={imageUrl} alt={event.title} />}{" "}
-        {/* Display image */}
         <h2>{event.title}</h2>
         {event.startTime && (
           <h5>
@@ -34,13 +51,17 @@ const Carousel = ({ events }: { events: Event[] }) => {
           </h5>
         )}
         {event.description && <p>{event.description}</p>}{" "}
-        {/* Render description if available */}
       </SwiperSlide>
     );
   });
 
   return (
     <section className="swiper-slider">
+      <EventDetailsModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        event={selectedEvent}
+      />
       <Swiper
         effect={"coverflow"}
         spaceBetween={10}

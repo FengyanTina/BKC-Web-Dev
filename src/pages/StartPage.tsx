@@ -37,7 +37,7 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-evenly",
-          width: "100%", // Full width of the container
+          width: "100%", 
          height:"100%",
           backgroundAttachment: "fixed",
         }}
@@ -55,9 +55,9 @@ const StartPage = () => {
               textDecoration: "none", // No underline
               color: "black",
               fontSize: {
-                xs: "1rem", // Smaller font size for small screens (mobile devices)
-                sm: "1.5rem", // Default font size for larger screens (tablets and up)
-              }, // Adjust font size
+                xs: "1rem", 
+                sm: "1.5rem", 
+              }, 
             },
             "& a::before": {
               content: '""',
@@ -66,7 +66,7 @@ const StartPage = () => {
               top: "50%",
               width: "5px", // Vertical line width
               height: "100%", // Vertical line height
-              backgroundColor: "purple", // Line color
+              backgroundColor: "#00acc1", // Line color
               transform: "translateY(-50%)", // Center line vertically
             },
           }}
@@ -166,9 +166,9 @@ const StartPage = () => {
                  <IconButton
                   edge="end"
                   color="inherit"
-                  onClick={handleCloseMap} // Close the dialog when clicked
+                  onClick={handleCloseMap} 
                   aria-label="close"
-                  style={{ position: "absolute", right: 30, top: 15 }} // Position the button
+                  style={{ position: "absolute", right: 30, top: 15 }} 
                 >
                   <CloseIcon />
                 </IconButton>
@@ -253,6 +253,7 @@ const StartPage = () => {
         description={socialMediaActivityCardInfor.description}
         images={socialMediaActivityCardInfor.images}
         category={socialMediaActivityCardInfor.category}
+        buttonLink={"/activities#groups"}
       />
 
       {/* --------------ACTIVITIES-Sunday Service----------- */}
@@ -265,6 +266,7 @@ const StartPage = () => {
         images={sundayServiceCardInfor.images}
         category={sundayServiceCardInfor.category}
         imageLeft={false}
+        buttonLink={"/services#sundayService"}
       />
 
       {/* --------------ACTIVITIES-BKC Kids----------- */}

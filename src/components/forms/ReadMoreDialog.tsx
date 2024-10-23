@@ -43,13 +43,10 @@ export default function ReadMoreDialogs({
       <BootstrapDialog
          open={open}
          onClose={onClose}
-        aria-labelledby="customized-dialog-title"
-       
+        aria-labelledby="customized-dialog-title"  
       >
         <Box className="modal-overlay">
-        <Box  className="modal-content" style={{ fontSize: `${fontSize}px` }}>
-
-        
+        <Box  className="modal-content" style={{ fontSize: `${fontSize}px` }}>    
         <h1> 
           {title}
         </h1>
@@ -59,6 +56,7 @@ export default function ReadMoreDialogs({
             {subtitle}
            </Typography>
         )}
+        
         <DialogContent dividers>
           <p>
           {content.split("\n").map((paragraph, index) => (
@@ -69,6 +67,7 @@ export default function ReadMoreDialogs({
           </p>
          
         </DialogContent>
+
         <Box style={{ marginTop: "20px", textAlign: "center" }}>
           <label htmlFor="font-size-slider">Adjust text size:</label>
           <Slider
@@ -89,6 +88,7 @@ export default function ReadMoreDialogs({
         </Box>
         </Box>
       </BootstrapDialog>
+
     </React.Fragment>
   );
 }

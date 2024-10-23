@@ -13,6 +13,7 @@ inforSectionId,
   subtitle,
   description,
   images,
+  buttonLink
 }: ActivitySocialMediaScetionCardModel) => {
   return (
     <Box
@@ -65,6 +66,7 @@ inforSectionId,
             subtitle={subtitle}
             description={description}
             buttonText="Learn More"
+            buttonLink={buttonLink}
           />
           <Box
             sx={{

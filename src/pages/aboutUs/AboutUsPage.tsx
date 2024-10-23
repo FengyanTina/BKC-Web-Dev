@@ -211,21 +211,18 @@ const AboutUsPage = () => {
           subTitle={Pastor.subTitle}
           description={Pastor.content}
           image={DavidB}
-          onOpen={handleOpen}
         />
         <TeamIntroCard
           title={Pastor.title}
           subTitle={Pastor.subTitle}
           description={Pastor.content}
           image={Leader}
-          onOpen={handleOpen}
         />
         <TeamIntroCard
           title={Pastor.title}
           subTitle={Pastor.subTitle}
           description={Pastor.content}
           image={DavidB}
-          onOpen={handleOpen}
         />
       </Box>
       <SectionLine text="MemberShip" />

@@ -10,31 +10,41 @@ export interface AuthContextType {
   error: string | null;
 }
 
-export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(
+  undefined
+);
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useLocalStorage<User | null>("currentUser", null);
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [currentUser, setCurrentUser] = useLocalStorage<User | null>(
+    "currentUser",
+    null
+  );
   const [storedUsers] = useLocalStorage<User[]>("users", []);
   const [error, setError] = useState<string | null>(null);
-  const timeoutDuration = 20* 60 * 1000; 
+  const timeoutDuration = 20 * 60 * 1000;
 
   // Handle login logic with error handling
   const login = (userName: string, password: string) => {
-    const user = storedUsers.find((user) => user.userName === userName && user.userId === password);
+    const user = storedUsers.find(
+      (user) => user.userName === userName && user.userId === password
+    );
 
     if (!user) {
-      setError('Login failed. Please check your credentials.');
+      setError("Login failed. Please check your credentials.");
       return;
     }
 
     setCurrentUser(user); // Store the user in localStorage
-    setError(null); // Clear any error
+    setError(null); 
   };
+
   // Handle logout
   const logout = useCallback(() => {
     setCurrentUser(null); // Clear current user
-    localStorage.removeItem('currentUser');
-    setError(null); // Optionally clear any error message
+    localStorage.removeItem("currentUser");
+    setError(null); 
   }, []);
 
   // Auto-logout after inactivity

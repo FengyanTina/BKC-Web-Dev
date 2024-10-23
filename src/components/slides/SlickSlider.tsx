@@ -1,13 +1,11 @@
-
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useRef, useState } from "react";
-import { Event } from "../../models/Event";
-import { formatTime } from "../../utils/FormatDateOrTime";
-import NewsDetailsModel from "../forms/NewsDetailModel";
+import formatDateTime from "../../utils/FormatDateTime";
+import {Event }from "../../models/Event"
+import EventDetailsModal from "../forms/EventDetailModel";
 function SlickSlider({ events }: { events: Event[] }) {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,9 +19,9 @@ function SlickSlider({ events }: { events: Event[] }) {
     pauseOnHover: true,
     responsive: [
         {
-          breakpoint: 768, // Screen width <= 768px
+          breakpoint: 768, 
           settings: {
-            slidesToShow: 1, // Show 1 slide at a time on smaller screens
+            slidesToShow: 1, 
           },
         },
       ],
@@ -33,13 +31,13 @@ function SlickSlider({ events }: { events: Event[] }) {
 
   const next = () => {
     if (sliderRef.current) {
-      (sliderRef.current as any).slickNext(); // Use 'any' to bypass TypeScript issues
+      (sliderRef.current as any).slickNext(); 
     }
   };
 
   const previous = () => {
     if (sliderRef.current) {
-      (sliderRef.current as any).slickPrev(); // Use 'any' to bypass TypeScript issues
+      (sliderRef.current as any).slickPrev(); 
     }
   };
   const handleSlideClick = (event: Event) => {
@@ -63,7 +61,7 @@ function SlickSlider({ events }: { events: Event[] }) {
           <p>{event.description}</p>
           {event.startTime && (
 
-          <p>{formatTime(event.startTime)}</p>
+          <p>{formatDateTime(event.startTime)}</p>
           )}
         </div>
       </div>
@@ -85,7 +83,7 @@ function SlickSlider({ events }: { events: Event[] }) {
           </button>
         </div>
       </section>
-      <NewsDetailsModel
+      <EventDetailsModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         event={selectedEvent}

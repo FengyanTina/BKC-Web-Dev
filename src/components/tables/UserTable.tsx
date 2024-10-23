@@ -173,14 +173,14 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 }
 interface EnhancedTableToolbarProps {
   numSelected: number;
-  selectedIds: readonly string[]; 
+  selectedIds: readonly string[];
   setSelected: React.Dispatch<React.SetStateAction<readonly string[]>>;
 }
 
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected, selectedIds, setSelected } = props;
-  const { removeUsers } = React.useContext(UserContext); 
-  const [open, setOpen] = useState(false); 
+  const { removeUsers } = React.useContext(UserContext);
+  const [open, setOpen] = useState(false);
   const [idsToDelete, setIdsToDelete] = useState<string[]>([]); // To store selected IDs for deletion
 
   const handleOpenDialog = () => {
@@ -193,8 +193,8 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   };
 
   const handleConfirmDelete = () => {
-    removeUsers(idsToDelete); 
-    setSelected([]); 
+    removeUsers(idsToDelete);
+    setSelected([]);
     setOpen(false);
   };
 
@@ -313,7 +313,7 @@ export default function UserTable() {
     }
     setSelected([]);
   };
-  //const handleClick = (event: React.MouseEvent<unknown>, id: string) event is indicating as not used, but it is still needed, so in this case, to get rid of the yellow line, use _. Same for the other _ .
+  //*****const handleClick = (event: React.MouseEvent<unknown>, id: string) event is indicating as not used, but it is still needed, so in this case, to get rid of the yellow line, use _. Same for the other _ .
   const handleClick = (_: React.MouseEvent<unknown>, id: string) => {
     const selectedIndex = selected.indexOf(id);
     let newSelected: readonly string[] = [];
@@ -370,7 +370,7 @@ export default function UserTable() {
         />
         <TableContainer>
           <Table
-            sx={{ minWidth:650 }}
+            sx={{ minWidth: 650 }}
             aria-labelledby="tableTitle"
             size={dense ? "small" : "medium"}
           >
@@ -397,11 +397,11 @@ export default function UserTable() {
                     key={row.id}
                     selected={isItemSelected}
                     sx={{
-                        cursor: "pointer",
-                        '& td': {
-                          padding: { xs: '8px', sm: '16px' }, // Adjust padding based on screen size
-                        }
-                      }}
+                      cursor: "pointer",
+                      "& td": {
+                        padding: { xs: "8px", sm: "16px" }, 
+                      },
+                    }}
                   >
                     <TableCell padding="checkbox">
                       <Checkbox

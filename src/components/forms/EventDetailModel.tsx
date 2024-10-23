@@ -1,4 +1,3 @@
-// NewsDetailsModal.tsx
 import { useState } from "react";
 import "./form.css";
 import { Box, Slider } from "@mui/material";
@@ -6,18 +5,16 @@ import { Event } from "../../models/Event";
 import formatDateTime from "../../utils/FormatDateTime";
 import { formatTime } from "../../utils/FormatDateOrTime";
 
-
-interface NewsDetailsModelProps {
+interface EventDetailsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  event: Event | null; 
+  event: Event | null;
 }
-
-export default function NewsDetailsModel({
+export default function EventDetailsModal({
   isOpen,
   onClose,
   event,
-}: NewsDetailsModelProps) {
+}: EventDetailsModalProps) {
   if (!isOpen || !event) return null;
 
   const [fontSize, setFontSize] = useState(16);
@@ -33,20 +30,20 @@ export default function NewsDetailsModel({
         </button>
         <h1>{event.title}</h1>
         {event.image && (
-        <>
-          {Array.isArray(event.image) ? (
-            // Render the first image if it's an array
-            <img src={event.image[0]} alt={event.title} />
-          ) : (
-            // Render the image if it's a single string
-            <img src={event.image} alt={event.title} />
-          )}
-        </>
-      )}
+          <>
+            {Array.isArray(event.image) ? (
+              <img src={event.image[0]} alt={event.title} />
+            ) : (
+              <img src={event.image} alt={event.title} />
+            )}
+          </>
+        )}
         <p>{event.description}</p>
-        {event.startTime&& (
-
-        <p>{formatDateTime(event.startTime)}{event.endTime && ` - ${formatTime(event.endTime)}`}</p>
+        {event.startTime && (
+          <p>
+            {formatDateTime(event.startTime)}
+            {event.endTime && ` - ${formatTime(event.endTime)}`}
+          </p>
         )}
         <Box style={{ marginTop: "20px", textAlign: "center" }}>
           <label htmlFor="font-size-slider">Adjust text size:</label>

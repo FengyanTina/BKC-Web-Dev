@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
-
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
 
 export default function NewHereSectionGrid({
@@ -14,27 +13,26 @@ export default function NewHereSectionGrid({
     <Box
       sx={{
         flexGrow: 1,
-        backgroundImage: `url(${images})`, // Set the image as background
-        backgroundSize: "cover", // Cover the entire area
-        backgroundPosition: "center", // Center the image
-        backgroundRepeat: "no-repeat", // Avoid repeating the image
+        backgroundImage: `url(${images})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         width: "100%",
         height: "auto",
         textAlign: "center",
         color: "white",
-        display: "flex", // Use flex to center the content
-        justifyContent: "center", // Center horizontally
-        alignItems: "center", // Center vertically
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         padding: "40px 20px",
       }}
     >
       <Box
         sx={{
-           // Set a maximum width for the content
-          width: "100%", // Make sure it scales for smaller screens
+          width: "100%",
           textAlign: "center",
-          justifyContent: "center", // Center horizontally
-          alignItems: "center", // Center vertically
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Typography
@@ -43,7 +41,7 @@ export default function NewHereSectionGrid({
             marginTop: "0px",
             paddingTop: "0px",
             fontWeight: "700",
-            color: "#883b9b", // Muted reddish-purple that stands out on both black and white backgrounds
+            color: "#883b9b",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
@@ -54,9 +52,7 @@ export default function NewHereSectionGrid({
           sx={{
             marginTop: "10px",
             fontWeight: "500",
-            // color: "#883b9b", // Muted reddish-purple that stands out on both black and white backgrounds
-            // textShadow: "2px 2px 4px rgba(0,0,0,1)",
-            color: "#9b4eaf", // Slightly brighter muted reddish-purple that stands out on both black and white backgrounds
+            color: "#9b4eaf",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
@@ -68,9 +64,7 @@ export default function NewHereSectionGrid({
             marginTop: "10px",
             marginBottom: "10px",
             fontWeight: "600",
-            // color: "#9b5de5", // Vivid purple that stands out on both black and white backgrounds
-            // textShadow: "2px 2px 4px rgba(0,0,0,1.5)",
-            color: "#9b4eaf", // Slightly brighter muted reddish-purple that stands out on both black and white backgrounds
+            color: "#9b4eaf",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
@@ -79,7 +73,7 @@ export default function NewHereSectionGrid({
         <Box
           sx={{
             marginTop: "0px",
-            backdropFilter: "blur(5px)", // Apply a blur effect to the background
+            backdropFilter: "blur(5px)",
             backgroundColor: "rgba(255, 255, 255, 0.4)",
             paddingTop: "40px",
             paddingBottom: "40px",
@@ -87,43 +81,43 @@ export default function NewHereSectionGrid({
             alignItems: "center",
             justifyContent: "center",
             maxWidth: "1100px",
-            marginLeft: "auto", // Automatically adjust left margin
+            marginLeft: "auto",
             marginRight: "auto",
           }}
         >
-              <HashLink
-                to="/services#in-church"
-                style={{
-                  display: "block",
-                  fontSize: "25px",
-                  color: "black",
-                  fontWeight: "500",
-                }}
-              >
-                In Church
-              </HashLink>
-              <HashLink
-                to="/services#serve"
-                style={{
-                  display: "block",
-                  fontSize: "25px",
-                  color: "black",
-                  fontWeight: "500",
-                }}
-              >
-                Connect To Your Purpose
-              </HashLink>
-              <HashLink
-                to="/activities"
-                style={{
-                  display: "block",
-                  fontSize: "25px",
-                  color: "black",
-                  fontWeight: "500",
-                }}
-              >
-                For Your Family
-              </HashLink>
+          <HashLink
+            to="/services#sundayService"
+            style={{
+              display: "block",
+              fontSize: "25px",
+              color: "black",
+              fontWeight: "500",
+            }}
+          >
+            SundayService
+          </HashLink>
+          <HashLink
+            to="/services#serve"
+            style={{
+              display: "block",
+              fontSize: "25px",
+              color: "black",
+              fontWeight: "500",
+            }}
+          >
+            Connect To Your Purpose
+          </HashLink>
+          <HashLink
+            to="/activities#groups"
+            style={{
+              display: "block",
+              fontSize: "25px",
+              color: "black",
+              fontWeight: "500",
+            }}
+          >
+            For Your Family
+          </HashLink>
         </Box>
       </Box>
     </Box>

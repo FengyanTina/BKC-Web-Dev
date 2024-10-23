@@ -74,7 +74,7 @@ const ImgTextSection = ({
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "flex-start", 
+                justifyContent: "flex-start",
                 height: "100%",
               }}
             >

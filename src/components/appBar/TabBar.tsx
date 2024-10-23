@@ -115,11 +115,20 @@ export default function TabBar() {
             }}
           >
             <Tabs
-              value={currentTab}
-              onChange={handleChange}
-              textColor="secondary"
-              indicatorColor="secondary"
-              aria-label="secondary tabs"
+               value={currentTab}
+               onChange={handleChange}
+               
+               aria-label="secondary tabs"
+              
+               sx={{
+                 '& .MuiTabs-indicator': {
+                   backgroundColor: '#00acc1', 
+                 },
+                 
+                 '& .MuiTab-root.Mui-selected': {
+                     color: '#337f83', 
+                   },
+               }}
             >
               <Tab
                 value="/home"

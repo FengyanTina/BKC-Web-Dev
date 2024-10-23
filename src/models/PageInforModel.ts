@@ -8,5 +8,5 @@ export interface PageInforModel extends BaseModel {
    startTime?:Date;
    endTime?:Date;
    location?:string
-   
+   buttonLink?:string
   }

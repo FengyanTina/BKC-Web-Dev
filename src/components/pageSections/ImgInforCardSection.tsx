@@ -12,6 +12,7 @@ const ImgInforCardSection = ({
   description,
   images,
   imageLeft = true,
+  buttonLink,
 }: ImageInforSectionModel) => {
   const renderImageGallery = () => {
     if (Array.isArray(images)) {
@@ -19,7 +20,7 @@ const ImgInforCardSection = ({
         <ImageGallary
           itemData={images
             .filter((img): img is string => typeof img === "string") // Ensure img is a string
-            .map((img) => ({ img }))} // Map to the required format
+            .map((img) => ({ img }))}
           showAllAsFeatured={true}
         />
       );
@@ -57,11 +58,11 @@ const ImgInforCardSection = ({
           spacing={2}
           sx={{
             flexDirection: {
-              xs: "column-reverse", // Stack vertically and reverse order so the image is always on the right (i.e., after the content) on xs
-              sm: imageLeft ? "row-reverse" : "row", // On sm and above, follow the imageLeft logic
+              xs: "column-reverse",
+              sm: imageLeft ? "row-reverse" : "row",
             },
-            alignItems: "center", // Align items vertically for better presentation
-            justifyContent: "space-between", // Space the image and content evenly
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
           {/* Content Grid */}
@@ -69,8 +70,8 @@ const ImgInforCardSection = ({
             size={{ xs: 12, sm: 6 }}
             sx={{
               display: "flex",
-              flexDirection: "column", // Stack the text content vertically
-              justifyContent: "center", // Vertically center the content
+              flexDirection: "column",
+              justifyContent: "center",
             }}
           >
             <PageInforCard
@@ -80,6 +81,7 @@ const ImgInforCardSection = ({
               subtitle={subtitle}
               description={description}
               buttonText="Learn More"
+              buttonLink={buttonLink}
             />
           </Grid>
 
@@ -89,8 +91,8 @@ const ImgInforCardSection = ({
             sx={{
               maxWidth: 500,
               height: 350,
-              display: "flex", // To ensure it's flexible and responsive
-              justifyContent: "center", // Center on small screens
+              display: "flex",
+              justifyContent: "center",
               transform: "translateZ(0)",
             }}
           >
