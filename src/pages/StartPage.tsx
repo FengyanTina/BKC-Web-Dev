@@ -278,6 +278,7 @@ const StartPage = () => {
         description={sundaySchoolActivityCardInfor.description}
         images={sundaySchoolActivityCardInfor.images}
         category={sundaySchoolActivityCardInfor.category}
+        buttonLink={"/activities#sundaySchool"}
         
       />
       {/* --------------ACTIVITIES-Youth----------- */}
@@ -290,9 +291,10 @@ const StartPage = () => {
         images={youthActivityCardInfor.images}
         category={youthActivityCardInfor.category}
         imageLeft={false}
+        buttonLink={"/activities#youth"}
       />
 
-      {/* --------------ACTIVITIES-Home Group----------- */}
+      {/* --------------ACTIVITIES-Groups----------- */}
       <ImgInforCardSection
       id={homeGroupActivityCardInfor.id}
       inforSectionId=""
@@ -301,7 +303,7 @@ const StartPage = () => {
         description={homeGroupActivityCardInfor.description}
         images={homeGroupActivityCardInfor.images}
         category={homeGroupActivityCardInfor.category}
-       
+        buttonLink={"/activities#otherGroups"}
       />
       {/* --------------NEWS SLIDES----------- */}
       <Box
