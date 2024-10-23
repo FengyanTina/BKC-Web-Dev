@@ -21,7 +21,25 @@ import EventAddAndEditForm from "../forms/EventAddAndEditForm";
 import ScheduleEventDetailDialog from "../forms/ScheduleEventDetailDialog";
 import ConfirmDeleteDialog from "../forms/ConfirmDeleteDialog";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
-
+import { createEventId } from "./Events";
+export const INITIAL_EVENTS: CustomEvent[] = [
+    {
+        id: createEventId(),
+        title: "All-day event",
+        start: new Date().toISOString().split("T")[0], // Today
+        end: new Date().toISOString().split("T")[0], // All-day event ends at the same day
+        description: "This is an all-day event.",
+        allDay: true,
+    },
+    {
+        id: createEventId(),
+        title: "Timed event",
+        start: new Date().toISOString().split("T")[0] + "T12:00:00",
+        end: new Date().toISOString().split("T")[0] + "T13:00:00", // Event ends 1 hour later
+        description: "This is a timed event.",
+        allDay: false
+    },
+  ];
 // Custom event interface
 interface CustomEvent {
   id: string;
@@ -57,7 +75,8 @@ export default class EventsCalendar extends React.Component<{}, DemoAppState> {
   declare context: AuthContextType;
   state: DemoAppState = {
     weekendsVisible: true,
-    currentEvents: getStoredEvents(), // Load from localStorage
+     //currentEvents: getStoredEvents(), // Load from localStorage, after demo can come back suse localStorage, 
+     currentEvents: getStoredEvents().length > 0 ? getStoredEvents() : INITIAL_EVENTS,//use this only git pages
     selectedEvent: null, // Track the clicked event
     isModalOpen: false, // Modal state
     isDetailModalOpen: false,
