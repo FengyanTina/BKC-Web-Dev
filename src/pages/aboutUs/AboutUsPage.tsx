@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box,  Link, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Pastor } from "../../data";
 import Leader from "../../assets/leader.jpg";
@@ -8,7 +8,6 @@ import TeamIntroCard from "../../components/cards/TeamIntroCard";
 import ReadMoreDialogs from "../../components/forms/ReadMoreDialog";
 import UserTable from "../../components/tables/UserTable";
 import SectionLine from "../../components/pageSections/SectionLine";
-
 
 const AboutUsPage = () => {
   const [modalOpen, setModalOpen] = useState(false); // State for modal visibility
@@ -28,19 +27,7 @@ const AboutUsPage = () => {
   }, []);
 
   return (
-    <Box
-      sx={{
-        marginTop: "150px",
-        backgroundColor: "#f0f4f8",
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100%", // Full width of the container
-        height: "100%",
-        overflowX: "hidden",
-      }}
-    >
+    <Box sx={{ marginTop: "150px", backgroundColor: "#f0f4f8" }}>
       <Grid
         container
         sx={{
@@ -67,10 +54,10 @@ const AboutUsPage = () => {
         >
           <img
             style={{
-              width: "100%", // Make the image take up full width of its container
-              height: "auto", // Maintain aspect ratio
-              maxWidth: "600px", // Set a maximum width so it doesn't get too large
-              objectFit: "cover", // Ensure the image fills the area without distortion
+              width: "100%",
+              height: "auto", 
+              maxWidth: "600px", 
+              objectFit: "cover", 
             }}
             src={Pastor.image}
             alt=""
@@ -79,8 +66,8 @@ const AboutUsPage = () => {
         <Grid
           sx={{
             display: "flex",
-            flexDirection: "column", // Stack elements vertically
-            justifyContent: "space-between", // Space between the title/content and "Read More" button
+            flexDirection: "column", 
+            justifyContent: "space-between", 
             px: { xs: 5, sm: 10, md: 10 },
             fontSize: {
               lg: "40px",
@@ -94,7 +81,7 @@ const AboutUsPage = () => {
         >
           <Typography
             sx={{
-              marginTop: {xs:"20px",sm:"30px",},
+              marginTop: { xs: "20px", sm: "30px" },
               width: "100%",
               fontSize: {
                 lg: "40px",
@@ -125,7 +112,7 @@ const AboutUsPage = () => {
           <Box
             sx={{
               marginTop: "20px",
-              flexGrow: 1, // This makes the content expand to fill the available space
+              flexGrow: 1, 
               display: "-webkit-box",
               overflow: "hidden",
               WebkitBoxOrient: "vertical",
@@ -188,15 +175,21 @@ const AboutUsPage = () => {
             </Typography>
           </Box>
         </Grid>
-        <ReadMoreDialogs open={modalOpen}
-          onClose={handleClose} title={Pastor.title} subtitle={Pastor.subTitle} content={Pastor.content} />
-        
+        <ReadMoreDialogs
+          open={modalOpen}
+          onClose={handleClose}
+          title={Pastor.title}
+          subtitle={Pastor.subTitle}
+          content={Pastor.content}
+        />
       </Grid>
       <SectionLine text="Leadership" />
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
           flexDirection: {
             md: "row",
             sm: "column",
