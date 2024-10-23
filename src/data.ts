@@ -30,64 +30,44 @@ import { PageInforModel } from "./models/PageInforModel";
 const initialUsers: User[] = [
     {
       id: "1",
-      firstName: "John",
-      lastName: "Doe",
-      userId: "johndoe123",
-      userName: "johndoe",
-      email: "john.doe@example.com",
+      firstName: "Johana",
+      lastName: "Beman",
+      userId: "johanaB",
+      userName: "johana123",
+      email: "john.be@example.com",
       phoneNumber: "123-456-7890",
-      category:UserCategory.Member // Replace with appropriate UserCategory type
+      category:UserCategory.Admin // Replace with appropriate UserCategory type
     },
     {
       id: "2",
-      firstName: "Jane",
-      lastName: "Smith",
-      userId: "janesmith456",
-      userName: "janesmith",
+      firstName: "Tina",
+      lastName: "Alwarzon",
+      userId: "tina456",
+      userName: "tinaW",
       email: "jane.smith@example.com",
       phoneNumber: "234-567-8901",
       category:UserCategory.Member // Replace with appropriate UserCategory type
     },
     {
       id: "3",
-      firstName: "Alice",
-      lastName: "Johnson",
-      userId: "alicejohnson789",
-      userName: "alicej",
+      firstName: "David",
+      lastName: "Beman",
+      userId: "david567",
+      userName: "davidB",
       email: "alice.johnson@example.com",
       phoneNumber: "345-678-9012",
-      category:UserCategory.Member
+      category:UserCategory.Pastor
     },
     {
       id: "4",
-      firstName: "Bob",
+      firstName: "Kicki",
       lastName: "Williams",
       userId: "bobwilliams101",
       userName: "bobw",
       email: "bob.williams@example.com",
       phoneNumber: "456-789-0123",
-      category:UserCategory.Member
-    },
-    {
-      id: "5",
-      firstName: "Charlie",
-      lastName: "Brown",
-      userId: "charliebrown202",
-      userName: "charlieb",
-      email: "charlie.brown@example.com",
-      phoneNumber: "567-890-1234",
       category:UserCategory.TeamLeader
-    },
-    {
-      id: "6",
-      firstName: "Emily",
-      lastName: "Davis",
-      userId: "emilydavis303",
-      userName: "emilyd",
-      email: "emily.davis@example.com",
-      phoneNumber: "678-901-2345",
-      category:UserCategory.TeamLeader// Replace with appropriate UserCategory type
-    },
+    },  
   ];
   
   export default initialUsers;
