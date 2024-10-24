@@ -22,6 +22,7 @@ import ScheduleEventDetailDialog from "../forms/ScheduleEventDetailDialog";
 import ConfirmDeleteDialog from "../forms/ConfirmDeleteDialog";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
 import { createEventId } from "./Events";
+import "./calendar.css"
 export const INITIAL_EVENTS: CustomEvent[] = [
     {
         id: createEventId(),
