@@ -77,8 +77,8 @@ const initialUsers: User[] = [
     inforSectionId:"",
     title:"New Here? ",
     subtitle:"can't wait to meet you!",
-    description:"You may find information you need in below links or feel free to contact us. ",
-    images:welcome2,
+    description:" ",
+   
   }
 
   export const comingEvents:Event[] = [

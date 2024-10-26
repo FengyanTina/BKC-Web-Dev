@@ -11,6 +11,18 @@ export const getCurrentWeek = () => {
   
     const daysInSwedish = ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"]; // Days of the week in Swedish
   
+    const sampleEvents = [
+        [],
+        ["Senior Group"],
+        ["Worship Meeting", "Woman's Group"],
+        [],
+        ["Youth Group", "Prayer Meeting"],
+        ["Family gathering", "Teach Team Meeting"],
+        ["Sunday Service"] // No events for this day
+      ];
+
+
+
     // Generate the week as an array of objects with date and dayName
     return Array.from({ length: 7 }, (_, index) => {
       const date = new Date(today); // Create a new date object to avoid mutation
@@ -29,6 +41,7 @@ export const getCurrentWeek = () => {
       return {
         date: formattedDate,
         dayName: daysInSwedish[date.getDay()], // Get day name using current day of the week index
+        events: sampleEvents[index]
       };
     });
   };

@@ -1,6 +1,6 @@
 import { Box, Dialog, DialogContent, IconButton, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import Worship from "../assets/Worship.jpeg";
+import background from "../assets/background.jpg";
 import { Link } from "react-router-dom";
 import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCalendar";
 import SectionLine from "../components/pageSections/SectionLine";
@@ -30,7 +30,7 @@ const StartPage = () => {
         container
         spacing={2}
         sx={{
-          backgroundImage: `url(${Worship})`,
+          backgroundImage: `url(${background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -136,10 +136,10 @@ const StartPage = () => {
                   },
                 }}
               >
-                A place to worship
+                {/* A place to worship
                 <br />
                 A place to pray
-                <br />A place to learn the word
+                <br />A place to learn the word */}
               </Typography>
               <Link style={{ color: "white", textDecoration: "none" }} to="/aboutUs">
                 About Us
@@ -187,8 +187,9 @@ const StartPage = () => {
                 sm: "90%", 
               },
             marginTop: {
-              xs: "10px", 
-              sm: "340px", 
+              xs: "20px", 
+              sm: "50px", 
+              md:"340px"
             },
             height: {
               xs: "45vh", 
@@ -219,7 +220,7 @@ const StartPage = () => {
             gap: "20px",
             paddingTop: "30px",
             backgroundColor: "#dbe1e8",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+           
             marginBottom: "30px",
           }}
       >
@@ -245,6 +246,7 @@ const StartPage = () => {
      {/* --------------ACTIVITIES----------- */}
 
      <SectionLine text=" Activities And Services" />
+     
       <ActivitySocialMediaScetionCard
       inforSectionId=""
       id={socialMediaActivityCardInfor.id}

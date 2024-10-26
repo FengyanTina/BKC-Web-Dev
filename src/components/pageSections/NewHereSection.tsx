@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
-
+import videoFile from "../../assets/istockphoto-987329642-640_adpp_is.mp4";
 export default function NewHereSectionGrid({
   title,
   description,
@@ -14,6 +14,7 @@ export default function NewHereSectionGrid({
       sx={{
         flexGrow: 1,
         backgroundImage: `url(${images})`,
+        backgroundColor:"#CED9E5",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -24,9 +25,44 @@ export default function NewHereSectionGrid({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: "40px 20px",
+        flexDirection:{
+            xs:"column",
+            md:"row"
+        }
       }}
     >
+         <Box
+              sx={{
+                width: "100%", // Ensure the container takes full width
+                maxWidth: "640px", // Maximum width for large screens
+                position: "relative",
+                display:"flex",
+                justifyContent:"center",
+                alignItems:"center",
+                alignContent:"center",
+                paddingTop: {
+                  xs: "56.25%", // 16:9 aspect ratio for smaller screens
+                  md: "30%", // Less padding for medium screens
+                  lg: "20%", // Even less padding for large screens
+                },
+              }}
+            >
+              <video
+                src={videoFile} // Use the imported video file
+                controls
+                autoPlay
+                loop
+                muted
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+              ></video>
+            </Box>
+    
       <Box
         sx={{
           width: "100%",
@@ -35,13 +71,14 @@ export default function NewHereSectionGrid({
           alignItems: "center",
         }}
       >
+            
         <Typography
           variant="h2"
           sx={{
             marginTop: "0px",
             paddingTop: "0px",
-            fontWeight: "700",
-            color: "#883b9b",
+            fontWeight: "500",
+            color: "#1B365D",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
@@ -52,7 +89,7 @@ export default function NewHereSectionGrid({
           sx={{
             marginTop: "10px",
             fontWeight: "500",
-            color: "#9b4eaf",
+            color: "#1B365D",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
@@ -64,7 +101,7 @@ export default function NewHereSectionGrid({
             marginTop: "10px",
             marginBottom: "10px",
             fontWeight: "600",
-            color: "#9b4eaf",
+            color: "#1B365D",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
@@ -73,8 +110,8 @@ export default function NewHereSectionGrid({
         <Box
           sx={{
             marginTop: "0px",
-            backdropFilter: "blur(5px)",
-            backgroundColor: "rgba(255, 255, 255, 0.4)",
+           // backdropFilter: "blur(5px)",
+            //backgroundColor: "rgba(255, 255, 255, 0.4)",
             paddingTop: "40px",
             paddingBottom: "40px",
             marginBottom: "60px",
