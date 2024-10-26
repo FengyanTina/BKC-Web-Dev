@@ -219,14 +219,14 @@ const StartPage = () => {
       >
         {/* --------------COMMING EVENTS----------- */}
 
-        <SectionLine text="Comming Events" useWhiteStroke={true} topLayerText= "Kommande Evenemang" />
+        <SectionLine text="Kommande Evenemang" useWhiteStroke={true}/>
         <Box sx={{ width: "80%" }}>
           <Carousel events={comingEvents} />
         </Box>
     
 
        {/* --------------WELCOME NEW----------- */}
-       <SectionLine text="Welcome" useWhiteStroke={true} topLayerText="Välkomna" />
+       <SectionLine text="Välkomna" useWhiteStroke={true}  />
         <NewHereSectionGrid
         inforSectionId=""
         id={newHere.id}
@@ -238,7 +238,7 @@ const StartPage = () => {
       </Box>
      {/* --------------ACTIVITIES----------- */}
 
-     <SectionLine text=" Activities And Services" topLayerText= "Aktiviteter och Tjänster" />
+     <SectionLine text=" Aktiviteter och Tjänster"  />
      
       <ActivitySocialMediaScetionCard
       inforSectionId=""
@@ -312,7 +312,7 @@ const StartPage = () => {
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
       >
-       <SectionLine text=" News" topLayerText= "Nyheter" />
+       <SectionLine text="Nyheter" />
         <Box
           sx={{
             backgroundColor: "#f0f4f8",

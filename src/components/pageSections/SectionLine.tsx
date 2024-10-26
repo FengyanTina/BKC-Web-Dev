@@ -3,10 +3,9 @@ import { Box, Typography } from "@mui/material";
 type Props = {
   text: string;
   useWhiteStroke?: boolean;
-  topLayerText?:string;
 };
 
-const SectionLine = ({ text, useWhiteStroke,topLayerText = ""}: Props) => {
+const SectionLine = ({ text, useWhiteStroke}: Props) => {
   return (
     <Box
       sx={{
@@ -19,8 +18,8 @@ const SectionLine = ({ text, useWhiteStroke,topLayerText = ""}: Props) => {
       
       }}
     >
-      {/* Top Text Layer */}
-      <Typography
+      
+      {/* <Typography
         variant="h2"
         sx={{
           position: "absolute",
@@ -46,7 +45,7 @@ const SectionLine = ({ text, useWhiteStroke,topLayerText = ""}: Props) => {
         }}
       >
         {topLayerText}
-      </Typography>
+      </Typography> */}
 
       {/* Main Text Layer with Stroke */}
       <Typography

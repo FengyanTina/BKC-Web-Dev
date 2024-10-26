@@ -107,7 +107,7 @@ export default function ServicesMainPage() {
       </Grid>
       {/* --------------SundayService ----------- */}
       <div id="sundayService"></div>
-      <SectionLine text="Sunday Scervice" topLayerText="Söndagsgudstjänst" />
+      <SectionLine text="Söndagsgudstjänst"  />
       <ImgTextSection
       inforSectionId=""
         id={sundayServiceSection.id}
@@ -118,7 +118,7 @@ export default function ServicesMainPage() {
       />
 
       {/* --------------PrayerService ----------- */}
-      <SectionLine text="Prayer Services" topLayerText="Bönetjänster" />
+      <SectionLine text="Bönetjänster" />
       <div id="prayerService"></div>
       <ImgTextSection
       inforSectionId=""
@@ -131,7 +131,7 @@ export default function ServicesMainPage() {
       />
 
       {/* -------------BaptismService----------- */}
-      <SectionLine text="Baptism Scervices" topLayerText="Doptjänster" />
+      <SectionLine text="Doptjänster"  />
       <div id="baptismService"></div>
       <BaptismServiceSectionCard
         id={baptismService.id}
@@ -142,7 +142,7 @@ export default function ServicesMainPage() {
       />
       {/* -------------FindYourVision----------- */}
       <div id="serve"></div>
-      <SectionLine text="Want To Serve The Lord" topLayerText="Tjäna Herren" />
+      <SectionLine text="tjäna i kyrkan" />
       <WantServeSectionCard
         id={findYourVision.id}
         title={findYourVision.title}
@@ -151,7 +151,7 @@ export default function ServicesMainPage() {
         images={findYourVision.images}
       />
       {/*******YoutubeVideoLink***********/}
-      <SectionLine text="Service Videos" topLayerText="Servicevideor" />
+      <SectionLine text="Servicevideor" />
 
       {/* <YouTubePlaylists/>     */}
       <Box sx={{ marginBottom: "40px", marginTop: "20px" }}>
