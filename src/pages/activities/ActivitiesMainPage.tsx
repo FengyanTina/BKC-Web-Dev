@@ -35,7 +35,7 @@ export default function ActivitiesMainPage() {
         </Box>
         {/* --------------ACTIVITIES-BKC Kids----------- */}
         <div id="sundaySchool"></div>
-        <SectionLine text="BKC KIDS" topLayerText="BKC Barn" />
+        <SectionLine text="BKC Barn"  />
         <Box
           sx={{
             width: "100%",
@@ -84,7 +84,7 @@ export default function ActivitiesMainPage() {
         </Box>
         {/* --------------ACTIVITIES-BKC Youth----------- */}
         <div id="youth"></div>
-        <SectionLine text="BKC YOUTH" topLayerText="BKC Ung"/>
+        <SectionLine text="BKC Ung" />
         <Box
           sx={{
             width: "100%",
@@ -146,7 +146,7 @@ export default function ActivitiesMainPage() {
         </Box>
         {/* --------------ACTIVITIES-ACTIVITIES-BKC Other Groups----------- */}
         <div id="otherGroups"></div>
-        <SectionLine text="Other Groups" topLayerText= "Andra Gruper" />
+        <SectionLine text="Andra Gruper"  />
         <Box
           sx={{
             display: "flex",
