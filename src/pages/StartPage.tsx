@@ -247,6 +247,7 @@ const StartPage = () => {
       />
 
       {/* --------------ACTIVITIES-Sunday Service----------- */}
+      <Box sx={{backgroundColor:"#dbe1e8" }}>
       <ImgInforCardSection
       inforSectionId=""
       id={sundayServiceCardInfor.id}
@@ -257,7 +258,7 @@ const StartPage = () => {
         category={""}
         imageLeft={false}
         buttonLink={"/services#sundayService"}
-      />
+      /></Box>
 
       {/* --------------ACTIVITIES-BKC Kids----------- */}
       <ImgInforCardSection

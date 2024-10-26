@@ -59,7 +59,7 @@ const SectionLine = ({ text, useWhiteStroke}: Props) => {
           fontSize: {
             xs: "2rem",
             sm: "3rem",
-            md: "6rem",
+            md: "5rem",
           },
           lineHeight: "1em",
           color: "transparent", // Transparent fill to only show the stroke
