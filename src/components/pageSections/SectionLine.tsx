@@ -6,7 +6,7 @@ type Props = {
   topLayerText?:string;
 };
 
-const SectionLine = ({ text, useWhiteStroke,topLayerText }: Props) => {
+const SectionLine = ({ text, useWhiteStroke,topLayerText = ""}: Props) => {
   return (
     <Box
       sx={{
@@ -45,7 +45,7 @@ const SectionLine = ({ text, useWhiteStroke,topLayerText }: Props) => {
           
         }}
       >
-        {""}
+        {topLayerText}
       </Typography>
 
       {/* Main Text Layer with Stroke */}

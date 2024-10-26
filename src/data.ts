@@ -7,7 +7,6 @@ import Conference from "./assets/Conference.jpg";
 import Mission from "./assets/Mission.png";
 import Prayer from "./assets/Prayer.jpg";
 import Bible from "./assets/Bible.jpg";
-import welcome2 from "./assets/welcome2.jpg"
 import Varhistoria from "./assets/Varhistoria.jpg"
 import DavidB from "./assets/DavidB.jpg"
 import { EventCategory,Event } from "./models/Event";
