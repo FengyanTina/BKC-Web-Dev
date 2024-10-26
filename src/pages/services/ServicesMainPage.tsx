@@ -104,6 +104,16 @@ export default function ServicesMainPage() {
           </Typography>
         </Grid>
       </Grid>
+            {/* -------------FindYourVision----------- */}
+            <div id="serve"></div>
+      <SectionLine text="hitta din vision" />
+      <WantServeSectionCard
+        id={findYourVision.id}
+        title={findYourVision.title}
+        steps={findYourVision.steps}
+        description={findYourVision.description}
+        images={findYourVision.images}
+      />
       {/* --------------SundayService ----------- */}
       <div id="sundayService"></div>
       <SectionLine text="Söndagsgudstjänst" />
@@ -129,16 +139,7 @@ export default function ServicesMainPage() {
         imageLeft={false}
       />
 
-      {/* -------------FindYourVision----------- */}
-      <div id="serve"></div>
-      <SectionLine text="tjäna i kyrkan" />
-      <WantServeSectionCard
-        id={findYourVision.id}
-        title={findYourVision.title}
-        steps={findYourVision.steps}
-        description={findYourVision.description}
-        images={findYourVision.images}
-      />
+
       {/* -------------BaptismService----------- */}
       <SectionLine text="Doptjänster" />
       <div id="baptismService"></div>
