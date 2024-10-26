@@ -30,5 +30,5 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/BKC-Web-Dev" }
+  { basename: "/" }
 );
