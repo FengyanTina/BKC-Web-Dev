@@ -31,7 +31,7 @@ export default function SchedulesMainPage() {
           width:"100%"
          
         }}>
-        <SectionLine text="Event calandar" useWhiteStroke={true} />
+        <SectionLine text="Event calandar" useWhiteStroke={true} topLayerText="Evenemangskalender" />
         </Box>
         <Box
           sx={{
@@ -55,7 +55,7 @@ export default function SchedulesMainPage() {
           width:"100%"
          
         }}>
-          <SectionLine text="Comming Week serving Schedule" useWhiteStroke={true} />
+          <SectionLine text="Coming Week serving Schedule" useWhiteStroke={true} topLayerText="Serveringsschema för kommande vecka" />
         </Box>
         <Box sx={{ marginTop: "50px", marginBottom: "50px", width: "90%" }}>
           <Typography

@@ -3,35 +3,7 @@ import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import { getCurrentWeek } from "../../utils/GetCurrentWeek";
-const currentWeek = [
-  {
-    date: "2024-10-23",
-    dayName: "Monday",
-    events: ["Meeting at 10 AM", "Lunch with team", "Project review"],
-  },
-  {
-    date: "2024-10-24",
-    dayName: "Tuesday",
-    events: ["Client call", "Workshop at 1 PM"],
-  },
-  {
-    date: "2024-10-25",
-    dayName: "Wednesday",
-    events: ["Team stand-up", "Department meeting", "Code review"],
-  },
-  { date: "2024-10-26", dayName: "Thursday", events: ["Networking event"] },
-  {
-    date: "2024-10-27",
-    dayName: "Friday",
-    events: ["Weekly report", "Team building activity"],
-  },
-  { date: "2024-10-28", dayName: "Saturday", events: [] }, // No events for this day
-  {
-    date: "2024-10-29",
-    dayName: "Sunday",
-    events: ["Brunch", "Family gathering"],
-  },
-];
+
 const Item = styled("div")(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),

@@ -182,10 +182,7 @@ const StartPage = () => {
 
         <Grid
           sx={{
-            maxWidth: {
-                xs: "90%", 
-                sm: "90%", 
-              },
+            maxWidth: "90%",
             marginTop: {
               xs: "20px", 
               sm: "50px", 
@@ -197,11 +194,7 @@ const StartPage = () => {
               md: "50vh", 
               lg: "60vh",
             },
-            marginBottom: {
-              md: "10px",
-              sm:"10px",
-              xs:"10px",
-            },
+            marginBottom: "10px",
             overflowY: "auto",
           }}
           size={{ xs: 12, sm: 12, md: 3 }}
@@ -226,14 +219,14 @@ const StartPage = () => {
       >
         {/* --------------COMMING EVENTS----------- */}
 
-        <SectionLine text="Comming Events" useWhiteStroke={true} />
+        <SectionLine text="Comming Events" useWhiteStroke={true} topLayerText= "Kommande Evenemang" />
         <Box sx={{ width: "80%" }}>
           <Carousel events={comingEvents} />
         </Box>
     
 
        {/* --------------WELCOME NEW----------- */}
-       <SectionLine text="Welcome" useWhiteStroke={true} />
+       <SectionLine text="Welcome" useWhiteStroke={true} topLayerText="Välkomna" />
         <NewHereSectionGrid
         inforSectionId=""
         id={newHere.id}
@@ -245,7 +238,7 @@ const StartPage = () => {
       </Box>
      {/* --------------ACTIVITIES----------- */}
 
-     <SectionLine text=" Activities And Services" />
+     <SectionLine text=" Activities And Services" topLayerText= "Aktiviteter och Tjänster" />
      
       <ActivitySocialMediaScetionCard
       inforSectionId=""
@@ -319,7 +312,7 @@ const StartPage = () => {
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
       >
-       <SectionLine text=" News" />
+       <SectionLine text=" News" topLayerText= "Nyheter" />
         <Box
           sx={{
             backgroundColor: "#f0f4f8",

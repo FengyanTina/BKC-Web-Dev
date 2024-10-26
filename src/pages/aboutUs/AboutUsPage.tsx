@@ -183,7 +183,7 @@ const AboutUsPage = () => {
           content={Pastor.content}
         />
       </Grid>
-      <SectionLine text="Leadership" />
+      <SectionLine text="Leadership" topLayerText="Ledarskap" />
       <Box
         sx={{
           display: "flex",
@@ -218,10 +218,10 @@ const AboutUsPage = () => {
           image={DavidB}
         />
       </Box>
-      <SectionLine text="MemberShip" />
+      <SectionLine text="MemberShip" topLayerText="Medlemskap" />
       <div id="userTable"></div>
       <UserTable />
-      <SectionLine text="Our History" />
+      <SectionLine text="Our History" topLayerText="Vår historia" />
       <Box
         sx={{
           marginTop: "50px",

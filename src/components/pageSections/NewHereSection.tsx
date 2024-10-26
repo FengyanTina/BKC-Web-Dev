@@ -73,7 +73,7 @@ export default function NewHereSectionGrid({
       >
             
         <Typography
-          variant="h2"
+          variant="h3"
           sx={{
             marginTop: "0px",
             paddingTop: "0px",
@@ -85,7 +85,7 @@ export default function NewHereSectionGrid({
           {title}
         </Typography>
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{
             marginTop: "10px",
             fontWeight: "500",
@@ -96,7 +96,7 @@ export default function NewHereSectionGrid({
           {subtitle}
         </Typography>
         <Typography
-          variant="h4"
+          variant="body1"
           sx={{
             marginTop: "10px",
             marginBottom: "10px",

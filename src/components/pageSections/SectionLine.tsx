@@ -3,35 +3,68 @@ import { Box, Typography } from "@mui/material";
 type Props = {
   text: string;
   useWhiteStroke?: boolean;
+  topLayerText?:string;
 };
 
-const SectionLine = ({ text, useWhiteStroke }: Props) => {
+const SectionLine = ({ text, useWhiteStroke,topLayerText }: Props) => {
   return (
     <Box
-      style={{
+      sx={{
+        position: "relative", // Enable absolute positioning for the first layer
         display: "flex",
-        justifyContent: "center", // Center on main axis
-        alignItems: "center", // Center on cross axis
-        textAlign: "center", // Center text
-        width: "100vw", // Full width of the screen
-        marginTop: "30px",
-        marginBottom: "30px",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        width: "100vw",
+      
       }}
     >
+      {/* Top Text Layer */}
+      <Typography
+        variant="h2"
+        sx={{
+          position: "absolute",
+          top: "50%", // Center vertically
+          left: "50%", // Center horizontally
+          transform: "translate(-50%, -50%)", // Align precisely to center
+          zIndex: 1, // Ensure it's above the main text layer
+          fontWeight: {
+            xs: 700,
+            sm: 800,
+            md: 900,
+          },
+          fontSize: {
+            xs: "2rem",
+            sm: "2rem",
+            md: "4rem",
+          },
+          lineHeight: "0.5em",
+          color: "#7089AC", // Solid color for the top layer
+          whiteSpace: "nowrap",
+      
+          
+        }}
+      >
+        {""}
+      </Typography>
+
+      {/* Main Text Layer with Stroke */}
       <Typography
         variant="h2"
         sx={{
           fontWeight: {
-            xs: 700, 
-            sm: 900, 
+            xs: 700,
+            sm: 800,
+            md: 900,
           },
           fontSize: {
-            xs: "3rem", 
-            sm: "6rem", 
+            xs: "2rem",
+            sm: "3rem",
+            md: "6rem",
           },
           lineHeight: "1em",
-          color: "transparent",
-          WebkitTextStroke: `1px ${useWhiteStroke ? "#ffffff" : "#d3d3d3"}`,
+          color: "transparent", // Transparent fill to only show the stroke
+          WebkitTextStroke: `1px ${useWhiteStroke ? "#ffffff" : "#d3d3d3"}`, // Outline color
           textTransform: "uppercase",
           padding: "30px",
         }}
