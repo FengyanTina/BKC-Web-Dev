@@ -190,9 +190,9 @@ const StartPage = () => {
             },
             height: {
               xs: "45vh", 
-              sm: "50vh", // 50% of viewport height for medium screens
-              md: "50vh", 
-              lg: "60vh",
+              sm: "55vh", // 50% of viewport height for medium screens
+              md: "auto", 
+              
             },
             marginBottom: "10px",
             overflowY: "auto",
