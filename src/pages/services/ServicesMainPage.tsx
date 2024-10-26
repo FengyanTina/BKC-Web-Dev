@@ -19,7 +19,6 @@ import MyMap from "../../apis/GoogleMap.tsx";
 import BaptismServiceSectionCard from "../../components/cards/customizedCards/BaptismServiceSectionCard.tsx";
 import WantServeSectionCard from "../../components/cards/customizedCards/WantServeSectionCard.tsx";
 
-
 export default function ServicesMainPage() {
   const [openMap, setOpenMap] = useState(false);
 
@@ -107,9 +106,9 @@ export default function ServicesMainPage() {
       </Grid>
       {/* --------------SundayService ----------- */}
       <div id="sundayService"></div>
-      <SectionLine text="Söndagsgudstjänst"  />
+      <SectionLine text="Söndagsgudstjänst" />
       <ImgTextSection
-      inforSectionId=""
+        inforSectionId=""
         id={sundayServiceSection.id}
         title={sundayServiceSection.title}
         subtitle={sundayServiceSection.subTitle}
@@ -121,7 +120,7 @@ export default function ServicesMainPage() {
       <SectionLine text="Bönetjänster" />
       <div id="prayerService"></div>
       <ImgTextSection
-      inforSectionId=""
+        inforSectionId=""
         id={prayerService.id}
         title={prayerService.title}
         linkSubtitle={prayerService.linkSubtitle}
@@ -130,16 +129,6 @@ export default function ServicesMainPage() {
         imageLeft={false}
       />
 
-      {/* -------------BaptismService----------- */}
-      <SectionLine text="Doptjänster"  />
-      <div id="baptismService"></div>
-      <BaptismServiceSectionCard
-        id={baptismService.id}
-        title={baptismService.title}
-        description={""}
-        steps={baptismService.steps}
-        images={baptismService.image}
-      />
       {/* -------------FindYourVision----------- */}
       <div id="serve"></div>
       <SectionLine text="tjäna i kyrkan" />
@@ -150,6 +139,17 @@ export default function ServicesMainPage() {
         description={findYourVision.description}
         images={findYourVision.images}
       />
+      {/* -------------BaptismService----------- */}
+      <SectionLine text="Doptjänster" />
+      <div id="baptismService"></div>
+      <BaptismServiceSectionCard
+        id={baptismService.id}
+        title={baptismService.title}
+        description={""}
+        steps={baptismService.steps}
+        images={baptismService.image}
+      />
+
       {/*******YoutubeVideoLink***********/}
       <SectionLine text="Servicevideor" />
 

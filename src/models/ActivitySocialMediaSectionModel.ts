@@ -7,5 +7,5 @@ export interface ActivitySocialMediaScetionCardModel extends BaseModel {
     subtitle?: string;
     category?:EventCategory;
     buttonLink?:string;
-    images?: ImageGallaryItemData[];    
+    images?: ImageGallaryItemData[]|string;    
   }

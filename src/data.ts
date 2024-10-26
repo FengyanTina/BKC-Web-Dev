@@ -9,6 +9,7 @@ import Prayer from "./assets/Prayer.jpg";
 import Bible from "./assets/Bible.jpg";
 import Varhistoria from "./assets/Varhistoria.jpg"
 import DavidB from "./assets/DavidB.jpg"
+import socialActivity from "./assets/socialActivity.png"
 import { EventCategory,Event } from "./models/Event";
 import { ActivitySocialMediaScetionCardModel } from "./models/ActivitySocialMediaSectionModel";
 import { ImageInforSectionModel } from "./models/ImageInforSection";
@@ -127,7 +128,7 @@ const initialUsers: User[] = [
     subtitle:"välkommen till vår kyrka nu på söndag!",
     startTime:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundayService,
-    description:"Veckans höjdpunkt i kyrkan är våra gudstjänster! Varje söndag klockan 11 träffas vi i Borås Kristna Center och firar gudstjänst. Syftet är att upphöja och ära Gud tillsammans. Våra gudstjänster är öppna för alla och vi vill vara tydliga med allt vi gör, så att alla kan förstå.Våra gudstjänster innehåller bön och lovsång, predikan och förbön. Givetvis avslutar vi med ett fantastiskt kyrkfika. För dig som besöker oss för första gången är fikat dessutom helt gratis!",
+    description:"Veckans höjdpunkt i kyrkan är våra gudstjänster! ",
     images: Worship 
   }
   export const sundaySchoolActivityCardInfor:ImageInforSectionModel={
@@ -148,7 +149,7 @@ const initialUsers: User[] = [
     subtitle:"Bkc Ungdom",
     startTime:new Date(2024, 9, 22, 14, 30),
     category: EventCategory.YouthService,
-    description:"Vi kommer att leva, sova och äta på sommargården Solviken som ligger 5 km utanför Fristad precis vid sjön Ärtingen. Det finns tillgång till ca 20 sängplatser så för att alla säkert ska på plats kommer vi även att ställa upp husvagnar eller erbjuda möjlighet att tälta för er som är riktigt äventyrliga! Vill du inte övernatta utan bara vara med dagtid går detta också bra, skriv då detta i anmälan!",
+    description:"Vi kommer att leva, sova och äta på sommargården Solviken som ligger 5 km utanför Fristad precis vid sjön Ärtingen.  ",
     images: worshipHands ,
   }
   export const homeGroupActivityCardInfor:ImageInforSectionModel={
@@ -215,7 +216,7 @@ export const imageGallarytemData = [
     subtitle:"Together,Stronger!",
     category: EventCategory.SocialMedia,
     description:"Under höstens tre första veckor (36-38) kommer vi uppmuntra till bön och fasta.Under höstens tre Under höstens tre Under höstens tre Under höstens tre tre Under höstens tre - auto updating activies from our social media",
-    images:imageGallarytemData ,
+    images: socialActivity,
   }
   export const news:Event[] = [
     {
@@ -311,7 +312,7 @@ export const imageGallarytemData = [
         id:"s1",
       title: "Step 1",
       description: "Register You here",
-      linkName:"Register",
+      linkName:"Register Here",
       link: "http://example.com/register",
     },
     {
@@ -326,7 +327,7 @@ export const imageGallarytemData = [
     {
         id:"s1",
       title: "SundayService",
-      description: "Gifted in music? Sunday Service you can serve the Lord in worship team. Or if you are good at tech, use your skills to service in tech team. If you are interested,",
+      description: "Gifted in music? Sunday Service you can serve the Lord in worship team. ",
       linkName:"Register you here",
       link: "http://example.com/register",
     },
@@ -353,6 +354,8 @@ export const imageGallarytemData = [
   export const baptismService = {
     id:"102",
     title: "Want to be baptized?",
+    linkSubtitle: "Register Here",
+    description:"",
     steps: steps,
     image: Mission,
   };
@@ -361,7 +364,7 @@ export const imageGallarytemData = [
     title: "Want to Serve",
     description:"You can find your vision and purpose, and serve the Lord in different ways.",
     steps: servings,
-    images:[Mission, Prayer,Conference,]
+    images:Conference
   };
 export const sundayServiceSection  = {
   id: "1",

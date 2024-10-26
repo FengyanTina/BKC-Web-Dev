@@ -14,7 +14,7 @@
     }
    
 }
-@media (mmin-width: 701px)and (max-width: 1200px) {
+@media (min-width: 701px)and (max-width: 1200px) {
     .image-responsive {
         max-height: 350px; /* Keep the same max height even below 900px */
         height: auto;

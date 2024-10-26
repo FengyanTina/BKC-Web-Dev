@@ -58,3 +58,33 @@ npm install react-icons
 npm install react-hook-form
 npm i --save-dev @types/google-map-react
 
+
+
+
+font size on infor card or page text 
+Title:
+ fontSize: {
+              lg: "40px",
+              md: "30px",
+              sm: "30px",
+              xs: "28px",
+            },
+ 
+Subtitle / SubtitleLink:
+ fontSize: {
+              lg: "30px",
+              md: "22px",
+              sm: "22px",
+              xs: "20px",
+            },
+Description:
+ fontSize: {
+            lg: "25px",
+            md: "20px",
+            sm: "20px",
+            xs: "18px",
+          },
+
+
+Action Buttom && Links color
+#337f83

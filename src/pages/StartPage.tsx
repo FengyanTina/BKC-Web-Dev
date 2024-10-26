@@ -136,10 +136,6 @@ const StartPage = () => {
                   },
                 }}
               >
-                {/* A place to worship
-                <br />
-                A place to pray
-                <br />A place to learn the word */}
               </Typography>
               <Link style={{ color: "white", textDecoration: "none" }} to="/aboutUs">
                 About Us
@@ -212,8 +208,7 @@ const StartPage = () => {
             flexDirection: "column",
             gap: "20px",
             paddingTop: "30px",
-            backgroundColor: "#dbe1e8",
-           
+            backgroundColor: "#dbe1e8",      
             marginBottom: "30px",
           }}
       >
@@ -259,7 +254,7 @@ const StartPage = () => {
         subtitle={sundayServiceCardInfor.subtitle}
         description={sundayServiceCardInfor.description}
         images={sundayServiceCardInfor.images}
-        category={sundayServiceCardInfor.category}
+        category={""}
         imageLeft={false}
         buttonLink={"/services#sundayService"}
       />
@@ -272,7 +267,7 @@ const StartPage = () => {
         subtitle={sundaySchoolActivityCardInfor.subtitle}
         description={sundaySchoolActivityCardInfor.description}
         images={sundaySchoolActivityCardInfor.images}
-        category={sundaySchoolActivityCardInfor.category}
+        category={""}
         buttonLink={"/activities#sundaySchool"}
         
       />
@@ -284,7 +279,7 @@ const StartPage = () => {
         subtitle={youthActivityCardInfor.subtitle}
         description={youthActivityCardInfor.description}
         images={youthActivityCardInfor.images}
-        category={youthActivityCardInfor.category}
+        category={""}
         imageLeft={false}
         buttonLink={"/activities#youth"}
       />
@@ -297,7 +292,7 @@ const StartPage = () => {
         subtitle={homeGroupActivityCardInfor.subtitle}
         description={homeGroupActivityCardInfor.description}
         images={homeGroupActivityCardInfor.images}
-        category={homeGroupActivityCardInfor.category}
+        category={""}
         buttonLink={"/activities#otherGroups"}
       />
       {/* --------------NEWS SLIDES----------- */}

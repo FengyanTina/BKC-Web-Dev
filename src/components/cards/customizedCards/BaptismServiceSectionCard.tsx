@@ -1,4 +1,4 @@
-import { Box, styled, Typography } from "@mui/material";
+import { Box, styled, Typography, useMediaQuery, useTheme } from "@mui/material";
 import "./customizedCards.css";
 import Grid from "@mui/material/Grid2";
 import { BaptismSectionModel } from "../../../models/BaptismSecionModel";
@@ -19,13 +19,9 @@ const BaptismServiceSectionCard = ({
   steps,
   showAllAsFeatured = false,
 }: BaptismSectionModel) => {
-  return (
-    <Box sx={{ flexGrow: 1, width: "80%" }}>
-      <Grid
-        container
-        spacing={{ xs: 0, md: 0 }}
-        columns={{ xs: 1, sm: 12, md: 12 }}
-      >
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const renderImage = () => (
         <Grid size={{ xs: 12, sm: 12, md: 6 }}>
           <Item>
             {Array.isArray(images) ? (
@@ -46,6 +42,8 @@ const BaptismServiceSectionCard = ({
             )}
           </Item>
         </Grid>
+      );
+      const renderText = () => (
         <Grid
           size={{ xs: 12, sm: 12, md: 6 }}
           sx={{
@@ -62,7 +60,6 @@ const BaptismServiceSectionCard = ({
               mx: "auto",
               px: 3,
               marginBottom: "10px",
-
               fontSize: {
                 lg: "40px",
                 md: "30px",
@@ -77,9 +74,9 @@ const BaptismServiceSectionCard = ({
             <Typography
               variant="h4"
               sx={{
-                textAlign: "center", // Align the text to the center
-                mx: "auto", // Horizontal margin to center it within the container
-                px: 3, // Add padding on the sides
+                textAlign: "center",
+                mx: "auto",
+                px: 3,
                 mt: 3,
                 fontSize: {
                   lg: "30px",
@@ -92,7 +89,6 @@ const BaptismServiceSectionCard = ({
               {subtitle}
             </Typography>
           )}
-
           <Box
             sx={{
               maxHeight: {
@@ -120,15 +116,17 @@ const BaptismServiceSectionCard = ({
                           xs: "18px",
                         },
                         lineHeight: 1.5,
-
                         mb: 1,
                       }}
                     >
                       {step.link && step.linkName ? (
                         <>
-                          {step.description} &nbsp; {/* Non-breaking space */}
-                          <a href={step.link}>{step.linkName}</a>{" "}
-                          {/* Render the link */}
+                          <a
+                            href={step.link}
+                            style={{ color: "#337f83", textDecoration: "none" }}
+                          >
+                            {step.linkName}
+                          </a>{" "}
                         </>
                       ) : (
                         step.description
@@ -139,6 +137,30 @@ const BaptismServiceSectionCard = ({
             </ol>
           </Box>
         </Grid>
+      );
+    
+  return (
+    <Box sx={{ flexGrow: 1, width:{md:"80%", sm:"100%"}}}>
+      <Grid
+        container
+        spacing={{ xs: 0, md: 0 }}
+        columns={{ xs: 1, sm: 12, md: 12 }}
+      >
+       
+       
+       {isSmallScreen ? (
+          // If small screen, image on the left
+          <>
+            {renderImage()}
+            {renderText()}
+          </>
+        ) : (
+          // If not small screen, image on the right
+          <>
+            {renderText()}
+            {renderImage()}
+          </>
+        )}
       </Grid>
     </Box>
   );

@@ -50,13 +50,13 @@ export default function ActivitiesMainPage() {
             spacing={2}
             sx={{ flexDirection: { xs: "column", sm: "row",  marginBottom: "50px",  } }}
           >
-            <Grid
+             <Grid
               container
               size={{ xs: 12, sm: 12, md: 6 }}
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignContent: "center",
+                alignContent: "center",paddingLeft:{sm:"10px",md:"100px"},paddingRight:{sm:"10px",},
               }}
             >
               <PageTextPart
@@ -68,18 +68,21 @@ export default function ActivitiesMainPage() {
                 location={BKCkIDS2.location}
               />
             </Grid>
-            <Grid
+           
+             <Grid
               size={{ xs: 12, sm: 12, md: 6 }}
               sx={{
                   height: {
-                      xs: "200px", // Height for extra small screens
-                      sm: "300px", // Height for small screens
-                      md: "500px", // Height for medium and larger screens
+                      xs: "200px", 
+                      sm: "300px", 
+                      md: "auto", 
                     },
+                    paddingLeft:{sm:"10px"},paddingRight:{sm:"10px",md:"100px"},
               }}
             >
               <SudaySchoolImageGallary imageData={SundaySchoolImageGallary} />
             </Grid>
+           
           </Grid>
         </Box>
         {/* --------------ACTIVITIES-BKC Youth----------- */}
@@ -133,7 +136,7 @@ export default function ActivitiesMainPage() {
               ></video>
             </Box>
           </Grid>
-          <Grid size={12}>
+          <Grid size={12} sx={{paddingLeft:{sm:"10px",md:"100px"},paddingRight:{sm:"10px",md:"100px"},}}>
             <PageTextPart
               id={BKCkYouth.id}
               title={BKCkYouth.title}

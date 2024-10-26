@@ -102,11 +102,13 @@
   .text-overlay h2{
     width: 100%; /* Ensure the h2 takes full width of its container */
     font-size: 3em;
-    margin: 0;
-    white-space: nowrap; /* Prevent the text from breaking into a new line */
-    overflow: hidden; /* Hide any overflowed text */
-    text-overflow: ellipsis;
-    
+    margin-top: 10px;
+    overflow: hidden; 
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
   }
   .text-overlay p{
     font-size: 1.5em;
@@ -177,4 +179,16 @@
     .swiper-slider {
       width: 90%;
     }
+  
+  }
+  @media (max-width: 1100px) {
+   
+    .slick-container {
+        width:90%;
+    }
+    .text-overlay h2{
+       
+     font-size: 2em;
+       
+      }
   }

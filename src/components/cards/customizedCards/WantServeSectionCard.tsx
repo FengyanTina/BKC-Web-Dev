@@ -2,6 +2,8 @@ import { Box, styled, Typography } from "@mui/material";
 import "./customizedCards.css";
 import Grid from "@mui/material/Grid2";
 import { BaptismSectionModel } from "../../../models/BaptismSecionModel";
+import videoFile from "../../../assets/istockphoto-987329642-640_adpp_is.mp4";
+import Prayer from "../../../assets/spiritual-prayer-hands-holding-bible.jpg";
 
 const Item = styled("div")(({ theme }) => ({
   ...theme.typography.body2,
@@ -19,48 +21,104 @@ const WantServeSectionCard = ({
   const imageCount = Array.isArray(images) ? images.length : 1; // Determine the number of images
   const hasLargeImage = imageCount > 2;
   return (
-    <Box sx={{ flexGrow: 1, width: "80%" }}>
-      <Grid
-        container
-        spacing={{ xs: 0, md: 0 }}
-        columns={{ xs: 1, sm: 12, md: 12 }}
+    <Box sx={{ flexGrow: 1, width: { md: "80%", sm: "100%" } }}>
+     <Grid
+    container
+    spacing={{  md: 1 }}
+    columns={{ xs: 1, sm: 12, md: 12 }}
+  >
+    {/* First Image */}
+    <Grid  size={{ xs: 12, sm: 4, md: 4}}>
+      <Box
+        sx={{
+          width: "100%", // Ensure the container takes full width
+          maxWidth: "450px", // Maximum width for large screens
+          position: "relative",
+          paddingTop: {
+            xs: "56.25%", // 16:9 aspect ratio for smaller screens
+            md: "30%", // Less padding for medium screens
+            lg: "50%", // Even less padding for large screens
+          },
+        }}
       >
-        <Grid size={{ xs: 12, sm: 12, md: 6 }}>
-          <Item>
-            {Array.isArray(images) ? (
-              <div className="image-gallery-custom">
-                {images.map((img, index) => (
-                  <img
-                    key={index}
-                    src={img}
-                    alt={`Gallery Image ${index}`}
-                    className={
-                      hasLargeImage && index === 0 ? "image-large" : ""
-                    }
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                ))}
-              </div>
-            ) : (
-            
-              <img
-                src={images}
-                style={{
-                  width: "100%",
-                  objectFit: "cover",
-                  maxHeight: "380px",
-                }}
-                alt=""
-              />
-            )}
-          </Item>
-        </Grid>
+        <img
+          src={Prayer} // Use the imported image file
+          alt="Prayer Image" // Alt text for accessibility
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover", // Optional: Maintain aspect ratio
+          }}
+        />
+      </Box>
+    </Grid>
+
+    {/* Video */}
+    <Grid   size={{ xs: 12, sm: 6, md: 4 }}>
+      <Box
+        sx={{
+          width: "100%", // Ensure the container takes full width
+          maxWidth: "540px", // Maximum width for large screens
+          position: "relative",
+          paddingTop: {
+            xs: "56.25%", // 16:9 aspect ratio for smaller screens
+            md: "30%", // Less padding for medium screens
+            lg: "50%", // Even less padding for large screens
+          },
+        }}
+      >
+        <video
+          src={videoFile} // Use the imported video file
+          controls
+          autoPlay
+          loop
+          muted
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover", // Optional: Maintain aspect ratio
+          }}
+        />
+      </Box>
+    </Grid>
+
+    {/* Second Image */}
+    <Grid   size={{ xs: 12, sm: 6, md: 4 }}>
+      <Box
+        sx={{
+          width: "100%", // Ensure the container takes full width
+          maxWidth: "450px", // Maximum width for large screens
+          position: "relative",
+          paddingTop: {
+            xs: "56.25%", // 16:9 aspect ratio for smaller screens
+            md: "30%", // Less padding for medium screens
+            lg: "50%", // Even less padding for large screens
+          },
+        }}
+      >
+        <img
+          src={Prayer} // Use the imported image file
+          alt="Prayer Image 2" // Alt text for accessibility
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover", // Optional: Maintain aspect ratio
+          }}
+        />
+      </Box>
+    </Grid>
+  
         <Grid
-          size={{ xs: 12, sm: 12, md: 6 }}
+          size={{ xs: 12, sm: 12, md: 12 }}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -79,7 +137,7 @@ const WantServeSectionCard = ({
                 lg: "40px",
                 md: "30px",
                 sm: "30px",
-                xs: "28px", 
+                xs: "28px",
               },
             }}
           >
@@ -97,7 +155,7 @@ const WantServeSectionCard = ({
                   lg: "30px",
                   md: "22px",
                   sm: "22px",
-                  xs: "20px", 
+                  xs: "20px",
                 },
               }}
             >
@@ -120,7 +178,7 @@ const WantServeSectionCard = ({
             <ol>
               {steps &&
                 steps.map((step, index) => (
-                  <li key={index}>
+                  <li key={index} style={{ marginBottom: "16px" }}>
                     <Typography
                       variant="h5"
                       sx={{
@@ -129,15 +187,20 @@ const WantServeSectionCard = ({
                           lg: "25px",
                           md: "20px",
                           sm: "20px",
-                          xs: "18px", 
+                          xs: "18px",
                         },
                         lineHeight: 1.5,
                       }}
                     >
                       {step.link && step.linkName ? (
                         <>
+                          <a
+                            href={step.link}
+                            style={{ color: "#337f83", textDecoration: "none" }}
+                          >
+                            {step.linkName}
+                          </a>{" "}
                           {step.description} &nbsp; {/* Non-breaking space */}
-                          <a href={step.link}>{step.linkName}</a>{" "}
                           {/* Render the link */}
                         </>
                       ) : (
