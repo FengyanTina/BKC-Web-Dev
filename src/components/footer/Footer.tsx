@@ -9,8 +9,11 @@ const Footer: React.FC = () => {
     <Box
       sx={{
         width: "100%",
-        backgroundColor: "transparent",
-        color: "black",
+        // backgroundColor: "transparent",
+        backgroundColor:"#7089AC",
+        color: "#202A44",
+        
+    
         padding: "20px",
         textAlign: "center",
         bottom: 0,
@@ -22,12 +25,38 @@ const Footer: React.FC = () => {
         gap: "10px",
       }}
     >
-      <Typography variant="body2">
+
+     
+      <Box>
+      <Typography variant="h5" sx={{display:"flex",flexDirection:"column", }}>
+        <Link href="/home" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Home
+        </Link>
+       
+        <Link href="/aboutUs" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          About Us
+        </Link>
+        <Link href="/schedules" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Schedules
+        </Link>
+        <Link href="/services" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Service
+        </Link>
+        <Link href="/activities" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+         Activity
+        </Link>
+        <Link href="/contact" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+         Contact Us
+        </Link>
+        </Typography>
+        
+      </Box>
+      <Typography variant="body1" >
         &copy; {new Date().getFullYear()} Borås Kristna Center. All rights
         reserved.
       </Typography>
       <Box>
-      <Typography variant="body2">
+      <Typography variant="body1">
         <Link href="#" color="inherit" sx={{ mx: 1 }}>
           Privacy Policy
         </Link>
@@ -41,20 +70,7 @@ const Footer: React.FC = () => {
         </Link>
         </Typography>
       </Box>
-      <Box>
-        <SocialIcon network="pinterest" style={{ height: 25, width: 25 }} />
-        <SocialIcon
-          url="https://instagram.com"
-          network="instagram"
-          style={{ height: 25, width: 25 }}
-        />
-
-        <SocialIcon
-          url="https://facebook.com"
-          network="facebook"
-          style={{ height: 25, width: 25 }}
-        />
-      </Box>
+      
     </Box>
   );
 };

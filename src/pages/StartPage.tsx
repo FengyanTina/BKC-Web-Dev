@@ -101,7 +101,7 @@ const StartPage = () => {
                 marginBottom: "30px",
               }}
             >
-              Borås Kristna Center
+             Välkommen
             </Typography>
 
             <Box

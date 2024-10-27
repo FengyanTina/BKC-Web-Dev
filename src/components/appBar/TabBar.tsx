@@ -93,17 +93,22 @@ export default function TabBar() {
             <MenuIcon />
           </IconButton>
 
-          <Typography
+          {/* <Typography
             variant="h2"
             component="div"
             sx={{
               flexGrow: 1,
               display: { md: "block", sm: "block", xs: "none" },
               fontSize: "4rem",
+
             }}
-          >
-            <img src={HuvudloggaBKC3} alt="Logo" style={{ marginRight: 10 }} />
+          > */}
+          {/* <img src={HuvudloggaBKC3} alt="Logo" style={{ marginRight: 10 }} /> */}
+          <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+            {" "}
+            Borås Kristna Center
           </Typography>
+          {/* </Typography> */}
           <Box
             sx={{
               display: { lg: "flex", md: "none", sm: "none", xs: "none" },
@@ -115,20 +120,18 @@ export default function TabBar() {
             }}
           >
             <Tabs
-               value={currentTab}
-               onChange={handleChange}
-               
-               aria-label="secondary tabs"
-              
-               sx={{
-                 '& .MuiTabs-indicator': {
-                   backgroundColor: '#00acc1', 
-                 },
-                 
-                 '& .MuiTab-root.Mui-selected': {
-                     color: '#337f83', 
-                   },
-               }}
+              value={currentTab}
+              onChange={handleChange}
+              aria-label="secondary tabs"
+              sx={{
+                "& .MuiTabs-indicator": {
+                  backgroundColor: "#00acc1",
+                },
+
+                "& .MuiTab-root.Mui-selected": {
+                  color: "#337f83",
+                },
+              }}
             >
               <Tab
                 value="/home"
@@ -204,7 +207,7 @@ export default function TabBar() {
                       fontSize: "1.5rem",
                     }}
                   >
-                    {currentUser.firstName} 
+                    {currentUser.firstName}
                   </Typography>
                   <Typography
                     variant="h5"
@@ -249,7 +252,7 @@ export default function TabBar() {
         <TabDrawer
           open={drawerOpen}
           onClose={handleDrawerToggle}
-          handleLogin={handleLoginOpen} 
+          handleLogin={handleLoginOpen}
           handleLogout={handleLogout}
         />
       </nav>

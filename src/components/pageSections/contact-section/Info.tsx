@@ -43,7 +43,7 @@ const renderIcons = (): JSX.Element[] =>
   ));
 
 const Info: React.FC = () => (
-  <section style={{ backgroundColor: "#28a745" }} className="info">
+  <section style={{ backgroundColor: "#7089AC" }} className="info">
     <h2 className="info-h2">Contact information</h2>
 
     <div className="info-details-container">{renderContactDetails()}</div>
