@@ -1,9 +1,8 @@
-import { Box, styled, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import "./imageText.css";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
 import ImageGallary from "../imageManagements/ImageGallary";
-import { PageInforModel } from "../../models/PageInforModel";
 import PageTextPart from "../cards/PageText";
 
 const Item = styled("div")(({ theme }) => ({

@@ -11,15 +11,17 @@ import { useForm } from "react-hook-form";
 type UserDialogProps = {
     mode: UserDialogMode;
     onClose: () => void; // Function to handle closing the dialog
+    userId:string|null;
+    open: boolean;
 };
 
-function UserDialog({ mode, onClose }: UserDialogProps) {
+function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
   const navigate = useNavigate();
   const { devUsers, setDevUsers, addUser } = useContext(UserContext);
   const { id } = useParams();
   const initialUser =
   mode === UserDialogMode.Edit
-    ? devUsers.find((i) => i.id === id)
+    ? devUsers.find((i) => i.id === userId)
     : defaultUser();
 
     const {
@@ -31,8 +33,6 @@ function UserDialog({ mode, onClose }: UserDialogProps) {
         shouldUseNativeValidation: false,
         defaultValues: initialUser, // Use defaultValues instead of values
       });
-
-  
 
   // Should be used with data from the product dialog
   const createOrEditUser = (userFromDialog: User) => {
@@ -59,9 +59,9 @@ function UserDialog({ mode, onClose }: UserDialogProps) {
   };
 
   return (
-    <Dialog open={true} onClose={() =>onClose}>
+    <Dialog open={open} onClose={() =>onClose}>
       {mode === UserDialogMode.Edit ? (
-        <DialogTitle>Edit User: {id} </DialogTitle>
+        <DialogTitle>Edit User: {userId} </DialogTitle>
       ) : (
         <DialogTitle>Add User</DialogTitle>
       )}

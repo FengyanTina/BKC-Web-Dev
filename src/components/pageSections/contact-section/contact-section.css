@@ -2,22 +2,6 @@
     background-color: var(--white);
     width: 100%;
   }
-  /* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap'); */
-
-/* body {
-  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
-
-
-
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
-
 
 :root {
   --main-blue: #00253a;

@@ -1,11 +1,7 @@
 import { Box, Typography } from "@mui/material";
-
 import { comingEvents } from "../../data";
-
-
 import SectionLine from "../../components/pageSections/SectionLine";
 import Carousel from "../../components/slides/Carousel";
-import EventCalendar from "../../components/calendars/EventCalendar";
 import CollapsibleTable from "../../components/tables/ServingScheduleTable";
 import MyCalendar from "../../components/calendars/MyCalendar";
 

@@ -1,7 +1,7 @@
 import { EventInput } from "@fullcalendar/core";
 
 let eventGuid = 0;
-// let todayStr = new Date().toISOString().replace(/T.*$/, '') // YYYY-MM-DD of today
+
 interface CustomEvent extends EventInput {
   description?: string; // Optional description property
   location?:string;

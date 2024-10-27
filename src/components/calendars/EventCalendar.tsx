@@ -14,7 +14,6 @@ import interactionPlugin from "@fullcalendar/interaction";
 import svLocale from "@fullcalendar/core/locales/sv"; // Swedish locale
 import Grid from "@mui/material/Grid2";
 import { Button, Paper } from "@mui/material";
-
 import { AuthContext, AuthContextType } from "../../context/AuthContext";
 import { UserCategory } from "../../models/User";
 import EventAddAndEditForm from "../forms/EventAddAndEditForm";
@@ -41,7 +40,7 @@ export const INITIAL_EVENTS: CustomEvent[] = [
         allDay: false
     },
   ];
-// Custom event interface
+
 interface CustomEvent {
   id: string;
   title: string;

@@ -12,7 +12,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Switch from "@mui/material/Switch";
 import { Typography } from "@mui/material";
-
 import './form.css'
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
 interface CustomEvent {
