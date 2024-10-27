@@ -18,7 +18,7 @@ type UserDialogProps = {
 function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
   const navigate = useNavigate();
   const { devUsers, setDevUsers, addUser } = useContext(UserContext);
-  const { id } = useParams();
+
   const initialUser =
   mode === UserDialogMode.Edit
     ? devUsers.find((i) => i.id === userId)
