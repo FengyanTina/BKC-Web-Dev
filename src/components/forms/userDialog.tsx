@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { defaultUser, User, UserCategory, UserDialogMode } from "../../models/User";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
