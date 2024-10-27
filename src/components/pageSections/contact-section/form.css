@@ -84,6 +84,7 @@
       gap: 0.5vw 1vw;
       padding: 40px;
     }
+   
   
     .form-h2 {
       grid-area: header;
@@ -119,4 +120,15 @@
       position: relative;
     }
   }
-  
+  @media screen and (max-width: 798px) { /* Adjusted for small screens */
+    .form-submit-circle {
+      right: 50%; /* Center horizontally */
+      transform: translateX(50%); /* Center alignment adjustment */
+      transform: translateX(50%); /* Center adjustment */
+      bottom: -30px; 
+    }
+    .form {
+      
+        margin-bottom: 50px;
+      }
+  }

@@ -23,7 +23,7 @@ export const router = createBrowserRouter(
           { path: "schedules", element: <SchedulesMainPage /> },
           { path: "activities", element: <ActivitiesMainPage /> },
           { path: "news", element: <NewsMainPage /> },
-          { path: "contact", element: <ContactMainPage /> }, // Only one contact route
+          { path: "contact", element: <ContactMainPage /> },
           { path: "aboutUs", element: <AboutUsPage /> },
     //       { path: 'user/new', element: <UserDialog mode={UserDialogMode.Add} /> }, // Route for adding a user
     //   { path: 'user/:id', element: <UserDialog mode={UserDialogMode.Edit} /> },

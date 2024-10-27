@@ -48,9 +48,7 @@ const PageTextPart = ({
       >
         <a
           href=""
-          style={{
-            fontSize: "inherit",
-          }}
+          style={{ color: "#337f83", textDecoration: "none",fontWeight: "bold" }}
         >
           {linkSubtitle}
         </a>

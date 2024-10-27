@@ -10,8 +10,8 @@ const Footer: React.FC = () => {
       sx={{
         width: "100%",
         // backgroundColor: "transparent",
-        backgroundColor:"#7089AC",
-        color: "#202A44",
+        backgroundColor:"#202A44",
+        color: "#CED9E5",
         
     
         padding: "20px",

@@ -34,14 +34,14 @@ export default function NewHereSectionGrid({
       <Box
         sx={{
           width: "100%", // Ensure the container takes full width
-          maxWidth: "700px", // Maximum width for large screens
+          maxWidth: "640px", // Maximum width for large screens
           position: "relative",
           display: "flex",
           alignItems: "flex-end",
           paddingTop: {
             xs: "56.25%", // 16:9 aspect ratio for smaller screens
-            md: "30%", // Less padding for medium screens
-            lg: "20%", // Even less padding for large screens
+            md: "35%", // Less padding for medium screens
+            lg: "19%", // Even less padding for large screens
           },
         }}
       >
@@ -54,7 +54,7 @@ export default function NewHereSectionGrid({
           style={{
             position: "absolute",
             top: 0,
-           
+           left:0,
             width: "100%",
             height: "100%",
           }}
@@ -67,23 +67,22 @@ export default function NewHereSectionGrid({
           textAlign: "center",
           justifyContent: "center",
           alignItems: "center",
+          marginTop: "30px",
         }}
       >
         <Typography
           variant="h3"
-          sx={{
-            marginTop: "10px",
-
+          sx={{  
             fontWeight: {
               xs: 400,
               sm: 500,
-            },
+            }, 
             fontSize: {
-              lg: "40px",
-              md: "30px",
-              sm: "30px",
-              xs: "28px",
-            },
+                lg: "40px",
+                md: "30px",
+                sm: "30px",
+                xs: "28px",
+              },
             color: "#1B365D",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
@@ -133,21 +132,28 @@ export default function NewHereSectionGrid({
             marginTop: "0px",
             // backdropFilter: "blur(5px)",
             //backgroundColor: "rgba(255, 255, 255, 0.4)",
-            paddingTop: "40px",
-            paddingBottom: "40px",
-            marginBottom: "60px",
+            paddingTop: "20px",
+            paddingBottom: "20px",
+            marginBottom: "20px",
             alignItems: "center",
             justifyContent: "center",
             maxWidth: "1100px",
             marginLeft: "auto",
             marginRight: "auto",
+            
+              fontSize: {
+                lg: "25px",
+                md: "20px",
+                sm: "20px",
+                xs: "18px",
+              },
           }}
         >
           <HashLink
             to="/services#sundayService"
             style={{
               display: "block",
-              fontSize: "25px",
+            
               color: "black",
               fontWeight: "500",
             }}
@@ -158,7 +164,7 @@ export default function NewHereSectionGrid({
             to="/services#serve"
             style={{
               display: "block",
-              fontSize: "25px",
+            
               color: "black",
               fontWeight: "500",
             }}
@@ -169,7 +175,7 @@ export default function NewHereSectionGrid({
             to="/activities#groups"
             style={{
               display: "block",
-              fontSize: "25px",
+             
               color: "black",
               fontWeight: "500",
             }}

@@ -379,7 +379,7 @@ export const sundayServiceSection  = {
 export const prayerService = {
     id:'12',
   title: "We want to pray for you!",
-  linkSubtitle: "send in your prayer requiest any time",
+  linkSubtitle: "send in your prayer",
   images: Prayer,
   description:
     "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes. Engaging worship music. Come as you are. There is no dress code.",
