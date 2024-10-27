@@ -219,7 +219,7 @@ const AboutUsPage = () => {
         />
       </Box>
       <SectionLine text="Medlemskap" />
-      <div id="userTable"></div>
+      <div aria-hidden={modalOpen ? 'false' : 'true'} id="userTable"></div>
       <UserTable />
       <SectionLine text="Vår historia"  />
       <Box
@@ -231,7 +231,7 @@ const AboutUsPage = () => {
           flexDirection: "column",
           alignItems: "center",
         }}
-        id="userTable"
+      
       ></Box>
     </Box>
   );

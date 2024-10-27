@@ -4,8 +4,8 @@ import { useLocalStorage } from '../hooks/UseLocalStorage';
 import initialUsers from '../data';
 
 export const UserContext = createContext({
-    users: [] as User[],
-    setUsers: (_users: User[]) => {},
+    devUsers: [] as User[],
+    setDevUsers: (_users: User[]) => {},
     addUser: (_newUser: User) => {},
     removeUser: (_id: string) => {},
     removeUsers: (_id: string[]) => {},
@@ -14,25 +14,25 @@ export const UserContext = createContext({
 export function UserProvider({ children }: { children: React.ReactNode }) {
   
   
-    const [users, setUsers] = useLocalStorage<User[]>("users", initialUsers);
+    const [devUsers, setDevUsers] = useLocalStorage<User[]>("devUsers", initialUsers);
 
     
     const addUser = (newUser: User) => {
-        const updatedData = [...users, newUser];
-        setUsers(updatedData);
+        const updatedData = [...devUsers, newUser];
+        setDevUsers(updatedData);
       };
     
       const removeUser = (id: string) => {
-        const updatedUsersData = users.filter((user) => user.id !== id);
-        setUsers(updatedUsersData);
+        const updatedUsersData = devUsers.filter((user) => user.id !== id);
+        setDevUsers(updatedUsersData);
       };
     const removeUsers = (ids: string[]) => {
-        const updatedUsersData = users.filter((user) => !ids.includes(user.id));
-        setUsers(updatedUsersData);
+        const updatedUsersData = devUsers.filter((user) => !ids.includes(user.id));
+        setDevUsers(updatedUsersData);
       };
     return (
       <UserContext.Provider
-        value={{ users, setUsers, addUser, removeUsers,removeUser }}
+        value={{ devUsers, setDevUsers, addUser, removeUsers,removeUser }}
       >
         {children}
       </UserContext.Provider>

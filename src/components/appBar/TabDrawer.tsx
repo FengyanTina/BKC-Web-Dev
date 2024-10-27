@@ -41,7 +41,7 @@ export default function TabDrawer({
 }: TabDrawerProps) {
   type NavItem = (typeof navItems)[number];
   const navigate = useNavigate();
-  const { currentUser } = useAuth();
+  const { currentDevUser: currentUser } = useAuth();
 
   // Map icons to each nav item with proper typing
   const icons: Record<NavItem, JSX.Element> = {

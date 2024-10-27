@@ -288,7 +288,7 @@ export default class EventsCalendar extends React.Component<{}, DemoAppState> {
   }
 
   renderSidebar() {
-    const { currentUser } = this.context;
+    const { currentDevUser: currentUser } = this.context;
     // Check if action buttons exist
     const isAdmin = currentUser?.category === UserCategory.Admin;
     console.log("logedin user", currentUser);

@@ -7,6 +7,7 @@ import SectionLine from "../../components/pageSections/SectionLine";
 import Carousel from "../../components/slides/Carousel";
 import EventCalendar from "../../components/calendars/EventCalendar";
 import CollapsibleTable from "../../components/tables/ServingScheduleTable";
+import MyCalendar from "../../components/calendars/MyCalendar";
 
 export default function SchedulesMainPage() {
   return (
@@ -47,7 +48,8 @@ export default function SchedulesMainPage() {
            id="eventCalendar"
         >
           {/* <EventsCalendar /> */}
-          <EventCalendar />
+          {/* <EventCalendar /> */}
+          <MyCalendar/>
         </Box>
         <Box  sx={{
           

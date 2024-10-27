@@ -16,7 +16,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import HuvudloggaBKC3 from "../../assets/Huvudlogga-BKC3.png";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -26,8 +26,9 @@ import LoginModal from "../../pages/logIn/LoginModal";
 export default function TabBar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const currentTab = location.pathname;
-  const { currentUser, logout } = useAuth();
+  //const currentTab = location.pathname;
+  const currentTab = location.pathname === '/' ? '/home' : location.pathname;
+  const { currentDevUser: currentUser, logout } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [logOutFormOpen, setlogOutFormOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -93,17 +94,6 @@ export default function TabBar() {
             <MenuIcon />
           </IconButton>
 
-          {/* <Typography
-            variant="h2"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { md: "block", sm: "block", xs: "none" },
-              fontSize: "4rem",
-
-            }}
-          > */}
-          {/* <img src={HuvudloggaBKC3} alt="Logo" style={{ marginRight: 10 }} /> */}
           <Typography variant="h5" sx={{ fontWeight: "bold" }}>
             {" "}
             Borås Kristna Center
@@ -136,56 +126,32 @@ export default function TabBar() {
               <Tab
                 value="/home"
                 label="Home"
-                sx={{
-                  fontSize: "1.2rem",
-                  color: "white",
-                  fontWeight: 800,
-                }}
+                sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
               <Tab
                 value="/aboutUs"
                 label="About us"
-                sx={{
-                  fontSize: "1.2rem",
-                  color: "white",
-                  fontWeight: 800,
-                }}
+                sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
               <Tab
                 value="/schedules"
                 label="Schedules"
-                sx={{
-                  fontSize: "1.2rem",
-                  color: "white",
-                  fontWeight: 900,
-                }}
+                sx={{ fontSize: "1.2rem", color: "white", fontWeight: 900 }}
               />
               <Tab
                 value="/services"
                 label="Services"
-                sx={{
-                  fontSize: "1.2rem",
-                  color: "white",
-                  fontWeight: 800,
-                }}
+                sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
               <Tab
                 value="/activities"
                 label="Activities"
-                sx={{
-                  fontSize: "1.2rem",
-                  color: "white",
-                  fontWeight: 800,
-                }}
+                sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
               <Tab
                 value="/contact"
                 label="Contact"
-                sx={{
-                  fontSize: "1.2rem",
-                  color: "white",
-                  fontWeight: 800,
-                }}
+                sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
 
               {currentUser ? (

@@ -23,7 +23,7 @@ import AddIcon from "@mui/icons-material/Add";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Button,
   Dialog,
@@ -33,8 +33,9 @@ import {
   DialogTitle,
 } from "@mui/material";
 import { useContext, useState } from "react";
-import { User } from "../../models/User";
+import { User, UserDialogMode } from "../../models/User";
 import { UserContext } from "../../context/UserContext";
+import UserDialog from "../forms/userDialog";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   const aValue = a[orderBy] ?? ""; // Default to empty string if undefined
@@ -183,6 +184,24 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const [open, setOpen] = useState(false);
   const [idsToDelete, setIdsToDelete] = useState<string[]>([]); // To store selected IDs for deletion
 
+  const { devUsers } = useContext(UserContext); // Assuming you're using UserContext to get users
+  const navigate = useNavigate();
+  const [dialogMode, setDialogMode] = useState<UserDialogMode>(UserDialogMode.Add);
+  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [openDialog, setOpenDialog] = useState(false);
+  const handleAddUser = () => {
+      setDialogMode(UserDialogMode.Add); // Set mode to add
+      setOpenDialog(true); // Open the dialog
+    };
+  
+    // Function to handle the edit action
+    const handleEditUser = (userId: string) => {
+        setDialogMode(UserDialogMode.Edit); // Set mode to edit
+        setSelectedUserId(userId); // Save the selected user ID
+        setOpenDialog(true); // Open the dialog
+    };
+
+
   const handleOpenDialog = () => {
     setIdsToDelete([...selectedIds]); // Store the selected IDs
     setOpen(true);
@@ -190,6 +209,12 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
   const handleCloseDialog = () => {
     setOpen(false);
+ 
+  };
+  const handleCloseForm  = () => {
+    setOpen(false);
+    setOpenDialog(false);
+    navigate("/aboutUs#userTable")
   };
 
   const handleConfirmDelete = () => {
@@ -234,17 +259,18 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             Members
           </Typography>
           <Tooltip title="Add">
-            <IconButton component={Link} to="/user/new">
+            <IconButton onClick={handleAddUser}>
               <AddIcon />
             </IconButton>
           </Tooltip>
+          {openDialog && <UserDialog mode={dialogMode} onClose={handleCloseForm} />}
         </>
       )}
 
       {numSelected > 0 ? (
         <>
           <Tooltip title="Edit">
-            <IconButton component={Link} to={`/user/${selectedIds[0]}`}>
+            <IconButton onClick={() => handleEditUser(selectedIds[0])}>
               <EditIcon />
             </IconButton>
           </Tooltip>
@@ -294,7 +320,7 @@ export default function UserTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const { users } = useContext(UserContext);
+  const { devUsers } = useContext(UserContext);
 
   const handleRequestSort = (
     _: React.MouseEvent<unknown>,
@@ -307,7 +333,7 @@ export default function UserTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = users.map((n) => n.id);
+      const newSelected = devUsers.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
@@ -350,14 +376,14 @@ export default function UserTable() {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - users.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - devUsers.length) : 0;
 
   const visibleRows = React.useMemo(
     () =>
-      [...users]
+      [...devUsers]
         .sort(getComparator(order, orderBy))
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [users, order, orderBy, page, rowsPerPage]
+    [devUsers, order, orderBy, page, rowsPerPage]
   );
 
   return (
@@ -380,7 +406,7 @@ export default function UserTable() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={users.length}
+              rowCount={devUsers.length}
             />
             <TableBody>
               {visibleRows.map((row, index) => {
@@ -445,7 +471,7 @@ export default function UserTable() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={users.length}
+          count={devUsers.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

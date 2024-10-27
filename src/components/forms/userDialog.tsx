@@ -1,55 +1,47 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import TextField from "@mui/material/TextField";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-
-import Grid from "@mui/material/Grid2";
-import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from "@mui/material";
-import { HashLink } from 'react-router-hash-link';
-import { UserContext } from "../../context/UserContext";
 import { defaultUser, User, UserCategory, UserDialogMode } from "../../models/User";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 import { generateUniqueId } from "../../utils/GenerateUniqueId";
+import { Box, Button, Dialog, DialogContent, DialogTitle, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import { useForm } from "react-hook-form";
 
 
 type UserDialogProps = {
-  mode: UserDialogMode;
+    mode: UserDialogMode;
+    onClose: () => void; // Function to handle closing the dialog
 };
 
-function UserDialog({ mode }: UserDialogProps) {
-   
+function UserDialog({ mode, onClose }: UserDialogProps) {
   const navigate = useNavigate();
-  const { users, setUsers, addUser } = useContext(UserContext);
+  const { devUsers, setDevUsers, addUser } = useContext(UserContext);
   const { id } = useParams();
   const initialUser =
-    mode === UserDialogMode.Edit
-      ? users.find((i) => i.id === id)
-      : defaultUser();
+  mode === UserDialogMode.Edit
+    ? devUsers.find((i) => i.id === id)
+    : defaultUser();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<User>({
-    shouldUseNativeValidation: false,
-    values: initialUser,
-  });
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+      } = useForm<User>({
+        shouldUseNativeValidation: false,
+        defaultValues: initialUser, // Use defaultValues instead of values
+      });
 
+  
 
- 
   // Should be used with data from the product dialog
   const createOrEditUser = (userFromDialog: User) => {
     console.log("mode", mode);
     if (mode === UserDialogMode.Edit) {
-      const updatedUsers = users.map((user) =>
+      const updatedUsers = devUsers.map((user) =>
         user.id === userFromDialog.id ? userFromDialog : user
       );
-      setUsers(updatedUsers);
+      setDevUsers(updatedUsers);
     } else {
       addUser({ ...userFromDialog, id: generateUniqueId() });
     }
@@ -61,21 +53,21 @@ function UserDialog({ mode }: UserDialogProps) {
     }
     createOrEditUser(user);
     reset();
+    onClose();
     // navigate("/aboutUs");
     navigate("/aboutUs#userTable");
   };
 
-
   return (
-    <Dialog open={true} onClose={() => navigate("/aboutUs#userTable")}>
+    <Dialog open={true} onClose={() =>onClose}>
       {mode === UserDialogMode.Edit ? (
-        <DialogTitle >Edit User: {id} </DialogTitle>
+        <DialogTitle>Edit User: {id} </DialogTitle>
       ) : (
         <DialogTitle>Add User</DialogTitle>
       )}
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmit)}>
-        <TextField
+          <TextField
             label="Firstname"
             fullWidth
             error={!!errors.firstName}
@@ -113,7 +105,6 @@ function UserDialog({ mode }: UserDialogProps) {
               required: "UserId is required.",
             })}
           />
-        <HashLink to=''></HashLink>
           <TextField
             error={!!errors.phoneNumber}
             helperText={errors.phoneNumber?.message}
@@ -141,7 +132,7 @@ function UserDialog({ mode }: UserDialogProps) {
           <TextField
             error={!!errors.email}
             helperText={errors.email?.message}
-           type="string"
+            type="string"
             margin="normal"
             label="Email"
             fullWidth
@@ -162,22 +153,23 @@ function UserDialog({ mode }: UserDialogProps) {
               },
             })}
           />
-     <FormControl fullWidth margin="normal" error={!!errors.category}>
-          <InputLabel id="category-label">Category</InputLabel>
-          <Select
-            labelId="category-label"
-            {...register("category", { required: "Category is required." })} // Register the category field
-          >
-            {Object.values(UserCategory).map((category) => (
-              <MenuItem key={category} value={category}>
-                {category.charAt(0).toUpperCase() + category.slice(1)} {/* Capitalizing category names */}
-              </MenuItem>
-            ))}
-          </Select>
-          <FormHelperText>{errors.category?.message}</FormHelperText>
-        </FormControl>
+          <FormControl fullWidth margin="normal" error={!!errors.category}>
+            <InputLabel id="category-label">Category</InputLabel>
+            <Select
+              labelId="category-label"
+              defaultValue="" 
+              {...register("category", { required: "Category is required." })} // Register the category field
+            >
+              {Object.values(UserCategory).map((category) => (
+                <MenuItem key={category} value={category}>
+                  {category.charAt(0).toUpperCase() + category.slice(1)}{" "}
+                  {/* Capitalizing category names */}
+                </MenuItem>
+              ))}
+            </Select>
+            <FormHelperText>{errors.category?.message}</FormHelperText>
+          </FormControl>
 
-         
           <Grid size={{ xs: 12, sm: 4 }} paddingLeft={3} py={1}>
             <TextField
               error={!!errors.address}
@@ -200,13 +192,12 @@ function UserDialog({ mode }: UserDialogProps) {
             />
           </Grid>
 
-          <Grid size={{ xs: 12,  md:12}} paddingLeft={3} py={1}>
+          <Grid size={{ xs: 12, md: 12 }} paddingLeft={3} py={1}>
             <TextField
               error={!!errors.zipcode}
               helperText={errors.zipcode?.message}
               type="text"
               autoComplete="postal-code"
-             
               label="Zipcode"
               variant="standard"
               {...register("zipcode", {
@@ -225,7 +216,6 @@ function UserDialog({ mode }: UserDialogProps) {
               })}
             />
           </Grid>
-          
 
           <Box display={"flex"} justifyContent={"flex-end"} marginTop={"16px"}>
             <Button
@@ -239,12 +229,11 @@ function UserDialog({ mode }: UserDialogProps) {
             <Button
               variant="contained"
               color="secondary"
-              onClick={() => navigate("/aboutUs#userTable")}
+              onClick={() => onClose()}
             >
               Cancel
             </Button>
           </Box>
-
         </form>
       </DialogContent>
     </Dialog>

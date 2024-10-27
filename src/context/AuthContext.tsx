@@ -4,7 +4,7 @@ import { User } from "../models/User";
 import useInactivityLogout from "../hooks/UserInactiveLogout";
 
 export interface AuthContextType {
-  currentUser: User | null;
+  currentDevUser: User | null;
   login: (userName: string, password: string) => void;
   logout: () => void;
   error: string | null;
@@ -17,11 +17,11 @@ export const AuthContext = createContext<AuthContextType | undefined>(
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [currentUser, setCurrentUser] = useLocalStorage<User | null>(
-    "currentUser",
+  const [currentDevUser, setCurrentDevUser] = useLocalStorage<User | null>(
+    "currentDevUser",
     null
   );
-  const [storedUsers] = useLocalStorage<User[]>("users", []);
+  const [storedUsers] = useLocalStorage<User[]>("devUsers", []);
   const [error, setError] = useState<string | null>(null);
   const timeoutDuration = 20 * 60 * 1000;
 
@@ -36,14 +36,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       return;
     }
 
-    setCurrentUser(user); // Store the user in localStorage
+    setCurrentDevUser(user); // Store the user in localStorage
     setError(null); 
+    console.log('Login successful:', user);
   };
 
   // Handle logout
   const logout = useCallback(() => {
-    setCurrentUser(null); // Clear current user
-    localStorage.removeItem("currentUser");
+    setCurrentDevUser(null); // Clear current user
+    localStorage.removeItem("currentDevUser");
     setError(null); 
   }, []);
 
@@ -51,7 +52,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   useInactivityLogout(timeoutDuration, logout);
 
   return (
-    <AuthContext.Provider value={{ currentUser, login, logout, error }}>
+    <AuthContext.Provider value={{ currentDevUser,  login, logout, error }}>
       {children}
     </AuthContext.Provider>
   );
