@@ -27,6 +27,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Handle login logic with error handling
   const login = (userName: string, password: string) => {
+    setError(null);
     const user = storedUsers.find(
       (user) => user.userName === userName && user.userId === password
     );

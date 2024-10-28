@@ -36,17 +36,10 @@ const Sidebar = ({
 
   return (
     <div className="demo-app-sidebar">
-      <div className="demo-app-sidebar-section">
-        <h2>Instructions</h2>
-        <ul>
-          <li>Select dates and you will be prompted to create a new event</li>
-          <li>Drag, drop, and resize events</li>
-          <li>Click an event to delete it</li>
-        </ul>
-      </div>
+     
       <div className="demo-app-sidebar-section">
         <h2>All Events ({currentEvents.length})</h2>
-        <Paper elevation={1} style={{ marginBottom: "30px" }}>
+        <Paper elevation={1} style={{ marginBottom: "30px", backgroundColor:"#d0d8e0" }}>
           <Grid container spacing={0} style={{ padding: "10px" }}>
             {/* Header Row */}
             <Grid size={dateColumnSize}>
@@ -123,15 +116,14 @@ const SidebarEvent = ({
       <Grid size={actionColumnSize} style={{ textAlign: "left" }}>
         <Button
           onClick={() => handleDetail(event)}
-          variant="outlined"
-          style={{ backgroundColor: "#CED9E5", color: "#1B365D", marginRight: "5px" }}
+        
+          style={{ color: "#1B365D", marginRight: "5px" }}
         >
           Detail
         </Button>
         {onEdit && (
           <Button
             onClick={() => onEdit(event)}
-            variant="outlined"
             style={{ marginRight: "5px" }}
           >
             Edit

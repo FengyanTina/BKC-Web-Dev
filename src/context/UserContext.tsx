@@ -5,7 +5,6 @@ import initialUsers from '../data';
 
 export const UserContext = createContext({
     devUsers: [] as User[],
-    setDevUsers: (_users: User[]) => {},
     addUser: (_newUser: User) => {},
     removeUser: (_id: string) => {},
     removeUsers: (_id: string[]) => {},
@@ -32,7 +31,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       };
     return (
       <UserContext.Provider
-        value={{ devUsers, setDevUsers, addUser, removeUsers,removeUser }}
+        value={{ devUsers,  addUser, removeUsers,removeUser }}
       >
         {children}
       </UserContext.Provider>

@@ -20,8 +20,8 @@ const ImgTextSection = ({
   linkSubtitle,
   imageLeft = true,
 }: ImageInforSectionModel) => {
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   // Adjust `imageLeft` only if it's true on small screens
   const adjustedImageLeft = isSmallScreen || imageLeft;
@@ -32,28 +32,37 @@ const ImgTextSection = ({
     }
 
     return (
-      <div
-        style={{
+      <Box
+        sx={{
           width: "100%",
           position: "relative",
           overflow: "hidden",
+        
         }}
       >
         <img src={images} className="image-responsive" alt="" />
-      </div>
+      </Box>
     );
   };
   return (
-    <Box sx={{ flexGrow: 1, width:{md:"80%", sm:"100%"}  }}>
+    <Box sx={{ flexGrow: 1, width: { md: "70%", sm: "100%" } }}>
       <Grid
         container
         spacing={{ xs: 0, md: 0 }}
         columns={{ xs: 1, sm: 12, md: 12 }}
       >
-        {adjustedImageLeft ?  (
+        {adjustedImageLeft ? (
           <>
-            <Grid size={{ xs: 12, sm: 12, md: 6 }} >
-              <Item>{renderImage()}</Item>
+            <Grid size={{ xs: 12, sm: 12, md: 6 }}>
+              <Box
+                sx={{
+                  px: { 
+                    sm: 0,
+                  },
+                }}
+              >
+                {renderImage()}
+              </Box>
             </Grid>
             <Grid
               size={{ xs: 12, sm: 12, md: 6 }}
@@ -62,6 +71,7 @@ const ImgTextSection = ({
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 height: "100%",
+                mt:"30px"
               }}
             >
               {PageTextPart({
@@ -92,9 +102,7 @@ const ImgTextSection = ({
                 linkSubtitle,
               })}
             </Grid>
-            <Grid size={{ xs: 12, sm: 12, md: 6 }} >
-              <Item>{renderImage()}</Item>
-            </Grid>
+            <Grid size={{ xs: 12, sm: 12, md: 6 }}>{renderImage()}</Grid>
           </>
         )}
       </Grid>

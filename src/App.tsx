@@ -20,15 +20,12 @@ export default function App() {
         }}
       >
         <TabBar />
-        <Box  sx={{ flexGrow: 1 }}>
+        <Box  sx={{ flexGrow: 1, width:"100%",overflow:"hidden" }}>
           <Outlet />
         </Box>
         <Box
           component="footer"
-          sx={{
-            backgroundColor: "#f0f4f8",
-            mt: "auto",
-          }}
+         
         >
           <Footer />
         </Box>

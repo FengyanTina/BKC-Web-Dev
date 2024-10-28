@@ -28,7 +28,7 @@ export default function TabBar() {
   const location = useLocation();
   //const currentTab = location.pathname;
   const currentTab = location.pathname === '/' ? '/home' : location.pathname;
-  const { currentDevUser: currentUser, logout } = useAuth();
+  const { currentDevUser, logout } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [logOutFormOpen, setlogOutFormOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -93,12 +93,12 @@ export default function TabBar() {
           >
             <MenuIcon />
           </IconButton>
-
+<Box sx={{ml:2}}>
           <Typography variant="h5" sx={{ fontWeight: "bold" }}>
             {" "}
             Borås Kristna Center
-          </Typography>
-          {/* </Typography> */}
+          </Typography></Box>
+         
           <Box
             sx={{
               display: { lg: "flex", md: "none", sm: "none", xs: "none" },
@@ -107,6 +107,10 @@ export default function TabBar() {
               justifyContent: "center", // Center the MenuItems
               flexGrow: 1, // Allow the Box to grow to occupy space and center its content
               "&:focus": { outline: "none" },
+            ml:{
+                lg:10,
+                xl:50,
+            }
             }}
           >
             <Tabs
@@ -114,6 +118,7 @@ export default function TabBar() {
               onChange={handleChange}
               aria-label="secondary tabs"
               sx={{
+               
                 "& .MuiTabs-indicator": {
                   backgroundColor: "#00acc1",
                 },
@@ -154,7 +159,7 @@ export default function TabBar() {
                 sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
 
-              {currentUser ? (
+              {currentDevUser ? (
                 <Box
                   sx={{
                     display: "flex",
@@ -168,17 +173,17 @@ export default function TabBar() {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: "#9c27b0",
+                      color: "#337f83",
                       fontWeight: 800,
                       fontSize: "1.5rem",
                     }}
                   >
-                    {currentUser.firstName}
+                    {currentDevUser.firstName}
                   </Typography>
                   <Typography
                     variant="h5"
                     sx={{
-                      color: "#9c27b0",
+                      color: "#337f83",
                       fontWeight: 800,
                       marginLeft: "5px",
                     }}
@@ -189,7 +194,7 @@ export default function TabBar() {
                     color="inherit"
                     onClick={handleLogout}
                     sx={{
-                      color: "#9c27b0",
+                      color: "#337f83",
                       fontWeight: 800,
                       fontSize: "1.2rem",
                     }}

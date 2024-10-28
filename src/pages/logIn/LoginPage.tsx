@@ -21,15 +21,14 @@ import { useState } from "react";
     onClose: () => void;
   }
   const LoginPage = ({ onClose }: LoginPageProp) => {
-      const [username, setUsername] = useState<string>(""); // State for user username
-      const [password, setPassword] = useState<string>(""); // State for user password
-      const { login,error } = useAuth(); // Get login function and error from Auth context
+      const [username, setUsername] = useState<string>(""); 
+      const [password, setPassword] = useState<string>(""); 
+      const { login,error } = useAuth(); 
     
       const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
-          login(username, password); // Call the login function with username and password
+          login(username, password); 
       
-          // If login is successful, you can close the modal or perform other actions here
           if (!error) {
             onClose();
           }

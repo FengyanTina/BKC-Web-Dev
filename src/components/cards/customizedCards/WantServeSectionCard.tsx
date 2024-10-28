@@ -16,11 +16,9 @@ import socialActivity from "../../../assets/socialActivity.png";
 const WantServeSectionCard = ({
   title,
   subtitle,
-
   steps,
 }: BaptismSectionModel) => {
-  //   const imageCount = Array.isArray(images) ? images.length : 1; // Determine the number of images
-  //   const hasLargeImage = imageCount > 2;
+ 
   const theme = useTheme();
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -37,7 +35,7 @@ const WantServeSectionCard = ({
                   position: "relative",
                   paddingTop: {
                     xs: "56.25%", // 16:9 aspect ratio for smaller screens
-                    md: "30%", // Less padding for medium screens
+                    md: "40%", // Less padding for medium screens
                     lg: "50%", // Even less padding for large screens
                   },
                 }}
@@ -64,7 +62,7 @@ const WantServeSectionCard = ({
                   position: "relative",
                   paddingTop: {
                     xs: "56.25%", // 16:9 aspect ratio for smaller screens
-                    md: "30%", // Less padding for medium screens
+                    md: "40%", // Less padding for medium screens
                     lg: "50%", // Even less padding for large screens
                   },
                 }}
@@ -92,7 +90,7 @@ const WantServeSectionCard = ({
                   position: "relative",
                   paddingTop: {
                     xs: "56.25%", // 16:9 aspect ratio for smaller screens
-                    md: "30%", // Less padding for medium screens
+                    md: "40%", // Less padding for medium screens
                     lg: "50%", // Even less padding for large screens
                   },
                 }}
@@ -116,32 +114,17 @@ const WantServeSectionCard = ({
 
         {isSmallOrMediumScreen && (
           <>
+       
             <Box
-              sx={{
-                width: "100%", // Ensure the container takes full width
-                maxWidth: "640px", // Maximum width for large screens
-                position: "relative",
-                paddingTop: {
-                  xs: "56.25%", // 16:9 aspect ratio for smaller screens
-                  md: "30%", // Less padding for medium screens
-                  lg: "20%", // Even less padding for large screens
-                },
-                marginBottom: "30px",
-              }}
-            >
-              <img
-                src={serve1} // Use the imported image file
-                alt="Prayer Image 2" // Alt text for accessibility
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover", // Optional: Maintain aspect ratio
-                }}
-              />
-            </Box>
+        sx={{
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+        
+        }}
+      >
+        <img src={serve1} className="image-responsive" alt="" />
+      </Box>
           </>
         )}
         <Grid
@@ -203,7 +186,7 @@ const WantServeSectionCard = ({
               marginTop: "10px",
             }}
           >
-            <div>
+            <Box>
               {steps &&
                 steps.map((step, index) => (
                   <div key={index} style={{ marginBottom: "16px" }}>
@@ -211,6 +194,7 @@ const WantServeSectionCard = ({
                       variant="h5"
                       sx={{
                         textAlign: "left",
+                        px: 3,
                         fontSize: {
                           lg: "25px",
                           md: "20px",
@@ -236,7 +220,7 @@ const WantServeSectionCard = ({
                     </Typography>
                   </div>
                 ))}
-            </div>
+            </Box>
           </Box>
         </Grid>
       </Grid>

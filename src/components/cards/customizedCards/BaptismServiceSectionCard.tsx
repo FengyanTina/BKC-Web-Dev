@@ -10,13 +10,7 @@ import Grid from "@mui/material/Grid2";
 import { BaptismSectionModel } from "../../../models/BaptismSecionModel";
 import ImageGallary from "../../imageManagements/ImageGallary";
 
-const Item = styled("div")(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
 
-  ...theme.applyStyles("dark", {}),
-}));
 
 const BaptismServiceSectionCard = ({
   title,
@@ -28,25 +22,19 @@ const BaptismServiceSectionCard = ({
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const renderImage = () => (
-    <Grid size={{ xs: 12, sm: 12, md: 6 }}>
-      <Item>
+    <Grid size={{ xs: 12, sm: 12, md: 6 }} >
+      <Box >
         {Array.isArray(images) ? (
           <ImageGallary
             itemData={images.map((img) => ({ img: img }))}
             showAllAsFeatured={showAllAsFeatured}
           />
         ) : (
-          <div
-            style={{
-              width: "100%",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
+         
             <img src={images} className="image-responsive" alt="" />
-          </div>
+         
         )}
-      </Item>
+      </Box>
     </Grid>
   );
   const renderText = () => (
@@ -57,6 +45,8 @@ const BaptismServiceSectionCard = ({
         flexDirection: "column",
         justifyContent: "flex-start",
         height: "100%",
+        px: 3,
+        mt:"30px"
       }}
     >
       <Typography
@@ -64,7 +54,7 @@ const BaptismServiceSectionCard = ({
         sx={{
           textAlign: "center",
           mx: "auto",
-          px: 3,
+        
           marginBottom: "10px",
           fontSize: {
             lg: "40px",
@@ -82,7 +72,7 @@ const BaptismServiceSectionCard = ({
           sx={{
             textAlign: "center",
             mx: "auto",
-            px: 3,
+          
             mt: 3,
             fontSize: {
               lg: "30px",
@@ -107,7 +97,7 @@ const BaptismServiceSectionCard = ({
           overflowY: "auto",
         }}
       >
-        <div>
+        <Box>
           {steps &&
             steps.map((step, index) => (
               <div key={index} style={{ marginBottom: "16px" }}>
@@ -140,16 +130,15 @@ const BaptismServiceSectionCard = ({
                 </Typography>
               </div>
             ))}
-        </div>
+        </Box>
       </Box>
     </Grid>
   );
 
   return (
-    <Box sx={{ flexGrow: 1, width: { md: "80%", sm: "100%" } }}>
+    <Box sx={{ flexGrow: 1, width: { md: "70%", sm: "100%" } ,}}>
       <Grid
         container
-        spacing={{ xs: 0, md: 0 }}
         columns={{ xs: 1, sm: 12, md: 12 }}
       >
         {isSmallScreen ? (
@@ -161,8 +150,8 @@ const BaptismServiceSectionCard = ({
         ) : (
           // If not small screen, image on the right
           <>
-            {renderText()}
             {renderImage()}
+            {renderText()}
           </>
         )}
       </Grid>

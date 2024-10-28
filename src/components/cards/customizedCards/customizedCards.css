@@ -1,31 +1,28 @@
 .image-responsive {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    height: auto; 
     max-height: 500px;
-    object-fit: cover; /* Cover to maintain aspect ratio without distortion */
-    display: block; /* Prevents extra space below image */
+    object-fit: cover; 
 }
 
 
 @media (max-width: 700px) {
     .image-responsive {
-        max-height: 300px; /* Keep the same max height even below 900px */
-        height: auto;
+        max-height: 300px; 
+    
     }
    
 }
 @media (min-width: 701px)and (max-width: 1200px) {
     .image-responsive {
-        max-height: 350px; /* Keep the same max height even below 900px */
-        height: auto;
+        max-height: 350px; 
        
     }
     
 }
 @media (min-width: 1300px) {
     .image-responsive {
-      max-height: 400px; /* Different height for very large screens */
-      height: auto; /* Maintain aspect ratio */
+      max-height: 400px;    
     }
   }
 .image-gallery-custom {
