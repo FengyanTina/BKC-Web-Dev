@@ -1,6 +1,5 @@
 import {
   Box,
-  styled,
   Typography,
   useMediaQuery,
   useTheme,

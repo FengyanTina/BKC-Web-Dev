@@ -11,7 +11,6 @@ import Varhistoria from "./assets/Varhistoria.jpg"
 import DavidB from "./assets/DavidB.jpg"
 import socialActivity from "./assets/socialActivity.jpg"
 import { EventCategory,Event } from "./models/Event";
-import { ActivitySocialMediaScetionCardModel } from "./models/ActivitySocialMediaSectionModel";
 import { ImageInforSectionModel } from "./models/ImageInforSection";
 import { User, UserCategory } from "./models/User";
 import SundaySchoolTeaching  from "./assets/sundaySchool/sundayTeaching.jpg"

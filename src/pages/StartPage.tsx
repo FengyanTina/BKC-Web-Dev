@@ -23,7 +23,6 @@ import {
 import Carousel from "../components/slides/Carousel";
 import NewHereSectionGrid from "../components/pageSections/NewHereSection";
 import ImgInforCardSection from "../components/pageSections/ImgInforCardSection";
-import ActivitySocialMediaScetionCard from "../components/cards/customizedCards/ActivitySocialMediaScetionCard";
 import SlickSlider from "../components/slides/SlickSlider";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";

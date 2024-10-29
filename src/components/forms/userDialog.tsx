@@ -1,6 +1,6 @@
 import { useNavigate} from "react-router-dom";
 import { defaultUser, User, UserCategory, UserDialogMode } from "../../models/User";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
 import { generateUniqueId } from "../../utils/GenerateUniqueId";
 import { Box, Button, Dialog, DialogContent, DialogTitle, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField } from "@mui/material";
@@ -19,24 +19,36 @@ function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
   const navigate = useNavigate();
   const { devUsers, setDevUsers, addUser } = useContext(UserContext);
 
+  // Find the initial user details if in edit mode
   const initialUser =
-  mode === UserDialogMode.Edit
-    ? devUsers.find((i) => i.id === userId)
-    : defaultUser();
+    mode === UserDialogMode.Edit && userId
+      ? devUsers.find((i) => i.id === userId) || defaultUser()
+      : defaultUser();
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-      } = useForm<User>({
-        shouldUseNativeValidation: false,
-        defaultValues: initialUser, // Use defaultValues instead of values
-      });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<User>({
+    defaultValues: initialUser,
+  });
 
-  // Should be used with data from the product dialog
+  // Only reset form in Edit mode when dialog opens or user ID changes
+  useEffect(() => {
+    if (open) {
+      if (mode === UserDialogMode.Edit) {
+        // Reset with selected user data for Edit mode
+        reset(initialUser);
+      } else {
+        // Reset to default (empty) values for Add mode
+        reset(defaultUser());
+      }
+    }
+  }, [mode, open, userId, reset]);
+
+  // Function to add or update user
   const createOrEditUser = (userFromDialog: User) => {
-    console.log("mode", mode);
     if (mode === UserDialogMode.Edit) {
       const updatedUsers = devUsers.map((user) =>
         user.id === userFromDialog.id ? userFromDialog : user
@@ -47,14 +59,11 @@ function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
     }
   };
 
-  const onSubmit = async (user: User) => {
-    if (Object.keys(errors).length > 0) {
-      return;
-    }
+  // Form submission handler
+  const onSubmit = (user: User) => {
     createOrEditUser(user);
     reset();
     onClose();
-    // navigate("/aboutUs");
     navigate("/aboutUs#userTable");
   };
 

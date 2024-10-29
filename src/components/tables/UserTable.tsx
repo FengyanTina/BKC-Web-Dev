@@ -182,23 +182,25 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected, selectedIds, setSelected } = props;
   const { removeUsers } = React.useContext(UserContext);
   const [open, setOpen] = useState(false);
-  const [idsToDelete, setIdsToDelete] = useState<string[]>([]); // To store selected IDs for deletion
- // Assuming you're using UserContext to get users
+  const [idsToDelete, setIdsToDelete] = useState<string[]>([]); // To store selected IDs for 
   const navigate = useNavigate();
-  const [dialogMode, setDialogMode] = useState<UserDialogMode>(UserDialogMode.Add);
+  const [dialogMode, setDialogMode] = useState<UserDialogMode>(
+    UserDialogMode.Add
+  );
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
-  const [openDialog, setOpenDialog] = useState(false);
-  const handleAddUser = () => {
-      setDialogMode(UserDialogMode.Add); // Set mode to add
-      setOpenDialog(true); // Open the dialog
-    };
-  
+  const [openUserDialog, setUserDialogOpen] = useState(false);
 
-    const handleEditUser = (userId: string) => {
-        setDialogMode(UserDialogMode.Edit); // Set mode to edit
-        setSelectedUserId(userId); // Save the selected user ID
-        setOpenDialog(true); // Open the dialog
-    };
+  
+  const handleAddUser = () => {
+    setDialogMode(UserDialogMode.Add); // Set mode to add
+    setUserDialogOpen(true); // Open the dialog
+  };
+
+  const handleEditUser = (userId: string) => {
+      setDialogMode(UserDialogMode.Edit); // Set mode to edit
+      setSelectedUserId(userId); // Save the selected user ID
+      setUserDialogOpen(true); // Open the dialog
+  };
 
   const handleOpenDialog = () => {
     setIdsToDelete([...selectedIds]); // Store the selected IDs
@@ -207,12 +209,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
   const handleCloseDialog = () => {
     setOpen(false);
- 
   };
-  const handleCloseForm  = () => {
+  const handleCloseForm = () => {
     setOpen(false);
-    setOpenDialog(false);
-    navigate("/aboutUs#userTable")
+    setUserDialogOpen(false);
+    navigate("/aboutUs#userTable");
   };
 
   const handleConfirmDelete = () => {
@@ -261,23 +262,29 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
               <AddIcon />
             </IconButton>
           </Tooltip>
-         
+
           <UserDialog
-     mode={dialogMode}
-     userId={selectedUserId} // Pass the selected user ID to the dialog
-     open={openDialog}
-     onClose={handleCloseForm}
-      />
+            mode={dialogMode}
+            userId={selectedUserId} // Pass the selected user ID to the dialog
+            open={openUserDialog}
+            onClose={handleCloseForm}
+          />
         </>
       )}
 
       {numSelected > 0 ? (
         <>
           <Tooltip title="Edit">
-            <IconButton onClick={() => handleEditUser(selectedIds[0])}>
+            <IconButton onClick={() => handleEditUser(selectedIds[0])} disabled={numSelected === 0}>
               <EditIcon />
             </IconButton>
           </Tooltip>
+          <UserDialog
+            mode={dialogMode}
+            userId={selectedUserId} // Pass the selected user ID to the dialog
+            open={openUserDialog}
+            onClose={handleCloseForm}
+          />
           <Tooltip title="Delete">
             <IconButton onClick={handleOpenDialog}>
               <DeleteIcon />
@@ -429,7 +436,7 @@ export default function UserTable() {
                     sx={{
                       cursor: "pointer",
                       "& td": {
-                        padding: { xs: "8px", sm: "16px" }, 
+                        padding: { xs: "8px", sm: "16px" },
                       },
                     }}
                   >

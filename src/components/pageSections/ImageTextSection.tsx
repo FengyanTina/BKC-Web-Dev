@@ -1,16 +1,10 @@
-import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
+import { Box,useMediaQuery, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import "./imageText.css";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
 import ImageGallary from "../imageManagements/ImageGallary";
 import PageTextPart from "../cards/PageText";
 
-const Item = styled("div")(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
-  ...theme.applyStyles("dark", {}),
-}));
 const ImgTextSection = ({
   inforSectionId,
   title,
