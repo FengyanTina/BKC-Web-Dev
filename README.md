@@ -88,3 +88,6 @@ Description:
 
 Action Buttom && Links color
 #337f83
+
+Main boday: px 3
+Image and Text section: maxWidth: 400 px

@@ -5,6 +5,8 @@ import Typography from "@mui/material/Typography";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
 import { PageInforModel } from "../../models/PageInforModel";
 import { HashLink } from "react-router-hash-link";
+import { SocialIcon } from "react-social-icons";
+import { Box } from "@mui/material";
 
 export default function PageInforCard({
   category,
@@ -16,12 +18,13 @@ export default function PageInforCard({
   endTime,
   location,
   buttonLink,
+  showSocialIcons = false,
 }: PageInforModel) {
   return (
     <Card
       sx={{
         maxWidth: 500,
-        height: 350,
+        maxHeight: 400,
         border: "none",
         backgroundColor: "transparent",
         boxShadow: "none",
@@ -107,6 +110,34 @@ export default function PageInforCard({
         >
           {description}
         </Typography>
+        {showSocialIcons && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-start",
+              gap: "10px",
+              paddingTop: "10px",
+              paddingLeft: "10px",
+            }}
+          >
+            <SocialIcon
+              url="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter"
+              network="youtube"
+              style={{ height: 25, width: 25 }}
+            />
+            <SocialIcon
+              url="https://www.instagram.com/boraskristnacenter/"
+              network="instagram"
+              style={{ height: 25, width: 25 }}
+            />
+
+            <SocialIcon
+              url="https://www.facebook.com/BorasKristnaCenter/?locale=sv_SE"
+              network="facebook"
+              style={{ height: 25, width: 25 }}
+            />
+          </Box>
+        )}
       </CardContent>
       {buttonLink && (
         <CardActions>

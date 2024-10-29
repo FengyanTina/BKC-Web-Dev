@@ -13,6 +13,7 @@ const ImgInforCardSection = ({
   images,
   imageLeft = true,
   buttonLink,
+  showSocialIcons=false,
 }: ImageInforSectionModel) => {
   const renderImageGallery = () => {
     if (Array.isArray(images)) {
@@ -42,9 +43,8 @@ const ImgInforCardSection = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-       
-        backgroundColor: "#f0f4f8",
-      
+        backgroundColor: "#f0f4f8", 
+        px:3 
       }}
     >
       <Grid
@@ -81,6 +81,7 @@ const ImgInforCardSection = ({
               description={description}
               buttonText="Learn More"
               buttonLink={buttonLink}
+              showSocialIcons={showSocialIcons}
             />
           </Grid>
 
@@ -89,7 +90,7 @@ const ImgInforCardSection = ({
             size={{ xs: 12, sm: 6 }}
             sx={{
               maxWidth: 500,
-              height: 350,
+              maxHeight: 400,
               display: "flex",
               justifyContent: "center",
               transform: "translateZ(0)",

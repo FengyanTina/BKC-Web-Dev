@@ -152,6 +152,7 @@ export default function ActivitiesMainPage() {
         <SectionLine text="Andra Gruper"  />
         <Box
           sx={{
+           
             display: "flex",
             justifyContent: "center",
             alignContent: "center",

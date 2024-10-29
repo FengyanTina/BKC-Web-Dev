@@ -209,7 +209,7 @@ export const imageGallarytemData = [
   ];
   
   
-  export const socialMediaActivityCardInfor:ActivitySocialMediaScetionCardModel={
+  export const socialMediaActivityCardInfor={
     id: "1",
     inforSectionId:"",
     title: "All activities on Social media",

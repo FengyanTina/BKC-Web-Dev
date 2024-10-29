@@ -27,7 +27,7 @@ const AboutUsPage = () => {
   }, []);
 
   return (
-    <Box sx={{ marginTop: "150px", backgroundColor: "#f0f4f8" }}>
+    <Box sx={{ marginTop: "150px", backgroundColor: "#f0f4f8" ,px:3}}>
       <Grid
         container
         sx={{
@@ -56,7 +56,7 @@ const AboutUsPage = () => {
             style={{
               width: "100%",
               height: "auto", 
-              maxWidth: "600px", 
+              maxWidth: "400px", 
               objectFit: "cover", 
             }}
             src={Pastor.image}
@@ -68,7 +68,7 @@ const AboutUsPage = () => {
             display: "flex",
             flexDirection: "column", 
             justifyContent: "space-between", 
-            px: { xs: 5, sm: 10, md: 10 },
+            px: 3,
             fontSize: {
               lg: "40px",
               md: "30px",

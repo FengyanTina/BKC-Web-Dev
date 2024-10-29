@@ -185,13 +185,14 @@ const StartPage = () => {
               md:"340px"
             },
             height: {
-              xs: "45vh", 
-              sm: "55vh", // 50% of viewport height for medium screens
+              xs: "30vh", 
+              sm: "45vh", 
               md: "auto", 
               
             },
             marginBottom: "10px",
-            overflowY: "auto",
+            display:"flex",
+            justifyContent:"flex-end",
           }}
           size={{ xs: 12, sm: 12, md: 3 }}
         >
@@ -235,7 +236,7 @@ const StartPage = () => {
 
      <SectionLine text=" Aktiviteter och Tjänster"  />
      
-      <ActivitySocialMediaScetionCard
+      <ImgInforCardSection
       inforSectionId=""
       id={socialMediaActivityCardInfor.id}
         title={socialMediaActivityCardInfor.title}
@@ -244,6 +245,7 @@ const StartPage = () => {
         images={socialMediaActivityCardInfor.images}
         category={socialMediaActivityCardInfor.category}
         buttonLink={"/activities#groups"}
+        showSocialIcons={true}
       />
 
       {/* --------------ACTIVITIES-Sunday Service----------- */}

@@ -37,8 +37,8 @@ inforSectionId,
           size={{ xs: 12, sm: 6 }}
           sx={{
             maxWidth: 500,
-            height: 400,
-            transform: "translateZ(0)",
+            maxHeight: 300,
+           
             justifyContent: "center",
             overflow: "hidden",
           }}
@@ -52,7 +52,6 @@ inforSectionId,
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                maxHeight: "380px",
               }}
               alt=""
             />

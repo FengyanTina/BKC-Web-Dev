@@ -33,6 +33,7 @@ export default function RowAndColumnSpacing() {
         alignItems: "center",
         backgroundColor: "rgba(255, 255, 255, 0.3)",
         backdropFilter: "blur(10px)",
+        overflow:"auto"
       }}
     >
       <Grid container columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
