@@ -13,7 +13,7 @@ const ImgInforCardSection = ({
   images,
   imageLeft = true,
   buttonLink,
-  showSocialIcons=false,
+  showSocialIcons = false,
 }: ImageInforSectionModel) => {
   const renderImageGallery = () => {
     if (Array.isArray(images)) {
@@ -43,15 +43,79 @@ const ImgInforCardSection = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f0f4f8", 
-        px:3 
+        backgroundColor: "#f0f4f8",
+        px: 3,
+        py: 3,
       }}
     >
       <Grid
         container
         spacing={2}
-        sx={{ flexDirection: { xs: "column", sm: "row" } }}
+        sx={{
+          flexDirection: {
+            xs: "column-reverse",
+            sm: "column-reverse",
+            md: imageLeft ? "row-reverse" : "row",
+          },
+          maxWidth: 1200,
+          
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
+        {/* Updated */}
+        <Grid
+          size={{ xs: 12, sm: 12,md:6 }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            flexGrow: 1,
+            minHeight: { sm: "auto", md: 300, lg: 350 },
+            maxHeight: { xs: "auto", sm: "none", md: 400, lg: 450 },
+            width: "100%",
+          }}
+        >
+          <PageInforCard
+            id={inforSectionId}
+            category={category}
+            title={title}
+            subtitle={subtitle}
+            description={description}
+            buttonText="Learn More"
+            buttonLink={buttonLink}
+            showSocialIcons={showSocialIcons}
+          />
+        </Grid>
+
+        <Grid
+          size={{ xs: 12, sm: 12, md:6}}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexGrow: 1,
+            minHeight: { xs: "auto", sm: 200, md: 250, lg: 350 },
+            maxHeight: { xs: "auto", sm: 350, md: 400, lg: 450 },
+            width: "100%",
+            overflow: "hidden",
+          }}
+        >
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+              maxWidth: "800px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {renderImageGallery()}
+          </Box>
+        </Grid>
+
+        {/* Original  
         <Grid
           container
           spacing={2}
@@ -64,10 +128,11 @@ const ImgInforCardSection = ({
             justifyContent: "space-between",
           }}
         >
-          {/* Content Grid */}
+
           <Grid
             size={{ xs: 12, sm: 6 }}
             sx={{
+                
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -85,11 +150,11 @@ const ImgInforCardSection = ({
             />
           </Grid>
 
-          {/* Image Grid */}
+          
           <Grid
             size={{ xs: 12, sm: 6 }}
             sx={{
-              maxWidth: 500,
+              maxWidth: 600,
               maxHeight: 400,
               display: "flex",
               justifyContent: "center",
@@ -98,7 +163,7 @@ const ImgInforCardSection = ({
           >
             {renderImageGallery()}
           </Grid>
-        </Grid>
+        </Grid>*/}
       </Grid>
     </Box>
   );

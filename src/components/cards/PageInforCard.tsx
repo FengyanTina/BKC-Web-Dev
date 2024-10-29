@@ -23,8 +23,7 @@ export default function PageInforCard({
   return (
     <Card
       sx={{
-        maxWidth: 500,
-        maxHeight: 400,
+        height: "100%",
         border: "none",
         backgroundColor: "transparent",
         boxShadow: "none",

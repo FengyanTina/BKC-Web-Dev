@@ -1,10 +1,25 @@
-import { Box, Dialog, DialogContent, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Dialog,
+  DialogContent,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import background from "../assets/background.jpg";
 import { Link } from "react-router-dom";
 import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCalendar";
 import SectionLine from "../components/pageSections/SectionLine";
-import { comingEvents, homeGroupActivityCardInfor, newHere, news, socialMediaActivityCardInfor, sundaySchoolActivityCardInfor, sundayServiceCardInfor, youthActivityCardInfor } from "../data";
+import {
+  comingEvents,
+  homeGroupActivityCardInfor,
+  newHere,
+  news,
+  socialMediaActivityCardInfor,
+  sundaySchoolActivityCardInfor,
+  sundayServiceCardInfor,
+  youthActivityCardInfor,
+} from "../data";
 import Carousel from "../components/slides/Carousel";
 import NewHereSectionGrid from "../components/pageSections/NewHereSection";
 import ImgInforCardSection from "../components/pageSections/ImgInforCardSection";
@@ -16,14 +31,14 @@ import MyMap from "../apis/GoogleMap";
 import CloseIcon from "@mui/icons-material/Close";
 
 const StartPage = () => {
-    const [openMap, setOpenMap] = useState(false);
+  const [openMap, setOpenMap] = useState(false);
 
-    const handleOpenMap = () => {
-      setOpenMap(true);
-    };
-    const handleCloseMap = () => {
-      setOpenMap(false);
-    };
+  const handleOpenMap = () => {
+    setOpenMap(true);
+  };
+  const handleCloseMap = () => {
+    setOpenMap(false);
+  };
   return (
     <Box>
       <Grid
@@ -37,8 +52,8 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-evenly",
-          width: "100%", 
-         height:"100%",
+          width: "100%",
+          height: "100%",
           backgroundAttachment: "fixed",
         }}
       >
@@ -55,9 +70,9 @@ const StartPage = () => {
               textDecoration: "none", // No underline
               color: "black",
               fontSize: {
-                xs: "1rem", 
-                sm: "1.5rem", 
-              }, 
+                xs: "1rem",
+                sm: "1.5rem",
+              },
             },
             "& a::before": {
               content: '""',
@@ -78,7 +93,7 @@ const StartPage = () => {
               alignItems: "center", // Center horizontally
               textAlign: "center", // Center text content
               position: "relative", // To move the box up
-              marginTop: { xs: "100px",  },
+              marginTop: { xs: "100px" },
             }}
           >
             {/* First Typography - Borås Kristna Center */}
@@ -86,22 +101,22 @@ const StartPage = () => {
               variant="h5"
               sx={{
                 fontWeight: {
-                  xs: 700, 
-                  sm: 900, 
+                  xs: 700,
+                  sm: 900,
                 },
                 fontSize: {
-                  xs: "2rem", 
+                  xs: "2rem",
                   sm: "5rem",
                 },
                 lineHeight: {
-                  xs: "0.5em", 
-                  sm: "1em", 
+                  xs: "0.5em",
+                  sm: "1em",
                 },
-                color: "white",           
+                color: "white",
                 marginBottom: "30px",
               }}
             >
-             Välkommen
+              Välkommen
             </Typography>
 
             <Box
@@ -109,15 +124,14 @@ const StartPage = () => {
                 marginTop: "30px",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start", 
-                textAlign: "left", 
-                width: "100%", 
+                alignItems: "flex-start",
+                textAlign: "left",
+                width: "100%",
                 maxWidth: {
-                    md:"400px",
-                    sm:"300px",
-                    xs:"200px",
-                }
-               
+                  md: "400px",
+                  sm: "300px",
+                  xs: "200px",
+                },
               }}
             >
               <Typography
@@ -131,13 +145,15 @@ const StartPage = () => {
 
                   marginBottom: "50px",
                   fontSize: {
-                    xs: "1rem", 
-                    sm: "1.5rem", 
+                    xs: "1rem",
+                    sm: "1.5rem",
                   },
                 }}
+              ></Typography>
+              <Link
+                style={{ color: "white", textDecoration: "none" }}
+                to="/aboutUs"
               >
-              </Typography>
-              <Link style={{ color: "white", textDecoration: "none" }} to="/aboutUs">
                 About Us
               </Link>
               <Link
@@ -159,17 +175,17 @@ const StartPage = () => {
                 fullWidth
                 style={{ color: "white", textDecoration: "none" }}
               >
-                 <IconButton
+                <IconButton
                   edge="end"
                   color="inherit"
-                  onClick={handleCloseMap} 
+                  onClick={handleCloseMap}
                   aria-label="close"
-                  style={{ position: "absolute", right: 30, top: 15 }} 
+                  style={{ position: "absolute", right: 30, top: 15 }}
                 >
                   <CloseIcon />
                 </IconButton>
                 <DialogContent>
-                  <MyMap/>
+                  <MyMap />
                 </DialogContent>
               </Dialog>
             </Box>
@@ -180,19 +196,18 @@ const StartPage = () => {
           sx={{
             maxWidth: "90%",
             marginTop: {
-              xs: "20px", 
-              sm: "50px", 
-              md:"340px"
+              xs: "20px",
+              sm: "50px",
+              md: "340px",
             },
             height: {
-              xs: "30vh", 
-              sm: "45vh", 
-              md: "auto", 
-              
+              xs: "30vh",
+              sm: "45vh",
+              md: "auto",
             },
             marginBottom: "10px",
-            display:"flex",
-            justifyContent:"flex-end",
+            display: "flex",
+            justifyContent: "flex-end",
           }}
           size={{ xs: 12, sm: 12, md: 3 }}
         >
@@ -202,82 +217,57 @@ const StartPage = () => {
 
       {/* --------------Body----------- */}
       <Box
-         sx={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-            gap: "20px",
-            paddingTop: "30px",
-            backgroundColor: "#dbe1e8",      
-            marginBottom: "30px",
-          }}
+        sx={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+          gap: "20px",
+          paddingTop: "30px",
+          backgroundColor: "#dbe1e8",
+          marginBottom: "30px",
+        }}
       >
         {/* --------------COMMING EVENTS----------- */}
 
-        <SectionLine text="Kommande Evenemang" useWhiteStroke={true}/>
+        <SectionLine text="Kommande Evenemang" useWhiteStroke={true} />
         <Box sx={{ width: "80%" }}>
           <Carousel events={comingEvents} />
         </Box>
-    
 
-       {/* --------------WELCOME NEW----------- */}
-       <SectionLine text="Välkomna" useWhiteStroke={true}  />
+        {/* --------------WELCOME NEW----------- */}
+        <SectionLine text="Välkomna" useWhiteStroke={true} />
         <NewHereSectionGrid
-        inforSectionId=""
-        id={newHere.id}
+          inforSectionId=""
+          id={newHere.id}
           title={newHere.title}
-         description={newHere.description}
+          description={newHere.description}
           images={newHere.images}
           subtitle={newHere.subtitle}
         />
       </Box>
-     {/* --------------ACTIVITIES----------- */}
+      {/* --------------ACTIVITIES and Services----------- */}
 
-     <SectionLine text=" Aktiviteter och Tjänster"  />
-     
-      <ImgInforCardSection
-      inforSectionId=""
-      id={socialMediaActivityCardInfor.id}
-        title={socialMediaActivityCardInfor.title}
-        subtitle={socialMediaActivityCardInfor.subtitle}
-        description={socialMediaActivityCardInfor.description}
-        images={socialMediaActivityCardInfor.images}
-        category={socialMediaActivityCardInfor.category}
-        buttonLink={"/activities#groups"}
-        showSocialIcons={true}
-      />
+      <SectionLine text=" Aktiviteter och Tjänster" />
+      <Box sx={{ backgroundColor: "#dbe1e8" }}>
+        <ImgInforCardSection
+          inforSectionId=""
+          id={socialMediaActivityCardInfor.id}
+          title={socialMediaActivityCardInfor.title}
+          subtitle={socialMediaActivityCardInfor.subtitle}
+          description={socialMediaActivityCardInfor.description}
+          images={socialMediaActivityCardInfor.images}
+          category={socialMediaActivityCardInfor.category}
+          buttonLink={"/activities#groups"}
+          showSocialIcons={true}
+        />
 
-      {/* --------------ACTIVITIES-Sunday Service----------- */}
-      <Box sx={{backgroundColor:"#dbe1e8" }}>
-      <ImgInforCardSection
-      inforSectionId=""
-      id={sundayServiceCardInfor.id}
-        title={sundayServiceCardInfor.title}
-        subtitle={sundayServiceCardInfor.subtitle}
-        description={sundayServiceCardInfor.description}
-        images={sundayServiceCardInfor.images}
-        category={""}
-        imageLeft={false}
-        buttonLink={"/services#sundayService"}
-      /></Box>
+        {/* --------------ACTIVITIES-Sunday Service----------- */}
 
-      {/* --------------ACTIVITIES-BKC Kids----------- */}
+      
       <ImgInforCardSection
-      inforSectionId=""
-      id={sundaySchoolActivityCardInfor.id}
-        title={sundaySchoolActivityCardInfor.title}
-        subtitle={sundaySchoolActivityCardInfor.subtitle}
-        description={sundaySchoolActivityCardInfor.description}
-        images={sundaySchoolActivityCardInfor.images}
-        category={""}
-        buttonLink={"/activities#sundaySchool"}
-        
-      />
-      {/* --------------ACTIVITIES-Youth----------- */}
-      <ImgInforCardSection
-      inforSectionId=""
-      id={youthActivityCardInfor.id}
+        inforSectionId=""
+        id={youthActivityCardInfor.id}
         title={youthActivityCardInfor.title}
         subtitle={youthActivityCardInfor.subtitle}
         description={youthActivityCardInfor.description}
@@ -287,10 +277,33 @@ const StartPage = () => {
         buttonLink={"/activities#youth"}
       />
 
+      {/* --------------ACTIVITIES-BKC Kids----------- */}
+      <ImgInforCardSection
+        inforSectionId=""
+        id={sundaySchoolActivityCardInfor.id}
+        title={sundaySchoolActivityCardInfor.title}
+        subtitle={sundaySchoolActivityCardInfor.subtitle}
+        description={sundaySchoolActivityCardInfor.description}
+        images={sundaySchoolActivityCardInfor.images}
+        category={""}
+        buttonLink={"/activities#sundaySchool"}
+      />
+      {/* --------------ACTIVITIES-Youth----------- */}
+      <ImgInforCardSection
+        inforSectionId=""
+        id={sundayServiceCardInfor.id}
+        title={sundayServiceCardInfor.title}
+        subtitle={sundayServiceCardInfor.subtitle}
+        description={sundayServiceCardInfor.description}
+        images={sundayServiceCardInfor.images}
+        category={""}
+        imageLeft={false}
+        buttonLink={"/activities#youth"}
+      />
       {/* --------------ACTIVITIES-Groups----------- */}
       <ImgInforCardSection
-      id={homeGroupActivityCardInfor.id}
-      inforSectionId=""
+        id={homeGroupActivityCardInfor.id}
+        inforSectionId=""
         title={homeGroupActivityCardInfor.title}
         subtitle={homeGroupActivityCardInfor.subtitle}
         description={homeGroupActivityCardInfor.description}
@@ -298,6 +311,7 @@ const StartPage = () => {
         category={""}
         buttonLink={"/activities#otherGroups"}
       />
+       </Box>
       {/* --------------NEWS SLIDES----------- */}
       <Box
         sx={{
@@ -310,14 +324,14 @@ const StartPage = () => {
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
       >
-       <SectionLine text="Nyheter" />
+        <SectionLine text="Nyheter" />
         <Box
           sx={{
             backgroundColor: "#f0f4f8",
             width: "100%",
             marginBottom: "10px",
           }}
-        > 
+        >
           <SlickSlider events={news} />
         </Box>
       </Box>

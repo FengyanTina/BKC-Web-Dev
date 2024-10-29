@@ -9,7 +9,7 @@ import Prayer from "./assets/Prayer.jpg";
 import Bible from "./assets/Bible.jpg";
 import Varhistoria from "./assets/Varhistoria.jpg"
 import DavidB from "./assets/DavidB.jpg"
-import socialActivity from "./assets/socialActivity.png"
+import socialActivity from "./assets/socialActivity.jpg"
 import { EventCategory,Event } from "./models/Event";
 import { ActivitySocialMediaScetionCardModel } from "./models/ActivitySocialMediaSectionModel";
 import { ImageInforSectionModel } from "./models/ImageInforSection";
@@ -22,6 +22,7 @@ import SundaySchool5 from "./assets/sundaySchool/sundaySchool5.jpg"
 import SundaySchool6 from "./assets/sundaySchool/sundaySchool6.jpg"
 import SundaySchool7 from "./assets/sundaySchool/sundaySchool7.jpg"
 import SundaySchool8 from "./assets/sundaySchool/sundaySchool8.jpg"
+import sundayServe from "./assets/sundayServe.jpg"
 import { ImageGallaryItemData } from "./models/ImageGallaryItemData";
 import { PageInforModel } from "./models/PageInforModel";
 
@@ -128,8 +129,8 @@ const initialUsers: User[] = [
     subtitle:"välkommen till vår kyrka nu på söndag!",
     startTime:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundayService,
-    description:"Veckans höjdpunkt i kyrkan är våra gudstjänster! ",
-    images: Worship 
+    description:"Veckans höjdpunkt i kyrkan är våra gudstjänster!",
+    images: edward,
   }
   export const sundaySchoolActivityCardInfor:ImageInforSectionModel={
     id: "1",
@@ -139,7 +140,7 @@ const initialUsers: User[] = [
     startTime:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundaySchoole,
     description:"BKC-Kids är för barn mellan 2-12 år. Barnens egen gudstjänst där vi tillsammans får möta spännande bibelpersoner, lyssna på Guds ord, lekar och tävlingar, vi äter korv och pysslar tillsammans. Kom med du också!",
-    images: edward ,
+    images: sundayServe ,
   }
  
   export const youthActivityCardInfor:ImageInforSectionModel={

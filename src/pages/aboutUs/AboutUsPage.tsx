@@ -27,7 +27,8 @@ const AboutUsPage = () => {
   }, []);
 
   return (
-    <Box sx={{ marginTop: "150px", backgroundColor: "#f0f4f8" ,px:3}}>
+    <Box sx={{ marginTop: "150px", backgroundColor: "#f0f4f8" }}>
+     
       <Grid
         container
         sx={{
@@ -42,10 +43,11 @@ const AboutUsPage = () => {
           marginBottom: "20px",
           margin: "0 auto", // Center it horizontally
           flexGrow: "1",
+          px:6
         }}
       >
         <Grid
-          size={{ xs: 12, md: 6 }}
+          size={{ xs: 12, sm: 12, md: 6 }}
           sx={{
             display: "flex",
             justifyContent: "center", // Center the image horizontally
@@ -55,9 +57,9 @@ const AboutUsPage = () => {
           <img
             style={{
               width: "100%",
-              height: "auto", 
-              maxWidth: "400px", 
-              objectFit: "cover", 
+              height: "auto",
+              maxWidth: "650px",
+              objectFit: "cover",
             }}
             src={Pastor.image}
             alt=""
@@ -65,9 +67,12 @@ const AboutUsPage = () => {
         </Grid>
         <Grid
           sx={{
+            width: "100%",
+            maxHeight:450,
             display: "flex",
-            flexDirection: "column", 
-            justifyContent: "space-between", 
+            flexDirection: "column",
+            justifyContent: "space-between",
+            flexGrow: 1,
             px: 3,
             fontSize: {
               lg: "40px",
@@ -76,13 +81,13 @@ const AboutUsPage = () => {
               xs: "28px",
             },
           }}
-          size={{ xs: 12, md: 6 }}
+          size={{ xs: 12, sm: 12, md: 6 }}
           id="mainPastor"
         >
           <Typography
             sx={{
               marginTop: { xs: "20px", sm: "30px" },
-              width: "100%",
+
               fontSize: {
                 lg: "40px",
                 md: "36px",
@@ -97,7 +102,6 @@ const AboutUsPage = () => {
           <Typography
             sx={{
               marginTop: "10px",
-              width: "100%",
               fontSize: {
                 lg: "30px",
                 md: "25px",
@@ -112,12 +116,15 @@ const AboutUsPage = () => {
           <Box
             sx={{
               marginTop: "20px",
-              flexGrow: 1, 
+              
+              
+              position: "relative",
               display: "-webkit-box",
               overflow: "hidden",
               WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 11,
-              position: "relative",
+              WebkitLineClamp: 5, // Limits to 3 lines
+              textOverflow: "ellipsis", // Adds ellipsis
+              width:"100%",
             }}
           >
             {/* Directly using Box to prevent wrapping issues with Typography */}
@@ -131,6 +138,7 @@ const AboutUsPage = () => {
                       sm: "20px",
                       xs: "20px",
                     },
+                    
                   }}
                   variant="body1"
                 >
@@ -219,9 +227,9 @@ const AboutUsPage = () => {
         />
       </Box>
       <SectionLine text="Medlemskap" />
-      <div aria-hidden={modalOpen ? 'false' : 'true'} id="userTable"></div>
+      <div aria-hidden={modalOpen ? "false" : "true"} id="userTable"></div>
       <UserTable />
-      <SectionLine text="Vår historia"  />
+      <SectionLine text="Vår historia" />
       <Box
         sx={{
           marginTop: "50px",
@@ -231,7 +239,6 @@ const AboutUsPage = () => {
           flexDirection: "column",
           alignItems: "center",
         }}
-      
       ></Box>
     </Box>
   );
