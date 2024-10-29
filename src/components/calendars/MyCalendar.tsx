@@ -1,11 +1,11 @@
 import "./calendar.css";
 import React, { useState, useEffect } from "react";
-import FullCalendar from "@fullcalendar/react"; 
+import FullCalendar from "@fullcalendar/react";
 import { EventClickArg, EventContentArg } from "@fullcalendar/core";
-import dayGridPlugin from "@fullcalendar/daygrid"; 
-import svLocale from "@fullcalendar/core/locales/sv"; 
+import dayGridPlugin from "@fullcalendar/daygrid";
+import svLocale from "@fullcalendar/core/locales/sv";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction"; 
+import interactionPlugin from "@fullcalendar/interaction";
 import { useAuth } from "../../context/AuthContext";
 import Sidebar from "./EventScheduleSidbarTable";
 import ConfirmDeleteDialog from "../forms/ConfirmDeleteDialog";
@@ -20,7 +20,7 @@ interface CustomEvent {
   allDay: boolean;
   description?: string;
   location?: string;
-  repeatCount?: number; // Number of times to repeat
+  repeatCount?: number;
   selectedDays?: boolean[];
 }
 
@@ -28,8 +28,6 @@ let eventGuid = 0;
 export function createEventId(): string {
   return String(eventGuid++);
 }
-
-// Retrieve events from localStorage
 const getStoredEvents = (): CustomEvent[] => {
   const storedEvents = localStorage.getItem("events");
   return storedEvents ? JSON.parse(storedEvents) : INITIAL_EVENTS;
@@ -42,16 +40,16 @@ export const INITIAL_EVENTS: CustomEvent[] = [
   {
     id: createEventId(),
     title: "All-day event",
-    start: new Date().toISOString().split("T")[0], // Today (e.g., "2024-10-24")
-    end: new Date().toISOString().split("T")[0], // Same day for all-day event
+    start: new Date().toISOString().split("T")[0],
+    end: new Date().toISOString().split("T")[0],
     description: "This is an all-day event.",
     allDay: true,
   },
   {
     id: createEventId(),
     title: "Timed event",
-    start: new Date().toISOString().split("T")[0] + "T12:00:00", // Today at 12:00
-    end: new Date().toISOString().split("T")[0] + "T13:00:00", // Today at 13:00
+    start: new Date().toISOString().split("T")[0] + "T12:00:00",
+    end: new Date().toISOString().split("T")[0] + "T13:00:00",
     description: "This is a timed event.",
     allDay: false,
   },
@@ -59,13 +57,13 @@ export const INITIAL_EVENTS: CustomEvent[] = [
 
 const MyCalendar: React.FC = () => {
   const [currentEvents, setCurrentEvents] = useState<CustomEvent[]>(
-    getStoredEvents()
+    getStoredEvents().length > 0 ? getStoredEvents() : INITIAL_EVENTS
   );
   const [selectedEvent, setSelectedEvent] = useState<CustomEvent | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const { currentDevUser: currentUser } = useAuth();
+  const { currentDevUser } = useAuth();
   const [isConfirmDeleteOpen, setConfirmDeleteOpen] = useState<boolean>(false);
 
   const handleDelete = (event: CustomEvent) => {
@@ -94,66 +92,132 @@ const MyCalendar: React.FC = () => {
     localStorage.setItem("events", JSON.stringify(currentEvents));
   }, [currentEvents]);
 
+  const handleDateSelect = (selectInfo: any) => {
+    setSelectedEvent({
+      id: "",
+      title: "",
+      start: selectInfo.startStr,
+      end: selectInfo.endStr,
+      description: "",
+      location: "",
+      allDay: selectInfo.allDay,
+    });
+
+    setIsModalOpen(true);
+    setIsEditing(false);
+  };
+
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, type, value, checked } = e.target;
-    setSelectedEvent((prev) => {
-        if (!prev) return null;
 
-        if (name.startsWith('day_')) {
-            const dayIndex = parseInt(name.split('_')[1], 10);
-            const updatedDays = [...(prev.selectedDays || Array(7).fill(false))]; 
-            updatedDays[dayIndex] = checked; 
-            return { ...prev, selectedDays: updatedDays };
-        }
-        return { ...prev, [name]: type === 'checkbox' ? checked : value }; 
+    setSelectedEvent((prev) => {
+      if (!prev) return null;
+      if (name === "repeatCount") {
+        const newRepeatCount = Number(value);
+
+        const eventDate = new Date(prev.start); // Assuming start is in ISO format
+        const eventDay = eventDate.getDay(); // 0-Sunday, 1-Monday, ..., 6-Saturday
+
+        const updatedDays = Array(7).fill(false); // Start with all days unchecked
+        updatedDays[eventDay] = true; // Automatically check the event's scheduled day
+
+        return {
+          ...prev,
+          repeatCount: newRepeatCount,
+          selectedDays: updatedDays,
+        };
+      }
+
+      // Handle other fields
+      return { ...prev, [name]: type === "checkbox" ? checked : value };
     });
-};
+  };
 
   const handleEdit = (event: CustomEvent) => {
-    setSelectedEvent({ ...event });
+    setSelectedEvent({
+      ...event,
+      repeatCount: 0,
+    });
     setIsModalOpen(true);
     setIsEditing(true);
   };
 
   const handleSaveEvent = () => {
     if (selectedEvent) {
-      const updatedEvents = currentEvents.map((event) =>
-        event.id === selectedEvent.id ? { ...event, ...selectedEvent } : event
+      const repeatCount = selectedEvent.repeatCount ?? 0;
+      const startDate = new Date(selectedEvent.start);
+      const endDate = new Date(selectedEvent.end);
+      const allDay = selectedEvent.allDay;
+      const updatedSelectedEvent = {
+        ...selectedEvent,
+        start: startDate.toISOString(),
+        end: endDate.toISOString(),
+        allDay: allDay,
+      };
+      const isUpdatingExisting = currentEvents.some(
+        (event) => event.id === updatedSelectedEvent.id
       );
 
-      const newEvents = generateRecurringEvents(selectedEvent);
-      setCurrentEvents([...updatedEvents, ...newEvents]);
+      let updatedEvents;
+      if (isUpdatingExisting) {
+        updatedEvents = currentEvents.map((event) =>
+          event.id === updatedSelectedEvent.id
+            ? { ...event, ...updatedSelectedEvent }
+            : event
+        );
+      } else {
+        updatedEvents = [
+          ...currentEvents,
+          { ...updatedSelectedEvent, id: String(new Date().getTime()) },
+        ];
+      }
+
+      let newEvents: CustomEvent[] = [];
+      if (repeatCount > 0) {
+        newEvents = generateRecurringEvents(
+          updatedSelectedEvent,
+          endDate,
+          repeatCount
+        );
+      }
+
+      const finalEvents = [...updatedEvents, ...newEvents];
+      setCurrentEvents(finalEvents);
       setIsModalOpen(false);
       setSelectedEvent(null);
-      saveEventsToLocalStorage([...updatedEvents, ...newEvents]);
+      saveEventsToLocalStorage(finalEvents);
     }
   };
 
-  const generateRecurringEvents = (event: CustomEvent): CustomEvent[] => {
+  const generateRecurringEvents = (
+    event: CustomEvent,
+    endDate: Date,
+    repeatCount: number
+  ): CustomEvent[] => {
     const recurringEvents: CustomEvent[] = [];
-    const { repeatCount, selectedDays, start } = event;
+    const { selectedDays } = event;
+    const startDate = new Date(event.start || new Date().toISOString());
 
-    const startDate = new Date(start);
-    if (repeatCount)
-      for (let i = 0; i < repeatCount; i++) {
-        const currentDate = new Date(startDate);
-        currentDate.setDate(startDate.getDate() + i * 7); // Increment by 7 days for each occurrence
+    for (let i = 0; i < repeatCount; i++) {
+      const currentDate = new Date(startDate);
+      currentDate.setDate(startDate.getDate() + (i + 1) * 7);
+      selectedDays?.forEach((isSelected, index) => {
+        if (isSelected) {
+          const newEvent: CustomEvent = {
+            ...event,
+            id: `${event.id}-${i}-${index}`, // Unique ID for each instance
+            start: currentDate.toISOString(), // Adjust this as necessary for your logic
+            end: new Date(
+              currentDate.getTime() + (endDate.getTime() - startDate.getTime())
+            ).toISOString(), // Set end time
+          };
+          recurringEvents.push(newEvent);
+        }
+      });
+    }
 
-        selectedDays?.forEach((isSelected, index) => {
-          if (isSelected) {
-            const newEvent: CustomEvent = {
-              ...event,
-              id: String(new Date().getTime() + index), // Ensure unique ID
-              start: currentDate.toISOString(), // Adjust this as necessary for your logic
-              end: currentDate.toISOString(), // You might want to adjust the end date
-            };
-            recurringEvents.push(newEvent);
-          }
-        });
-      }
     return recurringEvents;
   };
-
 
   const handleEventClick = (clickInfo: EventClickArg) => {
     const clickedEvent = currentEvents.find(
@@ -193,6 +257,7 @@ const MyCalendar: React.FC = () => {
         }}
         initialView="dayGridMonth"
         selectable={true}
+        select={handleDateSelect}
         events={currentEvents}
         editable={true}
         selectMirror={true}
@@ -215,7 +280,7 @@ const MyCalendar: React.FC = () => {
       <Sidebar
         currentEvents={currentEvents}
         handleEdit={handleEdit}
-        currentUser={currentUser}
+        currentUser={currentDevUser}
         handleDelete={handleDelete}
         handleDetailOnTable={handleDetailOnTable}
       />
@@ -238,7 +303,6 @@ const MyCalendar: React.FC = () => {
         handleFieldChange={handleFieldChange}
         handleSaveEvent={handleSaveEvent}
       />
-      {/* <EventForm onClose={handleCloseModal} onSave={handleSaveEvent} open={isModalOpen} isEditing={isEditing} /> */}
     </div>
   );
 };

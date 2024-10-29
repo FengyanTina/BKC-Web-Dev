@@ -14,18 +14,19 @@ interface CustomEvent {
 }
 // Sidebar Component
 const Sidebar = ({
-  currentEvents,
-  handleEdit,
-  handleDelete,
-  handleDetailOnTable: handleDetail,
-  currentUser,
-}: {
-  currentEvents: CustomEvent[];
-  handleEdit: (event: CustomEvent) => void;
-  handleDelete: (event: CustomEvent) => void;
-  handleDetailOnTable: (event: CustomEvent) => void;
-  currentUser: any;
-}) => {
+    currentEvents,
+    handleEdit,
+   handleDelete,
+  
+   handleDetailOnTable: handleDetail,
+    currentUser,
+  }: {
+    currentEvents: CustomEvent[];
+    handleEdit: (event: CustomEvent) => void;
+    handleDelete: (event: CustomEvent) => void;
+    handleDetailOnTable: (event: CustomEvent) => void;
+    currentUser: any; // Adjust type based on your context
+  }) => {
   const isAdmin = currentUser?.category === UserCategory.Admin;
 
   const dateColumnSize = isAdmin ? 2 : 2;
@@ -64,8 +65,10 @@ const Sidebar = ({
               key={event.id}
               event={event}
               handleDetail={() => handleDetail(event)}
-              onEdit={isAdmin ? handleEdit : null}
-              onDelete={isAdmin ? handleDelete : null}
+                onEdit={isAdmin ? handleEdit : null}
+               onDelete={isAdmin ? handleDelete : null}
+            // onEdit={handleEdit}
+            // onDelete={handleDelete}
             />
           ))}
         </Paper>

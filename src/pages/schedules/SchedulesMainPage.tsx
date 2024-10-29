@@ -43,8 +43,7 @@ export default function SchedulesMainPage() {
           }}
            id="eventCalendar"
         >
-          {/* <EventsCalendar /> */}
-          {/* <EventCalendar /> */}
+         
           <MyCalendar/>
         </Box>
         <Box  sx={{
