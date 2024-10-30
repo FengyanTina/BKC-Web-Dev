@@ -12,8 +12,9 @@ import ConfirmDeleteDialog from "../forms/ConfirmDeleteDialog";
 import ScheduleEventDetailDialog from "../forms/ScheduleEventDetailDialog";
 import EventAddAndEditForm from "../forms/EventAddAndEditForm";
 import { CalendarEvent } from "../../models/CalendarEvent";
-import { generateRecurringEvents } from "../../hooks/generateRecurringEvents";
+
 import { createEventId } from "../../hooks/GenerateEventId";
+import { generateRepeatEvents } from "../../utils/GenerateRepeatEvent";
 
 
 
@@ -164,7 +165,7 @@ const EventScheduleCalendar: React.FC = () => {
 
       let newEvents: CalendarEvent[] = [];
       if (repeatCount > 0) {
-        newEvents = generateRecurringEvents(
+        newEvents = generateRepeatEvents(
           updatedSelectedEvent,
           endDate,
           repeatCount
