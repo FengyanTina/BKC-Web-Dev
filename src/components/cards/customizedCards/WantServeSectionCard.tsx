@@ -38,6 +38,7 @@ const WantServeSectionCard = ({
                     md: "40%", // Less padding for medium screens
                     lg: "50%", // Even less padding for large screens
                   },
+                 
                 }}
               >
                 <img
@@ -50,6 +51,7 @@ const WantServeSectionCard = ({
                     width: "100%",
                     height: "100%",
                     objectFit: "cover", // Optional: Maintain aspect ratio
+                    
                   }}
                 />
               </Box>
@@ -120,7 +122,7 @@ const WantServeSectionCard = ({
           width: "100%",
           position: "relative",
           overflow: "hidden",
-        
+        px:3
         }}
       >
         <img src={serve1} className="image-responsive" alt="" />

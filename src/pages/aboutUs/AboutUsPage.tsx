@@ -43,7 +43,7 @@ const AboutUsPage = () => {
           marginBottom: "20px",
           margin: "0 auto", // Center it horizontally
           flexGrow: "1",
-          px:6
+          px:3
         }}
       >
         <Grid
@@ -58,7 +58,7 @@ const AboutUsPage = () => {
             style={{
               width: "100%",
               height: "auto",
-              maxWidth: "650px",
+              maxWidth: "600px",
               objectFit: "cover",
             }}
             src={Pastor.image}
@@ -73,7 +73,7 @@ const AboutUsPage = () => {
             flexDirection: "column",
             justifyContent: "space-between",
             flexGrow: 1,
-            px: 3,
+            
             fontSize: {
               lg: "40px",
               md: "30px",
@@ -116,7 +116,6 @@ const AboutUsPage = () => {
           <Box
             sx={{
               marginTop: "20px",
-              
               
               position: "relative",
               display: "-webkit-box",
@@ -204,6 +203,7 @@ const AboutUsPage = () => {
             xs: "column",
           },
           gap: "50px",
+          px:3
         }}
         id="leaderShip"
       >

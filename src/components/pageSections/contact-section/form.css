@@ -42,7 +42,7 @@
   .form-submit {
   
     font-size: 5rem;
-    color: #1B365D;
+    color: white;
     position: relative;
   }
 
@@ -114,11 +114,6 @@
       height: 150px;
     }
   
-    .form-submit {
-      grid-area: submit;
-      color: #1B365D;
-      position: relative;
-    }
   }
   @media screen and (max-width: 798px) { /* Adjusted for small screens */
     .form-submit-circle {

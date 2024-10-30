@@ -230,7 +230,7 @@ const StartPage = () => {
         {/* --------------COMMING EVENTS----------- */}
 
         <SectionLine text="Kommande Evenemang" useWhiteStroke={true} />
-        <Box sx={{ width: "80%" }}>
+        <Box sx={{ width: "90%" }}>
           <Carousel events={comingEvents} />
         </Box>
 

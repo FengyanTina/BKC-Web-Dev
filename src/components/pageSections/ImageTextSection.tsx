@@ -31,7 +31,7 @@ const ImgTextSection = ({
           width: "100%",
           position: "relative",
           overflow: "hidden",
-        
+        px:3
         }}
       >
         <img src={images} className="image-responsive" alt="" />

@@ -51,9 +51,7 @@ const Form = () => (
   <div className="form-submit-circle">
       <SendIcon className="form-submit" />
     </div>
-     {/* <button className="form-submit" type="submit">
-       Send message
-     </button> */}
+   
    </form>
  )
  

@@ -19,7 +19,7 @@ export default function SchedulesMainPage() {
           alignItems: "center",
         }}
       >
-        <Box sx={{ width: "80%", marginBottom: "30px" }} id="commingEvent">
+        <Box sx={{ width: "90%", marginBottom: "30px" }} id="commingEvent">
           <Carousel events={comingEvents} />
         </Box>
         <Box  sx={{
@@ -33,8 +33,8 @@ export default function SchedulesMainPage() {
         <Box
           sx={{
             marginTop: "50px",
-            marginBottom: "50px",
-
+            marginBottom: "30px",
+mx:1,
             width: {
               lg: "60%",
               sm: "100%",

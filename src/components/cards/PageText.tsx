@@ -61,7 +61,7 @@ const PageTextPart = ({
           textAlign: "center",
           mx: "auto",
           px: 3,
-          mt: 3,
+          mt: 2,
           marginBottom: "10px",
           fontSize: {
             lg: "30px",
@@ -110,7 +110,12 @@ const PageTextPart = ({
     </Box>
     <CardContent>
       {startTime && (
-        <Typography variant="h5" sx={{ mt: 2, color: "text.secondary" }}>
+        <Typography variant="h5" sx={{ mt: 2, color: "text.secondary" , fontSize: {
+            lg: "25px",
+            md: "20px",
+            sm: "20px",
+            xs: "18px",
+          },}}>
           <strong>Time: </strong> {formatDate(startTime)}:{" "}
           {formatTime(startTime)}
           {endTime && ` - ${formatTime(endTime)}`}{" "}
@@ -118,7 +123,12 @@ const PageTextPart = ({
         </Typography>
       )}
       {location && (
-        <Typography variant="h5" sx={{ mt: 2, color: "text.secondary" }}>
+        <Typography variant="h5" sx={{ mt: 2, color: "text.secondary",  fontSize: {
+            lg: "25px",
+            md: "20px",
+            sm: "20px",
+            xs: "18px",
+          }, }}>
           <strong>Location:</strong> {location}
         </Typography>
       )}

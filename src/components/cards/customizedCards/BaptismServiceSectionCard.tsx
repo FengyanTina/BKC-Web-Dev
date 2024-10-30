@@ -21,7 +21,7 @@ const BaptismServiceSectionCard = ({
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const renderImage = () => (
-    <Grid size={{ xs: 12, sm: 12, md: 6 }} >
+    <Grid size={{ xs: 12, sm: 12, md: 6 ,}} sx={{px:3}}>
       <Box >
         {Array.isArray(images) ? (
           <ImageGallary

@@ -45,7 +45,7 @@ const ImgInforCardSection = ({
         justifyContent: "center",
         backgroundColor: "#f0f4f8",
         px: 3,
-        py: 3,
+        
       }}
     >
       <Grid
