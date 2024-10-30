@@ -263,54 +263,53 @@ const StartPage = () => {
 
         {/* --------------ACTIVITIES-Sunday Service----------- */}
 
-      
-      <ImgInforCardSection
-        inforSectionId=""
-        id={youthActivityCardInfor.id}
-        title={youthActivityCardInfor.title}
-        subtitle={youthActivityCardInfor.subtitle}
-        description={youthActivityCardInfor.description}
-        images={youthActivityCardInfor.images}
-        category={""}
-        imageLeft={false}
-        buttonLink={"/activities#youth"}
-      />
+        <ImgInforCardSection
+          inforSectionId=""
+          id={youthActivityCardInfor.id}
+          title={youthActivityCardInfor.title}
+          subtitle={youthActivityCardInfor.subtitle}
+          description={youthActivityCardInfor.description}
+          images={youthActivityCardInfor.images}
+          category={""}
+          imageLeft={false}
+          buttonLink={"/activities#youth"}
+        />
 
-      {/* --------------ACTIVITIES-BKC Kids----------- */}
-      <ImgInforCardSection
-        inforSectionId=""
-        id={sundaySchoolActivityCardInfor.id}
-        title={sundaySchoolActivityCardInfor.title}
-        subtitle={sundaySchoolActivityCardInfor.subtitle}
-        description={sundaySchoolActivityCardInfor.description}
-        images={sundaySchoolActivityCardInfor.images}
-        category={""}
-        buttonLink={"/activities#sundaySchool"}
-      />
-      {/* --------------ACTIVITIES-Youth----------- */}
-      <ImgInforCardSection
-        inforSectionId=""
-        id={sundayServiceCardInfor.id}
-        title={sundayServiceCardInfor.title}
-        subtitle={sundayServiceCardInfor.subtitle}
-        description={sundayServiceCardInfor.description}
-        images={sundayServiceCardInfor.images}
-        category={""}
-        imageLeft={false}
-        buttonLink={"/activities#youth"}
-      />
-      {/* --------------ACTIVITIES-Groups----------- */}
-      <ImgInforCardSection
-        id={homeGroupActivityCardInfor.id}
-        inforSectionId=""
-        title={homeGroupActivityCardInfor.title}
-        subtitle={homeGroupActivityCardInfor.subtitle}
-        description={homeGroupActivityCardInfor.description}
-        images={homeGroupActivityCardInfor.images}
-        category={""}
-        buttonLink={"/activities#otherGroups"}
-      />
-       </Box>
+        {/* --------------ACTIVITIES-BKC Kids----------- */}
+        <ImgInforCardSection
+          inforSectionId=""
+          id={sundaySchoolActivityCardInfor.id}
+          title={sundaySchoolActivityCardInfor.title}
+          subtitle={sundaySchoolActivityCardInfor.subtitle}
+          description={sundaySchoolActivityCardInfor.description}
+          images={sundaySchoolActivityCardInfor.images}
+          category={""}
+          buttonLink={"/activities#sundaySchool"}
+        />
+        {/* --------------ACTIVITIES-Youth----------- */}
+        <ImgInforCardSection
+          inforSectionId=""
+          id={sundayServiceCardInfor.id}
+          title={sundayServiceCardInfor.title}
+          subtitle={sundayServiceCardInfor.subtitle}
+          description={sundayServiceCardInfor.description}
+          images={sundayServiceCardInfor.images}
+          category={""}
+          imageLeft={false}
+          buttonLink={"/activities#youth"}
+        />
+        {/* --------------ACTIVITIES-Groups----------- */}
+        <ImgInforCardSection
+          id={homeGroupActivityCardInfor.id}
+          inforSectionId=""
+          title={homeGroupActivityCardInfor.title}
+          subtitle={homeGroupActivityCardInfor.subtitle}
+          description={homeGroupActivityCardInfor.description}
+          images={homeGroupActivityCardInfor.images}
+          category={""}
+          buttonLink={"/activities#otherGroups"}
+        />
+      </Box>
       {/* --------------NEWS SLIDES----------- */}
       <Box
         sx={{

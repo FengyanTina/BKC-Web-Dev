@@ -8,7 +8,7 @@ export const UserContext = createContext({
     addUser: (_newUser: User) => {},
     removeUser: (_id: string) => {},
     removeUsers: (_id: string[]) => {},
-    updateUser: (_newUser: User) => {},
+   // updateUser: (_newUser: User) => {},
     setDevUsers: (_users: User[]) => {},
   });
   
@@ -17,11 +17,11 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   
     const [devUsers, setDevUsers] = useLocalStorage<User[]>("devUsers", initialUsers);
 
-    const updateUser = (updatedUser: User) => {
-        setDevUsers((prevUsers) =>
-          prevUsers.map((user) => (user.id === updatedUser.id ? updatedUser : user))
-        );
-      };
+    // const updateUser = (updatedUser: User) => {
+    //     setDevUsers((prevUsers) =>
+    //       prevUsers.map((user) => (user.id === updatedUser.id ? updatedUser : user))
+    //     );
+    //   };
     const addUser = (newUser: User) => {
         const updatedData = [...devUsers, newUser];
         setDevUsers(updatedData);
@@ -37,7 +37,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       };
     return (
       <UserContext.Provider
-        value={{ devUsers, updateUser, setDevUsers, addUser, removeUsers,removeUser }}
+        value={{ devUsers,  setDevUsers, addUser, removeUsers,removeUser }}
       >
         {children}
       </UserContext.Provider>

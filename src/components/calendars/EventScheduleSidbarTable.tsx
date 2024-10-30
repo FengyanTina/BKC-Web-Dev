@@ -2,16 +2,9 @@ import Grid from "@mui/material/Grid2";
 import { UserCategory } from "../../models/User";
 import { Button, Paper } from "@mui/material";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
+import { CalendarEvent } from "../../models/CalendarEvent";
 
-interface CustomEvent {
-  id: string;
-  title: string;
-  start: string;
-  end: string;
-  allDay: boolean;
-  description?: string;
-  location?: string;
-}
+
 // Sidebar Component
 const Sidebar = ({
     currentEvents,
@@ -21,10 +14,10 @@ const Sidebar = ({
    handleDetailOnTable: handleDetail,
     currentUser,
   }: {
-    currentEvents: CustomEvent[];
-    handleEdit: (event: CustomEvent) => void;
-    handleDelete: (event: CustomEvent) => void;
-    handleDetailOnTable: (event: CustomEvent) => void;
+    currentEvents: CalendarEvent[];
+    handleEdit: (event: CalendarEvent) => void;
+    handleDelete: (event: CalendarEvent) => void;
+    handleDetailOnTable: (event: CalendarEvent) => void;
     currentUser: any; // Adjust type based on your context
   }) => {
   const isAdmin = currentUser?.category === UserCategory.Admin;
@@ -84,10 +77,10 @@ const SidebarEvent = ({
   onDelete,
   handleDetail,
 }: {
-  event: CustomEvent;
-  onEdit: ((event: CustomEvent) => void) | null;
-  onDelete: ((event: CustomEvent) => void) | null;
-  handleDetail: (event: CustomEvent) => void;
+  event: CalendarEvent;
+  onEdit: ((event: CalendarEvent) => void) | null;
+  onDelete: ((event: CalendarEvent) => void) | null;
+  handleDetail: (event: CalendarEvent) => void;
 }) => {
   const hasActionColumn = !!(onEdit || onDelete); // Check if action buttons exist
   const dateColumnSize = hasActionColumn ? 2 : 2;

@@ -227,7 +227,7 @@ const AboutUsPage = () => {
         />
       </Box>
       <SectionLine text="Medlemskap" />
-      <div aria-hidden={modalOpen ? "false" : "true"} id="userTable"></div>
+      <Box id="userTable"></Box>
       <UserTable />
       <SectionLine text="Vår historia" />
       <Box

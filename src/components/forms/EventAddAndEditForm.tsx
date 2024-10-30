@@ -7,28 +7,19 @@ import {
   Button,
 
 } from "@mui/material";
+import { CalendarEvent } from "../../models/CalendarEvent";
 
 interface EventFormProps {
   isModalOpen: boolean;
   handleCloseModal: () => void;
-  selectedEvent: CustomEvent | null;
+  selectedEvent: CalendarEvent | null;
   handleFieldChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleSaveEvent: () => void;
-  event?: CustomEvent; // Optional because it can be undefined when adding a new event
+  event?: CalendarEvent; // Optional because it can be undefined when adding a new event
   isEditing: boolean;
 }
 
-interface CustomEvent {
-  id: string;
-  title: string;
-  start: string;
-  end: string;
-  allDay: boolean;
-  description?: string;
-  location?: string;
-  repeatCount?: number; 
-  selectedDays?: boolean[];
-}
+
 const EventAddAndEditForm = ({
   isModalOpen,
   handleCloseModal,

@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 
 type UserDialogProps = {
     mode: UserDialogMode;
-    onClose: () => void; // Function to handle closing the dialog
+    onClose: () => void; 
     userId:string|null;
     open: boolean;
 };
@@ -19,8 +19,8 @@ function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
   const navigate = useNavigate();
   const { devUsers, setDevUsers, addUser } = useContext(UserContext);
 
-  // Find the initial user details if in edit mode
-  const initialUser =
+  
+  const editUser =
     mode === UserDialogMode.Edit && userId
       ? devUsers.find((i) => i.id === userId) || defaultUser()
       : defaultUser();
@@ -31,7 +31,7 @@ function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
     formState: { errors },
     reset,
   } = useForm<User>({
-    defaultValues: initialUser,
+    defaultValues: editUser,
   });
 
   // Only reset form in Edit mode when dialog opens or user ID changes
@@ -39,7 +39,7 @@ function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
     if (open) {
       if (mode === UserDialogMode.Edit) {
         // Reset with selected user data for Edit mode
-        reset(initialUser);
+        reset(editUser);
       } else {
         // Reset to default (empty) values for Add mode
         reset(defaultUser());

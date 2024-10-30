@@ -14,19 +14,12 @@ import Switch from "@mui/material/Switch";
 import { Typography } from "@mui/material";
 import './form.css'
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
-interface CustomEvent {
-  id: string;
-  title: string;
-  start: string;
-  end: string;
-  allDay: boolean;
-  description?: string;
-  location?: string;
-}
+import { CalendarEvent } from "../../models/CalendarEvent";
+
 
 interface ScheduleEventDetailsDialogProps {
   open: boolean;
-  event: CustomEvent | null;
+  event: CalendarEvent | null;
   onClose: () => void;
 }
 export default function ScheduleEventDetailDialog({
