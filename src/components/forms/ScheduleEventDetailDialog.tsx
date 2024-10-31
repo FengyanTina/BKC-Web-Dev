@@ -1,157 +1,123 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Dialog, { DialogProps } from "@mui/material/Dialog";
+import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import Switch from "@mui/material/Switch";
-import { Typography } from "@mui/material";
-import './form.css'
+import { Slider, styled } from "@mui/material";
+import "./form.css";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
 import { CalendarEvent } from "../../models/CalendarEvent";
-
 
 interface ScheduleEventDetailsDialogProps {
   open: boolean;
   event: CalendarEvent | null;
   onClose: () => void;
 }
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  "& .MuiDialogContent-root": {
+    padding: theme.spacing(2),
+  },
+  "& .MuiDialogActions-root": {
+    padding: theme.spacing(1),
+  },
+}));
 export default function ScheduleEventDetailDialog({
   open,
   event,
   onClose,
 }: ScheduleEventDetailsDialogProps) {
-  const [fullWidth, setFullWidth] = React.useState(true);
-  const [maxWidth, setMaxWidth] = React.useState<DialogProps["maxWidth"]>("sm");
-
-
-
-  const handleMaxWidthChange = (event: SelectChangeEvent<typeof maxWidth>) => {
-    setMaxWidth(
-      // @ts-expect-error autofill of arbitrary value is not handled.
-      event.target.value
-    );
+  const [fontSize, setFontSize] = React.useState(16);
+  const handleFontSizeChange = (newValue: number | number[]) => {
+    setFontSize(newValue as number); // Cast newValue to number
   };
 
-  const handleFullWidthChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setFullWidth(event.target.checked);
-  };
   return (
     <React.Fragment>
-      <Dialog
-        fullWidth={fullWidth}
-        maxWidth={maxWidth}
-        open={open}
-        onClose={onClose}
-      >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            m: "auto",
-            width: "fit-content",
-          }}
-        >
-          {event?.title}
-        </DialogTitle>
-        <DialogContent dividers>
-          {/* Event Date */}
-          <Typography variant="h6" gutterBottom>  
-          {event ? (
-        event.allDay ? (
-            <>
-                <strong>Whole Day Event on</strong> {formatDate(event.start)}
-            </>
-        ) : (
-            <>
-                <strong>Date:</strong> {formatDate(event.start)}
-            </>
-        )
-    ) : (
-        "No event date available"
-    )}
-         </Typography>
+      <BootstrapDialog open={open} onClose={onClose}>
+        <Box className="modal-overlay">
+          <Box className="modal-content" style={{ fontSize: `${fontSize}px` }}>
+            <Box
+              component="h1"
+              sx={{
+                display: "flex",
+                m: "auto",
+                width: "fit-content",
+                textAlign: "center", 
+              }}
+            >
+              {event?.title}
+              
+            </Box>
+            <DialogContent dividers>
+              <h4>
+                {event ? (
+                  event.allDay ? (
+                    <>
+                      <strong>Whole Day Event on</strong>{" "}
+                      {formatDate(event.start)}
+                    </>
+                  ) : (
+                    <>
+                      <strong>Date:</strong> {formatDate(event.start)}
+                    </>
+                  )
+                ) : (
+                  "No event date available"
+                )}
+              </h4>
 
-          {/* Event Time (if not all day) */}
-          {event && !event.allDay && (
-            <>
-              <Typography variant="h6" gutterBottom>
-             <strong>Time: </strong> {event.end
-                  ? `${formatTime(event.start)} - ${formatTime(event.end)}`
-                  : `${formatTime(event.start)}`}
-              </Typography>
-            </>
-          )}
+              {/* Event Time (if not all day) */}
+              {event && !event.allDay && (
+                <>
+                  <h4>
+                    <strong>Time: </strong>{" "}
+                    {event.end
+                      ? `${formatTime(event.start)} - ${formatTime(event.end)}`
+                      : `${formatTime(event.start)}`}
+                  </h4>
+                </>
+              )}
 
-          {/* Event Location */}
-          <Typography variant="h6" gutterBottom>
-          <strong>Location: </strong>  {event?.location || "No location specified."}
-          </Typography>
-        </DialogContent>
+              <h4>
+                <strong>Location: </strong>{" "}
+                {event?.location || "No location specified."}
+              </h4>
+            </DialogContent>
 
-        {/* Description Section */}
-        <DialogContent dividers>
-            <Typography variant="h6"  sx={{
-            display: "flex",
-            m: "auto",
-            width: "fit-content",
-          }}> Details</Typography>
-          <Typography variant="body1"gutterBottom>
-            {event?.description || "No description provided."}
-          </Typography>
-        </DialogContent>
-        <DialogContent>
-          <Box
-            noValidate
-            component="form"
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              m: "auto",
-              width: "fit-content",
-            }}
-          >
-            <FormControl sx={{ mt:1, minWidth: 120 }}>
-              <InputLabel htmlFor="max-width">maxWidth</InputLabel>
-              <Select
-                autoFocus
-                value={maxWidth}
-                onChange={handleMaxWidthChange}
-                label="maxWidth"
-                inputProps={{
-                  name: "max-width",
-                  id: "max-width",
+            <DialogContent dividers>
+              <Box
+                component="h2"
+                sx={{
+                  display: "flex",
+                  m: "auto",
+                  width: "fit-content",
+                  textAlign: "center", 
                 }}
               >
-                <MenuItem value={false as any}>false</MenuItem>
-                <MenuItem value="xs">xs</MenuItem>
-                <MenuItem value="sm">sm</MenuItem>
-                <MenuItem value="md">md</MenuItem>
-                <MenuItem value="lg">lg</MenuItem>
-                <MenuItem value="xl">xl</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControlLabel
-              sx={{ mt: 1 }}
-              control={
-                <Switch checked={fullWidth} onChange={handleFullWidthChange} />
-              }
-              label="Full width"
-            />
+                {" "}
+                Details
+              </Box>
+              <p>{event?.description || "No description provided."}</p>
+            </DialogContent>
+            <DialogContent></DialogContent>
+            <Box style={{ marginTop: "20px", textAlign: "center" }}>
+              <label htmlFor="font-size-slider">Adjust text size:</label>
+              <Slider
+                id="font-size-slider"
+                min={12}
+                max={30}
+                value={fontSize}
+                onChange={(_e, newValue) => handleFontSizeChange(newValue)}
+                style={{ width: "200px", margin: "10px auto" }}
+              />
+            </Box>
+            <DialogActions>
+              <Button onClick={onClose}>Close</Button>
+            </DialogActions>
           </Box>
-        </DialogContent>
-
-        <DialogActions>
-          <Button onClick={onClose}>Close</Button>
-        </DialogActions>
-      </Dialog>
+        </Box>
+      </BootstrapDialog>
     </React.Fragment>
   );
 }
