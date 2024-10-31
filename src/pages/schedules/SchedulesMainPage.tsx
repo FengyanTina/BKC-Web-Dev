@@ -11,8 +11,7 @@ export default function SchedulesMainPage() {
       <Box
         sx={{
             marginTop:{
-                md:"130px",
-               
+                md:"130px",      
                 xs:"100px"
             },
           backgroundColor: "#f0f4f8",

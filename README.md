@@ -97,10 +97,18 @@ sm and xs: between text and its image
 30px
 
 auto scrool text for page section: PageText and WantServeSection "description" or long text section use 
-     maxHeight: {
+maxHeight: {
             xs: "300px",
             sm: "500px",
             md: "550px",
             lg: "600px",
           },
           overflowY: "auto",
+          
+time & location on pageText card 
+fontSize: {
+            lg: "25px",
+            md: "20px",
+            sm: "18px",
+            xs: "16px",
+          }

@@ -25,14 +25,14 @@ interface TabDrawerProps {
   handleLogout: () => void;
 }
 const navRoutes = [
-  { label: "Home", path: "/home" },
-  { label: "About Us", path: "/aboutUs" },
-  { label: "Schedules", path: "/schedules" },
-  { label: "Services", path: "/services" },
-  { label: "Activities", path: "/activities" },
-  { label: "Contact", path: "/contact" },
+  { label: "Hem", path: "/home" },
+  { label: "Om oss", path: "/aboutUs" },
+  { label: "Kalender", path: "/schedules" },
+  { label: "Tjänster", path: "/services" },
+  { label: "Aktivitet", path: "/activities" },
+  { label: "Kontakt", path: "/contact" },
 ];
-const navItems = ["Home", "About Us", "Schedule", "Services", "Activities"];
+const navItems = ["Hem", "Om oss", "Kalender", "Tjänster", "Aktivitet","Kontakt"];
 export default function TabDrawer({
   open,
   onClose,
@@ -45,12 +45,12 @@ export default function TabDrawer({
 
   // Map icons to each nav item with proper typing
   const icons: Record<NavItem, JSX.Element> = {
-    Home: <HomeIcon />,
-    "About Us": <InfoIcon />,
-    Schedules: <EventAvailableIcon />,
-    Services: <GroupsIcon />,
-    Activities: <LocalActivityIcon />,
-    Contact: <MailIcon />,
+    Hem: <HomeIcon />,
+    "Om oss": <InfoIcon />,
+    Kalender: <EventAvailableIcon />,
+    Tjänster: <GroupsIcon />,
+    Aktivitet: <LocalActivityIcon />,
+    Kontakt: <MailIcon />,
   };
 
   const DrawerList = (
@@ -109,18 +109,19 @@ export default function TabDrawer({
           }}
         >
           <Typography
-            variant="body2"
+          
             sx={{
-              color: "#9c27b0",
+              color: "#337f83",
               fontWeight: 500,
-              fontSize: "1.5rem",
+              fontSize: "1.4rem",
+              marginLeft: "20px"
             }}
           >
             {currentUser.firstName} {/* Safe access to user.name */}
           </Typography>
           <Typography
             variant="h5"
-            sx={{ color: "#9c27b0", fontWeight: 800, marginLeft: "5px" }}
+            sx={{ color: "#337f83", fontWeight: 800, marginLeft: "5px" }}
           >
             /
           </Typography>
@@ -128,12 +129,13 @@ export default function TabDrawer({
             color="inherit"
             onClick={handleLogout}
             sx={{
-              color: "#9c27b0",
-              fontWeight: 800,
-              fontSize: "1.2rem",
+              color: "#337f83",
+              fontWeight: 600,
+              fontSize: "1.0rem",
+             
             }}
           >
-            Logout
+            logga ut
           </Button>
         </Box>
       ) : (
@@ -141,7 +143,7 @@ export default function TabDrawer({
           <ListItem disablePadding>
             <ListItemButton onClick={handleLogin}>
               <ListItemIcon>
-                <LoginIcon /> Login
+                <LoginIcon sx={{marginRight:"30px"}}/> Logga in
               </ListItemIcon>
             </ListItemButton>
           </ListItem>

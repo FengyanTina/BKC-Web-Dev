@@ -4,22 +4,21 @@ import { Button, Paper } from "@mui/material";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
 import { CalendarEvent } from "../../models/CalendarEvent";
 
-
 // Sidebar Component
 const Sidebar = ({
-    currentEvents,
-    handleEdit,
-   handleDelete,
-  
-   handleDetailOnTable: handleDetail,
-    currentUser,
-  }: {
-    currentEvents: CalendarEvent[];
-    handleEdit: (event: CalendarEvent) => void;
-    handleDelete: (event: CalendarEvent) => void;
-    handleDetailOnTable: (event: CalendarEvent) => void;
-    currentUser: any; // Adjust type based on your context
-  }) => {
+  currentEvents,
+  handleEdit,
+  handleDelete,
+
+  handleDetailOnTable: handleDetail,
+  currentUser,
+}: {
+  currentEvents: CalendarEvent[];
+  handleEdit: (event: CalendarEvent) => void;
+  handleDelete: (event: CalendarEvent) => void;
+  handleDetailOnTable: (event: CalendarEvent) => void;
+  currentUser: any; // Adjust type based on your context
+}) => {
   const isAdmin = currentUser?.category === UserCategory.Admin;
 
   const dateColumnSize = isAdmin ? 2 : 2;
@@ -30,10 +29,12 @@ const Sidebar = ({
 
   return (
     <div className="demo-app-sidebar">
-     
       <div className="demo-app-sidebar-section">
         <h2>All Events ({currentEvents.length})</h2>
-        <Paper elevation={1} style={{ marginBottom: "30px", backgroundColor:"#d0d8e0" }}>
+        <Paper
+          elevation={1}
+          style={{ marginBottom: "30px", backgroundColor: "#d0d8e0" }}
+        >
           <Grid container spacing={0} style={{ padding: "10px" }}>
             {/* Header Row */}
             <Grid size={dateColumnSize}>
@@ -45,7 +46,7 @@ const Sidebar = ({
             <Grid size={titleColumnSize}>
               <strong>Event</strong>
             </Grid>
-            <Grid size={locationColumnSize}>
+            <Grid size={locationColumnSize} sx={{ textAlign: "center" }}>
               <strong>Location</strong>
             </Grid>
             <Grid size={actionColumnSize}>
@@ -58,10 +59,10 @@ const Sidebar = ({
               key={event.id}
               event={event}
               handleDetail={() => handleDetail(event)}
-                onEdit={isAdmin ? handleEdit : null}
-               onDelete={isAdmin ? handleDelete : null}
-            // onEdit={handleEdit}
-            // onDelete={handleDelete}
+              onEdit={isAdmin ? handleEdit : null}
+              onDelete={isAdmin ? handleDelete : null}
+              // onEdit={handleEdit}
+              // onDelete={handleDelete}
             />
           ))}
         </Paper>
@@ -103,34 +104,42 @@ const SidebarEvent = ({
           ? `${formatTime(event.start)} - ${formatTime(event.end)}`
           : "Invalid time"}
       </Grid>
-      <Grid size={titleColumnSize} style={{ textAlign: "left" }}>
+      <Grid
+        size={titleColumnSize}
+        style={{
+          textAlign: "left",
+          overflow: "hidden",
+          whiteSpace: "nowrap", // Prevent text from wrapping to the next line
+          textOverflow: "ellipsis",
+        }}
+      >
         {event.title}
       </Grid>
-      <Grid size={locationColumnSize} style={{ textAlign: "left" }}>
+      <Grid
+        size={locationColumnSize}
+        style={{
+          textAlign: "center",
+          overflow: "hidden", 
+          whiteSpace: "nowrap", // Prevent text from wrapping to the next line
+          textOverflow: "ellipsis",
+        }}
+      >
         {event.location}
       </Grid>
       <Grid size={actionColumnSize} style={{ textAlign: "left" }}>
         <Button
           onClick={() => handleDetail(event)}
-        
           style={{ color: "#1B365D", marginRight: "5px" }}
         >
           Detail
         </Button>
         {onEdit && (
-          <Button
-            onClick={() => onEdit(event)}
-            style={{ marginRight: "5px" }}
-          >
+          <Button onClick={() => onEdit(event)} style={{ marginRight: "5px" }}>
             Edit
           </Button>
         )}
         {onDelete && (
-          <Button
-            onClick={() => onDelete(event)}
-           
-            color="error"
-          >
+          <Button onClick={() => onDelete(event)} color="error">
             Delete
           </Button>
         )}

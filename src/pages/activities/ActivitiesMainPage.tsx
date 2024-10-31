@@ -20,10 +20,10 @@ export default function ActivitiesMainPage() {
   return (
     <Box sx={{ 
         marginTop:{
-        md:"130px",
-        sm:"75px",
-        xs:"60px"
-    } , backgroundColor: "#f0f4f8" }}>
+            md:"130px",      
+            xs:"100px"
+        }, 
+         backgroundColor: "#f0f4f8" }}>
       <div id="groups"></div>
       <Box
         style={{

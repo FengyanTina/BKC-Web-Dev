@@ -2,13 +2,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import formatDateTime from "../../utils/FormatDateTime";
 import {Event }from "../../models/Event"
 import EventDetailsModal from "../forms/EventDetailModel";
 function SlickSlider({ events }: { events: Event[] }) {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [resizeTrigger, setResizeTrigger] = useState(0);
   const settings = {
     dots: true,
     infinite: true,
@@ -68,6 +69,14 @@ function SlickSlider({ events }: { events: Event[] }) {
     </div>
   ));
 
+  useEffect(() => {
+    const handleResize = () => {
+      setResizeTrigger((prev) => prev + 1);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
   return (
     <div className="slider-container">
       <section className="slick-container">

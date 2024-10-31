@@ -130,32 +130,32 @@ export default function TabBar() {
             >
               <Tab
                 value="/home"
-                label="Home"
+                label="Hem"
                 sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
               <Tab
                 value="/aboutUs"
-                label="About us"
+                label="Om Oss"
                 sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
               <Tab
                 value="/schedules"
-                label="Schedules"
+                label="Kalender"
                 sx={{ fontSize: "1.2rem", color: "white", fontWeight: 900 }}
               />
               <Tab
                 value="/services"
-                label="Services"
+                label="Tjänster"
                 sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
               <Tab
                 value="/activities"
-                label="Activities"
+                label="Aktivitet"
                 sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
               <Tab
                 value="/contact"
-                label="Contact"
+                label="Kontakt"
                 sx={{ fontSize: "1.2rem", color: "white", fontWeight: 800 }}
               />
 
@@ -199,12 +199,12 @@ export default function TabBar() {
                       fontSize: "1.2rem",
                     }}
                   >
-                    Logout
+                    logga ut
                   </Button>
                 </Box>
               ) : (
                 <Tab
-                  label="Log In"
+                  label="Logga in"
                   onClick={handleLoginOpen}
                   sx={{
                     fontSize: "1.2rem",

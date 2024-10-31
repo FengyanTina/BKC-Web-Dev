@@ -48,15 +48,9 @@ const ImgTextSection = ({
         {adjustedImageLeft ? (
           <>
             <Grid size={{ xs: 12, sm: 12, md: 6 }}>
-              <Box
-                sx={{
-                  px: {
-                    sm: 0,
-                  },
-                }}
-              >
+            
                 {renderImage()}
-              </Box>
+             
             </Grid>
             <Grid
               size={{ xs: 12, sm: 12, md: 6 }}

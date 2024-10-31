@@ -110,13 +110,13 @@ const PageTextPart = ({
         {description}
       </Typography>
     </Box>
-    <CardContent>
+    <Box>
       {startTime && (
-        <Typography variant="h5" sx={{ mt: 2, color: "text.secondary" , fontSize: {
+        <Typography variant="h5" sx={{ mt: 2, px:3,color: "text.secondary" , fontSize: {
             lg: "25px",
             md: "20px",
-            sm: "20px",
-            xs: "18px",
+            sm: "18px",
+            xs: "16px",
           },}}>
           <strong>Time: </strong> {formatDate(startTime)}:{" "}
           {formatTime(startTime)}
@@ -125,16 +125,16 @@ const PageTextPart = ({
         </Typography>
       )}
       {location && (
-        <Typography variant="h5" sx={{ mt: 2, color: "text.secondary",  fontSize: {
+        <Typography variant="h5" sx={{ mt: 2, px:3,color: "text.secondary",  fontSize: {
             lg: "25px",
             md: "20px",
-            sm: "20px",
-            xs: "18px",
+            sm: "18px",
+            xs: "16px",
           }, }}>
           <strong>Location:</strong> {location}
         </Typography>
       )}
-    </CardContent>
+    </Box>
   </>
 );
 export default PageTextPart;

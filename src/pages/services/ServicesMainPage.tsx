@@ -127,8 +127,8 @@ export default function ServicesMainPage() {
       />
 
       {/* --------------PrayerService ----------- */}
-      <SectionLine text="Bönetjänster" />
       <div id="prayerService"></div>
+      <SectionLine text="Bönetjänster" />
       <ImgTextSection
         inforSectionId=""
         id={prayerService.id}
