@@ -92,7 +92,7 @@ const StartPage = () => {
               alignItems: "center", // Center horizontally
               textAlign: "center", // Center text content
               position: "relative", // To move the box up
-              marginTop: { xs: "100px", sm:"80px",md:"80px" },
+              marginTop: { xs: "100px", sm: "80px", md: "80px" },
             }}
           >
             {/* First Typography - Borås Kristna Center */}
@@ -133,7 +133,6 @@ const StartPage = () => {
                 },
               }}
             >
-            
               <Link
                 style={{ color: "white", textDecoration: "none" }}
                 to="/aboutUs"
@@ -179,7 +178,7 @@ const StartPage = () => {
         <Grid
           sx={{
             maxWidth: "90%",
-            marginTop: {     
+            marginTop: {
               sm: "30px",
               md: "355px",
             },
@@ -188,7 +187,6 @@ const StartPage = () => {
               sm: "30vh",
               md: "40vh",
             },
-    
             display: "flex",
             justifyContent: "flex-end",
           }}
@@ -206,9 +204,8 @@ const StartPage = () => {
           alignItems: "center",
           flexDirection: "column",
           //gap: "20px",
-          
+
           backgroundColor: "#dbe1e8",
-        
         }}
       >
         {/* --------------COMMING EVENTS----------- */}
