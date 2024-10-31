@@ -38,7 +38,7 @@ export default function ScheduleEventDetailDialog({
         <Box className="modal-overlay">
           <Box className="modal-content" style={{ fontSize: `${fontSize}px` }}>
             <Box
-              component="h1"
+              component="h2"
               sx={{
                 display: "flex",
                 m: "auto",
@@ -70,12 +70,12 @@ export default function ScheduleEventDetailDialog({
               {/* Event Time (if not all day) */}
               {event && !event.allDay && (
                 <>
-                  <h4>
+                  <h5>
                     <strong>Time: </strong>{" "}
                     {event.end
                       ? `${formatTime(event.start)} - ${formatTime(event.end)}`
                       : `${formatTime(event.start)}`}
-                  </h4>
+                  </h5>
                 </>
               )}
 
@@ -87,7 +87,7 @@ export default function ScheduleEventDetailDialog({
 
             <DialogContent dividers>
               <Box
-                component="h2"
+                component="h3"
                 sx={{
                   display: "flex",
                   m: "auto",
