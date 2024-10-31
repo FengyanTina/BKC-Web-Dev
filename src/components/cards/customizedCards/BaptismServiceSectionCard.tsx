@@ -1,15 +1,8 @@
-import {
-  Box,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import "./customizedCards.css";
 import Grid from "@mui/material/Grid2";
 import { BaptismSectionModel } from "../../../models/BaptismSecionModel";
 import ImageGallary from "../../imageManagements/ImageGallary";
-
-
 
 const BaptismServiceSectionCard = ({
   title,
@@ -21,17 +14,15 @@ const BaptismServiceSectionCard = ({
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const renderImage = () => (
-    <Grid size={{ xs: 12, sm: 12, md: 6 ,}} sx={{px:3}}>
-      <Box >
+    <Grid size={{ xs: 12, sm: 12, md: 6 }} sx={{ px: 3 }}>
+      <Box>
         {Array.isArray(images) ? (
           <ImageGallary
             itemData={images.map((img) => ({ img: img }))}
             showAllAsFeatured={showAllAsFeatured}
           />
         ) : (
-         
-            <img src={images} className="image-responsive" alt="" />
-         
+          <img src={images} className="image-responsive" alt="" />
         )}
       </Box>
     </Grid>
@@ -45,7 +36,7 @@ const BaptismServiceSectionCard = ({
         justifyContent: "flex-start",
         height: "100%",
         px: 3,
-        mt:"30px"
+        mt: "30px",
       }}
     >
       <Typography
@@ -53,7 +44,7 @@ const BaptismServiceSectionCard = ({
         sx={{
           textAlign: "center",
           mx: "auto",
-        
+
           marginBottom: "10px",
           fontSize: {
             lg: "40px",
@@ -71,7 +62,7 @@ const BaptismServiceSectionCard = ({
           sx={{
             textAlign: "center",
             mx: "auto",
-          
+
             mt: 3,
             fontSize: {
               lg: "30px",
@@ -88,12 +79,14 @@ const BaptismServiceSectionCard = ({
         sx={{
           maxHeight: {
             xs: "300px",
-            sm: "350px",
-            md: "350px",
-            lg: "400px",
+            sm: "500px",
+            md: "550px",
+            lg: "600px",
           },
-          marginTop: "10px",
           overflowY: "auto",
+          marginTop: "10px",
+          scrollbarWidth: "none", // Firefox
+          "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari
         }}
       >
         <Box>
@@ -118,7 +111,11 @@ const BaptismServiceSectionCard = ({
                     <>
                       <a
                         href={step.link}
-                        style={{ color: "#337f83", textDecoration: "none",fontWeight: "bold" }}
+                        style={{
+                          color: "#337f83",
+                          textDecoration: "none",
+                          fontWeight: "bold",
+                        }}
                       >
                         {step.linkName}
                       </a>{" "}
@@ -135,11 +132,8 @@ const BaptismServiceSectionCard = ({
   );
 
   return (
-    <Box sx={{ flexGrow: 1, width: { md: "70%", sm: "100%" } ,}}>
-      <Grid
-        container
-        columns={{ xs: 1, sm: 12, md: 12 }}
-      >
+    <Box sx={{ flexGrow: 1, width: { md: "70%", sm: "100%" } }}>
+      <Grid container columns={{ xs: 1, sm: 12, md: 12 }}>
         {isSmallScreen ? (
           // If small screen, image on the left
           <>

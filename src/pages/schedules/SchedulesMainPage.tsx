@@ -10,7 +10,11 @@ export default function SchedulesMainPage() {
     <>
       <Box
         sx={{
-          marginTop: "150px",
+            marginTop:{
+                md:"130px",
+               
+                xs:"100px"
+            },
           backgroundColor: "#f0f4f8",
           display: "flex",
           justifyContent: "center",
@@ -19,7 +23,7 @@ export default function SchedulesMainPage() {
           alignItems: "center",
         }}
       >
-        <Box sx={{ width: "90%", marginBottom: "30px" }} id="commingEvent">
+        <Box sx={{ width: "90%", }} id="commingEvent">
           <Carousel events={comingEvents} />
         </Box>
         <Box
@@ -32,8 +36,6 @@ export default function SchedulesMainPage() {
         </Box>
         <Box
           sx={{
-            marginTop: "50px",
-            marginBottom: "30px",
             mx: 1,
             width: {
               lg: "60%",
@@ -56,9 +58,9 @@ export default function SchedulesMainPage() {
             useWhiteStroke={true}
           />
         </Box>
-        <Box sx={{ marginTop: "50px", marginBottom: "50px", width: "90%" }}>
+        <Box sx={{  marginBottom: "50px", width: "90%" }}>
           <Typography
-            sx={{ marginBottom: "50px", textAlign: "center" }}
+            sx={{ marginBottom: "30px", marginTop: "30px",textAlign: "center" }}
             variant="h4"
           >
             Comming Week Schedule

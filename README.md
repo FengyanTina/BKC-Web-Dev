@@ -91,3 +91,16 @@ Action Buttom && Links color
 
 Main boday: px 3
 Image and Text section: maxWidth: 400 px
+
+
+sm and xs: between text and its image 
+30px
+
+auto scrool text for page section: PageText and WantServeSection "description" or long text section use 
+     maxHeight: {
+            xs: "300px",
+            sm: "500px",
+            md: "550px",
+            lg: "600px",
+          },
+          overflowY: "auto",

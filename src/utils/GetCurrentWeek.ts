@@ -13,7 +13,7 @@ export const getCurrentWeek = () => {
   
     const sampleEvents = [
         [],
-        ["Senior Group"],
+        [],
         ["Worship Meeting", "Woman's Group"],
         [],
         ["Youth Group", "Prayer Meeting"],

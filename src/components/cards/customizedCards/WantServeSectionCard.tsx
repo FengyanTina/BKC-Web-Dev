@@ -6,19 +6,11 @@ import sundaySchol11 from "../../../assets/sundaySchol11.jpg";
 import serve1 from "../../../assets/serve1.png";
 import socialActivity from "../../../assets/socialActivity.png";
 
-// const Item = styled("div")(({ theme }) => ({
-//   ...theme.typography.body2,
-//   padding: theme.spacing(2),
-//   textAlign: "center",
-//   ...theme.applyStyles("dark", {}),
-// }));
-
 const WantServeSectionCard = ({
   title,
   subtitle,
   steps,
 }: BaptismSectionModel) => {
- 
   const theme = useTheme();
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -38,7 +30,6 @@ const WantServeSectionCard = ({
                     md: "40%", // Less padding for medium screens
                     lg: "50%", // Even less padding for large screens
                   },
-                 
                 }}
               >
                 <img
@@ -51,7 +42,6 @@ const WantServeSectionCard = ({
                     width: "100%",
                     height: "100%",
                     objectFit: "cover", // Optional: Maintain aspect ratio
-                    
                   }}
                 />
               </Box>
@@ -78,17 +68,17 @@ const WantServeSectionCard = ({
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover", // Optional: Maintain aspect ratio
+                    objectFit: "cover", 
                   }}
                 />
               </Box>
             </Grid>
 
-            <Grid size={{ xs: 12, sm: 6, md: 4 }}  >
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
               <Box
                 sx={{
-                  width: "100%", // Ensure the container takes full width
-                  maxWidth: "460px", // Maximum width for large screens
+                  width: "100%", 
+                  maxWidth: "460px", 
                   position: "relative",
                   paddingTop: {
                     xs: "56.25%", // 16:9 aspect ratio for smaller screens
@@ -98,15 +88,15 @@ const WantServeSectionCard = ({
                 }}
               >
                 <img
-                  src={socialActivity} // Use the imported image file
-                  alt="Prayer Image 2" // Alt text for accessibility
+                  src={socialActivity} 
+                  alt="Prayer Image 2" 
                   style={{
                     position: "absolute",
                     top: 0,
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover", // Optional: Maintain aspect ratio
+                    objectFit: "cover",
                   }}
                 />
               </Box>
@@ -116,17 +106,16 @@ const WantServeSectionCard = ({
 
         {isSmallOrMediumScreen && (
           <>
-       
             <Box
-        sx={{
-          width: "100%",
-          position: "relative",
-          overflow: "hidden",
-        px:3
-        }}
-      >
-        <img src={serve1} className="image-responsive" alt="" />
-      </Box>
+              sx={{
+                width: "100%",
+                position: "relative",
+                overflow: "hidden",
+                px: 3,
+              }}
+            >
+              <img src={serve1} className="image-responsive" alt="" />
+            </Box>
           </>
         )}
         <Grid
@@ -136,7 +125,7 @@ const WantServeSectionCard = ({
             flexDirection: "column",
             justifyContent: "flex-start",
             height: "100%",
-           marginTop:"30px"
+            marginTop: "30px",
           }}
         >
           <Typography
@@ -160,9 +149,9 @@ const WantServeSectionCard = ({
             <Typography
               variant="h4"
               sx={{
-                textAlign: "center", // Align the text to the center
-                mx: "auto", // Horizontal margin to center it within the container
-                px: 3, // Add padding on the sides
+                textAlign: "center", 
+                mx: "auto", 
+                px: 3, 
                 mt: 3,
                 fontSize: {
                   lg: "30px",
@@ -179,13 +168,15 @@ const WantServeSectionCard = ({
           <Box
             sx={{
               maxHeight: {
-                xs: "450px",
+                xs: "300px",
                 sm: "500px",
                 md: "550px",
                 lg: "600px",
               },
               overflowY: "auto",
               marginTop: "10px",
+              scrollbarWidth: "none", // Firefox
+              "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari
             }}
           >
             <Box>
@@ -210,7 +201,11 @@ const WantServeSectionCard = ({
                         <>
                           <a
                             href={step.link}
-                            style={{ color: "#337f83", textDecoration: "none",fontWeight: "bold" }}
+                            style={{
+                              color: "#337f83",
+                              textDecoration: "none",
+                              fontWeight: "bold",
+                            }}
                           >
                             {step.linkName}
                           </a>{" "}

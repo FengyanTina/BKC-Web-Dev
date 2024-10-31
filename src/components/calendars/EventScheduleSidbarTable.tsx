@@ -128,7 +128,7 @@ const SidebarEvent = ({
         {onDelete && (
           <Button
             onClick={() => onDelete(event)}
-            variant="contained"
+           
             color="error"
           >
             Delete

@@ -12,7 +12,7 @@ import EventDetailsModal from "../forms/EventDetailModel";
 const Carousel = ({ events }: { events: Event[] }) => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const handleSlideClick = (event: Event) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
@@ -78,6 +78,7 @@ const Carousel = ({ events }: { events: Event[] }) => {
           modifier: 1,
           slideShadows: true,
         }}
+        className="swipe-content"
         breakpoints={{
           "@0.00": {
             slidesPerView: 1,

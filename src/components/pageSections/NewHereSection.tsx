@@ -46,7 +46,7 @@ export default function NewHereSectionGrid({
         }}
       >
         <video
-          src={videoFile} // Use the imported video file
+          src={videoFile} 
           controls
           autoPlay
           loop
@@ -54,7 +54,7 @@ export default function NewHereSectionGrid({
           style={{
             position: "absolute",
             top: 0,
-           left:0,
+            left: 0,
             width: "100%",
             height: "100%",
           }}
@@ -72,19 +72,18 @@ export default function NewHereSectionGrid({
       >
         <Typography
           variant="h3"
-          sx={{  
+          sx={{
             fontWeight: {
               xs: 400,
               sm: 500,
-            }, 
+            },
             fontSize: {
-                lg: "40px",
-                md: "30px",
-                sm: "30px",
-                xs: "28px",
-              },
+              lg: "40px",
+              md: "30px",
+              sm: "30px",
+              xs: "28px",
+            },
             color: "#1B365D",
-            textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
           {title}
@@ -130,30 +129,25 @@ export default function NewHereSectionGrid({
         <Box
           sx={{
             marginTop: "0px",
-            // backdropFilter: "blur(5px)",
-            //backgroundColor: "rgba(255, 255, 255, 0.4)",
             paddingTop: "20px",
             paddingBottom: "20px",
-            marginBottom: "20px",
             alignItems: "center",
             justifyContent: "center",
             maxWidth: "1100px",
             marginLeft: "auto",
             marginRight: "auto",
-            
-              fontSize: {
-                lg: "25px",
-                md: "20px",
-                sm: "20px",
-                xs: "18px",
-              },
+            fontSize: {
+              lg: "25px",
+              md: "20px",
+              sm: "20px",
+              xs: "18px",
+            },
           }}
         >
           <HashLink
             to="/services#sundayService"
             style={{
               display: "block",
-            
               color: "black",
               fontWeight: "500",
             }}
@@ -164,7 +158,7 @@ export default function NewHereSectionGrid({
             to="/services#serve"
             style={{
               display: "block",
-            
+
               color: "black",
               fontWeight: "500",
             }}
@@ -175,7 +169,7 @@ export default function NewHereSectionGrid({
             to="/activities#groups"
             style={{
               display: "block",
-             
+
               color: "black",
               fontWeight: "500",
             }}

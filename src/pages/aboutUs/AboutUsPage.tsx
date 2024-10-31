@@ -10,7 +10,7 @@ import UserTable from "../../components/tables/UserTable";
 import SectionLine from "../../components/pageSections/SectionLine";
 
 const AboutUsPage = () => {
-  const [modalOpen, setModalOpen] = useState(false); // State for modal visibility
+  const [modalOpen, setModalOpen] = useState(false); 
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
 
@@ -27,8 +27,16 @@ const AboutUsPage = () => {
   }, []);
 
   return (
-    <Box sx={{ marginTop: "150px", backgroundColor: "#f0f4f8" }}>
-     
+    <Box
+      sx={{
+        marginTop: {
+          md: "130px",
+          sm: "75px",
+          xs: "60px",
+        },
+        backgroundColor: "#f0f4f8",
+      }}
+    >
       <Grid
         container
         sx={{
@@ -43,7 +51,6 @@ const AboutUsPage = () => {
           marginBottom: "20px",
           margin: "0 auto", // Center it horizontally
           flexGrow: "1",
-          px:3
         }}
       >
         <Grid
@@ -68,12 +75,12 @@ const AboutUsPage = () => {
         <Grid
           sx={{
             width: "100%",
-            maxHeight:450,
+            maxHeight: 450,
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
             flexGrow: 1,
-            
+            px: 3,
             fontSize: {
               lg: "40px",
               md: "30px",
@@ -116,35 +123,47 @@ const AboutUsPage = () => {
           <Box
             sx={{
               marginTop: "20px",
-              
+
               position: "relative",
-              display: "-webkit-box",
+
               overflow: "hidden",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 5, // Limits to 3 lines
-              textOverflow: "ellipsis", // Adds ellipsis
-              width:"100%",
+              width: "100%",
             }}
           >
-            {/* Directly using Box to prevent wrapping issues with Typography */}
-            {Pastor.content.split("\n").map((paragraph, index) => (
-              <Box key={index} sx={{ display: "block", mb: 2 }}>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "22px",
-                      md: "24px",
-                      sm: "20px",
-                      xs: "20px",
-                    },
-                    
-                  }}
-                  variant="body1"
-                >
-                  {paragraph}
-                </Typography>
-              </Box>
-            ))}
+            <Box
+              sx={{
+                height: "100%",
+                maxHeight: {
+                  xs: "300px",
+                  sm: "500px",
+                  md: "550px",
+                  lg: "600px",
+                },   
+                overflowY: "auto",  
+                scrollbarWidth: "none", // Firefox
+                "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari
+              }}
+            >
+              {/* Directly using Box to prevent wrapping issues with Typography */}
+              {Pastor.content.split("\n").map((paragraph, index) => (
+                <Box key={index} sx={{ display: "block", mb: 2 }}>
+                  <Typography
+                    sx={{
+                      fontSize: {
+                        lg: "22px",
+                        md: "24px",
+                        sm: "20px",
+                        xs: "20px",
+                      },
+                    }}
+                    variant="body1"
+                  >
+                    {paragraph}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+      
           </Box>
           <Box sx={{ marginTop: "20px" }}>
             <Typography variant="body1">
@@ -203,7 +222,7 @@ const AboutUsPage = () => {
             xs: "column",
           },
           gap: "50px",
-          px:3
+          //px:3
         }}
         id="leaderShip"
       >

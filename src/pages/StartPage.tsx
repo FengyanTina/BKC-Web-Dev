@@ -200,9 +200,9 @@ const StartPage = () => {
               md: "340px",
             },
             height: {
-              xs: "30vh",
-              sm: "45vh",
-              md: "auto",
+              xs: "25vh",
+              sm: "30vh",
+              md: "45vh",
             },
             marginBottom: "10px",
             display: "flex",
@@ -221,10 +221,10 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          gap: "20px",
-          paddingTop: "30px",
+          //gap: "20px",
+          
           backgroundColor: "#dbe1e8",
-          marginBottom: "30px",
+        
         }}
       >
         {/* --------------COMMING EVENTS----------- */}
@@ -327,7 +327,7 @@ const StartPage = () => {
           sx={{
             backgroundColor: "#f0f4f8",
             width: "100%",
-            marginBottom: "10px",
+            marginBottom: "50px",
           }}
         >
           <SlickSlider events={news} />

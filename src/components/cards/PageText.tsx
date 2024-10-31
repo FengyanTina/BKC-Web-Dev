@@ -81,13 +81,15 @@ const PageTextPart = ({
         alignItems: "center",
         justifyContent: "center",
         marginbottom: "10px",
-        minHeight: "200px",
-        maxHeight: "300px",
-        overflowY: "auto",
-        "@media (max-width: 900px)": {
-          minHeight: "200px",
-          maxHeight: "300px",
-        },
+        maxHeight: {
+            xs: "300px",
+            sm: "500px",
+            md: "550px",
+            lg: "600px",
+          },
+          overflowY: "auto",
+          scrollbarWidth: "none", // Firefox
+          "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari
       }}
     >
       <Typography
@@ -102,7 +104,7 @@ const PageTextPart = ({
           },
           lineHeight: 1.5,
           px: 3,
-          overflowY: "auto",
+         
         }}
       >
         {description}

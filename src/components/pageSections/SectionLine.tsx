@@ -65,7 +65,7 @@ const SectionLine = ({ text, useWhiteStroke}: Props) => {
           color: "transparent", // Transparent fill to only show the stroke
           WebkitTextStroke: `1px ${useWhiteStroke ? "#ffffff" : "#d3d3d3"}`, // Outline color
           textTransform: "uppercase",
-          padding: "30px",
+          //padding: "30px",
         }}
       >
         {text}

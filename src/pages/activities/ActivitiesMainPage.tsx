@@ -18,14 +18,19 @@ import TeamIntroCard from "../../components/cards/TeamIntroCard.tsx";
 
 export default function ActivitiesMainPage() {
   return (
-    <Box style={{ marginTop: "80px", backgroundColor: "#f0f4f8" }}>
+    <Box sx={{ 
+        marginTop:{
+        md:"130px",
+        sm:"75px",
+        xs:"60px"
+    } , backgroundColor: "#f0f4f8" }}>
       <div id="groups"></div>
       <Box
         style={{
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#f0f4f8",
-          marginTop: "20px",
+         
         }}
       > 
           <SlickSlider events={events} />
@@ -158,7 +163,7 @@ export default function ActivitiesMainPage() {
       <SectionLine text="Andra Gruper" />
       <Box
         sx={{
-          px: 3,
+        //   px: 3,
           display: "flex",
           justifyContent: "center",
           alignContent: "center",

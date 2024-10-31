@@ -23,10 +23,10 @@ export default function TeamIntroCard({
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
   return (
-    <Card sx={{ maxWidth: 390 }}>
+    <Card sx={{ maxWidth: 390,backgroundColor:"transparent" }}  elevation={2}>
       <CardActionArea>
         {image && (
-          <CardMedia component="img" height="240" image={image} alt="" />
+          <CardMedia component="img" height="250" image={image} alt="" />
         )}
 
         <CardContent>

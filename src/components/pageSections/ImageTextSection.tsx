@@ -1,4 +1,4 @@
-import { Box,useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import "./imageText.css";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
@@ -31,7 +31,7 @@ const ImgTextSection = ({
           width: "100%",
           position: "relative",
           overflow: "hidden",
-        px:3
+          px: 3,
         }}
       >
         <img src={images} className="image-responsive" alt="" />
@@ -50,7 +50,7 @@ const ImgTextSection = ({
             <Grid size={{ xs: 12, sm: 12, md: 6 }}>
               <Box
                 sx={{
-                  px: { 
+                  px: {
                     sm: 0,
                   },
                 }}
@@ -65,7 +65,11 @@ const ImgTextSection = ({
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 height: "100%",
-                mt:"30px"
+                mt: {
+                  xs: "30px",
+                  sm: "30px",
+                  md: "0px",
+                },
               }}
             >
               {PageTextPart({

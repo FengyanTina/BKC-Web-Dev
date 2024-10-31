@@ -238,7 +238,7 @@ const EventScheduleCalendar: React.FC = () => {
 
   return (
     <div className="calendar-container">
-      <h1>MyCalendar</h1>
+     
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         headerToolbar={{
