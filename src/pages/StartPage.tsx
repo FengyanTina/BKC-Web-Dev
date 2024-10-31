@@ -52,7 +52,7 @@ const StartPage = () => {
           alignItems: "center",
           justifyContent: "space-evenly",
           width: "100%",
-          height: "100%",
+          height: "100vh",
           backgroundAttachment: "fixed",
         }}
       >
@@ -92,7 +92,7 @@ const StartPage = () => {
               alignItems: "center", // Center horizontally
               textAlign: "center", // Center text content
               position: "relative", // To move the box up
-              marginTop: { xs: "100px" },
+              marginTop: { xs: "100px", sm:"80px",md:"80px" },
             }}
           >
             {/* First Typography - Borås Kristna Center */}
@@ -120,7 +120,7 @@ const StartPage = () => {
 
             <Box
               sx={{
-                marginTop: "30px",
+                marginTop: "50px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -133,33 +133,18 @@ const StartPage = () => {
                 },
               }}
             >
-              <Typography
-                variant="h5"
-                sx={{
-                  fontWeight: 800,
-                  lineHeight: "1.5em",
-                  color: "transparent",
-                  WebkitTextStroke: "2px #ffffff",
-                  textTransform: "uppercase",
-
-                  marginBottom: "50px",
-                  fontSize: {
-                    xs: "1rem",
-                    sm: "1.5rem",
-                  },
-                }}
-              ></Typography>
+            
               <Link
                 style={{ color: "white", textDecoration: "none" }}
                 to="/aboutUs"
               >
-                About Us
+                Vilka Är Vi?
               </Link>
               <Link
                 style={{ color: "white", textDecoration: "none" }}
                 to="/contact"
               >
-                Find Us
+                Hitta Oss
               </Link>
               <FaMapMarkerAlt
                 onClick={handleOpenMap}
@@ -194,17 +179,16 @@ const StartPage = () => {
         <Grid
           sx={{
             maxWidth: "90%",
-            marginTop: {
-              xs: "20px",
-              sm: "50px",
-              md: "340px",
+            marginTop: {     
+              sm: "30px",
+              md: "355px",
             },
             height: {
               xs: "25vh",
               sm: "30vh",
-              md: "45vh",
+              md: "40vh",
             },
-            marginBottom: "10px",
+    
             display: "flex",
             justifyContent: "flex-end",
           }}
