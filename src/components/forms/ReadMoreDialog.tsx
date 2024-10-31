@@ -45,8 +45,10 @@ export default function ReadMoreDialogs({
          onClose={onClose}
         aria-labelledby="customized-dialog-title"  
       >
+    
         <Box className="modal-overlay">
         <Box  className="modal-content" style={{ fontSize: `${fontSize}px` }}>    
+       
         <h1> 
           {title}
         </h1>

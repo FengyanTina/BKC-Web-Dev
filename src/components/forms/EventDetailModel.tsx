@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./form.css";
-import { Box, Slider } from "@mui/material";
+import { Box,  DialogActions, Slider } from "@mui/material";
+import Button from '@mui/material/Button';
 import { Event } from "../../models/Event";
 import formatDateTime from "../../utils/FormatDateTime";
 import { formatTime } from "../../utils/FormatDateOrTime";
@@ -25,9 +26,9 @@ export default function EventDetailsModal({
   return (
     <Box className="modal-overlay">
       <Box className="modal-content" style={{ fontSize: `${fontSize}px` }}>
-        <button onClick={onClose} className="close-button">
+        {/* <button onClick={onClose} className="close-button">
           X
-        </button>
+        </button> */}
         <h1>{event.title}</h1>
         {event.image && (
           <>
@@ -56,6 +57,11 @@ export default function EventDetailsModal({
             style={{ width: "200px", margin: "10px auto" }}
           />
         </Box>
+        <DialogActions>
+          <Button autoFocus onClick={onClose}>
+            Close
+          </Button>
+        </DialogActions>
       </Box>
     </Box>
   );
