@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import "./intro.css";
 import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-
-export default function Intro({ content }: { content: string }) {
+interface introProp{
+    content:string[]
+}
+export default function Intro({content}:introProp  ) {
   const paragraphs = [
     "en plats för mötet mellan Gud och människa, en plats där vi ber och tillber Gud. en plats där du kan lära känna och utvecklas i den plan Gud har för dig så att du blir hans lärjunge. en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.",
     "Additional paragraph to demonstrate more content handling...en plats för mötet mellan Gud och en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.",
@@ -65,7 +67,7 @@ export default function Intro({ content }: { content: string }) {
               overflowY: "auto",
             }}
           >
-            {paragraphs.map((paragraph, index) => (
+            {content.map((paragraph, index) => (
               <React.Fragment key={index}>
                 {paragraph}
                 <br />

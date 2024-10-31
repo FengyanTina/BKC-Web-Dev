@@ -7,7 +7,12 @@ import { useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 
 const text =
-  "en plats för mötet mellan Gud och människa, en plats där tillber Gud en plats där du kan lära känna och utvecklas i den plan Gudhar för dig så att du blir hans lärjunge en plats där sår läks,";
+[
+    "en plats för mötet mellan Gud och människa, en plats där vi ber och tillber Gud. en plats där du kan lära känna och utvecklas i den plan Gud har för dig så att du blir hans lärjunge. en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.",
+    "Additional paragraph to demonstrate more content handling...en plats för mötet mellan Gud och en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.",
+    "More content to ensure that overflow is demonstrated properly.en plats för mötet mellan Gud och människa, en plats där vi ber och tillber Gud. en plats där du kan lära känna och utvecklas i den plan Gud har för dig så att du blir hans lärjunge. en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.",
+    // Add as many paragraphs as needed
+  ];
 export default function ContactMainPage() {
     const [open, setOpen] = useState(false);
 
