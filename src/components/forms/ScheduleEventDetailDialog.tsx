@@ -70,12 +70,12 @@ export default function ScheduleEventDetailDialog({
               {/* Event Time (if not all day) */}
               {event && !event.allDay && (
                 <>
-                  <h5>
+                  <h4>
                     <strong>Time: </strong>{" "}
                     {event.end
                       ? `${formatTime(event.start)} - ${formatTime(event.end)}`
                       : `${formatTime(event.start)}`}
-                  </h5>
+                  </h4>
                 </>
               )}
 
