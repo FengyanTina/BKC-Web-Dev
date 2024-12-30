@@ -16,6 +16,7 @@ const SectionLine = ({ text, useWhiteStroke}: Props) => {
         textAlign: "center",
         width: "100vw",
         py: 5,
+        
       }}
     >
       
@@ -57,8 +58,8 @@ const SectionLine = ({ text, useWhiteStroke}: Props) => {
             md: 900,
           },
           fontSize: {
-            xs: "2rem",
-            sm: "3rem",
+            xs: "1.8rem",
+            sm: "2rem",
             md: "5rem",
           },
           lineHeight: "1em",

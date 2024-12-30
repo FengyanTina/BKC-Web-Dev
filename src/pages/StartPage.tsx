@@ -268,7 +268,7 @@ const StartPage = () => {
           images={activityCardInfor.images}
           category={""}
         //   buttonLink={"/activities#sundaySchool"}
-        buttonLink="/activities"
+        buttonLink={"/activities"}
         buttonText={activityCardInfor.buttonText}
         />
          
