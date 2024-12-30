@@ -16,9 +16,9 @@ import {
   newHere,
   news,
   socialMediaActivityCardInfor,
-  sundaySchoolActivityCardInfor,
+  activityCardInfor,
   sundayServiceCardInfor,
-  youthActivityCardInfor,
+  scheduleCardInfor
 } from "../data";
 import Carousel from "../components/slides/Carousel";
 import NewHereSectionGrid from "../components/pageSections/NewHereSection";
@@ -242,32 +242,8 @@ const StartPage = () => {
           showSocialIcons={true}
         />
 
-        {/* --------------ACTIVITIES-Sunday Service----------- */}
+        {/* --------------SERVICES----------- */}
 
-        <ImgInforCardSection
-          inforSectionId=""
-          id={youthActivityCardInfor.id}
-          title={youthActivityCardInfor.title}
-          subtitle={youthActivityCardInfor.subtitle}
-          description={youthActivityCardInfor.description}
-          images={youthActivityCardInfor.images}
-          category={""}
-          imageLeft={false}
-          buttonLink={"/activities#youth"}
-        />
-
-        {/* --------------ACTIVITIES-BKC Kids----------- */}
-        <ImgInforCardSection
-          inforSectionId=""
-          id={sundaySchoolActivityCardInfor.id}
-          title={sundaySchoolActivityCardInfor.title}
-          subtitle={sundaySchoolActivityCardInfor.subtitle}
-          description={sundaySchoolActivityCardInfor.description}
-          images={sundaySchoolActivityCardInfor.images}
-          category={""}
-          buttonLink={"/activities#sundaySchool"}
-        />
-        {/* --------------ACTIVITIES-Youth----------- */}
         <ImgInforCardSection
           inforSectionId=""
           id={sundayServiceCardInfor.id}
@@ -277,7 +253,38 @@ const StartPage = () => {
           images={sundayServiceCardInfor.images}
           category={""}
           imageLeft={false}
-          buttonLink={"/activities#youth"}
+        //   buttonLink={"/activities#youth"}
+          buttonLink={"/services"}
+          buttonText={sundayServiceCardInfor.buttonText}
+        />
+
+        {/* --------------ACTIVITIES----------- */}
+        <ImgInforCardSection
+          inforSectionId=""
+          id={activityCardInfor.id}
+          title={activityCardInfor.title}
+          subtitle={activityCardInfor.subtitle}
+          description={activityCardInfor.description}
+          images={activityCardInfor.images}
+          category={""}
+        //   buttonLink={"/activities#sundaySchool"}
+        buttonLink={"/activities"}
+        buttonText={activityCardInfor.buttonText}
+        />
+         
+       {/* --------------SCHEDULES----------- */}
+       <ImgInforCardSection
+          inforSectionId=""
+          id={scheduleCardInfor.id}
+          title={scheduleCardInfor.title}
+          subtitle={scheduleCardInfor.subtitle}
+          description={scheduleCardInfor.description}
+          images={scheduleCardInfor.images}
+          category={""}
+          imageLeft={false}
+        //   buttonLink={"/activities#youth"}
+          buttonLink={"/schedules"}
+          buttonText={scheduleCardInfor.buttonText}
         />
         {/* --------------ACTIVITIES-Groups----------- */}
         <ImgInforCardSection
@@ -289,6 +296,7 @@ const StartPage = () => {
           images={homeGroupActivityCardInfor.images}
           category={""}
           buttonLink={"/activities#otherGroups"}
+          buttonText={homeGroupActivityCardInfor.buttonText}
         />
       </Box>
       {/* --------------NEWS SLIDES----------- */}

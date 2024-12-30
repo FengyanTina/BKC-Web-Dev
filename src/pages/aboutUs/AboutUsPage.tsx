@@ -96,10 +96,10 @@ const AboutUsPage = () => {
               marginTop: { xs: "20px", sm: "30px" },
 
               fontSize: {
-                lg: "40px",
-                md: "36px",
-                sm: "32px",
-                xs: "28px",
+                lg: "25px",
+                md: "25px",
+                sm: "25px",
+                xs: "25px",
               },
             }}
             variant="h2"
@@ -110,9 +110,9 @@ const AboutUsPage = () => {
             sx={{
               marginTop: "10px",
               fontSize: {
-                lg: "30px",
-                md: "25px",
-                sm: "24px",
+                lg: "20px",
+                md: "20px",
+                sm: "20px",
                 xs: "20px",
               },
             }}
@@ -149,12 +149,12 @@ const AboutUsPage = () => {
                 <Box key={index} sx={{ display: "block", mb: 2 }}>
                   <Typography
                     sx={{
-                      fontSize: {
-                        lg: "22px",
-                        md: "24px",
-                        sm: "20px",
-                        xs: "20px",
-                      },
+                        fontSize: {
+                            lg: "18px",
+                            md: "18px",
+                            sm: "18px",
+                            xs: "18px",
+                          },
                     }}
                     variant="body1"
                   >

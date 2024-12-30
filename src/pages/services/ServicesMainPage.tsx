@@ -12,12 +12,10 @@ import {
 } from "../../data.ts";
 // import LiveService from "../../apis/youtube/LiveService.tsx";
 import { SocialIcon } from "react-social-icons";
-
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
-import ImgTextSection from "../../components/pageSections/ImageTextSection.tsx";
 import MyMap from "../../apis/GoogleMap.tsx";
-import BaptismServiceSectionCard from "../../components/cards/customizedCards/BaptismServiceSectionCard.tsx";
 import WantServeSectionCard from "../../components/cards/customizedCards/WantServeSectionCard.tsx";
+import ImgInforCardSection from "../../components/pageSections/ImgInforCardSection.tsx";
 
 export default function ServicesMainPage() {
   const [openMap, setOpenMap] = useState(false);
@@ -104,8 +102,8 @@ export default function ServicesMainPage() {
           </Typography>
         </Grid>
       </Grid>
-            {/* -------------FindYourVision----------- */}
-            <div id="serve"></div>
+      {/* -------------FindYourVision----------- */}
+      <div id="serve"></div>
       <SectionLine text="hitta din vision" />
       <WantServeSectionCard
         id={findYourVision.id}
@@ -117,19 +115,32 @@ export default function ServicesMainPage() {
       {/* --------------SundayService ----------- */}
       <div id="sundayService"></div>
       <SectionLine text="Söndagsgudstjänst" />
-      <ImgTextSection
+      {/* <ImgTextSection
         inforSectionId=""
         id={sundayServiceSection.id}
         title={sundayServiceSection.title}
         subtitle={sundayServiceSection.subTitle}
         description={sundayServiceSection.description}
         images={sundayServiceSection.images}
+      /> */}
+      <ImgInforCardSection
+        inforSectionId=""
+        id={sundayServiceSection.id}
+        title={sundayServiceSection.title}
+        subtitle={sundayServiceSection.subTitle}
+        description={sundayServiceSection.description}
+        images={sundayServiceSection.images}
+        category={""}
+        imageLeft={false}
+        //   buttonLink={"/activities#youth"}
+        buttonLink={"/schedules"}
+        buttonText={sundayServiceSection.buttontex}
       />
 
       {/* --------------PrayerService ----------- */}
       <div id="prayerService"></div>
       <SectionLine text="Bönetjänster" />
-      <ImgTextSection
+      {/* <ImgTextSection
         inforSectionId=""
         id={prayerService.id}
         title={prayerService.title}
@@ -137,18 +148,42 @@ export default function ServicesMainPage() {
         description={prayerService.description}
         images={prayerService.images}
         imageLeft={false}
+      /> */}
+      <ImgInforCardSection
+        inforSectionId=""
+        id={prayerService.id}
+        title={prayerService.title}
+        subtitle={""}
+        description={prayerService.description}
+        images={prayerService.images}
+        category={""}
+        //   buttonLink={"/activities#sundaySchool"}
+        buttonLink={"/contact"}
+        buttonText={prayerService.buttontext}
       />
-
 
       {/* -------------BaptismService----------- */}
       <SectionLine text="Doptjänster" />
       <div id="baptismService"></div>
-      <BaptismServiceSectionCard
+      {/* <BaptismServiceSectionCard
         id={baptismService.id}
         title={baptismService.title}
         description={""}
         steps={baptismService.steps}
         images={baptismService.image}
+      /> */}
+
+      <ImgInforCardSection
+        inforSectionId=""
+        id={baptismService.id}
+        title={baptismService.title}
+        subtitle={""}
+        description={baptismService.description}
+        images={baptismService.image}
+        category={""}
+        imageLeft={false}
+        buttonText={baptismService.buttontex}
+        buttonLink={"/contact"}
       />
 
       {/*******YoutubeVideoLink***********/}

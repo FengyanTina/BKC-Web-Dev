@@ -95,20 +95,25 @@ export default function PageInforCard({
         >
           {subtitle}
         </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            width: "100%",
-            WebkitLineClamp: 5,
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
-            fontSize: 18,
-          }}
-        >
-          {description}
-        </Typography>
+ 
+        {description.split("\n").map((paragraph, index) => (
+                <Box key={index} sx={{ display: "block", mb: 2 }}>
+                  <Typography
+                   variant="body2"
+                   sx={{
+                     width: "100%",
+                     WebkitLineClamp: 5,
+                     overflow: "hidden",
+                     textOverflow: "ellipsis",
+                     display: "-webkit-box",
+                     WebkitBoxOrient: "vertical",
+                     fontSize: 18,
+                   }}
+                  >
+                    {paragraph}
+                  </Typography>
+                </Box>
+              ))}
         {showSocialIcons && (
           <Box
             sx={{
@@ -140,8 +145,17 @@ export default function PageInforCard({
       </CardContent>
       {buttonLink && (
         <CardActions>
-          <HashLink to={buttonLink}>{buttonText}</HashLink>
+          
+          {buttonLink.startsWith("#") || buttonLink.includes("#") ? (
+                <HashLink smooth to={buttonLink}>{buttonText}</HashLink>
+              
+          ) : (
+            <a href={buttonLink} >
+              {buttonText}
+            </a>
+          )}
         </CardActions>
+        
       )}
     </Card>
   );

@@ -13,6 +13,7 @@ const ImgInforCardSection = ({
   images,
   imageLeft = true,
   buttonLink,
+  buttonText,
   showSocialIcons = false,
 }: ImageInforSectionModel) => {
   const renderImageGallery = () => {
@@ -45,12 +46,12 @@ const ImgInforCardSection = ({
         justifyContent: "center",
         backgroundColor: "#f0f4f8",
         px: 3,
-        
+        pb:3,
       }}
     >
       <Grid
         container
-        spacing={2}
+        spacing={3}
         sx={{
           flexDirection: {
             xs: "column-reverse",
@@ -82,7 +83,7 @@ const ImgInforCardSection = ({
             title={title}
             subtitle={subtitle}
             description={description}
-            buttonText="Learn More"
+            buttonText={buttonText}
             buttonLink={buttonLink}
             showSocialIcons={showSocialIcons}
           />

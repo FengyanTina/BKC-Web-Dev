@@ -15,16 +15,15 @@ const PageTextPart = ({
     <Typography
       variant="h3"
       sx={{
-        textAlign: "center",
-        mx: "auto",
+        
         px: 3,
 
         fontSize: {
-          lg: "40px",
-          md: "30px",
-          sm: "30px",
-          xs: "28px",
-        },
+            lg: "25px",
+            md: "25px",
+            sm: "25px",
+            xs: "25px",
+          },
       }}
     >
       {title}
@@ -33,15 +32,14 @@ const PageTextPart = ({
       <Typography
         variant="h4"
         sx={{
-          textAlign: "center",
-          mx: "auto",
+          
           px: 3,
           mt: 2,
           marginBottom: "10px",
           fontSize: {
-            lg: "30px",
-            md: "22px",
-            sm: "22px",
+            lg: "20px",
+            md: "20px",
+            sm: "20px",
             xs: "20px",
           },
         }}
@@ -58,15 +56,14 @@ const PageTextPart = ({
       <Typography
         variant="h4"
         sx={{
-          textAlign: "center",
-          mx: "auto",
+          
           px: 3,
           mt: 2,
           marginBottom: "10px",
           fontSize: {
-            lg: "30px",
-            md: "22px",
-            sm: "22px",
+            lg: "20px",
+            md: "20px",
+            sm: "20px",
             xs: "20px",
           },
         }}
@@ -97,9 +94,9 @@ const PageTextPart = ({
         sx={{
           textAlign: "left",
           fontSize: {
-            lg: "25px",
-            md: "20px",
-            sm: "20px",
+            lg: "18px",
+            md: "18px",
+            sm: "18px",
             xs: "18px",
           },
           lineHeight: 1.5,
@@ -113,10 +110,10 @@ const PageTextPart = ({
     <Box>
       {startTime && (
         <Typography variant="h5" sx={{ mt: 2, px:3,color: "text.secondary" , fontSize: {
-            lg: "25px",
+            lg: "20px",
             md: "20px",
-            sm: "18px",
-            xs: "16px",
+            sm: "20px",
+            xs: "20px",
           },}}>
           <strong>Time: </strong> {formatDate(startTime)}:{" "}
           {formatTime(startTime)}
@@ -126,11 +123,11 @@ const PageTextPart = ({
       )}
       {location && (
         <Typography variant="h5" sx={{ mt: 2, px:3,color: "text.secondary",  fontSize: {
-            lg: "25px",
+            lg: "20px",
             md: "20px",
-            sm: "18px",
-            xs: "16px",
-          }, }}>
+            sm: "20px",
+            xs: "20px",
+          },}}>
           <strong>Location:</strong> {location}
         </Typography>
       )}

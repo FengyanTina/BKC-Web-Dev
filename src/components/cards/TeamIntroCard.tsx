@@ -30,14 +30,14 @@ export default function TeamIntroCard({
         )}
 
         <CardContent>
-          <Typography gutterBottom variant="h4" component="div">
+          <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div">
             {subTitle}
           </Typography>
           <Typography
-            variant="h6"
+            variant="body1"
             sx={{
               color: "text.secondary",
               display: "-webkit-box",

@@ -124,33 +124,36 @@ const initialUsers: User[] = [
   export const sundayServiceCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
-    title: "For Congregation",
+    title: "Our Services",
     subtitle:"välkommen till vår kyrka nu på söndag!",
     startTime:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundayService,
     description:"Veckans höjdpunkt i kyrkan är våra gudstjänster!",
     images: edward,
+    buttonText:"Learn More",
   }
-  export const sundaySchoolActivityCardInfor:ImageInforSectionModel={
+  export const activityCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
-    title: "For Small Kids",
+    title: "Our Activities",
     subtitle:"BKC-KIDS",
     startTime:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundaySchoole,
     description:"BKC-Kids är för barn mellan 2-12 år. Barnens egen gudstjänst där vi tillsammans får möta spännande bibelpersoner, lyssna på Guds ord, lekar och tävlingar, vi äter korv och pysslar tillsammans. Kom med du också!",
     images: sundayServe ,
+    buttonText:"Learn More",
   }
  
-  export const youthActivityCardInfor:ImageInforSectionModel={
+  export const scheduleCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
-    title: "For Young Adult",
+    title: "Our Schedules",
     subtitle:"Bkc Ungdom",
     startTime:new Date(2024, 9, 22, 14, 30),
     category: EventCategory.YouthService,
     description:"Vi kommer att leva, sova och äta på sommargården Solviken som ligger 5 km utanför Fristad precis vid sjön Ärtingen.  ",
     images: worshipHands ,
+    buttonText:"Learn More",
   }
   export const homeGroupActivityCardInfor:ImageInforSectionModel={
     id: "1",
@@ -160,6 +163,7 @@ const initialUsers: User[] = [
     startTime:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.HomeGroup,
     description:"Bibeln beskriver Gud som en Fader. Han älskar och längtar efter en relation med varje människa. Jesus säger att han är vägen, sanningen och livet och var och en som längtar efter livets mening, efter tillvarons själva pulserande centrum, är välkommen in i hans stora famn.",
+    buttonText:"Learn More",
     images:Varhistoria 
   }
   
@@ -355,9 +359,10 @@ export const imageGallarytemData = [
     id:"102",
     title: "Want to be baptized?",
     linkSubtitle: "Register Here",
-    description:"",
+    description:"Learn what is the meaning of baptism",
     steps: steps,
     image: Mission,
+    buttontex:"Contact Us"
   };
   export const findYourVision = {
     id:"103",
@@ -374,7 +379,8 @@ export const sundayServiceSection  = {
   category:EventCategory.SundayService,
   images: Conference,
   description:
-    "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes. Engaging worship music. Come as you are. There is no dress code.",
+    "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes.\n\n Time: Sunday 11:00-13:00",
+    buttontex:"Learn More Schedule"
 };
 export const prayerService = {
     id:'12',
@@ -383,6 +389,7 @@ export const prayerService = {
   images: Prayer,
   description:
     "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes. Engaging worship music. Come as you are. There is no dress code.",
+    buttontext:"Send In Your Prayer"
 };
 
 

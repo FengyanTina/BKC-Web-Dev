@@ -15,7 +15,7 @@ const WantServeSectionCard = ({
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box sx={{ flexGrow: 1, width: { md: "70%", sm: "100%" } }}>
+    <Box sx={{ flexGrow: 1, width: { lg: "65%",md: "100%", sm: "100%" } }}>
       <Grid container spacing={{ md: 1 }} columns={{ xs: 1, sm: 12, md: 12 }}>
         {!isSmallOrMediumScreen && (
           <>
@@ -27,7 +27,7 @@ const WantServeSectionCard = ({
                   position: "relative",
                   paddingTop: {
                     xs: "56.25%", // 16:9 aspect ratio for smaller screens
-                    md: "40%", // Less padding for medium screens
+                    md: "50%", // Less padding for medium screens
                     lg: "50%", // Even less padding for large screens
                   },
                 }}
@@ -54,7 +54,7 @@ const WantServeSectionCard = ({
                   position: "relative",
                   paddingTop: {
                     xs: "56.25%", // 16:9 aspect ratio for smaller screens
-                    md: "40%", // Less padding for medium screens
+                    md: "50%", // Less padding for medium screens
                     lg: "50%", // Even less padding for large screens
                   },
                 }}
@@ -82,7 +82,7 @@ const WantServeSectionCard = ({
                   position: "relative",
                   paddingTop: {
                     xs: "56.25%", // 16:9 aspect ratio for smaller screens
-                    md: "40%", // Less padding for medium screens
+                    md: "50%", // Less padding for medium screens
                     lg: "50%", // Even less padding for large screens
                   },
                 }}
@@ -131,15 +131,14 @@ const WantServeSectionCard = ({
           <Typography
             variant="h3"
             sx={{
-              textAlign: "center",
-              mx: "auto",
+              
               px: 3,
               marginBottom: "10px",
               fontSize: {
-                lg: "40px",
-                md: "30px",
-                sm: "30px",
-                xs: "28px",
+                lg: "25px",
+                md: "25px",
+                sm: "25px",
+                xs: "25px",
               },
             }}
           >
@@ -149,14 +148,13 @@ const WantServeSectionCard = ({
             <Typography
               variant="h4"
               sx={{
-                textAlign: "center", 
-                mx: "auto", 
+            
                 px: 3, 
                 mt: 3,
                 fontSize: {
-                  lg: "30px",
-                  md: "22px",
-                  sm: "22px",
+                  lg: "20px",
+                  md: "20px",
+                  sm: "20px",
                   xs: "20px",
                 },
               }}
@@ -189,9 +187,9 @@ const WantServeSectionCard = ({
                         textAlign: "left",
                         px: 3,
                         fontSize: {
-                          lg: "25px",
-                          md: "20px",
-                          sm: "20px",
+                          lg: "18px",
+                          md: "18px",
+                          sm: "18px",
                           xs: "18px",
                         },
                         lineHeight: 1.5,
