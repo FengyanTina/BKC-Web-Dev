@@ -6,7 +6,7 @@ import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
 import { PageInforModel } from "../../models/PageInforModel";
 import { HashLink } from "react-router-hash-link";
 import { SocialIcon } from "react-social-icons";
-import { Box } from "@mui/material";
+import { Box, Link } from "@mui/material";
 
 export default function PageInforCard({
   category,
@@ -150,9 +150,9 @@ export default function PageInforCard({
                 <HashLink smooth to={buttonLink}>{buttonText}</HashLink>
               
           ) : (
-            <a href={buttonLink} >
+            <Link href={buttonLink} >
               {buttonText}
-            </a>
+            </Link>
           )}
         </CardActions>
         

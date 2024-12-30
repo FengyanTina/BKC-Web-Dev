@@ -254,7 +254,7 @@ const StartPage = () => {
           category={""}
           imageLeft={false}
         //   buttonLink={"/activities#youth"}
-          buttonLink={"/services"}
+          buttonLink="/services"
           buttonText={sundayServiceCardInfor.buttonText}
         />
 
@@ -268,7 +268,7 @@ const StartPage = () => {
           images={activityCardInfor.images}
           category={""}
         //   buttonLink={"/activities#sundaySchool"}
-        buttonLink={"/activities"}
+        buttonLink="/activities"
         buttonText={activityCardInfor.buttonText}
         />
          
@@ -283,7 +283,7 @@ const StartPage = () => {
           category={""}
           imageLeft={false}
         //   buttonLink={"/activities#youth"}
-          buttonLink={"/schedules"}
+          buttonLink="/schedules"
           buttonText={scheduleCardInfor.buttonText}
         />
         {/* --------------ACTIVITIES-Groups----------- */}
@@ -295,7 +295,7 @@ const StartPage = () => {
           description={homeGroupActivityCardInfor.description}
           images={homeGroupActivityCardInfor.images}
           category={""}
-          buttonLink={"/activities#otherGroups"}
+          buttonLink="/activities#otherGroups"
           buttonText={homeGroupActivityCardInfor.buttonText}
         />
       </Box>

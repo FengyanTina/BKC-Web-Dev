@@ -2,7 +2,6 @@ import { Box, Dialog, DialogContent, Typography } from "@mui/material";
 import { useState } from "react";
 import Grid from "@mui/material/Grid2";
 import worshipHands from "../../assets/worshipHands.jpg";
-
 import { FaMapMarkerAlt } from "react-icons/fa";
 import {
   prayerService,
@@ -133,7 +132,7 @@ export default function ServicesMainPage() {
         category={""}
         imageLeft={false}
         //   buttonLink={"/activities#youth"}
-        buttonLink={"/schedules"}
+        buttonLink="/schedules"
         buttonText={sundayServiceSection.buttontex}
       />
 
@@ -158,7 +157,7 @@ export default function ServicesMainPage() {
         images={prayerService.images}
         category={""}
         //   buttonLink={"/activities#sundaySchool"}
-        buttonLink={"/contact"}
+        buttonLink="/contact"
         buttonText={prayerService.buttontext}
       />
 
@@ -183,7 +182,7 @@ export default function ServicesMainPage() {
         category={""}
         imageLeft={false}
         buttonText={baptismService.buttontex}
-        buttonLink={"/contact"}
+        buttonLink="/contact"
       />
 
       {/*******YoutubeVideoLink***********/}
