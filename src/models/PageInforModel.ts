@@ -7,7 +7,7 @@ export interface PageInforModel extends BaseModel {
     buttonText?: string;
    startTime?:Date;
    endTime?:Date;
-   location?:string
-   buttonLink?:string
+   location?:string;
+   links?:string[];
    showSocialIcons?:boolean
   }

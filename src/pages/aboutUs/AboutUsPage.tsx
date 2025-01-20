@@ -6,8 +6,11 @@ import Leader from "../../assets/leader.jpg";
 import DavidB from "../../assets/DavidB.jpg";
 import TeamIntroCard from "../../components/cards/TeamIntroCard";
 import ReadMoreDialogs from "../../components/forms/ReadMoreDialog";
-import UserTable from "../../components/tables/UserTable";
+import {
+    findYourVision,
+  } from "../../data.ts";
 import SectionLine from "../../components/pageSections/SectionLine";
+import WantServeSectionCard from "../../components/cards/customizedCards/WantServeSectionCard";
 
 const AboutUsPage = () => {
   const [modalOpen, setModalOpen] = useState(false); 
@@ -67,7 +70,7 @@ const AboutUsPage = () => {
             style={{
               width: "100%",
               height: "auto",
-              maxWidth: "600px",
+              maxWidth: "500px",
               objectFit: "cover",
             }}
             src={Pastor.image}
@@ -167,7 +170,7 @@ const AboutUsPage = () => {
             </Box>
       
           </Box>
-          <Box sx={{ marginTop: "20px" }}>
+          {/* <Box sx={{ marginTop: "20px" }}>
             <Typography variant="body1">
               <Link
                 href="https://your-blog-link.com"
@@ -188,7 +191,7 @@ const AboutUsPage = () => {
                 Follow on Facebook
               </Link>
             </Typography>
-          </Box>
+          </Box> */}
           <Box sx={{ marginTop: "20px" }}>
             <Typography variant="body1">
               <Link
@@ -224,7 +227,6 @@ const AboutUsPage = () => {
             xs: "column",
           },
           gap: "50px",
-          //px:3
         }}
         id="leaderShip"
       >
@@ -247,20 +249,29 @@ const AboutUsPage = () => {
           image={DavidB}
         />
       </Box>
-      <SectionLine text="Medlemskap" />
+      {/* <SectionLine text="Medlemskap" />
       <Box id="userTable"></Box>
-      <UserTable />
+      <UserTable /> */}
       <SectionLine text="Vår historia" />
+     
       <Box
         sx={{
-          marginTop: "50px",
+         
           marginBottom: "50px",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
           alignItems: "center",
         }}
-      ></Box>
+      >
+         <WantServeSectionCard
+        id={findYourVision.id}
+        title={findYourVision.title}
+        steps={findYourVision.steps}
+        description={findYourVision.description}
+        images={findYourVision.images}
+      />
+      </Box>
     </Box>
   );
 };

@@ -15,7 +15,7 @@ const WantServeSectionCard = ({
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box sx={{ flexGrow: 1, width: { lg: "65%",md: "100%", sm: "100%" } }}>
+    <Box sx={{ flexGrow: 1, width: { lg: "70%",md: "100%", sm: "100%" }, }}>
       <Grid container spacing={{ md: 1 }} columns={{ xs: 1, sm: 12, md: 12 }}>
         {!isSmallOrMediumScreen && (
           <>
@@ -111,7 +111,7 @@ const WantServeSectionCard = ({
                 width: "100%",
                 position: "relative",
                 overflow: "hidden",
-                px: 3,
+               
               }}
             >
               <img src={serve1} className="image-responsive" alt="" />
@@ -131,8 +131,6 @@ const WantServeSectionCard = ({
           <Typography
             variant="h3"
             sx={{
-              
-              px: 3,
               marginBottom: "10px",
               fontSize: {
                 lg: "25px",
@@ -148,8 +146,6 @@ const WantServeSectionCard = ({
             <Typography
               variant="h4"
               sx={{
-            
-                px: 3, 
                 mt: 3,
                 fontSize: {
                   lg: "20px",
@@ -185,7 +181,6 @@ const WantServeSectionCard = ({
                       variant="h5"
                       sx={{
                         textAlign: "left",
-                        px: 3,
                         fontSize: {
                           lg: "18px",
                           md: "18px",

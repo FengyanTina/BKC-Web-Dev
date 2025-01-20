@@ -12,7 +12,7 @@ const ImgInforCardSection = ({
   description,
   images,
   imageLeft = true,
-  buttonLink,
+  link: buttonLink,
   buttonText,
   showSocialIcons = false,
 }: ImageInforSectionModel) => {
@@ -84,7 +84,7 @@ const ImgInforCardSection = ({
             subtitle={subtitle}
             description={description}
             buttonText={buttonText}
-            buttonLink={buttonLink}
+            link={buttonLink}
             showSocialIcons={showSocialIcons}
           />
         </Grid>

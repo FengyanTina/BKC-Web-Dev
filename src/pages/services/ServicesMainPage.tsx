@@ -9,7 +9,6 @@ import {
   sundayServiceSection,
   findYourVision,
 } from "../../data.ts";
-// import LiveService from "../../apis/youtube/LiveService.tsx";
 import { SocialIcon } from "react-social-icons";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import MyMap from "../../apis/GoogleMap.tsx";
@@ -104,6 +103,17 @@ export default function ServicesMainPage() {
       {/* -------------FindYourVision----------- */}
       <div id="serve"></div>
       <SectionLine text="hitta din vision" />
+      <Box
+      sx={{
+       
+        marginBottom: "30px",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+        px:3,
+      }}>
+
       <WantServeSectionCard
         id={findYourVision.id}
         title={findYourVision.title}
@@ -111,17 +121,10 @@ export default function ServicesMainPage() {
         description={findYourVision.description}
         images={findYourVision.images}
       />
+      </Box>
       {/* --------------SundayService ----------- */}
       <div id="sundayService"></div>
       <SectionLine text="Söndagsgudstjänst" />
-      {/* <ImgTextSection
-        inforSectionId=""
-        id={sundayServiceSection.id}
-        title={sundayServiceSection.title}
-        subtitle={sundayServiceSection.subTitle}
-        description={sundayServiceSection.description}
-        images={sundayServiceSection.images}
-      /> */}
       <ImgInforCardSection
         inforSectionId=""
         id={sundayServiceSection.id}
@@ -131,23 +134,13 @@ export default function ServicesMainPage() {
         images={sundayServiceSection.images}
         category={""}
         imageLeft={false}
-        //   buttonLink={"/activities#youth"}
-        buttonLink="/schedules"
+        link="/schedules"
         buttonText={sundayServiceSection.buttontex}
       />
 
       {/* --------------PrayerService ----------- */}
       <div id="prayerService"></div>
       <SectionLine text="Bönetjänster" />
-      {/* <ImgTextSection
-        inforSectionId=""
-        id={prayerService.id}
-        title={prayerService.title}
-        linkSubtitle={prayerService.linkSubtitle}
-        description={prayerService.description}
-        images={prayerService.images}
-        imageLeft={false}
-      /> */}
       <ImgInforCardSection
         inforSectionId=""
         id={prayerService.id}
@@ -157,20 +150,13 @@ export default function ServicesMainPage() {
         images={prayerService.images}
         category={""}
         //   buttonLink={"/activities#sundaySchool"}
-        buttonLink="/contact"
+        link="/contact"
         buttonText={prayerService.buttontext}
       />
 
       {/* -------------BaptismService----------- */}
       <SectionLine text="Doptjänster" />
       <div id="baptismService"></div>
-      {/* <BaptismServiceSectionCard
-        id={baptismService.id}
-        title={baptismService.title}
-        description={""}
-        steps={baptismService.steps}
-        images={baptismService.image}
-      /> */}
 
       <ImgInforCardSection
         inforSectionId=""
@@ -182,7 +168,7 @@ export default function ServicesMainPage() {
         category={""}
         imageLeft={false}
         buttonText={baptismService.buttontex}
-        buttonLink="/contact"
+        link="/contact"
       />
 
       {/*******YoutubeVideoLink***********/}

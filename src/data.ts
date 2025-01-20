@@ -167,50 +167,50 @@ const initialUsers: User[] = [
     images:Varhistoria 
   }
   
-export const imageGallarytemData = [
-    {
-      img: Bible,
-      title: "Bible Study",
+// export const imageGallarytemData = [
+//     {
+//       img: Bible,
+//       title: "Bible Study",
      
-      featured: true,
-    },
-    {
-      img: Worship,
-      title: "Juesus Conference",
+//       featured: true,
+//     },
+//     {
+//       img: Worship,
+//       title: "Juesus Conference",
      
-    },
-    {
-      img: Prayer,
-      title: "Praying for Borås",
+//     },
+//     {
+//       img: Prayer,
+//       title: "Praying for Borås",
      
-    },
-    {
-      img: Conference,
-      title: "Comminity Prayer",
+//     },
+//     {
+//       img: Conference,
+//       title: "Comminity Prayer",
  
-    },
-    {
-      img: Mission,
-      title: "Youth Camp",
+//     },
+//     {
+//       img: Mission,
+//       title: "Youth Camp",
       
-    },
-    {
-      img: BethelWorship,
-      title: "Togather Worship",
+//     },
+//     {
+//       img: BethelWorship,
+//       title: "Togather Worship",
      
-      featured: true,
-    },
-    {
-      img: worshipHands,
-      title: "Worship Conference",
+//       featured: true,
+//     },
+//     {
+//       img: worshipHands,
+//       title: "Worship Conference",
     
-    },
-    {
-      img: PrayerBible,
-      title: "Study the words",
+//     },
+//     {
+//       img: PrayerBible,
+//       title: "Study the words",
     
-    },
-  ];
+//     },
+//   ];
   
   
   export const socialMediaActivityCardInfor={

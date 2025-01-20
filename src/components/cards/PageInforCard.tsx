@@ -18,7 +18,7 @@ export default function PageInforCard({
   startTime,
   endTime,
   location,
-  buttonLink,
+  link: buttonLink,
   showSocialIcons = false,
 }: PageInforModel) {
   return (

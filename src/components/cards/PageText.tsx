@@ -10,14 +10,12 @@ const PageTextPart = ({
   startTime,
   endTime,
   location,
+  links,
 }: PageInforModel) => (
   <>
     <Typography
       variant="h3"
-      sx={{
-        
-      
-
+      sx={{       
         fontSize: {
             lg: "25px",
             md: "25px",
@@ -32,9 +30,6 @@ const PageTextPart = ({
       <Typography
         variant="h4"
         sx={{
-          
-        
-       
           marginBottom: "10px",
           fontSize: {
             lg: "20px",
@@ -55,10 +50,7 @@ const PageTextPart = ({
     {subtitle && (
       <Typography
         variant="h4"
-        sx={{
-          
-        
-        
+        sx={{  
           marginBottom: "10px",
           fontSize: {
             lg: "20px",
@@ -99,9 +91,7 @@ const PageTextPart = ({
             sm: "18px",
             xs: "18px",
           },
-          lineHeight: 1.5,
-        
-         
+          lineHeight: 1.5,     
         }}
       >
         {description}
@@ -131,6 +121,9 @@ const PageTextPart = ({
           <strong>Location:</strong> {location}
         </Typography>
       )}
+    </Box>
+    <Box>
+
     </Box>
   </>
 );
