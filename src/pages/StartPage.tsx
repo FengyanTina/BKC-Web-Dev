@@ -238,7 +238,7 @@ const StartPage = () => {
           description={socialMediaActivityCardInfor.description}
           images={socialMediaActivityCardInfor.images}
           category={socialMediaActivityCardInfor.category}
-          link={"/activities#groups"}
+          buttonLink={"/activities#groups"}
           showSocialIcons={true}
         />
 
@@ -254,7 +254,7 @@ const StartPage = () => {
           category={""}
           imageLeft={false}
         //   buttonLink={"/activities#youth"}
-          link="/services"
+        buttonLink="/services"
           buttonText={sundayServiceCardInfor.buttonText}
         />
 
@@ -268,7 +268,7 @@ const StartPage = () => {
           images={activityCardInfor.images}
           category={""}
         //   buttonLink={"/activities#sundaySchool"}
-        link={"/activities"}
+        buttonLink={"/activities"}
         buttonText={activityCardInfor.buttonText}
         />
          
@@ -283,7 +283,7 @@ const StartPage = () => {
           category={""}
           imageLeft={false}
         //   buttonLink={"/activities#youth"}
-          link="/schedules"
+        buttonLink="/schedules"
           buttonText={scheduleCardInfor.buttonText}
         />
         {/* --------------ACTIVITIES-Groups----------- */}
@@ -295,7 +295,7 @@ const StartPage = () => {
           description={homeGroupActivityCardInfor.description}
           images={homeGroupActivityCardInfor.images}
           category={""}
-          link="/activities#otherGroups"
+          buttonLink="/activities#otherGroups"
           buttonText={homeGroupActivityCardInfor.buttonText}
         />
       </Box>

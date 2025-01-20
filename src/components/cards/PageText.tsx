@@ -100,31 +100,6 @@ const PageTextPart = ({
       </Typography>
     </Box>
     <Box>
-      {startTime && (
-        <Typography variant="h5" sx={{ color: "text.secondary" , fontSize: {
-            lg: "20px",
-            md: "20px",
-            sm: "20px",
-            xs: "20px",
-          },}}>
-          <strong>Time: </strong> {formatDate(startTime)}:{" "}
-          {formatTime(startTime)}
-          {endTime && ` - ${formatTime(endTime)}`}{" "}
-          {/* Only render endTime if it exists */}
-        </Typography>
-      )}
-      {location && (
-        <Typography variant="h5" sx={{ color: "text.secondary",  fontSize: {
-            lg: "20px",
-            md: "20px",
-            sm: "20px",
-            xs: "20px",
-          },}}>
-          <strong>Location:</strong> {location}
-        </Typography>
-      )}
-    </Box>
-    <Box>
     {links &&
                 links.map((link, index) => (
                   <div key={index} style={{ marginBottom: "16px" }}>
@@ -163,6 +138,36 @@ const PageTextPart = ({
                   </div>
                 ))}
     </Box>
+    <Box
+    sx={{
+        marginTop: "auto", // Push this section to the bottom
+      }}
+    >
+      {startTime && (
+        <Typography variant="h5" sx={{ color: "text.secondary" , fontSize: {
+            lg: "20px",
+            md: "20px",
+            sm: "20px",
+            xs: "20px",
+          },}}>
+          <strong>Time: </strong> {formatDate(startTime)}:{" "}
+          {formatTime(startTime)}
+          {endTime && ` - ${formatTime(endTime)}`}{" "}
+          {/* Only render endTime if it exists */}
+        </Typography>
+      )}
+      {location && (
+        <Typography variant="h5" sx={{ color: "text.secondary",  fontSize: {
+            lg: "20px",
+            md: "20px",
+            sm: "20px",
+            xs: "20px",
+          },}}>
+          <strong>Location:</strong> {location}
+        </Typography>
+      )}
+    </Box>
+   
   </>
 );
 export default PageTextPart;
