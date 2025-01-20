@@ -134,7 +134,7 @@ export default function ServicesMainPage() {
         images={sundayServiceSection.images}
         category={""}
         imageLeft={false}
-        link="/schedules"
+        buttonLink="/schedules"
         buttonText={sundayServiceSection.buttontex}
       />
 
@@ -150,7 +150,7 @@ export default function ServicesMainPage() {
         images={prayerService.images}
         category={""}
         //   buttonLink={"/activities#sundaySchool"}
-        link="/contact"
+        buttonLink="/contact"
         buttonText={prayerService.buttontext}
       />
 
@@ -168,7 +168,7 @@ export default function ServicesMainPage() {
         category={""}
         imageLeft={false}
         buttonText={baptismService.buttontex}
-        link="/contact"
+        buttonLink="/contact"
       />
 
       {/*******YoutubeVideoLink***********/}

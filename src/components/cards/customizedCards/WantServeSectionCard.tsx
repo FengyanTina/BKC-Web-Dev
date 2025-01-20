@@ -5,6 +5,7 @@ import { BaptismSectionModel } from "../../../models/BaptismSecionModel";
 import sundaySchol11 from "../../../assets/sundaySchol11.jpg";
 import serve1 from "../../../assets/serve1.png";
 import socialActivity from "../../../assets/socialActivity.png";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const WantServeSectionCard = ({
   title,
@@ -15,7 +16,7 @@ const WantServeSectionCard = ({
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box sx={{ flexGrow: 1, width: { lg: "70%",md: "100%", sm: "100%" }, }}>
+    <Box sx={{ flexGrow: 1, width: { lg: "70%", md: "100%", sm: "100%" } }}>
       <Grid container spacing={{ md: 1 }} columns={{ xs: 1, sm: 12, md: 12 }}>
         {!isSmallOrMediumScreen && (
           <>
@@ -68,7 +69,7 @@ const WantServeSectionCard = ({
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover", 
+                    objectFit: "cover",
                   }}
                 />
               </Box>
@@ -77,8 +78,8 @@ const WantServeSectionCard = ({
             <Grid size={{ xs: 12, sm: 6, md: 4 }}>
               <Box
                 sx={{
-                  width: "100%", 
-                  maxWidth: "460px", 
+                  width: "100%",
+                  maxWidth: "460px",
                   position: "relative",
                   paddingTop: {
                     xs: "56.25%", // 16:9 aspect ratio for smaller screens
@@ -88,8 +89,8 @@ const WantServeSectionCard = ({
                 }}
               >
                 <img
-                  src={socialActivity} 
-                  alt="Prayer Image 2" 
+                  src={socialActivity}
+                  alt="Prayer Image 2"
                   style={{
                     position: "absolute",
                     top: 0,
@@ -111,7 +112,6 @@ const WantServeSectionCard = ({
                 width: "100%",
                 position: "relative",
                 overflow: "hidden",
-               
               }}
             >
               <img src={serve1} className="image-responsive" alt="" />
@@ -200,6 +200,13 @@ const WantServeSectionCard = ({
                               fontWeight: "bold",
                             }}
                           >
+                            <ChevronRightIcon
+                              sx={{
+                                fontSize: "20px",
+                                marginRight: "8px",
+                                color: "#337f83",
+                              }} // Customize icon size and spacing
+                            />
                             {step.linkName}
                           </a>{" "}
                           {step.description} &nbsp; {/* Non-breaking space */}

@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { PageInforModel } from "../../models/PageInforModel";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const PageTextPart = ({
   title,
@@ -10,6 +11,7 @@ const PageTextPart = ({
   startTime,
   endTime,
   location,
+  buttonLink,
   links,
 }: PageInforModel) => (
   <>
@@ -123,7 +125,43 @@ const PageTextPart = ({
       )}
     </Box>
     <Box>
-
+    {links &&
+                links.map((link, index) => (
+                  <div key={index} style={{ marginBottom: "16px" }}>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        textAlign: "left",
+                        fontSize: {
+                          lg: "18px",
+                          md: "18px",
+                          sm: "18px",
+                          xs: "18px",
+                        },
+                        lineHeight: 1.5,
+                      }}
+                    >
+                                  <a
+                            href={link}
+                            style={{
+                              color: "#337f83",
+                              textDecoration: "none",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            <ChevronRightIcon
+                              sx={{
+                                fontSize: "20px",
+                                marginRight: "8px",
+                                color: "#337f83",
+                              }} // Customize icon size and spacing
+                            />
+                            {link}
+                          </a>
+                     
+                    </Typography>
+                  </div>
+                ))}
     </Box>
   </>
 );
