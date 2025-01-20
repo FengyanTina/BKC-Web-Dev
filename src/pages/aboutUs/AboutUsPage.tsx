@@ -35,6 +35,8 @@ const AboutUsPage = () => {
           xs: "60px",
         },
         backgroundColor: "#f0f4f8",
+        px: 3,
+        pb:3,
       }}
     >
       <Grid

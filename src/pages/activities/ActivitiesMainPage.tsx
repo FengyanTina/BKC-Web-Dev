@@ -21,7 +21,9 @@ export default function ActivitiesMainPage() {
     <Box sx={{ 
         marginTop:{
             md:"130px",      
-            xs:"100px"
+            xs:"100px",
+              px: 3,
+        pb:3,
         }, 
          backgroundColor: "#f0f4f8" }}>
       <div id="groups"></div>
@@ -44,11 +46,13 @@ export default function ActivitiesMainPage() {
           display: "flex",
           justifyContent: "center",
           backgroundColor: "#f0f4f8",
+          px: 3,
+          pb:3,
         }}
       >
         <Grid
           container
-          spacing={2}
+          spacing={1}
           sx={{
             flexDirection: { xs: "column", sm: "row", },
           }}
@@ -100,6 +104,8 @@ export default function ActivitiesMainPage() {
           flexDirection: "column",
           justifyContent: "center",
           backgroundColor: "#f0f4f8",
+          px: 3,
+          pb:3,
         }}
       >
         <Grid
@@ -110,7 +116,7 @@ export default function ActivitiesMainPage() {
             display: "flex",
             alignContent: "center",
             justifyContent: "center",
-            marginBottom: "50px",
+            marginBottom: "60px",
           }}
         >
           <Box
@@ -161,20 +167,21 @@ export default function ActivitiesMainPage() {
       {/* --------------ACTIVITIES-ACTIVITIES-BKC Other Groups----------- */}
       <div id="otherGroups"></div>
       <SectionLine text="Andra Gruper" />
+      
       <Box
         sx={{
-        //   px: 3,
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          alignItems: "center",
-          flexDirection: {
-            md: "row",
-            sm: "column",
-            xs: "column",
-          },
-          gap: "50px",
-        }}
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            alignItems: "center",
+            flexDirection: {
+              md: "row",
+              sm: "column",
+              xs: "column",
+            },
+            gap: "50px",
+           
+          }}
       >
         <TeamIntroCard
           title={"Home Group"}

@@ -16,7 +16,7 @@ const PageTextPart = ({
       variant="h3"
       sx={{
         
-        px: 3,
+      
 
         fontSize: {
             lg: "25px",
@@ -33,8 +33,8 @@ const PageTextPart = ({
         variant="h4"
         sx={{
           
-          px: 3,
-          mt: 2,
+        
+       
           marginBottom: "10px",
           fontSize: {
             lg: "20px",
@@ -57,8 +57,8 @@ const PageTextPart = ({
         variant="h4"
         sx={{
           
-          px: 3,
-          mt: 2,
+        
+        
           marginBottom: "10px",
           fontSize: {
             lg: "20px",
@@ -100,7 +100,7 @@ const PageTextPart = ({
             xs: "18px",
           },
           lineHeight: 1.5,
-          px: 3,
+        
          
         }}
       >
@@ -109,7 +109,7 @@ const PageTextPart = ({
     </Box>
     <Box>
       {startTime && (
-        <Typography variant="h5" sx={{ mt: 2, px:3,color: "text.secondary" , fontSize: {
+        <Typography variant="h5" sx={{ color: "text.secondary" , fontSize: {
             lg: "20px",
             md: "20px",
             sm: "20px",
@@ -122,7 +122,7 @@ const PageTextPart = ({
         </Typography>
       )}
       {location && (
-        <Typography variant="h5" sx={{ mt: 2, px:3,color: "text.secondary",  fontSize: {
+        <Typography variant="h5" sx={{ color: "text.secondary",  fontSize: {
             lg: "20px",
             md: "20px",
             sm: "20px",
