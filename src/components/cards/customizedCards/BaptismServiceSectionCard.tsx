@@ -1,8 +1,9 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import "./customizedCards.css";
 import Grid from "@mui/material/Grid2";
-import { TextSectionWithStepsModel } from "../../../models/BaptismSecionModel";
+import { TextSectionWithStepsModel } from "../../../models/TextSectionWithStepsModel";
 import ImageGallary from "../../imageManagements/ImageGallary";
+
 
 const BaptismServiceSectionCard = ({
   title,

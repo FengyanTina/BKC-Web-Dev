@@ -2,9 +2,9 @@ import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import ImageGallary from "../imageManagements/ImageGallary";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
-import PageInforCard from "../cards/PageInforCard";
+import ImageInforCardSectionText from "../cards/ImageInforCardSectionText";
 
-const ImgInforCardSection = ({
+const  ImageInforCardSection = ({
   inforSectionId,
   title,
   category,
@@ -77,7 +77,7 @@ const ImgInforCardSection = ({
             width: "100%",
           }}
         >
-          <PageInforCard
+          <ImageInforCardSectionText
             id={inforSectionId}
             category={category}
             title={title}
@@ -170,4 +170,4 @@ const ImgInforCardSection = ({
   );
 };
 
-export default ImgInforCardSection;
+export default  ImageInforCardSection;

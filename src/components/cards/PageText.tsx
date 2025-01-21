@@ -1,5 +1,5 @@
 import { Box, CardActions, Typography } from "@mui/material";
-import { PageInforModel } from "../../models/PageInforModel";
+import { CardTextSectionModel } from "../../models/CardTextSectionModel";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { HashLink } from "react-router-hash-link";
@@ -13,20 +13,18 @@ const PageTextPart = ({
   startTime,
   endTime,
   location,
+  steps,
   buttonLink,
   buttonText,
+  showStepsLink = false,
   links,
-}: PageInforModel) => (
+}: CardTextSectionModel) => (
   <>
     <Typography
       variant="h3"
-      sx={{       
-        fontSize: {
-            lg: "25px",
-            md: "25px",
-            sm: "25px",
-            xs: "25px",
-          },
+      sx={{
+        marginBottom: "10px",
+        fontSize:"25px",
       }}
     >
       {title}
@@ -36,17 +34,16 @@ const PageTextPart = ({
         variant="h4"
         sx={{
           marginBottom: "10px",
-          fontSize: {
-            lg: "20px",
-            md: "20px",
-            sm: "20px",
-            xs: "20px",
-          },
+          fontSize: "20px",
         }}
       >
         <a
           href=""
-          style={{ color: "#337f83", textDecoration: "none",fontWeight: "bold" }}
+          style={{
+            color: "#337f83",
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
         >
           {linkSubtitle}
         </a>
@@ -55,62 +52,80 @@ const PageTextPart = ({
     {subtitle && (
       <Typography
         variant="h4"
-        sx={{  
+        sx={{
           marginBottom: "10px",
-          fontSize: {
-            lg: "20px",
-            md: "20px",
-            sm: "20px",
-            xs: "20px",
-          },
+          fontSize: "20px",
         }}
       >
         {subtitle}
       </Typography>
     )}
 
-    <Box
+    <Typography
+      variant="h5"
       sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        marginbottom: "10px",
-        maxHeight: {
-            xs: "300px",
-            sm: "500px",
-            md: "550px",
-            lg: "600px",
-          },
-          overflowY: "auto",
-          scrollbarWidth: "none", // Firefox
-          "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari
+        textAlign: "left",
+        fontSize: "18px",
+        lineHeight: 1.5,
       }}
     >
-      <Typography
-        variant="h5"
-        sx={{
-          textAlign: "left",
-          fontSize: "18px",
-          lineHeight: 1.5,     
-        }}
-      >
-        {description}
-      </Typography>
+      {description}
+    </Typography>
+
+    <Box>
+      {steps &&
+        steps.map((step, index) => (
+          <div key={index} style={{ marginBottom: "16px" }}>
+            <Typography
+              variant="h5"
+              sx={{
+                textAlign: "left",
+                fontSize:  "18px",
+                lineHeight: 1.5,
+              }}
+            >
+              {showStepsLink && step.link && step.linkName ? (
+                <>
+                  <a
+                    href={step.link}
+                    style={{
+                      color: "#337f83",
+                      textDecoration: "none",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <ChevronRightIcon
+                      sx={{
+                        fontSize: "20px",
+                        marginRight: "8px",
+                        color: "#337f83",
+                      }} // Customize icon size and spacing
+                    />
+                    {step.linkName}
+                  </a>{" "}
+                  {step.description} &nbsp; {/* Non-breaking space */}
+                </>
+              ) : (
+                step.description
+              )}
+            </Typography>
+          </div>
+        ))}
     </Box>
-    
     <Box
-    sx={{
+      sx={{
         // marginTop: "auto", // Push this section to the bottom
-        marginTop:"50px"  
-    }}
+        marginTop: "30px",
+      }}
     >
       {startTime && (
-        <Typography variant="h5" sx={{ color: "text.secondary" , fontSize: {
-            lg: "20px",
-            md: "20px",
-            sm: "20px",
-            xs: "20px",
-          },}}>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "text.secondary",
+            fontSize:  "20px",
+          }}
+        >
           <strong>Time: </strong> {formatDate(startTime)}:{" "}
           {formatTime(startTime)}
           {endTime && ` - ${formatTime(endTime)}`}{" "}
@@ -118,74 +133,71 @@ const PageTextPart = ({
         </Typography>
       )}
       {location && (
-        <Typography variant="h5" sx={{ color: "text.secondary",  fontSize: {
-            lg: "20px",
-            md: "20px",
-            sm: "20px",
-            xs: "20px",
-          },}}>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "text.secondary",
+            fontSize: "20px",
+          }}
+        >
           <strong>Location:</strong> {location}
         </Typography>
       )}
     </Box>
     <Box
-     sx={{
+      sx={{
         // marginTop: "auto", // Push this section to the bottom
-        marginTop:"50px"  
-    }}
+        marginTop: "30px",
+      }}
     >
-    {links &&
-                links.map((link, index) => (
-                  <div key={index} style={{ marginBottom: "16px" }}>
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        textAlign: "left",
-                        fontSize: {
-                          lg: "18px",
-                          md: "18px",
-                          sm: "18px",
-                          xs: "18px",
-                        },
-                        lineHeight: 1.5,
-                      }}
-                    >
-                                  <a
-                            href={link.url}
-                            style={{
-                              color: "#337f83",
-                              textDecoration: "none",
-                              fontWeight: "bold",
-                            }}
-                          >
-                            <ChevronRightIcon
-                              sx={{
-                                fontSize: "20px",
-                                marginRight: "8px",
-                                color: "#337f83",
-                              }} // Customize icon size and spacing
-                            />
-                            {link.label}
-                          </a>
-                     
-                    </Typography>
-                  </div>
-                ))}
+      {links &&
+        links.map((link, index) => (
+          <div key={index} style={{ marginBottom: "16px" }}>
+            <Typography
+              variant="h5"
+              sx={{
+                textAlign: "left",
+                fontSize: {
+                  lg: "18px",
+                  md: "18px",
+                  sm: "18px",
+                  xs: "18px",
+                },
+                lineHeight: 1.5,
+              }}
+            >
+              <a
+                href={link.url}
+                style={{
+                  color: "#337f83",
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                }}
+              >
+                <ChevronRightIcon
+                  sx={{
+                    fontSize: "20px",
+                    marginRight: "8px",
+                    color: "#337f83",
+                  }} // Customize icon size and spacing
+                />
+                {link.label}
+              </a>
+            </Typography>
+          </div>
+        ))}
     </Box>
-   {buttonLink && (
-           <CardActions>
-             
-             {buttonLink.startsWith("#") || buttonLink.includes("#") ? (
-                   <HashLink smooth to={buttonLink}>{buttonText}</HashLink>
-                 
-             ) : (
-               <Link to={buttonLink} >
-                 {buttonText}
-               </Link>
-             )}
-           </CardActions>
-           
-         )}
+    {buttonLink && (
+      <CardActions>
+        {buttonLink.startsWith("#") || buttonLink.includes("#") ? (
+          <HashLink smooth to={buttonLink}>
+            {buttonText}
+          </HashLink>
+        ) : (
+          <Link to={buttonLink}>{buttonText}</Link>
+        )}
+      </CardActions>
+    )}
   </>
 );
 export default PageTextPart;

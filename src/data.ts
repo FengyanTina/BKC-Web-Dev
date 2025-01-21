@@ -25,7 +25,7 @@ import SundaySchool7 from "./assets/sundaySchool/sundaySchool7.jpg"
 import SundaySchool8 from "./assets/sundaySchool/sundaySchool8.jpg"
 import sundayServe from "./assets/sundayServe.jpg"
 import { ImageGallaryItemData } from "./models/ImageGallaryItemData";
-import { PageInforModel } from "./models/PageInforModel";
+import { CardTextSectionModel } from "./models/CardTextSectionModel";
 
 
   
@@ -415,7 +415,7 @@ export const prayerService = {
 
 
 
-export const BKCkIDS2:PageInforModel = {
+export const BKCkIDS2:CardTextSectionModel = {
     id:"kids",
       title:"Sunday School",
       subtitle: "Lets kids come to the Lord",
@@ -435,7 +435,7 @@ export const BKCkIDS2:PageInforModel = {
   ]    
   }
   
-export const BKCkYouth:PageInforModel = {
+export const BKCkYouth:CardTextSectionModel = {
     id:"youth",
     title:"Youth Group",
     subtitle: "Join Us Every Friday Night",

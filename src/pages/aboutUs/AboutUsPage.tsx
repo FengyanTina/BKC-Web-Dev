@@ -9,7 +9,7 @@ import ReadMoreDialogs from "../../components/forms/ReadMoreDialog";
 import { findYourVision } from "../../data.ts";
 import SectionLine from "../../components/pageSections/SectionLine";
 import WantServeSectionCard from "../../components/cards/customizedCards/WantServeSectionCard";
-import ImgInforCardSection from "../../components/pageSections/ImgInforCardSection.tsx";
+import  ImageInforCardSection from "../../components/pageSections/ImageInforCardSection.tsx";
 
 const AboutUsPage = () => {
   const [modalOpen, setModalOpen] = useState(false);

@@ -1,7 +1,7 @@
-import { PageInforModel } from "./PageInforModel";
+import { CardTextSectionModel } from "./CardTextSectionModel";
 
 
-export interface ImageInforSectionModel extends PageInforModel {
+export interface ImageInforSectionModel extends CardTextSectionModel {
     inforSectionId:string;
      images?: string | string[]; 
      imageLeft?:boolean;

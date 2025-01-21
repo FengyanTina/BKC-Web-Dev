@@ -3,14 +3,14 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
-import { PageInforModel } from "../../models/PageInforModel";
+import { CardTextSectionModel } from "../../models/CardTextSectionModel";
 import { HashLink } from "react-router-hash-link";
 import { SocialIcon } from "react-social-icons";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-export default function PageInforCard({
+export default function ImageInforCardSectionText({
   category,
   title,
   subtitle,
@@ -21,8 +21,9 @@ export default function PageInforCard({
   location,
   buttonLink,
   links,
+  steps,
   showSocialIcons = false,
-}: PageInforModel) {
+}: CardTextSectionModel) {
   return (
     <Card
       sx={{

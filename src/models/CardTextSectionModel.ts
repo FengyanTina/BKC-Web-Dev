@@ -1,6 +1,7 @@
 import { BaseModel } from "./BaseModel";
+import { Step } from "./Step";
 
-export interface PageInforModel extends BaseModel {
+export interface CardTextSectionModel extends BaseModel {
     category?: string;
     subtitle?: string;
     linkSubtitle?: string;
@@ -9,6 +10,8 @@ export interface PageInforModel extends BaseModel {
    endTime?:Date;
    location?:string;
    buttonLink?:string;
+  steps?: Step[];
+  showStepsLink?:boolean;
    links?: LinkModel[];
    showSocialIcons?:boolean
   }

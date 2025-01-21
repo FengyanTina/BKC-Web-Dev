@@ -13,7 +13,7 @@ import { SocialIcon } from "react-social-icons";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import MyMap from "../../apis/GoogleMap.tsx";
 import WantServeSectionCard from "../../components/cards/customizedCards/WantServeSectionCard.tsx";
-import ImgInforCardSection from "../../components/pageSections/ImgInforCardSection.tsx";
+import  ImageInforCardSection from "../../components/pageSections/ImageInforCardSection.tsx";
 
 export default function ServicesMainPage() {
   const [openMap, setOpenMap] = useState(false);
@@ -127,7 +127,7 @@ export default function ServicesMainPage() {
       {/* --------------SundayService ----------- */}
       <div id="sundayService"></div>
       <SectionLine text="Söndagsgudstjänst" />
-      <ImgInforCardSection
+      < ImageInforCardSection
         inforSectionId=""
         id={sundayServiceSection.id}
         title={sundayServiceSection.title}
@@ -143,7 +143,7 @@ export default function ServicesMainPage() {
       {/* --------------PrayerService ----------- */}
       <div id="prayerService"></div>
       <SectionLine text="Bönetjänster" />
-      <ImgInforCardSection
+      < ImageInforCardSection
         inforSectionId=""
         id={prayerService.id}
         title={prayerService.title}
@@ -160,7 +160,7 @@ export default function ServicesMainPage() {
       <SectionLine text="Doptjänster" />
       <div id="baptismService"></div>
 
-      <ImgInforCardSection
+      < ImageInforCardSection
         inforSectionId=""
         id={baptismService.id}
         title={baptismService.title}

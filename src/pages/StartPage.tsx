@@ -22,7 +22,7 @@ import {
 } from "../data";
 import Carousel from "../components/slides/Carousel";
 import NewHereSectionGrid from "../components/pageSections/NewHereSection";
-import ImgInforCardSection from "../components/pageSections/ImgInforCardSection";
+import  ImageInforCardSection from "../components/pageSections/ImageInforCardSection";
 import SlickSlider from "../components/slides/SlickSlider";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
@@ -230,7 +230,7 @@ const StartPage = () => {
 
       <SectionLine text=" Aktiviteter och Tjänster" />
       <Box sx={{ backgroundColor: "#dbe1e8" }}>
-        <ImgInforCardSection
+        < ImageInforCardSection
           inforSectionId=""
           id={socialMediaActivityCardInfor.id}
           title={socialMediaActivityCardInfor.title}
@@ -244,7 +244,7 @@ const StartPage = () => {
 
         {/* --------------SERVICES----------- */}
 
-        <ImgInforCardSection
+        < ImageInforCardSection
           inforSectionId=""
           id={sundayServiceCardInfor.id}
           title={sundayServiceCardInfor.title}
@@ -259,7 +259,7 @@ const StartPage = () => {
         />
 
         {/* --------------ACTIVITIES----------- */}
-        <ImgInforCardSection
+        < ImageInforCardSection
           inforSectionId=""
           id={activityCardInfor.id}
           title={activityCardInfor.title}
@@ -273,7 +273,7 @@ const StartPage = () => {
         />
          
        {/* --------------SCHEDULES----------- */}
-       <ImgInforCardSection
+       < ImageInforCardSection
           inforSectionId=""
           id={scheduleCardInfor.id}
           title={scheduleCardInfor.title}
@@ -287,7 +287,7 @@ const StartPage = () => {
           buttonText={scheduleCardInfor.buttonText}
         />
         {/* --------------ACTIVITIES-Groups----------- */}
-        <ImgInforCardSection
+        < ImageInforCardSection
           id={homeGroupActivityCardInfor.id}
           inforSectionId=""
           title={homeGroupActivityCardInfor.title}
