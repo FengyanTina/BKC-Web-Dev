@@ -120,6 +120,8 @@ export default function ServicesMainPage() {
         steps={findYourVision.steps}
         description={findYourVision.description}
         images={findYourVision.images}
+        links={findYourVision.links}
+        showStepsLink ={false}
       />
       </Box>
       {/* --------------SundayService ----------- */}

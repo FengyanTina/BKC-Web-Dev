@@ -1,7 +1,7 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import "./customizedCards.css";
 import Grid from "@mui/material/Grid2";
-import { BaptismSectionModel } from "../../../models/BaptismSecionModel";
+import { TextSectionWithStepsModel } from "../../../models/BaptismSecionModel";
 import ImageGallary from "../../imageManagements/ImageGallary";
 
 const BaptismServiceSectionCard = ({
@@ -10,7 +10,7 @@ const BaptismServiceSectionCard = ({
   images,
   steps,
   showAllAsFeatured = false,
-}: BaptismSectionModel) => {
+}: TextSectionWithStepsModel) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const renderImage = () => (

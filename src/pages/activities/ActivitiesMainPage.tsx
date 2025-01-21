@@ -90,6 +90,7 @@ export default function ActivitiesMainPage() {
               description={BKCkIDS2.description}
               startTime={BKCkIDS2.startTime}
               location={BKCkIDS2.location}
+              links={BKCkIDS2.links}
             />
           </Grid>
         </Grid>

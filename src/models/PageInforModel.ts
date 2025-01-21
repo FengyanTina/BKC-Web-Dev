@@ -9,6 +9,11 @@ export interface PageInforModel extends BaseModel {
    endTime?:Date;
    location?:string;
    buttonLink?:string;
-   links?:string[];
+   links?: LinkModel[];
    showSocialIcons?:boolean
+  }
+
+  interface LinkModel {
+    label: string; // The text displayed for the link
+    url: string;   // The URL of the link
   }

@@ -8,6 +8,7 @@ import { HashLink } from "react-router-hash-link";
 import { SocialIcon } from "react-social-icons";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 export default function PageInforCard({
   category,
@@ -97,25 +98,25 @@ export default function PageInforCard({
         >
           {subtitle}
         </Typography>
- 
+
         {description.split("\n").map((paragraph, index) => (
-                <Box key={index} sx={{ display: "block", mb: 2 }}>
-                  <Typography
-                   variant="body2"
-                   sx={{
-                     width: "100%",
-                     WebkitLineClamp: 5,
-                     overflow: "hidden",
-                     textOverflow: "ellipsis",
-                     display: "-webkit-box",
-                     WebkitBoxOrient: "vertical",
-                     fontSize: 18,
-                   }}
-                  >
-                    {paragraph}
-                  </Typography>
-                </Box>
-              ))}
+          <Box key={index} sx={{ display: "block", mb: 2 }}>
+            <Typography
+              variant="body2"
+              sx={{
+                width: "100%",
+                WebkitLineClamp: 5,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                fontSize: 18,
+              }}
+            >
+              {paragraph}
+            </Typography>
+          </Box>
+        ))}
         {showSocialIcons && (
           <Box
             sx={{
@@ -145,19 +146,55 @@ export default function PageInforCard({
           </Box>
         )}
       </CardContent>
+
+      <Box>
+        {links &&
+          links.map((link, index) => (
+            <div key={index} style={{ marginBottom: "16px" }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  textAlign: "left",
+                  fontSize: {
+                    lg: "18px",
+                    md: "18px",
+                    sm: "18px",
+                    xs: "18px",
+                  },
+                  lineHeight: 1.5,
+                }}
+              >
+                <a
+                  href={link.url}
+                  style={{
+                    color: "#337f83",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <ChevronRightIcon
+                    sx={{
+                      fontSize: "20px",
+                      marginRight: "8px",
+                      color: "#337f83",
+                    }} // Customize icon size and spacing
+                  />
+                  {link.label}
+                </a>
+              </Typography>
+            </div>
+          ))}
+      </Box>
       {buttonLink && (
         <CardActions>
-          
           {buttonLink.startsWith("#") || buttonLink.includes("#") ? (
-                <HashLink smooth to={buttonLink}>{buttonText}</HashLink>
-              
-          ) : (
-            <Link to={buttonLink} >
+            <HashLink smooth to={buttonLink}>
               {buttonText}
-            </Link>
+            </HashLink>
+          ) : (
+            <Link to={buttonLink}>{buttonText}</Link>
           )}
         </CardActions>
-        
       )}
     </Card>
   );

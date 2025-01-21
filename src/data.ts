@@ -6,7 +6,9 @@ import Worship from "./assets/Worship.jpeg";
 import Conference from "./assets/Conference.jpg";
 import Mission from "./assets/Mission.png";
 import Prayer from "./assets/Prayer.jpg";
-import Bible from "./assets/Bible.jpg";
+import sundaySchol11 from "./assets/sundaySchol11.jpg";
+import serve1 from "./assets/serve1.png";
+import Varvison from "./assets/Varvision.jpg";
 import Varhistoria from "./assets/Varhistoria.jpg"
 import DavidB from "./assets/DavidB.jpg"
 import socialActivity from "./assets/socialActivity.jpg"
@@ -167,50 +169,7 @@ const initialUsers: User[] = [
     images:Varhistoria 
   }
   
-// export const imageGallarytemData = [
-//     {
-//       img: Bible,
-//       title: "Bible Study",
-     
-//       featured: true,
-//     },
-//     {
-//       img: Worship,
-//       title: "Juesus Conference",
-     
-//     },
-//     {
-//       img: Prayer,
-//       title: "Praying for Borås",
-     
-//     },
-//     {
-//       img: Conference,
-//       title: "Comminity Prayer",
- 
-//     },
-//     {
-//       img: Mission,
-//       title: "Youth Camp",
-      
-//     },
-//     {
-//       img: BethelWorship,
-//       title: "Togather Worship",
-     
-//       featured: true,
-//     },
-//     {
-//       img: worshipHands,
-//       title: "Worship Conference",
-    
-//     },
-//     {
-//       img: PrayerBible,
-//       title: "Study the words",
-    
-//     },
-//   ];
+
   
   
   export const socialMediaActivityCardInfor={
@@ -265,6 +224,7 @@ const initialUsers: User[] = [
     },
   ];
   export const Pastor= {
+    id:"pastor",
     title:"David B",
     subTitle:"Main Pastor",
     content: "BKC pastor, Blog,\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.\n\nPrior to the senior pastorate, he had been a frequent and well-loved speaker at Times Square Church for over 25 years.\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.\n\nPrior to the senior pastorate, he had been a frequent and well-loved speaker at Times Square Church for over 25 years.\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.",
@@ -355,6 +315,37 @@ const initialUsers: User[] = [
         link: "http://example.com/register",
      },
   ];
+
+  const dates = [
+    {
+        id:"1",
+        title: "YouthGroup",
+        description: "1987 startades en bibelskola som under läsåret 2016-2017 alltså fyller 30 år och som hundratals personer i Sjuhärad med omnejd gått. Året efter, 1988, startade församlingen som grundades av pastorsparet Peder och Yvonne Teglund. Församlingen har i dag har omkring 140 medlemmar. ",
+        linkName:"",
+        link: "",
+    },
+    {
+        id:"2",
+        title: "YouthGroup",
+        description: " 1991 startade också en förskoleverksamhet och året efter de första klasserna avBorås Kristna Skola som i dag omfattas av förskola och hela grundskolan. Församlingen är skolans huvudman.",
+        linkName:"",
+        link: "",
+    },
+    {
+        id:"3",
+        title: "YouthGroup",
+        description: "Borås Kristna Center tillhör det kristna samfund som kallas Trosrörelsen som bland annat betonar betydelsen av att läsa och tro på Bibelns ord och att tron på Jesus ska levas ut i vardagen. Vi har en god och nära relation med andra kyrkor i Borås och samarbetar i olika sammanhang, bland annat med Borås Biståndscenter som samlar in och säljer secondhandvaror till förmån för nödställda ut över världen.",
+        linkName:"",
+        link: "",
+    },
+    {
+        id:"3",
+        title: "YouthGroup",
+        description: "Här kan du läsa mer om vår vision och vår tro.Kontakta oss gärna för mer information om oss och vårt ställningstagande i olika frågor.",
+        linkName:"",
+        link: "",
+    }
+  ]
   export const baptismService = {
     id:"102",
     title: "Want to be baptized?",
@@ -369,8 +360,25 @@ const initialUsers: User[] = [
     title: "Want to Serve",
     description:"You can find your vision and purpose, and serve the Lord in different ways.",
     steps: servings,
-    images:Conference
+    images:[sundaySchol11,serve1,socialActivity],
+    links:[
+        
+            {
+                label: "Register You Here",
+                url: "/contact",
+              }, 
+        
+    ]
   };
+
+  export const ourHistory ={
+    id:"history",
+    title: "Vår historia",
+    description:"",
+    steps: dates,
+    images:[Varvison,Varhistoria,Mission]
+};
+  
 export const sundayServiceSection  = {
   id: "1",
   time: new Date(2024, 9, 22, 14, 30), // October 22, 2024, 2:30 PM
@@ -413,8 +421,18 @@ export const BKCkIDS2:PageInforModel = {
       subtitle: "Lets kids come to the Lord",
       description:"The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family", 
       startTime: new Date(2024, 9, 30, 17, 30),
-
-   location:"BKC",       
+   location:"BKC",  
+   links: [
+    {
+      label: "BKS",
+      url: "https://bkskola.org/",
+    },
+    {
+      label: "BKC Ung",
+      url: "https://example.com/register",
+    },
+    
+  ]    
   }
   
 export const BKCkYouth:PageInforModel = {

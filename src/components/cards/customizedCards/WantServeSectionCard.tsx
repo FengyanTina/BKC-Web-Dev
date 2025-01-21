@@ -1,17 +1,20 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import "./customizedCards.css";
 import Grid from "@mui/material/Grid2";
-import { BaptismSectionModel } from "../../../models/BaptismSecionModel";
-import sundaySchol11 from "../../../assets/sundaySchol11.jpg";
-import serve1 from "../../../assets/serve1.png";
-import socialActivity from "../../../assets/socialActivity.png";
+import { TextSectionWithStepsModel } from "../../../models/BaptismSecionModel";
+
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const WantServeSectionCard = ({
   title,
   subtitle,
+  description,
   steps,
-}: BaptismSectionModel) => {
+  links,
+  buttonLink,
+  showStepsLink=true,
+  images ,
+}: TextSectionWithStepsModel) => {
   const theme = useTheme();
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -34,7 +37,7 @@ const WantServeSectionCard = ({
                 }}
               >
                 <img
-                  src={sundaySchol11} // Use the imported image file
+                  src={images[0]} // Use the imported image file
                   alt="Prayer Image" // Alt text for accessibility
                   style={{
                     position: "absolute",
@@ -61,7 +64,7 @@ const WantServeSectionCard = ({
                 }}
               >
                 <img
-                  src={serve1} // Use the imported image file
+                  src={images[1]} // Use the imported image file
                   alt="Prayer Image 2" // Alt text for accessibility
                   style={{
                     position: "absolute",
@@ -89,7 +92,7 @@ const WantServeSectionCard = ({
                 }}
               >
                 <img
-                  src={socialActivity}
+                  src={images[2]}
                   alt="Prayer Image 2"
                   style={{
                     position: "absolute",
@@ -114,7 +117,7 @@ const WantServeSectionCard = ({
                 overflow: "hidden",
               }}
             >
-              <img src={serve1} className="image-responsive" alt="" />
+              <img src={images[1]} className="image-responsive" alt="" />
             </Box>
           </>
         )}
@@ -158,7 +161,16 @@ const WantServeSectionCard = ({
               {subtitle}
             </Typography>
           )}
-
+          <Typography
+        variant="h5"
+        sx={{
+          textAlign: "left",
+          fontSize: "18px",
+          lineHeight: 1.5,     
+        }}
+      >
+        {description}
+      </Typography>
           <Box
             sx={{
               maxHeight: {
@@ -190,7 +202,7 @@ const WantServeSectionCard = ({
                         lineHeight: 1.5,
                       }}
                     >
-                      {step.link && step.linkName ? (
+                      {showStepsLink && step.link && step.linkName ? (
                         <>
                           <a
                             href={step.link}
@@ -218,6 +230,44 @@ const WantServeSectionCard = ({
                   </div>
                 ))}
             </Box>
+            <Box>
+        {links &&
+          links.map((link, index) => (
+            <div key={index} style={{ marginBottom: "16px" }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  textAlign: "left",
+                  fontSize: {
+                    lg: "18px",
+                    md: "18px",
+                    sm: "18px",
+                    xs: "18px",
+                  },
+                  lineHeight: 1.5,
+                }}
+              >
+                <a
+                  href={link.url}
+                  style={{
+                    color: "#337f83",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <ChevronRightIcon
+                    sx={{
+                      fontSize: "20px",
+                      marginRight: "8px",
+                      color: "#337f83",
+                    }} // Customize icon size and spacing
+                  />
+                  {link.label}
+                </a>
+              </Typography>
+            </div>
+          ))}
+      </Box>
           </Box>
         </Grid>
       </Grid>
