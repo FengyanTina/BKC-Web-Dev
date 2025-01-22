@@ -2,14 +2,9 @@ import { useEffect, useState } from "react";
 import { Box, Link, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { ourHistory, Pastor } from "../../data";
-import Leader from "../../assets/leader.jpg";
-import DavidB from "../../assets/DavidB.jpg";
-import TeamIntroCard from "../../components/cards/TeamIntroCard";
 import ReadMoreDialogs from "../../components/forms/ReadMoreDialog";
-import { findYourVision } from "../../data.ts";
 import SectionLine from "../../components/pageSections/SectionLine";
-import WantServeSectionCard from "../../components/cards/customizedCards/WantServeSectionCard";
-import  ImageInforCardSection from "../../components/pageSections/ImageInforCardSection.tsx";
+import TopImageSectionCard from "../../components/cards/customizedCards/TopImageSectionCard.tsx";
 
 const AboutUsPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -169,12 +164,7 @@ const AboutUsPage = () => {
                 <Box key={index} sx={{ display: "block", mb: 2 }}>
                   <Typography
                     sx={{
-                      fontSize: {
-                        lg: "18px",
-                        md: "18px",
-                        sm: "18px",
-                        xs: "18px",
-                      },
+                      fontSize: "18px",
                     }}
                     variant="body1"
                   >
@@ -206,14 +196,15 @@ const AboutUsPage = () => {
               </Link>
             </Typography>
           </Box> */}
-          <Box sx={{ marginTop: "20px" }}>
+          <Box sx={{ marginTop: "30px" }}>
             <Typography variant="body1">
               <Link
                 onClick={handleOpen}
-                sx={{ cursor: "pointer", marginTop: 1 }}
+                sx={{ cursor: "pointer",color: "#337f83",fontWeight:"800",textDecoration: "underline", fontSize:  "18px",}}
                 target="_blank"
                 rel="noopener"
-                underline="hover"
+                // underline="hover"
+                
               >
                 Read More
               </Link>
@@ -277,10 +268,10 @@ const AboutUsPage = () => {
           alignItems: "center",
         }}
       >
-        <WantServeSectionCard
+        <TopImageSectionCard
           id={ourHistory.id}
           title={ourHistory.title}
-          steps={ourHistory.steps}
+         
           description={ourHistory.description}
           images={ourHistory.images}
           showStepsLink = {false}

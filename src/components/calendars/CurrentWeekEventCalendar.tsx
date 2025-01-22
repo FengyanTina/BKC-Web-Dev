@@ -33,7 +33,7 @@ export default function RowAndColumnSpacing() {
         justifyContent: "center",
         alignItems: "center",
         // backgroundColor: "rgba(255, 255, 255, 0.3)",
-        backdropFilter: "blur(10px)",
+        backdropFilter: "blur(5px)",
         overflow:"auto"
       }}
     >

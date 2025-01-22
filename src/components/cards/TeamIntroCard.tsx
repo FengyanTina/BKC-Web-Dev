@@ -23,8 +23,11 @@ export default function TeamIntroCard({
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
   return (
-    <Card sx={{ maxWidth: 400,backgroundColor:"transparent" }}  elevation={0}>
-      <CardActionArea>
+    <Card sx={{ maxWidth: 400,backgroundColor:"transparent",cursor: "default",
+        "&:hover": {
+          cursor: "default", // Ensure hover does not change the cursor
+        }, }}   elevation={0}>
+      
         {image && (
           <CardMedia component="img" height="250" image={image} alt="" />
         )}
@@ -50,9 +53,9 @@ export default function TeamIntroCard({
             {description}
           </Typography>
         </CardContent>
-      </CardActionArea>
+      
       <CardActions>
-        <Button size="small" color="primary" onClick={handleOpen}>
+        <Button size="small" color="primary" onClick={handleOpen}  sx={{ color: "#337f83",fontWeight:"800",textDecoration: "underline", }}>
           Read More
         </Button>
       </CardActions>

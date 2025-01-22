@@ -2,18 +2,21 @@ import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import ImageGallary from "../imageManagements/ImageGallary";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
-import ImageInforCardSectionText from "../cards/ImageInforCardSectionText";
+import ImageInforSectionText from "../cards/ImageInforSectionText";
 
 const  ImageInforCardSection = ({
   inforSectionId,
   title,
   category,
+  startTime,
+  location,
   subtitle,
   description,
   images,
   imageLeft = true,
   buttonLink,
   buttonText,
+  links,
   showSocialIcons = false,
 }: ImageInforSectionModel) => {
   const renderImageGallery = () => {
@@ -77,15 +80,18 @@ const  ImageInforCardSection = ({
             width: "100%",
           }}
         >
-          <ImageInforCardSectionText
+          <ImageInforSectionText
             id={inforSectionId}
             category={category}
             title={title}
+            startTime={startTime}
+            location={location}
             subtitle={subtitle}
             description={description}
             buttonText={buttonText}
             buttonLink={buttonLink}
             showSocialIcons={showSocialIcons}
+            links={links}
           />
         </Grid>
 
@@ -115,56 +121,6 @@ const  ImageInforCardSection = ({
             {renderImageGallery()}
           </Box>
         </Grid>
-
-        {/* Original  
-        <Grid
-          container
-          spacing={2}
-          sx={{
-            flexDirection: {
-              xs: "column-reverse",
-              sm: imageLeft ? "row-reverse" : "row",
-            },
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-
-          <Grid
-            size={{ xs: 12, sm: 6 }}
-            sx={{
-                
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <PageInforCard
-              id={inforSectionId}
-              category={category}
-              title={title}
-              subtitle={subtitle}
-              description={description}
-              buttonText="Learn More"
-              buttonLink={buttonLink}
-              showSocialIcons={showSocialIcons}
-            />
-          </Grid>
-
-          
-          <Grid
-            size={{ xs: 12, sm: 6 }}
-            sx={{
-              maxWidth: 600,
-              maxHeight: 400,
-              display: "flex",
-              justifyContent: "center",
-              transform: "translateZ(0)",
-            }}
-          >
-            {renderImageGallery()}
-          </Grid>
-        </Grid>*/}
       </Grid>
     </Box>
   );

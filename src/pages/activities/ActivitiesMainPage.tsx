@@ -13,8 +13,9 @@ import SudaySchoolImageGallary from "../../components/imageManagements/ImageGall
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import videoFile from "../../assets/istockphoto-987329642-640_adpp_is.mp4";
 import SlickSlider from "../../components/slides/SlickSlider.tsx";
-import PageTextPart from "../../components/cards/PageText.tsx";
+//import PageTextPart from "../../components/cards/PageText.tsx";
 import TeamIntroCard from "../../components/cards/TeamIntroCard.tsx";
+import ImageInforSectionText from "../../components/cards/ImageInforSectionText.tsx";
 
 export default function ActivitiesMainPage() {
   return (
@@ -83,12 +84,13 @@ export default function ActivitiesMainPage() {
               marginTop:"30px"
             }}
           >
-            <PageTextPart
+            <ImageInforSectionText
               id={BKCkIDS2.id}
               title={BKCkIDS2.title}
               subtitle={BKCkIDS2.subtitle}
               description={BKCkIDS2.description}
               startTime={BKCkIDS2.startTime}
+              endTime={BKCkIDS2.endTime}
               location={BKCkIDS2.location}
               links={BKCkIDS2.links}
             />
@@ -155,7 +157,7 @@ export default function ActivitiesMainPage() {
             paddingRight: { sm: "10px", md: "100px" },
           }}
         >
-          <PageTextPart
+          <ImageInforSectionText
             id={BKCkYouth.id}
             title={BKCkYouth.title}
             subtitle={BKCkYouth.subtitle}
@@ -181,7 +183,7 @@ export default function ActivitiesMainPage() {
               xs: "column",
             },
             gap: "50px",
-           
+           px:3
           }}
       >
         <TeamIntroCard

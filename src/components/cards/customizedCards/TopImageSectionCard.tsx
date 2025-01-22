@@ -1,24 +1,18 @@
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import "./customizedCards.css";
 import Grid from "@mui/material/Grid2";
-// import { TextSectionWithStepsModel } from "../../../models/TextSectionWithStepsModel";
-
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ImageInforCardSection from "../../pageSections/ImageInforCardSection";
-import ImageInforCardSectionText from "../ImageInforCardSectionText";
+import ImageInforSectionText from "../ImageInforSectionText";
 import { TextSectionWithStepsModel } from "../../../models/TextSectionWithStepsModel";
-import PageText from "../PageText";
 
-const WantServeSectionCard = ({
+
+const TopImageSectionCard = ({
   id,
   title,
   subtitle,
   description,
-  steps,
   links,
   buttonLink,
   buttonText,
-  showStepsLink = false,
   images,
 }: TextSectionWithStepsModel) => {
   const theme = useTheme();
@@ -137,12 +131,11 @@ const WantServeSectionCard = ({
             marginTop: "30px",
           }}
         >
-          <PageText
+          <ImageInforSectionText
             id={id}
             title={title}
             subtitle={subtitle}
             description={description}
-            steps={steps}
             category={""}
             buttonLink={buttonLink}
             buttonText={buttonText}
@@ -156,4 +149,4 @@ const WantServeSectionCard = ({
   );
 };
 
-export default WantServeSectionCard;
+export default TopImageSectionCard;

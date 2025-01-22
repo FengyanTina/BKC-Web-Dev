@@ -52,12 +52,14 @@ return(
          {input.type === 'textarea' ? (
            <textarea 
            className="form-textarea" 
+           name={input.id}
            placeholder={input.placeholder}  
            required={input.id !== "tel"}/>
          ) : (
            <input
              className="form-input"
              type={input.type}
+             name={input.id}
              placeholder={input.placeholder}
              required={input.id !== "tel"}
            />
@@ -65,14 +67,59 @@ return(
        </label>
      ))}
   <div className="form-submit-circle">
-      <SendIcon className="form-submit" />
+  <button type="submit" className="form-submit-icon">
+    <SendIcon className="form-submit" />
+  </button>
     </div>
-    <button type="submit" className="form-submit">
+    {/* <button type="submit" className="form-submit">
         Send Message
-      </button>
+      </button> */}
    
    </form>
   );
 };
 
 export default Form
+
+
+
+// import React, { useState } from "react";
+// import { useFirebase } from "../context/FirebaseContext";
+// import { collection, addDoc } from "firebase/firestore";
+
+// const ContactForm: React.FC = () => {
+//   const { db } = useFirebase(); // Access Firestore from context
+//   const [formData, setFormData] = useState({ name: "", message: "" });
+
+//   const handleSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault();
+
+//     try {
+//       await addDoc(collection(db, "contacts"), formData);
+//       alert("Message sent successfully!");
+//       setFormData({ name: "", message: "" });
+//     } catch (error) {
+//       console.error("Error sending message:", error);
+//       alert("Failed to send message.");
+//     }
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <input
+//         type="text"
+//         placeholder="Your Name"
+//         value={formData.name}
+//         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+//       />
+//       <textarea
+//         placeholder="Your Message"
+//         value={formData.message}
+//         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+//       />
+//       <button type="submit">Send</button>
+//     </form>
+//   );
+// };
+
+// export default ContactForm;

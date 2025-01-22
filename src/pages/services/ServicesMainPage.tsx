@@ -12,7 +12,7 @@ import {
 import { SocialIcon } from "react-social-icons";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import MyMap from "../../apis/GoogleMap.tsx";
-import WantServeSectionCard from "../../components/cards/customizedCards/WantServeSectionCard.tsx";
+import TopImageSectionCard from "../../components/cards/customizedCards/TopImageSectionCard.tsx";
 import  ImageInforCardSection from "../../components/pageSections/ImageInforCardSection.tsx";
 
 export default function ServicesMainPage() {
@@ -114,10 +114,9 @@ export default function ServicesMainPage() {
         px:3,
       }}>
 
-      <WantServeSectionCard
+      <TopImageSectionCard
         id={findYourVision.id}
         title={findYourVision.title}
-        steps={findYourVision.steps}
         description={findYourVision.description}
         images={findYourVision.images}
         links={findYourVision.links}
@@ -129,6 +128,8 @@ export default function ServicesMainPage() {
       <SectionLine text="Söndagsgudstjänst" />
       < ImageInforCardSection
         inforSectionId=""
+        startTime={sundayServiceSection.startTime}
+        location={sundayServiceSection.location}
         id={sundayServiceSection.id}
         title={sundayServiceSection.title}
         subtitle={sundayServiceSection.subTitle}
@@ -136,8 +137,8 @@ export default function ServicesMainPage() {
         images={sundayServiceSection.images}
         category={""}
         imageLeft={false}
-        buttonLink="/schedules"
         buttonText={sundayServiceSection.buttontex}
+        links={sundayServiceSection.links}
       />
 
       {/* --------------PrayerService ----------- */}
@@ -154,6 +155,7 @@ export default function ServicesMainPage() {
         //   buttonLink={"/activities#sundaySchool"}
         buttonLink="/contact"
         buttonText={prayerService.buttontext}
+        links={prayerService.links}
       />
 
       {/* -------------BaptismService----------- */}
@@ -171,6 +173,7 @@ export default function ServicesMainPage() {
         imageLeft={false}
         buttonText={baptismService.buttontex}
         buttonLink="/contact"
+        links={baptismService.links}
       />
 
       {/*******YoutubeVideoLink***********/}

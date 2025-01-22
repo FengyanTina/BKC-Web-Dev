@@ -22,12 +22,7 @@ export default function Intro({content}:introProp  ) {
         >
           <Typography
             sx={{
-              fontSize: {
-                lg: "40px",
-                md: "30px",
-                sm: "30px",
-                xs: "28px",
-              },
+              fontSize:  "25px",
             }}
             variant="h3"
           >
@@ -42,12 +37,7 @@ export default function Intro({content}:introProp  ) {
           <Typography
             className="intro-p"
             sx={{
-              fontSize: {
-                lg: "25px",
-                md: "20px",
-                sm: "20px",
-                xs: "18px",
-              },
+              fontSize: "20px",
               display: "-webkit-box",
               "-webkit-box-orient": "vertical",
               overflow: "hidden",
@@ -61,10 +51,12 @@ export default function Intro({content}:introProp  ) {
             }}
           >
             {content.map((paragraph, index) => (
-              <React.Fragment key={index}>
+              <p key={index} style={{
+                marginBottom: "4px", 
+              }}>
                 {paragraph}
-                <br />
-              </React.Fragment>
+               
+              </p>
             ))}
           </Typography>
         </Box>

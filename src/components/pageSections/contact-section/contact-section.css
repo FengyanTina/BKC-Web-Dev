@@ -9,7 +9,7 @@
   --white: #ffffff;
 }
   
-  @media screen and (min-width: 799px) {
+  @media screen and (min-width: 1344px) {
     .contact-section {
       --offset-height: -100px;
   

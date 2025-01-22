@@ -134,13 +134,15 @@ const StartPage = () => {
               }}
             >
               <Link
-                style={{ color: "white", textDecoration: "none" }}
+                style={{ color: "white",
+                    fontWeight:"800" ,textDecoration: "none",fontSize:"20px" }}
                 to="/aboutUs"
               >
                 Vilka Är Vi?
               </Link>
               <Link
-                style={{ color: "white", textDecoration: "none" }}
+                style={{ color: "white", textDecoration: "none", 
+                    fontWeight:"800" ,fontSize:"20px" }}
                 to="/contact"
               >
                 Hitta Oss
@@ -253,7 +255,6 @@ const StartPage = () => {
           images={sundayServiceCardInfor.images}
           category={""}
           imageLeft={false}
-        //   buttonLink={"/activities#youth"}
         buttonLink="/services"
           buttonText={sundayServiceCardInfor.buttonText}
         />
@@ -282,7 +283,7 @@ const StartPage = () => {
           images={scheduleCardInfor.images}
           category={""}
           imageLeft={false}
-        //   buttonLink={"/activities#youth"}
+        
         buttonLink="/schedules"
           buttonText={scheduleCardInfor.buttonText}
         />

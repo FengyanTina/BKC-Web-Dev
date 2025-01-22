@@ -9,6 +9,7 @@
   }
   
   .form-h2 {
+    font-size: 25px;
     margin: 0;
     text-transform: uppercase;
   }
@@ -48,8 +49,8 @@
 
   .mdi--send-circle::after {
     display: inline-block;
-    width: 1.5em; /* Adjust as needed */
-    height: 1.5em;
+    width: 1.0em; /* Adjust as needed */
+    height: 1.0em;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -70,6 +71,27 @@
     cursor: pointer; /* Optional: cursor style */
   }
   
+
+  .form-submit-icon {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    outline: none; /* Remove focus outline */
+    cursor: pointer; /* Add a pointer cursor */
+    display: flex; /* Center the icon */
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove extra padding */
+  }
+  
+  .form-submit-icon:focus {
+    outline: none; /* Remove the focus ring */
+    box-shadow: none; /* Remove any default focus styles */
+  }
+  
+  .form-submit-icon:active {
+    transform: scale(0.95); /* Optional: Add a subtle click effect */
+  }
+
   @media screen and (min-width: 799px) {
     .form {
       display: grid;
@@ -113,7 +135,8 @@
     .form-textarea {
       height: 150px;
     }
-  
+
+    
   }
   @media screen and (max-width: 798px) { /* Adjusted for small screens */
     .form-submit-circle {

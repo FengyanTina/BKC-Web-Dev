@@ -7,10 +7,9 @@ import { CardTextSectionModel } from "../../models/CardTextSectionModel";
 import { HashLink } from "react-router-hash-link";
 import { SocialIcon } from "react-social-icons";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-export default function ImageInforCardSectionText({
+export default function  ImageInforSectionText({
   category,
   title,
   subtitle,
@@ -21,7 +20,6 @@ export default function ImageInforCardSectionText({
   location,
   buttonLink,
   links,
-  steps,
   showSocialIcons = false,
 }: CardTextSectionModel) {
   return (
@@ -59,18 +57,7 @@ export default function ImageInforCardSectionText({
             {category}
           </Typography>
         )}
-        {startTime && (
-          <Typography variant="caption" sx={{ mt: 2, color: "text.secondary" }}>
-            {formatDate(startTime)}: {formatTime(startTime)}
-            {endTime && ` - ${formatTime(endTime)}`}{" "}
-            {/* Only render endTime if it exists */}
-          </Typography>
-        )}
-        {location && (
-          <Typography variant="caption" sx={{ mt: 2, color: "text.secondary" }}>
-            {location}
-          </Typography>
-        )}
+       
         <Typography
           variant="h5"
           component="div"
@@ -118,6 +105,39 @@ export default function ImageInforCardSectionText({
             </Typography>
           </Box>
         ))}
+
+    <Box
+      sx={{
+        // marginTop: "auto", // Push this section to the bottom
+        marginTop: "30px",
+      }}
+    >
+      {startTime && (
+        <Typography
+          variant="h5"
+          sx={{
+            color: "text.secondary",
+            fontSize:  "20px",
+          }}
+        >
+          <strong>Time: </strong> 
+          {formatTime(startTime)}
+          {endTime && ` - ${formatTime(endTime)}`}{" "}
+          {/* Only render endTime if it exists */}
+        </Typography>
+      )}
+      {location && (
+        <Typography
+          variant="h5"
+          sx={{
+            color: "text.secondary",
+            fontSize: "20px",
+          }}
+        >
+          <strong>Location:</strong> {location}
+        </Typography>
+      )}
+    </Box>
         {showSocialIcons && (
           <Box
             sx={{
@@ -147,7 +167,7 @@ export default function ImageInforCardSectionText({
           </Box>
         )}
       </CardContent>
-
+     
       <Box>
         {links &&
           links.map((link, index) => (
@@ -156,12 +176,7 @@ export default function ImageInforCardSectionText({
                 variant="h5"
                 sx={{
                   textAlign: "left",
-                  fontSize: {
-                    lg: "18px",
-                    md: "18px",
-                    sm: "18px",
-                    xs: "18px",
-                  },
+                  fontSize:  "18px",
                   lineHeight: 1.5,
                 }}
               >
@@ -175,7 +190,7 @@ export default function ImageInforCardSectionText({
                 >
                   <ChevronRightIcon
                     sx={{
-                      fontSize: "20px",
+                      fontSize:  "18px",
                       marginRight: "8px",
                       color: "#337f83",
                     }} // Customize icon size and spacing
@@ -189,11 +204,11 @@ export default function ImageInforCardSectionText({
       {buttonLink && (
         <CardActions>
           {buttonLink.startsWith("#") || buttonLink.includes("#") ? (
-            <HashLink smooth to={buttonLink}>
+            <HashLink style={{color:"#337f83",fontWeight:"800"}}smooth to={buttonLink}>
               {buttonText}
             </HashLink>
           ) : (
-            <Link to={buttonLink}>{buttonText}</Link>
+            <a style={{color:"#337f83", fontWeight:"800"}} href={buttonLink}>{buttonText}</a>
           )}
         </CardActions>
       )}

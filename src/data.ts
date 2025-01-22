@@ -316,36 +316,14 @@ const initialUsers: User[] = [
      },
   ];
 
-  const dates = [
-    {
-        id:"1",
-        title: "YouthGroup",
-        description: "1987 startades en bibelskola som under läsåret 2016-2017 alltså fyller 30 år och som hundratals personer i Sjuhärad med omnejd gått. Året efter, 1988, startade församlingen som grundades av pastorsparet Peder och Yvonne Teglund. Församlingen har i dag har omkring 140 medlemmar. ",
-        linkName:"",
-        link: "",
-    },
-    {
-        id:"2",
-        title: "YouthGroup",
-        description: " 1991 startade också en förskoleverksamhet och året efter de första klasserna avBorås Kristna Skola som i dag omfattas av förskola och hela grundskolan. Församlingen är skolans huvudman.",
-        linkName:"",
-        link: "",
-    },
-    {
-        id:"3",
-        title: "YouthGroup",
-        description: "Borås Kristna Center tillhör det kristna samfund som kallas Trosrörelsen som bland annat betonar betydelsen av att läsa och tro på Bibelns ord och att tron på Jesus ska levas ut i vardagen. Vi har en god och nära relation med andra kyrkor i Borås och samarbetar i olika sammanhang, bland annat med Borås Biståndscenter som samlar in och säljer secondhandvaror till förmån för nödställda ut över världen.",
-        linkName:"",
-        link: "",
-    },
-    {
-        id:"3",
-        title: "YouthGroup",
-        description: "Här kan du läsa mer om vår vision och vår tro.Kontakta oss gärna för mer information om oss och vårt ställningstagande i olika frågor.",
-        linkName:"",
-        link: "",
-    }
-  ]
+  
+export const ourHistory ={
+  id:"history",
+  title: "Vår historia",
+  description: "1987 startades en bibelskola som under läsåret 2016-2017 alltså fyller 30 år och som hundratals personer i Sjuhärad med omnejd gått. Året efter, 1988, startade församlingen som grundades av pastorsparet Peder och Yvonne Teglund. Församlingen har i dag har omkring 140 medlemmar. \n 1991 startade också en förskoleverksamhet och året efter de första klasserna avBorås Kristna Skola som i dag omfattas av förskola och hela grundskolan. Församlingen är skolans huvudman.\n Borås Kristna Center tillhör det kristna samfund som kallas Trosrörelsen som bland annat betonar betydelsen av att läsa och tro på Bibelns ord och att tron på Jesus ska levas ut i vardagen. Vi har en god och nära relation med andra kyrkor i Borås och samarbetar i olika sammanhang, bland annat med Borås Biståndscenter som samlar in och säljer secondhandvaror till förmån för nödställda ut över världen.\n Här kan du läsa mer om vår vision och vår tro.Kontakta oss gärna för mer information om oss och vårt ställningstagande i olika frågor.",
+  
+  images:[Varvison,Varhistoria,Mission]
+};
   export const baptismService = {
     id:"102",
     title: "Want to be baptized?",
@@ -353,42 +331,54 @@ const initialUsers: User[] = [
     description:"Learn what is the meaning of baptism",
     steps: steps,
     image: Mission,
-    buttontex:"Contact Us"
+    buttontex:"",
+    links:[
+        
+        {
+            label: "Contact Us Here",
+            url: "/contact",
+          }, 
+    
+]
   };
   export const findYourVision = {
     id:"103",
     title: "Want to Serve",
-    description:"You can find your vision and purpose, and serve the Lord in different ways.",
-    steps: servings,
+    description:"You can find your vision and purpose, and serve the Lord in different ways.\n Gifted in music? Sunday Service you can serve the Lord in worship team.\n Have a vision in young children? Want to help the next generation growing in the knowlege of the Bible?. Our sunday school has two groups, young children and older group. \n Recive people or help with fika prepareation, you can share your love and your smile with people coming to church. Give them the bigest welcome to the house of the Lord in the sunday morning .",
+    
     images:[sundaySchol11,serve1,socialActivity],
     links:[
         
             {
-                label: "Register You Here",
+                label: "Contact Us Here",
                 url: "/contact",
               }, 
         
     ]
   };
 
-  export const ourHistory ={
-    id:"history",
-    title: "Vår historia",
-    description:"",
-    steps: dates,
-    images:[Varvison,Varhistoria,Mission]
-};
   
 export const sundayServiceSection  = {
   id: "1",
-  time: new Date(2024, 9, 22, 14, 30), // October 22, 2024, 2:30 PM
+  startTime: new Date(2024, 9, 30, 17, 30),
+
+  location:"BKC",  // October 22, 2024, 2:30 PM
   title: "Welcom to our Sunday Service! ",
   subTitle: "  Come as you are !",
   category:EventCategory.SundayService,
   images: Conference,
   description:
-    "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes.\n\n Time: Sunday 11:00-13:00",
-    buttontex:"Learn More Schedule"
+    "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes.\n\n Day: Sunday 11:00-13:00",
+    buttontex:"",
+    links:[
+        
+        {
+            label: "Learn More Schedule",
+            url: "/schedules",
+          }, 
+    
+]
+    
 };
 export const prayerService = {
     id:'12',
@@ -397,19 +387,16 @@ export const prayerService = {
   images: Prayer,
   description:
     "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes. Engaging worship music. Come as you are. There is no dress code.",
-    buttontext:"Send In Your Prayer"
+    buttontext:"",
+    links:[
+        
+        {
+            label: "Send In Your Prayer",
+            url: "/contact",
+          }, 
+    
+]
 };
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -419,8 +406,9 @@ export const BKCkIDS2:CardTextSectionModel = {
     id:"kids",
       title:"Sunday School",
       subtitle: "Lets kids come to the Lord",
-      description:"The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family", 
-      startTime: new Date(2024, 9, 30, 17, 30),
+      description:"The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family.\n\n Day: Sunday ", 
+      startTime: new Date(2024, 9, 30, 12, ),
+      endTime:new Date(2024, 9, 30, 13, 30),
    location:"BKC",  
    links: [
     {
@@ -439,8 +427,9 @@ export const BKCkYouth:CardTextSectionModel = {
     id:"youth",
     title:"Youth Group",
     subtitle: "Join Us Every Friday Night",
-    description:"The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family.Find a group of friends who you can be yourself with while growing in your relationship with God. By joining us in-person or online you can discover exactly who God intentionally made you to be.", 
-    startTime: new Date(2024, 9, 30, 17, 30),
+    description:"The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family.Find a group of friends who you can be yourself with while growing in your relationship with God. By joining us in-person or online you can discover exactly who God intentionally made you to be.\n\n Day: Friday ", 
+    startTime: new Date(2024, 9, 30, 19, 30),
+    endTime: new Date(2024, 9, 30, 21, 30),
 
  location:"BKC",  
 }
@@ -485,25 +474,7 @@ export const SundaySchoolImageGallary:ImageGallaryItemData [] = [
         title: '9',
       },
     
-    //   {
-    //     img: SundaySchool9,
-    //     title: '10',
-    //     rows: 2,
-    //     cols: 2,
-    //   },
-    //   {
-    //     img: SundaySchool10,
-    //     title: '11',
-    //   },
-    //   {
-    //     img: SundaySchool11,
-    //     title: '12',
-    //   },
-    //   {
-    //     img: SundaySchool12,
-    //     title: '13',
-    //     cols: 2,
-    //   },
+   
 
 
 ];
