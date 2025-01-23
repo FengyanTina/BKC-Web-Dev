@@ -19,19 +19,20 @@ const Form : React.FC = () => {
    const sendEmail = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
-    if (!EMAIL_CONFIG.SERVICE_ID || !EMAIL_CONFIG.TEMPLATE_ID || !EMAIL_CONFIG.USER_ID) {
-        console.error("EmailJS environment variables are missing!");
-        return;  // Don't proceed if the environment variables are missing
-      }
-      
-    emailjs
-    .sendForm(
-        EMAIL_CONFIG.SERVICE_ID, // Use the service ID from config
-        EMAIL_CONFIG.TEMPLATE_ID, // Use the template ID from config
-        e.target as HTMLFormElement, // Explicitly cast to HTMLFormElement
-        EMAIL_CONFIG.USER_ID // Use the user ID from config
-      )
+    
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
+    const userId = import.meta.env.VITE_EMAILJS_USER_ID || "";
   
+    if (!serviceId || !templateId || !userId) {
+      console.error("EmailJS environment variables are missing!");
+      return;
+    }
+
+ 
+
+    emailjs
+      .sendForm(serviceId, templateId, e.target as HTMLFormElement, userId)
       .then(
         (result) => {
           console.log("Message sent successfully:", result.text);

@@ -1,7 +1,10 @@
 // src/config/emailConfig.ts
 export const EMAIL_CONFIG = {
-    SERVICE_ID: process.env.REACT_APP_EMAILJS_SERVICE_ID ,
-    TEMPLATE_ID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-    USER_ID: process.env.REACT_APP_EMAILJS_USER_ID,
+    SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID ,
+    TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    USER_ID: import.meta.env.VITE_EMAILJS_USER_ID,
   };
  
+  export const serviceId =  "service_jo20n24";
+  export const templateId = "template_gik27qt";
+  export  const userId =  "0lgHqotVLnpOiH2fF";
