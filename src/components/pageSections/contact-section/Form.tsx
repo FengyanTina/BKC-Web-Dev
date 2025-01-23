@@ -19,7 +19,11 @@ const Form : React.FC = () => {
    const sendEmail = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
-    // TypeScript will infer the correct types here
+    if (!EMAIL_CONFIG.SERVICE_ID || !EMAIL_CONFIG.TEMPLATE_ID || !EMAIL_CONFIG.USER_ID) {
+        console.error("EmailJS environment variables are missing!");
+        return;  // Don't proceed if the environment variables are missing
+      }
+      
     emailjs
     .sendForm(
         EMAIL_CONFIG.SERVICE_ID, // Use the service ID from config
