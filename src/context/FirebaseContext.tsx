@@ -1,5 +1,5 @@
 import React, { createContext, useContext, ReactNode } from "react";
-import { auth, db } from "../firebase/firebaseConfig";
+import { auth, db } from "../configs/firebaseConfig";
 import { Auth} from "firebase/auth";
 import { Firestore } from "firebase/firestore";
 

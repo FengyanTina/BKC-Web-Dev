@@ -5,6 +5,7 @@ import emailjs from "emailjs-com";
 
 import './form.css'
 import { FormEvent } from 'react';
+import { EMAIL_CONFIG } from '../../../configs/emailJSConfig';
 
 const formInputs = [
     { id: "name", type: "text", label: "Your name", placeholder: "John Doe" },
@@ -20,12 +21,13 @@ const Form : React.FC = () => {
 
     // TypeScript will infer the correct types here
     emailjs
-      .sendForm(
-        "service_jo20n24", // Replace with your EmailJS Service ID
-        "template_gik27qt", // Replace with your EmailJS Template ID
+    .sendForm(
+        EMAIL_CONFIG.SERVICE_ID, // Use the service ID from config
+        EMAIL_CONFIG.TEMPLATE_ID, // Use the template ID from config
         e.target as HTMLFormElement, // Explicitly cast to HTMLFormElement
-        "0lgHqotVLnpOiH2fF" // Replace with your EmailJS API key
+        EMAIL_CONFIG.USER_ID // Use the user ID from config
       )
+  
       .then(
         (result) => {
           console.log("Message sent successfully:", result.text);

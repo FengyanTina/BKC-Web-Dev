@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from 'react';
 import SendIcon from '@mui/icons-material/Send'; // MUI Send icon
 import './form.css';
-import { db } from '../../../firebase/firebaseConfig'; // Import Firestore instance
+import { db } from '../../../configs/firebaseConfig'; // Import Firestore instance
 import { collection, addDoc } from 'firebase/firestore'; // Firestore methods
 import { serverTimestamp } from "firebase/firestore";
 
