@@ -104,14 +104,14 @@ function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
           />
 
           <TextField
-            label="UserId"
+            label="Password"
             type="string"
             margin="normal"
-            error={!!errors.userId}
-            helperText={errors.userId?.message}
+            error={!!errors.password}
+            helperText={errors.password?.message}
             fullWidth
-            {...register("userId", {
-              required: "UserId is required.",
+            {...register("password", {
+              required: "Password is required.",
             })}
           />
           <TextField

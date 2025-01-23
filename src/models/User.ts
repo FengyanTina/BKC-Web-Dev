@@ -9,7 +9,7 @@ export enum UserCategory {
     id: string;
     firstName: string;
     lastName:string;
-    userId: string;
+    password: string;
     userName: string;
     email: string;
     image?:string;
@@ -29,7 +29,7 @@ export enum UserCategory {
           id:'',
           firstName:'',
           lastName:'',
-          userId:'',
+          password:'',
           userName: '',
           email: '',
           phoneNumber: '',

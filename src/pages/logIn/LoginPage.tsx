@@ -21,13 +21,13 @@ import { useState } from "react";
     onClose: () => void;
   }
   const LoginPage = ({ onClose }: LoginPageProp) => {
-      const [username, setUsername] = useState<string>(""); 
+      const [email, setEmail] = useState<string>(""); 
       const [password, setPassword] = useState<string>(""); 
       const { login,error } = useAuth(); 
     
       const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
-          login(username, password); 
+          login(email, password); 
       
           if (!error) {
             onClose();
@@ -57,8 +57,8 @@ import { useState } from "react";
               placeholder="Enter username"
               fullWidth
               required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               autoFocus
               sx={{ mb: 2 }}
             />

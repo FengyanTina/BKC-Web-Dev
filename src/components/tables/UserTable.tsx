@@ -100,7 +100,7 @@ const headCells: readonly HeadCell[] = [
     label: "userName",
   },
   {
-    id: "userId",
+    id: "password",
     numeric: false,
     disablePadding: false,
     label: "userId",
@@ -368,6 +368,7 @@ export default function UserTable() {
       );
     }
     setSelected(newSelected);
+    console.log("Selected ID: ", id);
   };
 
   const handleChangePage = (_: unknown, newPage: number) => {
@@ -463,7 +464,7 @@ export default function UserTable() {
                     <TableCell align="left">{row.email}</TableCell>
                     <TableCell align="left">{row.category}</TableCell>
                     <TableCell align="left">{row.userName}</TableCell>
-                    <TableCell align="left">{row.userId}</TableCell>
+                    <TableCell align="left">{row.password}</TableCell>
                   </TableRow>
                 );
               })}
