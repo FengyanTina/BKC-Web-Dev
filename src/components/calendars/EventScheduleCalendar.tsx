@@ -57,6 +57,8 @@ const EventScheduleCalendar: React.FC = () => {
   const { currentDevUser } = useAuth();
   const [isConfirmDeleteOpen, setConfirmDeleteOpen] = useState<boolean>(false);
 
+  
+
   const handleDelete = (event: CalendarEvent) => {
     setSelectedEvent(event);
     setConfirmDeleteOpen(true);

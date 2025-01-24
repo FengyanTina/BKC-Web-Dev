@@ -9,15 +9,16 @@ import { UserProvider } from "./context/UserContext";
 import { AuthProvider } from "./context/AuthContext";
 import { FirebaseProvider } from "./context/FirebaseContext";
 import { EventsProvider } from "./context/EventContext";
+import { EventScheduleProvider } from "./context/EventScheduleContext";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <FirebaseProvider>
       <AuthProvider>
         <UserProvider>
-        <EventsProvider>
+        <EventScheduleProvider>
           <RouterProvider router={router} />
-          </EventsProvider>
+          </EventScheduleProvider>
         </UserProvider>
       </AuthProvider>
     </FirebaseProvider>

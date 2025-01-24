@@ -45,9 +45,6 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
         );
       };
 
-
-
-
     // const addUser = (newUser: User) => {
     //     const updatedData = [...devUsers, newUser];
     //     setDevUsers(updatedData);
@@ -123,13 +120,16 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
             const deletePromises = ids.map(async (id) => {
               const docRef = doc(db, "users", id); // Get the Firestore document reference
               const docSnap = await getDoc(docRef);
+              if (! docSnap.exists()) {
+                console.error("User not found.");
+                return;
+              }
               console.log(docRef.id);
               return deleteDoc(docRef); // Return the promise for deletion
             });
         
             // 2. Wait for all deletions to complete
             await Promise.all(deletePromises);
-        
           
           // Wait for all deletions to complete
           setDevUsers((prevUsers) => prevUsers.filter((user) => !ids.includes(user.id))); // Update local state
