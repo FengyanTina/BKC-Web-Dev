@@ -1,23 +1,21 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { db } from "../configs/firebaseConfig"; // Ensure this points to your Firebase config
-import { collection, addDoc, updateDoc, deleteDoc, getDocs, doc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  getDocs,
+  doc,
+} from "firebase/firestore";
+import { CalendarEvent } from "../models/CalendarEvent";
 
 // Define the shape of an event
-interface CalendarEvent {
-  id: string;
-  title: string;
-  start: string;
-  end: string;
-  description?: string;
-  location?: string;
-  allDay?: boolean;
-  repeatCount?: number;
-}
 
 // Define the shape of the context
 interface EventsContextType {
   events: CalendarEvent[];
-  addEvent: (event: CalendarEvent) => Promise<void>;
+  addEvent: (events: CalendarEvent[]) => Promise<void>;
   updateEvent: (event: CalendarEvent) => Promise<void>;
   deleteEvent: (id: string) => Promise<void>;
   fetchEvents: () => Promise<void>;
@@ -27,28 +25,44 @@ interface EventsContextType {
 const EventsContext = createContext<EventsContextType | undefined>(undefined);
 
 // Provider component
-export const EventsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const EventsProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
 
   // Fetch events from Firestore
   const fetchEvents = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, "events"));
+      const querySnapshot = await getDocs(collection(db, 'events'));
       const fetchedEvents = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       })) as CalendarEvent[];
+
       setEvents(fetchedEvents);
     } catch (error) {
-      console.error("Error fetching events:", error);
+      console.error('Error fetching events:', error);
     }
   };
 
+  useEffect(() => {
+    fetchEvents();
+  }, []);
   // Add a new event to Firestore
-  const addEvent = async (event: CalendarEvent) => {
+  const addEvent = async (events: CalendarEvent[]) => {
     try {
-      const docRef = await addDoc(collection(db, "events"), event);
-      setEvents((prevEvents) => [...prevEvents, { ...event, id: docRef.id }]);
+        for (const event of events) {
+            const docRef = await addDoc(collection(db, "events"), event);
+            
+            // Assign the docRef.id to the event
+            const eventWithId = { ...event, id: docRef.id };
+            
+            // Update the document with the id
+            await updateDoc(docRef, { id: docRef.id });
+            
+            // Update the state with the new event that includes the id
+            setEvents((prevEvents) => [...prevEvents, eventWithId]);
+          }
     } catch (error) {
       console.error("Error adding event:", error);
     }
@@ -57,9 +71,9 @@ export const EventsProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   // Update an event in Firestore
   const updateEvent = async (event: CalendarEvent) => {
     try {
-        const { id, ...eventData } = event; // Exclude `id`
-        const eventRef = doc(db, "events", id);
-        await updateDoc(eventRef, eventData);
+      const { id, ...eventData } = event; // Exclude `id`
+      const eventRef = doc(db, "events", id);
+      await updateDoc(eventRef, eventData);
       setEvents((prevEvents) =>
         prevEvents.map((e) => (e.id === event.id ? { ...e, ...event } : e))
       );
@@ -83,7 +97,9 @@ export const EventsProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, []);
 
   return (
-    <EventsContext.Provider value={{ events, addEvent, updateEvent, deleteEvent, fetchEvents }}>
+    <EventsContext.Provider
+      value={{ events, addEvent, updateEvent, deleteEvent, fetchEvents }}
+    >
       {children}
     </EventsContext.Provider>
   );

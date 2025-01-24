@@ -15,6 +15,7 @@ import { CalendarEvent } from "../../models/CalendarEvent";
 
 import { createEventId } from "../../hooks/GenerateEventId";
 import { generateRepeatEvents } from "../../utils/GenerateRepeatEvent";
+import { useEvents } from "../../context/EventContext";
 
 
 
@@ -47,16 +48,17 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
 ];
 
 const EventScheduleCalendar: React.FC = () => {
-  const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>(
-    getStoredEvents().length > 0 ? getStoredEvents() : INITIAL_EVENTS
-  );
+ 
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const { currentDevUser } = useAuth();
+  const { events, addEvent,fetchEvents } = useEvents();
   const [isConfirmDeleteOpen, setConfirmDeleteOpen] = useState<boolean>(false);
-
+  const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>(
+     events.length > 0 ? events : INITIAL_EVENTS
+   );
   
 
   const handleDelete = (event: CalendarEvent) => {
@@ -71,7 +73,7 @@ const EventScheduleCalendar: React.FC = () => {
 
   const handleConfirmDelete = () => {
     if (selectedEvent) {
-      const updatedEvents = currentEvents.filter(
+      const updatedEvents = events.filter(
         (e) => e.id !== selectedEvent.id
       );
       setCurrentEvents(updatedEvents);
@@ -80,6 +82,7 @@ const EventScheduleCalendar: React.FC = () => {
       saveEventsToLocalStorage(updatedEvents);
     }
   };
+ 
 
   useEffect(() => {
     localStorage.setItem("events", JSON.stringify(currentEvents));
@@ -175,10 +178,13 @@ const EventScheduleCalendar: React.FC = () => {
       }
 
       const finalEvents = [...updatedEvents, ...newEvents];
+
+      addEvent(finalEvents)
+
       setCurrentEvents(finalEvents);
       setIsModalOpen(false);
       setSelectedEvent(null);
-      saveEventsToLocalStorage(finalEvents);
+      //saveEventsToLocalStorage(finalEvents);
     }
   };
 
@@ -251,7 +257,7 @@ const EventScheduleCalendar: React.FC = () => {
         initialView="dayGridMonth"
         selectable={true}
         select={handleDateSelect}
-        events={currentEvents}
+        events={events}
         editable={true}
         selectMirror={true}
         dayMaxEvents={true}
@@ -271,7 +277,7 @@ const EventScheduleCalendar: React.FC = () => {
         }}
       />
       <Sidebar
-        currentEvents={currentEvents}
+        currentEvents={events}
         handleEdit={handleEdit}
         currentUser={currentDevUser}
         handleDelete={handleDelete}

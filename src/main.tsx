@@ -16,9 +16,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <FirebaseProvider>
       <AuthProvider>
         <UserProvider>
-        <EventScheduleProvider>
+        <EventsProvider>
           <RouterProvider router={router} />
-          </EventScheduleProvider>
+          </EventsProvider>
         </UserProvider>
       </AuthProvider>
     </FirebaseProvider>

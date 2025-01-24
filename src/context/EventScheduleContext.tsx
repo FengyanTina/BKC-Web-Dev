@@ -2,6 +2,8 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import { CalendarEvent } from "../models/CalendarEvent";
 import { INITIAL_EVENTS } from "../components/calendars/EventScheduleCalendar";
 import { generateRepeatEvents } from "../utils/GenerateRepeatEvent";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
+import { db } from "../configs/firebaseConfig";
 
 // Define the CalendarEvent interface if you haven't already
 
@@ -26,6 +28,19 @@ const EventScheduleContext = createContext<EventScheduleContextType | undefined>
 
 // Create the provider component
 export const EventScheduleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [events, setEvents] = useState<CalendarEvent[]>([]);
+
+    const addEvent = async (event: CalendarEvent) => {
+        try {
+          const docRef = await addDoc(collection(db, "events"), event);
+          const eventWithId = {...event, id:docRef.id};
+    await updateDoc(docRef, {id:docRef.id});
+          setEvents((prevEvents) => [...prevEvents, { ...event,eventWithId }]);
+          
+        } catch (error) {
+          console.error("Error adding event:", error);
+        }
+      };
 
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -42,6 +57,9 @@ export const EventScheduleProvider: React.FC<{ children: React.ReactNode }> = ({
   const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>(
     getStoredEvents().length > 0 ? getStoredEvents() : INITIAL_EVENTS
   );
+
+
+  
   const handleDelete = (event: CalendarEvent) => {
     setSelectedEvent(event);
     setConfirmDeleteOpen(true);
