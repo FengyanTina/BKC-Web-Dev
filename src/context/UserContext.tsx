@@ -1,9 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { User } from '../models/User';
+import { User, UserCategory } from '../models/User';
 import { useLocalStorage } from '../hooks/UseLocalStorage';
 import initialUsers from '../data';
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from 'firebase/firestore';
-import { db } from '../configs/firebaseConfig';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
+import { auth, db } from '../configs/firebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export const UserContext = createContext({
     devUsers: [] as User[],
@@ -54,13 +55,33 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
       const addUser = async (newUser: User) => {
         try {
-          const docRef = await addDoc(collection(db, "users"), newUser); // Add the user to Firestore
-          const userWithId = { ...newUser, id: docRef.id }; // Assign Firestore-generated ID
-          await updateDoc(docRef, { id: docRef.id });
-          setDevUsers((prevUsers) => [...prevUsers, userWithId]); // Update local state
-          console.log(docRef.id);
-          return  docRef.id;
+            let userWithId: User;
+            if(newUser.category== UserCategory.Admin){
+
+                const userCredential = await createUserWithEmailAndPassword(auth, newUser.email, newUser.password);
+                const authUser = userCredential.user;
           
+                // Step 2: Add the user to Firestore with the same UID as the document ID
+                const userDocRef = doc(collection(db, "users"), authUser.uid); // Explicitly set Firestore document ID to match Firebase Auth UID
+                await setDoc(userDocRef, {
+                  ...newUser,
+                  id: authUser.uid, // Use Firebase Auth UID as the user ID
+                });
+          
+                userWithId = { ...newUser, id: authUser.uid };
+                setDevUsers((prevUsers) => [...prevUsers, userWithId]);
+
+            } else{
+
+            
+            
+          const docRef = await addDoc(collection(db, "users"), newUser); // Add the user to Firestore
+           userWithId = { ...newUser, id: docRef.id }; // Assign Firestore-generated ID
+          await updateDoc(docRef, { id: docRef.id });
+           // Update local state
+           setDevUsers((prevUsers) => [...prevUsers, userWithId]);
+        }
+        
         } catch (error) {
           console.error("Error adding user:", error);
         }

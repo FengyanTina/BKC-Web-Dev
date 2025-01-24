@@ -24,6 +24,7 @@ import { useState } from "react";
       const [email, setEmail] = useState<string>(""); 
       const [password, setPassword] = useState<string>(""); 
       const { login,error } = useAuth(); 
+      
     
       const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
@@ -54,7 +55,7 @@ import { useState } from "react";
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
-              placeholder="Enter username"
+              placeholder="Enter email"
               fullWidth
               required
               value={email}

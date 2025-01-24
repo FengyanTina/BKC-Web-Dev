@@ -1,16 +1,17 @@
-import React, { createContext, useCallback, useContext, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/UseLocalStorage";
 import { User, UserCategory } from "../models/User";
 import useInactivityLogout from "../hooks/UserInactiveLogout";
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth, db } from "../configs/firebaseConfig"; // Your Firebase config
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export interface LogInContextType {
   currentDevUser: User | null;
-  login: (userName: string, password: string) => void;
+  login: (email: string, password: string) => void;
   logout: () => void;
   error: string | null;
+  loading: boolean,
 }
 
 export const AuthContext = createContext<LogInContextType | undefined>(
@@ -25,9 +26,28 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 //     null
 //   );
   const [currentDevUser, setCurrentDevUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
   const [storedUsers] = useLocalStorage<User[]>("devUsers", []);
   const [error, setError] = useState<string | null>(null);
   const timeoutDuration = 20 * 60 * 1000;
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDoc = await getDoc(userDocRef);
+
+        if (userDoc.exists()) {
+          setCurrentDevUser({ id: user.uid, ...userDoc.data() } as User);
+        }
+      } else {
+        setCurrentDevUser(null);
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   // Handle login logic with error handling
 //   const login = (userName: string, password: string) => {
@@ -46,19 +66,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 //     setError(null); 
 //     console.log('Login successful:', user);
 //   };
-const login = (email:string, password:string) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Handle successful login
-        const user = userCredential.user;
-        console.log('Logged in user:', user);
-      })
-      .catch((error) => {
-        // Handle login error
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error('Login failed:', errorCode, errorMessage);
-      });
+const login = async (email: string, password: string): Promise<void> => {
+    setError(null);
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      const userDocRef = doc(db, "users", user.uid);
+      const userDoc = await getDoc(userDocRef);
+
+      if (userDoc.exists()) {
+        setCurrentDevUser({ id: user.uid, ...userDoc.data() } as User);
+        setError(null);
+      } else {
+        console.error("User data not found in Firestore.");
+      }
+    } catch (error: any) {
+      console.error("Login failed:", error.message);
+      throw new Error(error.message);
+    }
   };
 
 // const login = (email: string, password: string) => {
@@ -135,8 +161,8 @@ const login = (email:string, password:string) => {
   useInactivityLogout(timeoutDuration, logout);
 
   return (
-    <AuthContext.Provider value={{ currentDevUser,  login, logout, error }}>
-      {children}
+    <AuthContext.Provider value={{ currentDevUser,  login, logout, error,loading }}>
+       {!loading && children}
     </AuthContext.Provider>
   );
 };
