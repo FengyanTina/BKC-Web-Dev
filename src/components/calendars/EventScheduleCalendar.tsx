@@ -54,7 +54,7 @@ const EventScheduleCalendar: React.FC = () => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const { currentDevUser } = useAuth();
-  const { events, addEvent,fetchEvents } = useEvents();
+  const { events, addEvent,fetchEvents,updateEvent } = useEvents();
   const [isConfirmDeleteOpen, setConfirmDeleteOpen] = useState<boolean>(false);
   const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>(
      events.length > 0 ? events : INITIAL_EVENTS
@@ -138,7 +138,7 @@ const EventScheduleCalendar: React.FC = () => {
     setIsEditing(true);
   };
 
-  const handleSaveEvent = () => {
+  const handleSaveEvent = async () => {
     if (selectedEvent) {
       const repeatCount = selectedEvent.repeatCount ?? 0;
       const startDate = new Date(selectedEvent.start);
@@ -150,43 +150,37 @@ const EventScheduleCalendar: React.FC = () => {
         end: endDate.toISOString(),
         allDay: allDay,
       };
-      const isUpdatingExisting = currentEvents.some(
+      const isUpdatingExisting = events.some(
         (event) => event.id === updatedSelectedEvent.id
       );
 
-      let updatedEvents;
-      if (isUpdatingExisting) {
-        updatedEvents = currentEvents.map((event) =>
-          event.id === updatedSelectedEvent.id
-            ? { ...event, ...updatedSelectedEvent }
-            : event
-        );
+      try {
+        if (isUpdatingExisting) {
+          // Call `updateEvent` from context to update the event
+          await updateEvent(updatedSelectedEvent);
+        
       } else {
-        updatedEvents = [
-          ...currentEvents,
-          { ...updatedSelectedEvent, id: String(new Date().getTime()) },
-        ];
+        const newEvent = { ...updatedSelectedEvent }; // Firestore will generate `id`
+        await addEvent(newEvent);
       }
 
-      let newEvents: CalendarEvent[] = [];
       if (repeatCount > 0) {
-        newEvents = generateRepeatEvents(
+        const newEvents = generateRepeatEvents(
           updatedSelectedEvent,
           endDate,
           repeatCount
         );
+        for (const event of newEvents) {
+          await addEvent(event); // Add each repeat event to Firestore
+        }
       }
-
-      const finalEvents = [...updatedEvents, ...newEvents];
-
-      addEvent(finalEvents)
-
-      setCurrentEvents(finalEvents);
       setIsModalOpen(false);
       setSelectedEvent(null);
-      //saveEventsToLocalStorage(finalEvents);
+    } catch (error) {
+      console.error("Error saving event:", error);
     }
-  };
+  }
+};
 
 //   const generateRecurringEvents = (
 //     event:  CalendarEvent,
@@ -219,7 +213,7 @@ const EventScheduleCalendar: React.FC = () => {
 //   };
 
   const handleEventClick = (clickInfo: EventClickArg) => {
-    const clickedEvent = currentEvents.find(
+    const clickedEvent = events.find(
       (event) => event.id === clickInfo.event.id
     );
     if (clickedEvent) {
@@ -235,7 +229,7 @@ const EventScheduleCalendar: React.FC = () => {
   };
 
   const handleDetailOnTable = (clickInfo: CalendarEvent) => {
-    const clickedEvent = currentEvents.find(
+    const clickedEvent = events.find(
       (event) => event.id === clickInfo.id
     );
     if (clickedEvent) {
@@ -277,7 +271,7 @@ const EventScheduleCalendar: React.FC = () => {
         }}
       />
       <Sidebar
-        currentEvents={events}
+        events={events}
         handleEdit={handleEdit}
         currentUser={currentDevUser}
         handleDelete={handleDelete}

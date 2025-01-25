@@ -6,14 +6,14 @@ import { CalendarEvent } from "../../models/CalendarEvent";
 
 // Sidebar Component
 const Sidebar = ({
-  currentEvents,
+ events,
   handleEdit,
   handleDelete,
 
   handleDetailOnTable: handleDetail,
   currentUser,
 }: {
-  currentEvents: CalendarEvent[];
+  events: CalendarEvent[];
   handleEdit: (event: CalendarEvent) => void;
   handleDelete: (event: CalendarEvent) => void;
   handleDetailOnTable: (event: CalendarEvent) => void;
@@ -30,7 +30,7 @@ const Sidebar = ({
   return (
     <div className="demo-app-sidebar">
       <div className="demo-app-sidebar-section">
-        <h2>All Events ({currentEvents.length})</h2>
+        <h2>All Events ({events.length})</h2>
         <Paper
           elevation={1}
           style={{ marginBottom: "30px", backgroundColor: "#d0d8e0" }}
@@ -54,7 +54,7 @@ const Sidebar = ({
             </Grid>
           </Grid>
           {/* Event Rows */}
-          {currentEvents.map((event) => (
+          {events.map((event) => (
             <SidebarEvent
               key={event.id}
               event={event}

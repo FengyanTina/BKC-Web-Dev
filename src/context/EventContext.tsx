@@ -15,7 +15,7 @@ import { CalendarEvent } from "../models/CalendarEvent";
 // Define the shape of the context
 interface EventsContextType {
   events: CalendarEvent[];
-  addEvent: (events: CalendarEvent[]) => Promise<void>;
+  addEvent: (events: CalendarEvent) => Promise<void>;
   updateEvent: (event: CalendarEvent) => Promise<void>;
   deleteEvent: (id: string) => Promise<void>;
   fetchEvents: () => Promise<void>;
@@ -49,9 +49,9 @@ export const EventsProvider: React.FC<{ children: React.ReactNode }> = ({
     fetchEvents();
   }, []);
   // Add a new event to Firestore
-  const addEvent = async (events: CalendarEvent[]) => {
+  const addEvent = async (event: CalendarEvent) => {
     try {
-        for (const event of events) {
+       
             const docRef = await addDoc(collection(db, "events"), event);
             
             // Assign the docRef.id to the event
@@ -62,7 +62,7 @@ export const EventsProvider: React.FC<{ children: React.ReactNode }> = ({
             
             // Update the state with the new event that includes the id
             setEvents((prevEvents) => [...prevEvents, eventWithId]);
-          }
+          
     } catch (error) {
       console.error("Error adding event:", error);
     }
