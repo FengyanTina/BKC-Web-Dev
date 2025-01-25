@@ -130,7 +130,7 @@ const EventScheduleCalendar: React.FC = () => {
     setIsEditing(true);
   };
 
-  const handleSaveEvent = async () => {
+  const handleSaveEvent = async (imageUrl?: string) => {
     if (selectedEvent) {
       const repeatCount = selectedEvent.repeatCount ?? 0;
       const startDate = new Date(selectedEvent.start);
@@ -141,6 +141,7 @@ const EventScheduleCalendar: React.FC = () => {
         start: startDate.toISOString(),
         end: endDate.toISOString(),
         allDay: allDay,
+        ...(imageUrl ? { imageUrl } : {}),
       };
       const isUpdatingExisting = events.some(
         (event) => event.id === updatedSelectedEvent.id

@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogTitle,
   DialogContent,
   TextField,
   Button,
+  FormControlLabel,
+  Checkbox,
 
 } from "@mui/material";
 import { CalendarEvent } from "../../models/CalendarEvent";
+import { getStorage, ref, uploadBytes, getDownloadURL, FirebaseStorage } from "firebase/storage";
 
 interface EventFormProps {
   isModalOpen: boolean;
   handleCloseModal: () => void;
   selectedEvent: CalendarEvent | null;
   handleFieldChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSaveEvent: () => void;
+  handleSaveEvent: (imageUrl?: string) => void;
   event?: CalendarEvent; // Optional because it can be undefined when adding a new event
   isEditing: boolean;
 }
@@ -28,6 +31,50 @@ const EventAddAndEditForm = ({
   handleFieldChange,
   handleSaveEvent,
 }: EventFormProps) => {
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [image, setImage] = useState(null);
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const [isUploading, setIsUploading] = useState(false);
+
+    const handleImageFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0] || null;
+        setSelectedFile(file);
+      
+        // Generate preview URL for the uploaded file
+        if (file) {
+          const previewUrl = URL.createObjectURL(file);
+          setImagePreview(previewUrl);
+        } else {
+          setImagePreview(null);
+        }
+      };
+      
+    const handleSaveWithImage = async () => {
+        let imageUrl: string | undefined = undefined;
+    
+        // Upload image to Firebase Storage if a file is selected
+        if (selectedFile) {
+          try {
+            setIsUploading(true);
+            const storage: FirebaseStorage = getStorage();
+            const storageRef = ref(
+              storage,
+              `event-images/${Date.now()}-${selectedFile.name}`
+            );
+            const snapshot = await uploadBytes(storageRef, selectedFile);
+            imageUrl = await getDownloadURL(snapshot.ref);
+          } catch (error) {
+            console.error("Error uploading image:", error);
+            alert("Failed to upload the image. Please try again.");
+            return; // Exit early if upload fails
+          } finally {
+            setIsUploading(false);
+          }
+        }
+    
+        // Pass the imageUrl to the parent `handleSaveEvent`
+        handleSaveEvent(imageUrl);
+      };
   return (
     <Dialog open={isModalOpen} onClose={handleCloseModal}>
       <DialogTitle>{isEditing ? "Event Details" : "Add New Event"}</DialogTitle>
@@ -63,6 +110,7 @@ const EventAddAndEditForm = ({
               multiline
               rows={4}
             />
+       
 
             {!isEditing && (
               <div>
@@ -77,13 +125,76 @@ const EventAddAndEditForm = ({
                 />
               </div>
             )}
+            {/* <div>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageFileChange}
+                style={{ marginTop: "16px" }}
+              />
+              {imagePreview && (
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  style={{
+                    marginTop: "16px",
+                    width: "100%",
+                    maxHeight: "200px",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
+            </div> */}
+
+             <div>
+                  {/* New Checkboxes for showOnComingEvent and showOnNews */}
+         <FormControlLabel
+              control={
+                <Checkbox
+                  checked={selectedEvent.showOnCommingEvent || false}
+                  onChange={(e) =>
+                    handleFieldChange({
+                      target: {
+                        name: "showOnCommingEvent",
+                        value: e.target.checked,
+                      },
+                    } as any)
+                  }
+                  name="showOnCommingEvent"
+                  color="primary"
+                />
+              }
+              label="Show on Coming Events"
+            />
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={selectedEvent.showOnNews || false}
+                  onChange={(e) =>
+                    handleFieldChange({
+                      target: {
+                        name: "showOnNews",
+                        value: e.target.checked,
+                      },
+                    } as any)
+                  }
+                  name="showOnNews"
+                  color="primary"
+                />
+              }
+              label="Show on News"
+            />
+             </div>
+             
             <Button
-              onClick={handleSaveEvent}
+             onClick={handleSaveWithImage}
               color="primary"
               variant="contained"
               style={{ marginTop: "16px", marginRight: "10px" }}
+              disabled={isUploading}
             >
-              Save Event
+               {isUploading ? "Uploading..." : "Save Event"}
             </Button>
 
             <Button

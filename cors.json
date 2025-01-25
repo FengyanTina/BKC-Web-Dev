@@ -1,0 +1,8 @@
+[
+    {
+      "origin": ["http://localhost:5173","http://www.dev.bkc.nu"],
+      "method": ["GET", "POST", "PUT", "DELETE"],
+      "maxAgeSeconds": 3600
+    }
+  ]
+  

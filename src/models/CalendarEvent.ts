@@ -6,6 +6,11 @@ export interface CalendarEvent {
     allDay: boolean;
     description?: string;
     location?: string;
+    showOnCommingEvent?:boolean;
+    showOnNews?:boolean;
     repeatCount?: number;
     selectedDays?: boolean[];
+    imgUrl?:string;
   }
+
+  
