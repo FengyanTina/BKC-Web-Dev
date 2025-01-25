@@ -16,51 +16,49 @@ import { CalendarEvent } from "../../models/CalendarEvent";
 import { createEventId } from "../../hooks/GenerateEventId";
 import { generateRepeatEvents } from "../../utils/GenerateRepeatEvent";
 import { useEvents } from "../../context/EventContext";
+import { UserCategory } from "../../models/User";
 
+// const getStoredEvents = (): CalendarEvent[] => {
+//   const storedEvents = localStorage.getItem("events");
+//   return storedEvents ? JSON.parse(storedEvents) : INITIAL_EVENTS;
+// };
+// const saveEventsToLocalStorage = (events: CalendarEvent[]) => {
+//   localStorage.setItem("events", JSON.stringify(events));
+// };
 
-
-
-const getStoredEvents = (): CalendarEvent[] => {
-  const storedEvents = localStorage.getItem("events");
-  return storedEvents ? JSON.parse(storedEvents) : INITIAL_EVENTS;
-};
-const saveEventsToLocalStorage = (events: CalendarEvent[]) => {
-  localStorage.setItem("events", JSON.stringify(events));
-};
-
-export const INITIAL_EVENTS: CalendarEvent[] = [
-  {
-    id: createEventId(),
-    title: "All-day event",
-    start: new Date().toISOString().split("T")[0],
-    end: new Date().toISOString().split("T")[0],
-    description: "This is an all-day event.",
-    allDay: true,
-  },
-  {
-    id: createEventId(),
-    title: "Timed event",
-    start: new Date().toISOString().split("T")[0] + "T12:00:00",
-    end: new Date().toISOString().split("T")[0] + "T13:00:00",
-    description: "This is a timed event.",
-    allDay: false,
-  },
-];
+// export const INITIAL_EVENTS: CalendarEvent[] = [
+//   {
+//     id: createEventId(),
+//     title: "All-day event",
+//     start: new Date().toISOString().split("T")[0],
+//     end: new Date().toISOString().split("T")[0],
+//     description: "This is an all-day event.",
+//     allDay: true,
+//   },
+//   {
+//     id: createEventId(),
+//     title: "Timed event",
+//     start: new Date().toISOString().split("T")[0] + "T12:00:00",
+//     end: new Date().toISOString().split("T")[0] + "T13:00:00",
+//     description: "This is a timed event.",
+//     allDay: false,
+//   },
+// ];
 
 const EventScheduleCalendar: React.FC = () => {
- 
-  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(
+    null
+  );
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const { currentDevUser } = useAuth();
-  const { events, addEvent,fetchEvents,updateEvent } = useEvents();
+  const { events, addEvent, deleteEvent, updateEvent } = useEvents();
   const [isConfirmDeleteOpen, setConfirmDeleteOpen] = useState<boolean>(false);
-  const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>(
-     events.length > 0 ? events : INITIAL_EVENTS
-   );
-  
-
+//   const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>(
+//     events.length > 0 ? events : INITIAL_EVENTS
+//   );
+ const isAdmin = currentDevUser?.category === UserCategory.Admin;
   const handleDelete = (event: CalendarEvent) => {
     setSelectedEvent(event);
     setConfirmDeleteOpen(true);
@@ -72,21 +70,15 @@ const EventScheduleCalendar: React.FC = () => {
   };
 
   const handleConfirmDelete = () => {
-    if (selectedEvent) {
-      const updatedEvents = events.filter(
-        (e) => e.id !== selectedEvent.id
-      );
-      setCurrentEvents(updatedEvents);
-      setConfirmDeleteOpen(false);
-      setSelectedEvent(null);
-      saveEventsToLocalStorage(updatedEvents);
-    }
-  };
- 
+    if (selectedEvent) deleteEvent(selectedEvent);
 
-  useEffect(() => {
-    localStorage.setItem("events", JSON.stringify(currentEvents));
-  }, [currentEvents]);
+    setConfirmDeleteOpen(false);
+    setSelectedEvent(null);
+  };
+
+//   useEffect(() => {
+//     localStorage.setItem("events", JSON.stringify(currentEvents));
+//   }, [currentEvents]);
 
   const handleDateSelect = (selectInfo: any) => {
     setSelectedEvent({
@@ -158,59 +150,58 @@ const EventScheduleCalendar: React.FC = () => {
         if (isUpdatingExisting) {
           // Call `updateEvent` from context to update the event
           await updateEvent(updatedSelectedEvent);
-        
-      } else {
-        const newEvent = { ...updatedSelectedEvent }; // Firestore will generate `id`
-        await addEvent(newEvent);
-      }
-
-      if (repeatCount > 0) {
-        const newEvents = generateRepeatEvents(
-          updatedSelectedEvent,
-          endDate,
-          repeatCount
-        );
-        for (const event of newEvents) {
-          await addEvent(event); // Add each repeat event to Firestore
+        } else {
+          const newEvent = { ...updatedSelectedEvent }; // Firestore will generate `id`
+          await addEvent(newEvent);
         }
+
+        if (repeatCount > 0) {
+          const newEvents = generateRepeatEvents(
+            updatedSelectedEvent,
+            endDate,
+            repeatCount
+          );
+          for (const event of newEvents) {
+            await addEvent(event); // Add each repeat event to Firestore
+          }
+        }
+        setIsModalOpen(false);
+        setSelectedEvent(null);
+      } catch (error) {
+        console.error("Error saving event:", error);
       }
-      setIsModalOpen(false);
-      setSelectedEvent(null);
-    } catch (error) {
-      console.error("Error saving event:", error);
     }
-  }
-};
+  };
 
-//   const generateRecurringEvents = (
-//     event:  CalendarEvent,
-//     endDate: Date,
-//     repeatCount: number
-//   ): CalendarEvent[] => {
-//     const recurringEvents: CalendarEvent[] = [];
-//     const { selectedDays } = event;
-//     const startDate = new Date(event.start || new Date().toISOString());
+  //   const generateRecurringEvents = (
+  //     event:  CalendarEvent,
+  //     endDate: Date,
+  //     repeatCount: number
+  //   ): CalendarEvent[] => {
+  //     const recurringEvents: CalendarEvent[] = [];
+  //     const { selectedDays } = event;
+  //     const startDate = new Date(event.start || new Date().toISOString());
 
-//     for (let i = 0; i < repeatCount; i++) {
-//       const currentDate = new Date(startDate);
-//       currentDate.setDate(startDate.getDate() + (i + 1) * 7);
-//       selectedDays?.forEach((isSelected, index) => {
-//         if (isSelected) {
-//           const newEvent: CalendarEvent = {
-//             ...event,
-//             id: `${event.id}-${i}-${index}`, // Unique ID for each instance
-//             start: currentDate.toISOString(), // Adjust this as necessary for your logic
-//             end: new Date(
-//               currentDate.getTime() + (endDate.getTime() - startDate.getTime())
-//             ).toISOString(), // Set end time
-//           };
-//           recurringEvents.push(newEvent);
-//         }
-//       });
-//     }
+  //     for (let i = 0; i < repeatCount; i++) {
+  //       const currentDate = new Date(startDate);
+  //       currentDate.setDate(startDate.getDate() + (i + 1) * 7);
+  //       selectedDays?.forEach((isSelected, index) => {
+  //         if (isSelected) {
+  //           const newEvent: CalendarEvent = {
+  //             ...event,
+  //             id: `${event.id}-${i}-${index}`, // Unique ID for each instance
+  //             start: currentDate.toISOString(), // Adjust this as necessary for your logic
+  //             end: new Date(
+  //               currentDate.getTime() + (endDate.getTime() - startDate.getTime())
+  //             ).toISOString(), // Set end time
+  //           };
+  //           recurringEvents.push(newEvent);
+  //         }
+  //       });
+  //     }
 
-//     return recurringEvents;
-//   };
+  //     return recurringEvents;
+  //   };
 
   const handleEventClick = (clickInfo: EventClickArg) => {
     const clickedEvent = events.find(
@@ -229,9 +220,7 @@ const EventScheduleCalendar: React.FC = () => {
   };
 
   const handleDetailOnTable = (clickInfo: CalendarEvent) => {
-    const clickedEvent = events.find(
-      (event) => event.id === clickInfo.id
-    );
+    const clickedEvent = events.find((event) => event.id === clickInfo.id);
     if (clickedEvent) {
       setSelectedEvent(clickedEvent);
       setIsDetailModalOpen(true);
@@ -240,7 +229,6 @@ const EventScheduleCalendar: React.FC = () => {
 
   return (
     <div className="calendar-container">
-     
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         headerToolbar={{
@@ -249,10 +237,11 @@ const EventScheduleCalendar: React.FC = () => {
           right: "dayGridMonth,timeGridWeek,timeGridDay",
         }}
         initialView="dayGridMonth"
-        selectable={true}
-        select={handleDateSelect}
+        selectable={isAdmin}
+        // select={handleDateSelect}
+        select={isAdmin ? handleDateSelect : undefined}
         events={events}
-        editable={true}
+        editable={isAdmin}
         selectMirror={true}
         dayMaxEvents={true}
         eventContent={renderEventContent}

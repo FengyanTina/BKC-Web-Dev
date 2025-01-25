@@ -17,7 +17,7 @@ interface EventsContextType {
   events: CalendarEvent[];
   addEvent: (events: CalendarEvent) => Promise<void>;
   updateEvent: (event: CalendarEvent) => Promise<void>;
-  deleteEvent: (id: string) => Promise<void>;
+  deleteEvent: (event: CalendarEvent) => Promise<void>;
   fetchEvents: () => Promise<void>;
 }
 
@@ -83,10 +83,10 @@ export const EventsProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   // Delete an event from Firestore
-  const deleteEvent = async (id: string) => {
+  const deleteEvent = async (event: CalendarEvent) => {
     try {
-      await deleteDoc(doc(db, "events", id));
-      setEvents((prevEvents) => prevEvents.filter((e) => e.id !== id));
+      await deleteDoc(doc(db, "events", event.id));
+      setEvents((prevEvents) => prevEvents.filter((e) => e.id !== event.id));
     } catch (error) {
       console.error("Error deleting event:", error);
     }

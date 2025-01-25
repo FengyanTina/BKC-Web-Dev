@@ -9,7 +9,6 @@ const Sidebar = ({
  events,
   handleEdit,
   handleDelete,
-
   handleDetailOnTable: handleDetail,
   currentUser,
 }: {
