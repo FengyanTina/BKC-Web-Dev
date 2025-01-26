@@ -5,12 +5,11 @@ import Button from '@mui/material/Button';
 import { Event } from "../../models/Event";
 import formatDateTime from "../../utils/FormatDateTime";
 import { formatTime } from "../../utils/FormatDateOrTime";
-import { CalendarEvent } from "../../models/CalendarEvent";
 
 interface EventDetailsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  event:  CalendarEvent | null;
+  event: Event | null;
 }
 export default function EventDetailsModal({
   isOpen,
@@ -31,7 +30,7 @@ export default function EventDetailsModal({
           X
         </button> */}
         <h1>{event.title}</h1>
-        {/* {event.image && (
+        {event.image && (
           <>
             {Array.isArray(event.image) ? (
               <img src={event.image[0]} alt={event.title} />
@@ -39,18 +38,12 @@ export default function EventDetailsModal({
               <img src={event.image} alt={event.title} />
             )}
           </>
-        )} */}
+        )}
         <p>{event.description}</p>
-        {/* {event.startTime && (
+        {event.startTime && (
           <p>
             {formatDateTime(event.startTime)}
             {event.endTime && ` - ${formatTime(event.endTime)}`}
-          </p>
-        )} */}
-         {event.start && (
-          <p>
-            {event.start}
-            {event.end}
           </p>
         )}
         <Box style={{ marginTop: "20px", textAlign: "center" }}>

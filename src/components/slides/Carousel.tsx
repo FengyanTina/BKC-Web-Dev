@@ -8,17 +8,12 @@ import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import { Event } from "../../models/Event";
 import { useState } from "react";
 import EventDetailsModal from "../forms/EventDetailModel";
-import { carouselImgs } from "../../data";
-import { useEvents } from "../../context/EventContext";
-import { CalendarEvent } from "../../models/CalendarEvent";
 
-const Carousel = () => {
-  const [selectedEvent, setSelectedEvent] = useState< CalendarEvent | null>(null);
+const Carousel = ({ events }: { events: Event[] }) => {
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { events,  } = useEvents();
-  const filteredEvents = events.filter((event) => event.showOnCommingEvent)
 
-  const handleSlideClick = (event: CalendarEvent) => {
+  const handleSlideClick = (event: Event) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
   };
@@ -27,19 +22,16 @@ const Carousel = () => {
     setIsModalOpen(false);
     setSelectedEvent(null);
   };
-  const limitedImages = carouselImgs.slice(0, events.length);
- 
- const displayEvents=  filteredEvents .map((event,index) => {
-    const imageUrl = limitedImages[index]?.url;
-   // let imageUrl: string | undefined;
+  const displayEvents = events.map((event) => {
+    let imageUrl: string | undefined;
 
     // Handle different cases for `event.image`
-    // if (typeof event.image === "string") {
-    //   imageUrl = event.image;
-    // } else if (Array.isArray(event.image)) {
-    //   imageUrl =
-    //     typeof event.image[0] === "string" ? event.image[0] : undefined;
-    // }
+    if (typeof event.image === "string") {
+      imageUrl = event.image;
+    } else if (Array.isArray(event.image)) {
+      imageUrl =
+        typeof event.image[0] === "string" ? event.image[0] : undefined;
+    }
 
     return (
       <SwiperSlide
@@ -49,19 +41,13 @@ const Carousel = () => {
       >
         {imageUrl && <img src={imageUrl} alt={event.title} />}{" "}
         <h2>{event.title}</h2>
-        {/* {event.startTime && (
+        {event.startTime && (
           <h5>
             {event.startTime.toLocaleDateString("sv-SE")}{" "}
             {event.startTime.toLocaleTimeString("sv-SE", {
               hour: "2-digit",
               minute: "2-digit",
             })}
-          </h5>
-        )} */}
-         {event.start && (
-          <h5>
-            {event.start}
-            
           </h5>
         )}
         {event.description && <p>{event.description}</p>}{" "}

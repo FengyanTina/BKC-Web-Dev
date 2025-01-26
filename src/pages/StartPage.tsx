@@ -48,7 +48,6 @@ const StartPage = () => {
           flexDirection: "column",
           marginTop: { xs: "60px", sm: "70px", md: "70px" },
           backgroundColor: "#CED9E5",
-          
         }}
       >
         <Box
@@ -173,7 +172,7 @@ const StartPage = () => {
 
         <SectionLine text="Kommande Evenemang" useWhiteStroke={true} />
         <Box sx={{ width: "90%" }}>
-          <Carousel  />
+          <Carousel events={comingEvents} />
         </Box>
 
         {/* --------------WELCOME NEW----------- */}
