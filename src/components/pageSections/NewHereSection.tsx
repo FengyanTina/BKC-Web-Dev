@@ -40,8 +40,8 @@ export default function NewHereSectionGrid({
           alignItems: "flex-end",
           paddingTop: {
             xs: "56.25%", // 16:9 aspect ratio for smaller screens
-            md: "35%", // Less padding for medium screens
-            lg: "19%", // Even less padding for large screens
+            md: "36%", // Less padding for medium screens
+            lg: "20%", // Even less padding for large screens
           },
         }}
       >
@@ -67,7 +67,8 @@ export default function NewHereSectionGrid({
           textAlign: "center",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "30px",
+          marginTop: "50px",
+          marginBottom: "50px",
         }}
       >
         <Typography

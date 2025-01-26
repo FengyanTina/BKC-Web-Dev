@@ -23,7 +23,7 @@ export default function SchedulesMainPage() {
         }}
       >
         <Box sx={{ width: "90%", }} id="commingEvent">
-          <Carousel events={comingEvents} />
+          <Carousel  />
         </Box>
         <Box
           sx={{

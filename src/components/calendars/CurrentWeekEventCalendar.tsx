@@ -11,38 +11,39 @@ const Item = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  color: "white",
-  ...theme.applyStyles("dark", {
-    backgroundColor: "#1A2027",
-  }),
+  color: "#424242",
+ 
 }));
 
 export default function RowAndColumnSpacing() {
   //const currentWeek = getCurrentWeek();
-  const currentWeek = getCurrentWeek().filter(day => day.events.length > 0); // Filter out days without events
+  const currentWeek = getCurrentWeek(); // Filter out days without events
   return (
     <Box
       sx={{
-        width: {
-          lg: "60%",
-          md: "70%",
-          sm: "100%",
-        },
+      
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "flex-start",// Ensure content aligns to the top,make sure the scroll all the way to the top 
         alignItems: "center",
-        // backgroundColor: "rgba(255, 255, 255, 0.3)",
-        backdropFilter: "blur(5px)",
-        overflow:"auto"
+        maxHeight: "20vh",
+        padding: "16px",
+        msOverflowStyle: "none", // Hide scrollbar for IE and Edge
+        scrollbarWidth: "none", 
+        "&::-webkit-scrollbar": {
+            display: "none", // Hide the scrollbar in WebKit browsers
+          },
+        overflowY: "auto", // Enable vertical scrolling
+        overflowX: "hidden",
       }}
     >
       <Grid container columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
         {currentWeek.map((day, index) => (
-          <Grid container columns={12} key={index} size={12}>
+          <Grid  container columns={12} key={index} size={12}>
             <Grid size={3}>
               <Item>
-                <Typography>{day.date}</Typography>
+                <Typography
+                 >{day.date}</Typography>
                 <Typography>{day.dayName}</Typography>
               </Item>
             </Grid>
@@ -53,6 +54,7 @@ export default function RowAndColumnSpacing() {
                 overflow: "hidden", // Hide overflow content
                 textOverflow: "ellipsis", // Add ellipsis if content overflows
                 whiteSpace: "nowrap",
+                
               }}
             >
               <Item>
@@ -71,7 +73,7 @@ export default function RowAndColumnSpacing() {
 
             <Grid size={12}>
               <Box
-                sx={{ borderBottom: "1px solid #ccc", width: "100%", my: 1 }}
+                sx={{ borderBottom: "1px solid #ccc", width: "100%", my: 0 }}
               />
             </Grid>
           </Grid>

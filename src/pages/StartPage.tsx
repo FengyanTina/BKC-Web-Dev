@@ -4,9 +4,10 @@ import {
   DialogContent,
   IconButton,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import background from "../assets/background.jpg";
+import background from "../assets/sundaySchool/bkcWorship.jpg";
 import { Link } from "react-router-dom";
 import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCalendar";
 import SectionLine from "../components/pageSections/SectionLine";
@@ -18,11 +19,11 @@ import {
   socialMediaActivityCardInfor,
   activityCardInfor,
   sundayServiceCardInfor,
-  scheduleCardInfor
+  scheduleCardInfor,
 } from "../data";
 import Carousel from "../components/slides/Carousel";
 import NewHereSectionGrid from "../components/pageSections/NewHereSection";
-import  ImageInforCardSection from "../components/pageSections/ImageInforCardSection";
+import ImageInforCardSection from "../components/pageSections/ImageInforCardSection";
 import SlickSlider from "../components/slides/SlickSlider";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
@@ -38,165 +39,125 @@ const StartPage = () => {
   const handleCloseMap = () => {
     setOpenMap(false);
   };
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
   return (
     <Box>
       <Grid
-        container
-        spacing={2}
         sx={{
-          backgroundImage: `url(${background})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          width: "100%",
-          height: "100vh",
-          backgroundAttachment: "fixed",
+          flexDirection: "column",
+          marginTop: { xs: "60px", sm: "70px", md: "70px" },
+          backgroundColor: "#CED9E5",
+          
         }}
       >
-        {/* Link Section */}
-        <Grid
-          size={{ xs: 12, sm: 8 }}
+        <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            "& a": {
-              position: "relative",
-              paddingLeft: "20px", // Space for the vertical line
-              marginBottom: "30px", // Space between the links
-              textDecoration: "none", // No underline
-              color: "black",
-              fontSize: {
-                xs: "1rem",
-                sm: "1.5rem",
-              },
-            },
-            "& a::before": {
-              content: '""',
-              position: "absolute",
-              left: 0,
-              top: "50%",
-              width: "5px", // Vertical line width
-              height: "100%", // Vertical line height
-              backgroundColor: "#00acc1", // Line color
-              transform: "translateY(-50%)", // Center line vertically
-            },
+            alignItems: "center", // Center horizontally
+            textAlign: "center", // Center text content
+            marginBottom: { xs: "20px", sm: "40px", md: "40px" },
+            marginTop: { xs: "60px", sm: "70px", md: "70px" },
+            
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center", // Center horizontally
-              textAlign: "center", // Center text content
-              position: "relative", // To move the box up
-              marginTop: { xs: "100px", sm: "80px", md: "80px" },
+          <Link
+            style={{
+              color: "grey",
+              textDecoration: "none",
+              fontWeight: "800",
+              fontSize: "20px",
             }}
+            to="/contact"
           >
-            {/* First Typography - Borås Kristna Center */}
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: {
-                  xs: 700,
-                  sm: 900,
-                },
-                fontSize: {
-                  xs: "2rem",
-                  sm: "5rem",
-                },
-                lineHeight: {
-                  xs: "0.5em",
-                  sm: "1em",
-                },
-                color: "white",
-                marginBottom: "30px",
-              }}
-            >
-              Välkommen
-            </Typography>
-
-            <Box
-              sx={{
-                marginTop: "50px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                textAlign: "left",
-                width: "100%",
-                maxWidth: {
-                  md: "400px",
-                  sm: "300px",
-                  xs: "200px",
-                },
-              }}
-            >
-              <Link
-                style={{ color: "white",
-                    fontWeight:"800" ,textDecoration: "none",fontSize:"20px" }}
-                to="/aboutUs"
-              >
-                Vilka Är Vi?
-              </Link>
-              <Link
-                style={{ color: "white", textDecoration: "none", 
-                    fontWeight:"800" ,fontSize:"20px" }}
-                to="/contact"
-              >
-                Hitta Oss
-              </Link>
-              <FaMapMarkerAlt
-                onClick={handleOpenMap}
-                style={{ fontSize: "2rem", color: "white", cursor: "pointer" }}
-              />
-
-              {/* Open Google Map component */}
-              <Dialog
-                open={openMap}
-                onClose={handleCloseMap}
-                maxWidth="md"
-                fullWidth
-                style={{ color: "white", textDecoration: "none" }}
-              >
-                <IconButton
-                  edge="end"
-                  color="inherit"
-                  onClick={handleCloseMap}
-                  aria-label="close"
-                  style={{ position: "absolute", right: 30, top: 15 }}
-                >
-                  <CloseIcon />
-                </IconButton>
-                <DialogContent>
-                  <MyMap />
-                </DialogContent>
-              </Dialog>
-            </Box>
+            Hitta Oss
+          </Link>
+          <Box>
+            <FaMapMarkerAlt
+              onClick={handleOpenMap}
+              style={{ fontSize: "2rem", color: "white", cursor: "pointer" }}
+            />
           </Box>
-        </Grid>
 
-        <Grid
-          sx={{
-            maxWidth: "90%",
-            marginTop: {
-              sm: "30px",
-              md: "355px",
-            },
-            height: {
-              xs: "25vh",
-              sm: "30vh",
-              md: "40vh",
-            },
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-          size={{ xs: 12, sm: 12, md: 3 }}
-        >
-          <CurrentWeekEventCalendar />
-        </Grid>
+          {/* Open Google Map component */}
+          <Dialog
+            open={openMap}
+            onClose={handleCloseMap}
+            maxWidth="md"
+            fullWidth
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            <IconButton
+              edge="end"
+              color="inherit"
+              onClick={handleCloseMap}
+              aria-label="close"
+              style={{ position: "absolute", right: 30, top: 15 }}
+            >
+              <CloseIcon />
+            </IconButton>
+            <DialogContent>
+              <MyMap />
+            </DialogContent>
+          </Dialog>
+        </Box>
       </Grid>
+
+      <Box
+          sx={{
+        backgroundColor: "#CED9E5",
+        display: "flex",
+        alignItems: "center",
+        width: "100%",
+        height: "45vh",
+        ...(isSmallScreen
+          ? {} // No backgroundImage for small screens
+          : {
+              backgroundImage: `url(${background})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundAttachment: "fixed",
+            }),
+      }}
+      >
+          {isSmallScreen && (
+        <img
+          src={background}
+          alt="background image"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        />
+      )}
+        {/* <img
+          src={background}
+          alt="background image"
+          style={{
+            
+            backgroundAttachment: "fixed",
+            width: "100%",
+            height: "80%",
+            objectFit: "cover", // Makes sure the image covers the div container
+            objectPosition: "center",
+          }}
+        /> */}
+      </Box>
+      <Box
+        sx={{
+          py: "30px",
+          display: "flex",
+          alignItems: "center", // Vertically centers the content
+          justifyContent: "center",
+          backgroundColor: "#CED9E5",
+        }}
+      >
+        <CurrentWeekEventCalendar />
+      </Box>
 
       {/* --------------Body----------- */}
       <Box
@@ -205,8 +166,6 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          //gap: "20px",
-
           backgroundColor: "#dbe1e8",
         }}
       >
@@ -214,7 +173,7 @@ const StartPage = () => {
 
         <SectionLine text="Kommande Evenemang" useWhiteStroke={true} />
         <Box sx={{ width: "90%" }}>
-          <Carousel events={comingEvents} />
+          <Carousel  />
         </Box>
 
         {/* --------------WELCOME NEW----------- */}
@@ -232,7 +191,7 @@ const StartPage = () => {
 
       <SectionLine text=" Aktiviteter och Tjänster" />
       <Box sx={{ backgroundColor: "#dbe1e8" }}>
-        < ImageInforCardSection
+        <ImageInforCardSection
           inforSectionId=""
           id={socialMediaActivityCardInfor.id}
           title={socialMediaActivityCardInfor.title}
@@ -246,7 +205,7 @@ const StartPage = () => {
 
         {/* --------------SERVICES----------- */}
 
-        < ImageInforCardSection
+        <ImageInforCardSection
           inforSectionId=""
           id={sundayServiceCardInfor.id}
           title={sundayServiceCardInfor.title}
@@ -255,12 +214,12 @@ const StartPage = () => {
           images={sundayServiceCardInfor.images}
           category={""}
           imageLeft={false}
-        buttonLink="/services"
+          buttonLink="/services"
           buttonText={sundayServiceCardInfor.buttonText}
         />
 
         {/* --------------ACTIVITIES----------- */}
-        < ImageInforCardSection
+        <ImageInforCardSection
           inforSectionId=""
           id={activityCardInfor.id}
           title={activityCardInfor.title}
@@ -268,13 +227,13 @@ const StartPage = () => {
           description={activityCardInfor.description}
           images={activityCardInfor.images}
           category={""}
-        //   buttonLink={"/activities#sundaySchool"}
-        buttonLink={"/activities"}
-        buttonText={activityCardInfor.buttonText}
+          //   buttonLink={"/activities#sundaySchool"}
+          buttonLink={"/activities"}
+          buttonText={activityCardInfor.buttonText}
         />
-         
-       {/* --------------SCHEDULES----------- */}
-       < ImageInforCardSection
+
+        {/* --------------SCHEDULES----------- */}
+        <ImageInforCardSection
           inforSectionId=""
           id={scheduleCardInfor.id}
           title={scheduleCardInfor.title}
@@ -283,12 +242,11 @@ const StartPage = () => {
           images={scheduleCardInfor.images}
           category={""}
           imageLeft={false}
-        
-        buttonLink="/schedules"
+          buttonLink="/schedules"
           buttonText={scheduleCardInfor.buttonText}
         />
         {/* --------------ACTIVITIES-Groups----------- */}
-        < ImageInforCardSection
+        <ImageInforCardSection
           id={homeGroupActivityCardInfor.id}
           inforSectionId=""
           title={homeGroupActivityCardInfor.title}

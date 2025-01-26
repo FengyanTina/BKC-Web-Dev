@@ -23,21 +23,93 @@ import SundaySchool5 from "./assets/sundaySchool/sundaySchool5.jpg"
 import SundaySchool6 from "./assets/sundaySchool/sundaySchool6.jpg"
 import SundaySchool7 from "./assets/sundaySchool/sundaySchool7.jpg"
 import SundaySchool8 from "./assets/sundaySchool/sundaySchool8.jpg"
-import bkcBaby from "./assets/sundaybkcBaby.jpg"
-import bkcHandsUp from "./assets/bkcHandsUp.jpg"
-import bkcKids from "./assets/bkcKids.jpg"
-import bkcWorship from "./assets/bkcWorship.jpg"
-import davidPreaching from "./assets/davidPreaching.jpg"
-import larsWorship from "./assets/larsWorship.jpg"
-import rosWorship from "./assets/rosWorship.jpg"
+import bkcBaby from "./assets/sundaySchool/bkcBaby.jpg"
+import bkcHandsUp from "./assets/sundaySchool/bkcHandsUp.jpg"
+import bkcKids from "./assets/sundaySchool/bkcKids.jpg"
+import bkcWorship from "./assets/sundaySchool/bkcWorship.jpg"
+import davidPreaching from "./assets/sundaySchool/davidPreaching.jpg"
+import larsWorship from "./assets/sundaySchool/larsWorship.jpg"
+import rosWorship from "./assets/sundaySchool/rosWorship.jpg"
 import sundayServe from "./assets/sundayServe.jpg"
 import { ImageGallaryItemData } from "./models/ImageGallaryItemData";
 import { CardTextSectionModel } from "./models/CardTextSectionModel";
 
 export const carouselImgs = [
-    edward,
-
+    {
+        id:"1",
+        url:edward,
+    },
+    {
+        id:"2",
+        url:bkcBaby,
+    },
+    {
+        id:"3",
+        url: worshipHands,  
+    },
+    {
+        id:"3",
+        url: worshipHands,  
+    },
+    {
+        id:"4",
+        url: edward,  
+    },
+    {
+        id:"5",
+        url:  davidPreaching,  
+    },
+    {
+        id:"6",
+        url:   bkcBaby,  
+    }
+    
+    
+   
+    
+   
+   
 ]
+export const comingEvents:Event[] = [
+    {
+      id: "1",
+      title: "Sunday Worship",
+      category:EventCategory.Event,
+      startTime: new Date("2024-09-22T10:00:00"),
+      description: "Join us for a special Sunday worship service.",
+      image: worshipHands, // Use actual image URL
+      location:"BKC"
+    },
+    {
+      id: "2",
+      title: "Community Outreach",
+      category:EventCategory.Event,
+      startTime: new Date("2024-09-25T14:00:00"),
+      description: "Participate in our community outreach program.",
+      image: edward, // Use actual image URL
+       location:"BKC"
+    },
+    {
+      id: "3",
+      title: "Bible Study Group",
+      category:EventCategory.Event,
+      startTime: new Date("2024-09-27T19:00:00"),
+      description: "Deep dive into the scriptures with our study group.",
+      image: davidPreaching, // Use actual image URL
+       location:"BKC"
+    },
+    {
+      id: "4",
+      title: "Prayer Meeting",
+      category:EventCategory.Event,
+      startTime: new Date("2024-09-30T08:00:00"),
+      description: "Come together for our weekly prayer meeting.",
+      image: bkcBaby, // Use actual image URL
+       location:"BKC"
+    },
+  ];
+  
+  
   
 const initialUsers: User[] = [
     {
@@ -93,46 +165,7 @@ const initialUsers: User[] = [
    
   }
 
-  export const comingEvents:Event[] = [
-    {
-      id: "1",
-      title: "Sunday Worship",
-      category:EventCategory.Event,
-      startTime: new Date("2024-09-22T10:00:00"),
-      description: "Join us for a special Sunday worship service.",
-      image: worshipHands, // Use actual image URL
-      location:"BKC"
-    },
-    {
-      id: "2",
-      title: "Community Outreach",
-      category:EventCategory.Event,
-      startTime: new Date("2024-09-25T14:00:00"),
-      description: "Participate in our community outreach program.",
-      image: edward, // Use actual image URL
-       location:"BKC"
-    },
-    {
-      id: "3",
-      title: "Bible Study Group",
-      category:EventCategory.Event,
-      startTime: new Date("2024-09-27T19:00:00"),
-      description: "Deep dive into the scriptures with our study group.",
-      image: bkcWorship, // Use actual image URL
-       location:"BKC"
-    },
-    {
-      id: "4",
-      title: "Prayer Meeting",
-      category:EventCategory.Event,
-      startTime: new Date("2024-09-30T08:00:00"),
-      description: "Come together for our weekly prayer meeting.",
-      image: Worship, // Use actual image URL
-       location:"BKC"
-    },
-  ];
-  
-  
+ 
   export const sundayServiceCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
