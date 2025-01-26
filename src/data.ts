@@ -23,11 +23,21 @@ import SundaySchool5 from "./assets/sundaySchool/sundaySchool5.jpg"
 import SundaySchool6 from "./assets/sundaySchool/sundaySchool6.jpg"
 import SundaySchool7 from "./assets/sundaySchool/sundaySchool7.jpg"
 import SundaySchool8 from "./assets/sundaySchool/sundaySchool8.jpg"
+import bkcBaby from "./assets/sundaybkcBaby.jpg"
+import bkcHandsUp from "./assets/bkcHandsUp.jpg"
+import bkcKids from "./assets/bkcKids.jpg"
+import bkcWorship from "./assets/bkcWorship.jpg"
+import davidPreaching from "./assets/davidPreaching.jpg"
+import larsWorship from "./assets/larsWorship.jpg"
+import rosWorship from "./assets/rosWorship.jpg"
 import sundayServe from "./assets/sundayServe.jpg"
 import { ImageGallaryItemData } from "./models/ImageGallaryItemData";
 import { CardTextSectionModel } from "./models/CardTextSectionModel";
 
+export const carouselImgs = [
+    edward,
 
+]
   
 const initialUsers: User[] = [
     {
@@ -108,7 +118,7 @@ const initialUsers: User[] = [
       category:EventCategory.Event,
       startTime: new Date("2024-09-27T19:00:00"),
       description: "Deep dive into the scriptures with our study group.",
-      image: BethelWorship, // Use actual image URL
+      image: bkcWorship, // Use actual image URL
        location:"BKC"
     },
     {
