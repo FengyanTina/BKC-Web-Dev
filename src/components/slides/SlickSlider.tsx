@@ -3,11 +3,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useRef, useState } from "react";
-import formatDateTime from "../../utils/FormatDateTime";
-import {Event }from "../../models/Event"
+import {HighlightEvent }from "../../models/Event"
 import EventDetailsModal from "../forms/EventDetailModel";
-function SlickSlider({ events }: { events: Event[] }) {
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+function SlickSlider({ events }: { events: HighlightEvent[] }) {
+  const [selectedEvent, setSelectedEvent] = useState<HighlightEvent | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
  
   const settings = {
@@ -41,7 +40,7 @@ function SlickSlider({ events }: { events: Event[] }) {
       (sliderRef.current as any).slickPrev(); 
     }
   };
-  const handleSlideClick = (event: Event) => {
+  const handleSlideClick = (event: HighlightEvent) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
   };
@@ -59,11 +58,15 @@ function SlickSlider({ events }: { events: Event[] }) {
       >
         <div className="text-overlay">
           <h2>{event.title}</h2>
-          <p>{event.description}</p>
+          {/* <p>{event.description}</p>
           {event.startTime && (
 
           <p>{formatDateTime(event.startTime)}</p>
-          )}
+          )} */}
+           
+
+<p>{event.startTime}</p>
+
         </div>
       </div>
     </div>

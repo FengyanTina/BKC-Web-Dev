@@ -17,7 +17,7 @@ const Item = styled("div")(({ theme }) => ({
 
 export default function RowAndColumnSpacing() {
   //const currentWeek = getCurrentWeek();
-  const currentWeek = getCurrentWeek(); // Filter out days without events
+  const currentWeek = getCurrentWeek().filter((event)=>event.events.length>0); // Filter out days without events
   return (
     <Box
       sx={{

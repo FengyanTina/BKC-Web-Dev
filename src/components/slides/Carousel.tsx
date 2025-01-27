@@ -5,15 +5,17 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./slide.css";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
-import { Event } from "../../models/Event";
+import { HighlightEvent } from "../../models/Event";
 import { useState } from "react";
 import EventDetailsModal from "../forms/EventDetailModel";
 
-const Carousel = ({ events }: { events: Event[] }) => {
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+const Carousel = ({ events }: { events: HighlightEvent[] }) => {
+  const [selectedEvent, setSelectedEvent] = useState<HighlightEvent | null>(
+    null
+  );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSlideClick = (event: Event) => {
+  const handleSlideClick = (event: HighlightEvent) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
   };
@@ -41,15 +43,8 @@ const Carousel = ({ events }: { events: Event[] }) => {
       >
         {imageUrl && <img src={imageUrl} alt={event.title} />}{" "}
         <h2>{event.title}</h2>
-        {event.startTime && (
-          <h5>
-            {event.startTime.toLocaleDateString("sv-SE")}{" "}
-            {event.startTime.toLocaleTimeString("sv-SE", {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
-          </h5>
-        )}
+        {event.startTime && <h5>{event.startTime}</h5>}
+        {event.location && <h5>{event.location}</h5>}
         {event.description && <p>{event.description}</p>}{" "}
       </SwiperSlide>
     );

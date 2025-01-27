@@ -1,5 +1,5 @@
 import { BaseModel } from "./BaseModel";
-import { Step } from "./Step";
+
 
 export interface CardTextSectionModel extends BaseModel {
     category?: string;
@@ -10,7 +10,6 @@ export interface CardTextSectionModel extends BaseModel {
    endTime?:Date;
    location?:string;
    buttonLink?:string;
-  steps?: Step[];
   showStepsLink?:boolean;
    links?: LinkModel[];
    showSocialIcons?:boolean

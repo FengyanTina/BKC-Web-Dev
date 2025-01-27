@@ -1,8 +1,8 @@
-export enum PageSectionCategory {
+// export enum PageSectionCategory {
 
-    HomePageSocialMediaSection = 'homePageSocialMediaSection',
-    HomePageSundayServiceSection = 'homePageSundayServiceSection',
-    HomePageSundaySchooleSection = 'homePageSundaySchooleSection',
-    HomePageYouthSection = 'homePageYouthSection',
-    HomePageHomeGroupSection = 'homePageHomeGroupSection',
-}
+//     HomePageSocialMediaSection = 'homePageSocialMediaSection',
+//     HomePageSundayServiceSection = 'homePageSundayServiceSection',
+//     HomePageSundaySchooleSection = 'homePageSundaySchooleSection',
+//     HomePageYouthSection = 'homePageYouthSection',
+//     HomePageHomeGroupSection = 'homePageHomeGroupSection',
+// }

@@ -1,9 +1,6 @@
-// src/components/LoginModal.tsx
 import React from "react";
 import { Dialog, DialogContent, DialogActions, Button } from "@mui/material";
 import LoginPage from "./LoginPage";
-
-
 
 interface LoginModalProps {
   open: boolean;

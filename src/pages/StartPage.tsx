@@ -3,7 +3,6 @@ import {
   Dialog,
   DialogContent,
   IconButton,
-  Typography,
   useMediaQuery,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
@@ -12,7 +11,7 @@ import { Link } from "react-router-dom";
 import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCalendar";
 import SectionLine from "../components/pageSections/SectionLine";
 import {
-  comingEvents,
+  higlightEvents,
   homeGroupActivityCardInfor,
   newHere,
   news,
@@ -58,7 +57,6 @@ const StartPage = () => {
             textAlign: "center", // Center text content
             marginBottom: { xs: "20px", sm: "40px", md: "40px" },
             marginTop: { xs: "60px", sm: "70px", md: "70px" },
-            
           }}
         >
           <Link
@@ -104,47 +102,35 @@ const StartPage = () => {
       </Grid>
 
       <Box
-          sx={{
-        backgroundColor: "#CED9E5",
-        display: "flex",
-        alignItems: "center",
-        width: "100%",
-        height: "45vh",
-        ...(isSmallScreen
-          ? {} // No backgroundImage for small screens
-          : {
-              backgroundImage: `url(${background})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundAttachment: "fixed",
-            }),
-      }}
+        sx={{
+          backgroundColor: "#CED9E5",
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+          height: "45vh",
+          ...(isSmallScreen
+            ? {} // No backgroundImage for small screens
+            : {
+                backgroundImage: `url(${background})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundAttachment: "fixed",
+              }),
+        }}
       >
-          {isSmallScreen && (
-        <img
-          src={background}
-          alt="background image"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-      )}
-        {/* <img
-          src={background}
-          alt="background image"
-          style={{
-            
-            backgroundAttachment: "fixed",
-            width: "100%",
-            height: "80%",
-            objectFit: "cover", // Makes sure the image covers the div container
-            objectPosition: "center",
-          }}
-        /> */}
+        {isSmallScreen && (
+          <img
+            src={background}
+            alt="background image"
+            style={{
+              width: "100%",
+              height: "80%",
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
+        )}
       </Box>
       <Box
         sx={{
@@ -170,9 +156,9 @@ const StartPage = () => {
       >
         {/* --------------COMMING EVENTS----------- */}
 
-        <SectionLine text="Kommande Evenemang" useWhiteStroke={true} />
+        <SectionLine text="veckans höjdpunkt" useWhiteStroke={true} />
         <Box sx={{ width: "90%" }}>
-          <Carousel events={comingEvents} />
+          <Carousel events={higlightEvents} />
         </Box>
 
         {/* --------------WELCOME NEW----------- */}

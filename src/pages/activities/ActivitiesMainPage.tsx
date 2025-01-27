@@ -6,7 +6,7 @@ import Home from "../../assets/homeGroup.jpg";
 import {
   BKCkYouth,
   BKCkIDS2,
-  events,
+  news,
   SundaySchoolImageGallary,
 } from "../../data.ts";
 import SudaySchoolImageGallary from "../../components/imageManagements/ImageGallaryWithColsRows.tsx";
@@ -36,7 +36,7 @@ export default function ActivitiesMainPage() {
          
         }}
       > 
-          <SlickSlider events={events} />
+          <SlickSlider events={news} />
       </Box>
       {/* --------------ACTIVITIES-BKC Kids----------- */}
       <div id="sundaySchool"></div>
@@ -206,25 +206,7 @@ export default function ActivitiesMainPage() {
         />
       </Box>
       {/* --------------ACTIVITIES-ACTIVITIES-Other Activities----------- */}
-      <Box
-        sx={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "20px",
-          paddingTop: "30px",
-          paddingBottom: "30px",
-          backgroundColor: "#f0f4f8",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <Grid container spacing={2} justifyContent="center">
-          <Grid size={{ xs: 12, sm: 12 }}></Grid>
-          <Grid size={{ xs: 12, sm: 12 }}></Grid>
-        </Grid>
-      </Box>
+      
 
       <Box />
       <Box />

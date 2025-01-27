@@ -46,7 +46,7 @@ export default function NewHereSectionGrid({
         }}
       >
         <video
-          src={videoFile} 
+          src={videoFile}
           controls
           autoPlay
           loop

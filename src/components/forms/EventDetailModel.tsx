@@ -2,14 +2,14 @@ import { useState } from "react";
 import "./form.css";
 import { Box,  DialogActions, Slider } from "@mui/material";
 import Button from '@mui/material/Button';
-import { Event } from "../../models/Event";
+import { HighlightEvent } from "../../models/Event";
 import formatDateTime from "../../utils/FormatDateTime";
 import { formatTime } from "../../utils/FormatDateOrTime";
 
 interface EventDetailsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  event: Event | null;
+  event: HighlightEvent | null;
 }
 export default function EventDetailsModal({
   isOpen,

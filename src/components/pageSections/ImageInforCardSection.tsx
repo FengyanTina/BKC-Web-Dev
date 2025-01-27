@@ -4,7 +4,7 @@ import ImageGallary from "../imageManagements/ImageGallary";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
 import ImageInforSectionText from "../cards/ImageInforSectionText";
 
-const  ImageInforCardSection = ({
+const ImageInforCardSection = ({
   inforSectionId,
   title,
   category,
@@ -49,7 +49,7 @@ const  ImageInforCardSection = ({
         justifyContent: "center",
         backgroundColor: "#f0f4f8",
         px: 3,
-        pb:3,
+        pb: 3,
       }}
     >
       <Grid
@@ -62,14 +62,14 @@ const  ImageInforCardSection = ({
             md: imageLeft ? "row-reverse" : "row",
           },
           maxWidth: 1200,
-          
+
           alignItems: "center",
           justifyContent: "center",
         }}
       >
         {/* Updated */}
         <Grid
-          size={{ xs: 12, sm: 12,md:6 }}
+          size={{ xs: 12, sm: 12, md: 6 }}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -96,7 +96,7 @@ const  ImageInforCardSection = ({
         </Grid>
 
         <Grid
-          size={{ xs: 12, sm: 12, md:6}}
+          size={{ xs: 12, sm: 12, md: 6 }}
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -126,4 +126,4 @@ const  ImageInforCardSection = ({
   );
 };
 
-export default  ImageInforCardSection;
+export default ImageInforCardSection;

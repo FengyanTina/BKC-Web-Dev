@@ -1,10 +1,10 @@
 
 import { BaseModel } from "./BaseModel";
 
-export interface Event extends BaseModel{
+export interface HighlightEvent extends BaseModel{
     subTitle?: string;
-    endTime?:Date;
-    startTime: Date;
+    endTime?:string;
+    startTime:string;
     location?: string;
     category: EventCategory;
     extraDetails?: string;

@@ -12,38 +12,9 @@ import ConfirmDeleteDialog from "../forms/ConfirmDeleteDialog";
 import ScheduleEventDetailDialog from "../forms/ScheduleEventDetailDialog";
 import EventAddAndEditForm from "../forms/EventAddAndEditForm";
 import { CalendarEvent } from "../../models/CalendarEvent";
-
-import { createEventId } from "../../hooks/GenerateEventId";
 import { generateRepeatEvents } from "../../utils/GenerateRepeatEvent";
 import { useEvents } from "../../context/EventContext";
 import { UserCategory } from "../../models/User";
-
-// const getStoredEvents = (): CalendarEvent[] => {
-//   const storedEvents = localStorage.getItem("events");
-//   return storedEvents ? JSON.parse(storedEvents) : INITIAL_EVENTS;
-// };
-// const saveEventsToLocalStorage = (events: CalendarEvent[]) => {
-//   localStorage.setItem("events", JSON.stringify(events));
-// };
-
-// export const INITIAL_EVENTS: CalendarEvent[] = [
-//   {
-//     id: createEventId(),
-//     title: "All-day event",
-//     start: new Date().toISOString().split("T")[0],
-//     end: new Date().toISOString().split("T")[0],
-//     description: "This is an all-day event.",
-//     allDay: true,
-//   },
-//   {
-//     id: createEventId(),
-//     title: "Timed event",
-//     start: new Date().toISOString().split("T")[0] + "T12:00:00",
-//     end: new Date().toISOString().split("T")[0] + "T13:00:00",
-//     description: "This is a timed event.",
-//     allDay: false,
-//   },
-// ];
 
 const EventScheduleCalendar: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(
@@ -55,9 +26,6 @@ const EventScheduleCalendar: React.FC = () => {
   const { currentDevUser } = useAuth();
   const { events, addEvent, deleteEvent, updateEvent } = useEvents();
   const [isConfirmDeleteOpen, setConfirmDeleteOpen] = useState<boolean>(false);
-//   const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>(
-//     events.length > 0 ? events : INITIAL_EVENTS
-//   );
  const isAdmin = currentDevUser?.category === UserCategory.Admin;
   const handleDelete = (event: CalendarEvent) => {
     setSelectedEvent(event);
@@ -75,10 +43,6 @@ const EventScheduleCalendar: React.FC = () => {
     setConfirmDeleteOpen(false);
     setSelectedEvent(null);
   };
-
-//   useEffect(() => {
-//     localStorage.setItem("events", JSON.stringify(currentEvents));
-//   }, [currentEvents]);
 
   const handleDateSelect = (selectInfo: any) => {
     setSelectedEvent({
@@ -102,10 +66,8 @@ const EventScheduleCalendar: React.FC = () => {
       if (!prev) return null;
       if (name === "repeatCount") {
         const newRepeatCount = Number(value);
-
         const eventDate = new Date(prev.start); // Assuming start is in ISO format
         const eventDay = eventDate.getDay(); // 0-Sunday, 1-Monday, ..., 6-Saturday
-
         const updatedDays = Array(7).fill(false); // Start with all days unchecked
         updatedDays[eventDay] = true; // Automatically check the event's scheduled day
 
@@ -116,7 +78,6 @@ const EventScheduleCalendar: React.FC = () => {
         };
       }
 
-      // Handle other fields
       return { ...prev, [name]: type === "checkbox" ? checked : value };
     });
   };
@@ -173,36 +134,6 @@ const EventScheduleCalendar: React.FC = () => {
       }
     }
   };
-
-  //   const generateRecurringEvents = (
-  //     event:  CalendarEvent,
-  //     endDate: Date,
-  //     repeatCount: number
-  //   ): CalendarEvent[] => {
-  //     const recurringEvents: CalendarEvent[] = [];
-  //     const { selectedDays } = event;
-  //     const startDate = new Date(event.start || new Date().toISOString());
-
-  //     for (let i = 0; i < repeatCount; i++) {
-  //       const currentDate = new Date(startDate);
-  //       currentDate.setDate(startDate.getDate() + (i + 1) * 7);
-  //       selectedDays?.forEach((isSelected, index) => {
-  //         if (isSelected) {
-  //           const newEvent: CalendarEvent = {
-  //             ...event,
-  //             id: `${event.id}-${i}-${index}`, // Unique ID for each instance
-  //             start: currentDate.toISOString(), // Adjust this as necessary for your logic
-  //             end: new Date(
-  //               currentDate.getTime() + (endDate.getTime() - startDate.getTime())
-  //             ).toISOString(), // Set end time
-  //           };
-  //           recurringEvents.push(newEvent);
-  //         }
-  //       });
-  //     }
-
-  //     return recurringEvents;
-  //   };
 
   const handleEventClick = (clickInfo: EventClickArg) => {
     const clickedEvent = events.find(

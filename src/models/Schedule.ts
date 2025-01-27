@@ -1,6 +1,6 @@
-export interface Schedule {
-    id: string;
-    startTime: Date;
-    endTime: Date;
-  }
+// export interface Schedule {
+//     id: string;
+//     startTime: Date;
+//     endTime: Date;
+//   }
   

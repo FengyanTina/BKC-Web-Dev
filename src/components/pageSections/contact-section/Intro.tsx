@@ -1,11 +1,10 @@
-import React from "react";
 import "./intro.css";
 import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-interface introProp{
-    content:string[]
+interface introProp {
+  content: string[];
 }
-export default function Intro({content}:introProp  ) {
+export default function Intro({ content }: introProp) {
   return (
     <Box className="intro-container">
       <Grid>
@@ -22,7 +21,7 @@ export default function Intro({content}:introProp  ) {
         >
           <Typography
             sx={{
-              fontSize:  "25px",
+              fontSize: "25px",
             }}
             variant="h3"
           >
@@ -51,11 +50,13 @@ export default function Intro({content}:introProp  ) {
             }}
           >
             {content.map((paragraph, index) => (
-              <p key={index} style={{
-                marginBottom: "4px", 
-              }}>
+              <p
+                key={index}
+                style={{
+                  marginBottom: "4px",
+                }}
+              >
                 {paragraph}
-               
               </p>
             ))}
           </Typography>

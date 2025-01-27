@@ -37,18 +37,7 @@ const AboutUsPage = () => {
         pb: 3,
       }}
     >
-      {/* <ImgInforCardSection
-        inforSectionId=""
-        id={Pastor.id}
-        title={Pastor.title}
-        subtitle={""}
-        description={Pastor.content}
-        images={Pastor.image}
-        category={""}
-        //   buttonLink={"/activities#sundaySchool"}
-        buttonLink="/contact"
-        buttonText={Pastor.buttontext}
-      /> */}
+
       <Grid
         container
         sx={{
@@ -201,11 +190,16 @@ const AboutUsPage = () => {
             <Typography variant="body1">
               <Link
                 onClick={handleOpen}
-                sx={{ cursor: "pointer",color: "#337f83",fontWeight:"800",textDecoration: "underline", fontSize:  "18px",}}
+                sx={{
+                  cursor: "pointer",
+                  color: "#337f83",
+                  fontWeight: "800",
+                  textDecoration: "underline",
+                  fontSize: "18px",
+                }}
                 target="_blank"
                 rel="noopener"
                 // underline="hover"
-                
               >
                 Read More
               </Link>
@@ -272,10 +266,9 @@ const AboutUsPage = () => {
         <TopImageSectionCard
           id={ourHistory.id}
           title={ourHistory.title}
-         
           description={ourHistory.description}
           images={ourHistory.images}
-          showStepsLink = {false}
+          showStepsLink={false}
         />
       </Box>
     </Box>
