@@ -216,6 +216,7 @@ const EventScheduleCalendar: React.FC = () => {
         isEditing={isEditing}
         handleFieldChange={handleFieldChange}
         handleSaveEvent={handleSaveEvent}
+        currentDevUser = {currentDevUser}
       />
     </div>
   );

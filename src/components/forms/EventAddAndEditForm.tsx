@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import { CalendarEvent } from "../../models/CalendarEvent";
 import { getStorage, ref, uploadBytes, getDownloadURL, FirebaseStorage } from "firebase/storage";
+import { User } from "../../models/User";
+import { storage } from "../../configs/firebaseConfig";
 
 interface EventFormProps {
   isModalOpen: boolean;
@@ -20,6 +22,7 @@ interface EventFormProps {
   handleSaveEvent: (imageUrl?: string) => void;
   event?: CalendarEvent; // Optional because it can be undefined when adding a new event
   isEditing: boolean;
+  currentDevUser?:User
 }
 
 
@@ -30,6 +33,7 @@ const EventAddAndEditForm = ({
   isEditing,
   handleFieldChange,
   handleSaveEvent,
+  currentDevUser
 }: EventFormProps) => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [image, setImage] = useState(null);
@@ -44,6 +48,7 @@ const EventAddAndEditForm = ({
         if (file) {
           const previewUrl = URL.createObjectURL(file);
           setImagePreview(previewUrl);
+          return () => URL.revokeObjectURL(previewUrl);
         } else {
           setImagePreview(null);
         }
@@ -56,11 +61,13 @@ const EventAddAndEditForm = ({
         if (selectedFile) {
           try {
             setIsUploading(true);
-            const storage: FirebaseStorage = getStorage();
+            
+            
             const storageRef = ref(
-              storage,
-              `event-images/${Date.now()}-${selectedFile.name}`
-            );
+                storage,
+                `event-images/${currentDevUser?.id || "anonymous"}/${Date.now()}-${selectedFile.name}`
+              );
+              
             const snapshot = await uploadBytes(storageRef, selectedFile);
             imageUrl = await getDownloadURL(snapshot.ref);
           } catch (error) {
@@ -125,7 +132,7 @@ const EventAddAndEditForm = ({
                 />
               </div>
             )}
-            {/* <div>
+            <div>
               <input
                 type="file"
                 accept="image/*"
@@ -144,7 +151,7 @@ const EventAddAndEditForm = ({
                   }}
                 />
               )}
-            </div> */}
+            </div>
 
              <div>
                   {/* New Checkboxes for showOnComingEvent and showOnNews */}

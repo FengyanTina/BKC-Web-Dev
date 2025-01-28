@@ -41,10 +41,14 @@ export default function EventDetailsModal({
         )}
         <p>{event.description}</p>
         {event.startTime && (
+        //   <p>
+        //     {formatDateTime(event.startTime)}
+        //     {event.endTime && ` - ${formatTime(event.endTime)}`}
+        //   </p>
           <p>
-            {formatDateTime(event.startTime)}
-            {event.endTime && ` - ${formatTime(event.endTime)}`}
-          </p>
+          {event.startTime}
+          {event.endTime }
+        </p>
         )}
         <Box style={{ marginTop: "20px", textAlign: "center" }}>
           <label htmlFor="font-size-slider">Adjust text size:</label>

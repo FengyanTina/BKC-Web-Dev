@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid2";
 import { Box } from "@mui/material";
-import Senior from "../../assets/senior2.jpg";
+import happySenior from "../../assets/happySenior.jpg";
 import Woman from "../../assets/woman.jpg";
 import Home from "../../assets/homeGroup.jpg";
 import {
@@ -196,7 +196,7 @@ export default function ActivitiesMainPage() {
           title={"Senior Group"}
           subTitle={"Your Small Community"}
           description={"You can find your own small comminity..."}
-          image={Senior}
+          image={happySenior}
         />
         <TeamIntroCard
           title={"Woman Group"}

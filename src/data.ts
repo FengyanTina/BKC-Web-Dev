@@ -13,11 +13,11 @@ import Varvison from "./assets/Varvision.jpg";
 import Varhistoria from "./assets/Varhistoria.jpg"
 import DavidB from "./assets/DavidB.jpg"
 import Bible from "./assets/Bible.jpg"
+import happySenior from "./assets/happySenior.jpg"
 import Varvision from "./assets/Varvision.jpg"
 import socialActivity from "./assets/socialActivity.jpg"
 import { EventCategory,HighlightEvent } from "./models/Event";
 import { ImageInforSectionModel } from "./models/ImageInforSection";
-import { User, UserCategory } from "./models/User";
 import SundaySchoolTeaching  from "./assets/sundaySchool/sundayTeaching.jpg"
 import SundaySchool2 from "./assets/sundaySchool/sudaySchool2.jpg"
 import SundaySchool3 from "./assets/sundaySchool/sudaySchool3.jpg"
@@ -69,13 +69,14 @@ export const carouselImgs = [
    
    
 ]
+//start page 
 export const higlightEvents:HighlightEvent[] = [
     {
       id: "1",
       title: "GUDSTJÄNST",
       category:EventCategory.Event,
       startTime: "SÖNDAG: 11:00-13:00",
-      description: "Join us for a special Sunday worship service.",
+      description: " Tillfället då vi samlas till att fira gudstjänst. Syftet är att upphöja och ära Gud tillsammans. Våra gudstjänster är öppna för alla och vi vill vara tydliga med allt vi gör, så att alla kan förstå. Våra gudstjänster innehåller bön och lovsång, predikan och förbön. ",
       image: davidPreaching, // Use actual image URL
       location:"Plats: Albanoliden 1, Borås; Borås Kristna Center "
     },
@@ -84,7 +85,7 @@ export const higlightEvents:HighlightEvent[] = [
       title: "BKC-UNG",
       category:EventCategory.Event,
       startTime:  "FREDAG: 19:00-21:00",
-      description: "-----------------------------------------",
+      description: "- För dig mellan 13-20år stavas en perfekt fredag BKC-UNG. Varje fredag ses vi här för både häng och snack om Jesus och bibeln. Vi vill att du ska känna dig sedd, älskad och inkluderad. Att du ska på ett nytt, fräscht och relevant sätt få höra om Jesus, samt utmanas och att gå ut och sprida en glädje.",
       image: edward, // Use actual image URL
        location:"Plats: Albanoliden 1, Borås; Borås Kristna Center "
     },
@@ -93,7 +94,7 @@ export const higlightEvents:HighlightEvent[] = [
       title: " KVÄLLSBIBELSKOLA",
       category:EventCategory.Event,
       startTime: " 3 september 2024 - 4 februari 2025",
-      description: "Läsåret 2024-2025 startar tisdagen den 3 september 2022. Skolan träffas varje tisdagkväll, med 16 träffar under hösttermin 2024 och 5 träffar under vårtermin 2025.",
+      description: "Läsåret 2024-2025 är redan igång. Anmäl dig för kommande terminstart under september 2025 för läsåret 2025-2026. Skolan träffas varje tisdagkväll, med 16 träffar under höstterminen och 5 träffar under vårtermin.",
       image: bibelsko, // Use actual image URL
        location:"Plats: Albanoliden 1, Borås; Borås Kristna Center "
     },
@@ -101,8 +102,8 @@ export const higlightEvents:HighlightEvent[] = [
       id: "4",
       title: "BKC-KIDS",
       category:EventCategory.Event,
-      startTime: "SÖNDAG: 11:00-13:00",
-      description: "BKC-Kids är för barn mellan 2-12 år. Barnens egen gudstjänst där vi tillsammans får möta spännande bibelpersoner, lyssna på Guds ord, lekar och tävlingar, vi äter korv och pysslar tillsammans. Kom med du också!",
+      startTime: "SÖNDAG: 11:15-13:00",
+      description: "BKC-Kids är för barn mellan 2-12 år. Barnens egna gudstjänst där vi tillsammans får möta spännande bibelpersoner, lyssna på Guds ord, med lekar, drama och tävlingar, vi äter korv och pysslar tillsammans. Kom med du också!",
       image: bkcBaby, // Use actual image URL
        location:"Plats: Albanoliden 1, Borås; Borås Kristna Center "
     },
@@ -111,7 +112,7 @@ export const higlightEvents:HighlightEvent[] = [
         title: "Bön",
         category:EventCategory.Event,
         startTime: "TORSDAG: 18:30",
-        description: "??????????????????????????????????????????????????",
+        description: "Öppen församlingsbön. Vi kommer tillsammans för att be, stå i tro för under och mirakler. Vi vill gärna be för dig och dina behov. Har du ett böneämne? Skicka det till bon@bkc.nu eller sms:a 0790-018 97 20 så står vi med dig i bön. ",
         image:Bible, // Use actual image URL
          location:"Plats: Albanoliden 1, Borås; Borås Kristna Center "
       },

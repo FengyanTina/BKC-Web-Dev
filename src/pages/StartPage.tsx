@@ -12,7 +12,6 @@ import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCa
 import SectionLine from "../components/pageSections/SectionLine";
 import {
   higlightEvents,
-  homeGroupActivityCardInfor,
   newHere,
   news,
   socialMediaActivityCardInfor,
@@ -231,7 +230,7 @@ const StartPage = () => {
           buttonText={scheduleCardInfor.buttonText}
         />
         {/* --------------ACTIVITIES-Groups----------- */}
-        <ImageInforCardSection
+        {/* <ImageInforCardSection
           id={homeGroupActivityCardInfor.id}
           inforSectionId=""
           title={homeGroupActivityCardInfor.title}
@@ -241,7 +240,7 @@ const StartPage = () => {
           category={""}
           buttonLink="/activities#otherGroups"
           buttonText={homeGroupActivityCardInfor.buttonText}
-        />
+        /> */}
       </Box>
       {/* --------------NEWS SLIDES----------- */}
       <Box

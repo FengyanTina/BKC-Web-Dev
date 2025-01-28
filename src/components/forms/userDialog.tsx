@@ -2,7 +2,7 @@ import { useNavigate} from "react-router-dom";
 import { defaultUser, User, UserCategory, UserDialogMode } from "../../models/User";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
-import { generateUniqueId } from "../../utils/GenerateUniqueId";
+// import { generateUniqueId } from "../../utils/GenerateUniqueId";
 import { Box, Button, Dialog, DialogContent, DialogTitle, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { useForm } from "react-hook-form";
@@ -55,7 +55,7 @@ function UserDialog({  mode, userId, open, onClose  }: UserDialogProps) {
       );
       setDevUsers(updatedUsers);
     } else {
-      addUser({ ...userFromDialog, id: generateUniqueId() });
+      addUser({ ...userFromDialog });
     }
   };
 

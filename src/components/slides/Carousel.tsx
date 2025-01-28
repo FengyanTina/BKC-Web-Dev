@@ -45,7 +45,7 @@ const Carousel = ({ events }: { events: HighlightEvent[] }) => {
         <h2>{event.title}</h2>
         {event.startTime && <h5>{event.startTime}</h5>}
         {event.location && <h5>{event.location}</h5>}
-        {event.description && <p>{event.description}</p>}{" "}
+        {event.description && <p  className="description">{event.description}</p>}{" "}
       </SwiperSlide>
     );
   });
