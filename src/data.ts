@@ -24,6 +24,7 @@ import SundaySchool5 from "./assets/sundaySchool/sundaySchool5.jpg"
 import SundaySchool6 from "./assets/sundaySchool/sundaySchool6.jpg"
 import SundaySchool7 from "./assets/sundaySchool/sundaySchool7.jpg"
 import SundaySchool8 from "./assets/sundaySchool/sundaySchool8.jpg"
+import rosWorship  from "./assets/sundaySchool/rosWorship.jpg"
 
 
 import bkcBaby from "./assets/sundaySchool/bkcBaby.jpg"
@@ -223,7 +224,7 @@ export const higlightEvents:HighlightEvent[] = [
       startTime:" new Date(2024, 9, 27, 9, 0)", // October 27, 2024, 9:00 AM
       title: "Expansion",
       category: EventCategory.Event,
-      image:Bible,
+      image:rosWorship,
       description:
         "Tillsammans med Kidsen`s pant i vår expansions-maskin samlar vi in medel för nya lokaler ..",
     },
