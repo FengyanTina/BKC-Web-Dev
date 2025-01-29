@@ -3,6 +3,7 @@ import "./form.css";
 import emailjs from "emailjs-com";
 import "./form.css";
 import { FormEvent } from "react";
+import { serviceId, templateId, userId } from "../../../configs/emailJSConfig";
 
 const formInputs = [
   { id: "name", type: "text", label: "Your name", placeholder: "John Doe" },
@@ -30,17 +31,17 @@ const Form: React.FC = () => {
   const sendEmail = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
-    const userId = import.meta.env.VITE_EMAILJS_USER_ID || "";
+    const sId = serviceId || "";
+    const tId = templateId || "";
+    const uId =userId || "";
 
-    if (!serviceId || !templateId || !userId) {
+    if (!sId || !tId || !uId) {
       console.error("EmailJS environment variables are missing!");
       return;
     }
 
     emailjs
-      .sendForm(serviceId, templateId, e.target as HTMLFormElement, userId)
+      .sendForm(sId, tId, e.target as HTMLFormElement, userId)
       .then(
         (result) => {
           console.log("Message sent successfully:", result.text);

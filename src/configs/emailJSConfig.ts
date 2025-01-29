@@ -7,4 +7,5 @@ export const EMAIL_CONFIG = {
  
   export const serviceId =  "service_jo20n24";
   export const templateId = "template_gik27qt";
-  export  const userId =  "0lgHqotVLnpOiH2fF";
+  export  const userId =  "dk3LEnxfr2jn2fBPd";
+
