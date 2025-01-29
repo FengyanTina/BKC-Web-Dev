@@ -131,40 +131,47 @@ const EventAddAndEditForm = ({
   const [selectedImageId, setSelectedImageId] = useState<string | undefined>(undefined);
   const [showDropdown, setShowDropdown] = useState(false);
   const [usedImageUrls, setUsedImageUrls] = useState<string[]>([]);
+  const [availableImages, setAvailableImages] = useState(newsImgs);
   
   // Fetch events and used image URLs from Firestore
   useEffect(() => {
     const fetchUsedImages = async () => {
-      const newEvents = events.filter((event) => event.showOnNews === true);
+      const newsEvents = events.filter((event) => event.showOnNews === true);
   
-      const imgUrls = newEvents
-        .map((e) => e.imgUrl)
-        .filter((url): url is string => url !== undefined && url !== null);
+      const imgNames = newsEvents
+      .map((e) => e.imgUrl?.split("/").pop()) // Get only file name
+      .filter((name): name is string => Boolean(name));
   
-      setUsedImageUrls(imgUrls);
+      setUsedImageUrls(imgNames);
     };
   
     fetchUsedImages();
-  }, []);
+  }, [events]);
   
-  const availableImages = usedImageUrls && Array.isArray(usedImageUrls)
-    ? newsImgs.filter((img) => !usedImageUrls.includes(img.url)) // Filter by imgUrl
-    : newsImgs; // Fallback to all images if usedImageUrls is null or not an array
+  useEffect(() => {
+    const filteredImages = newsImgs.filter((img) => !usedImageUrls.includes(img.id));
+    setAvailableImages(filteredImages);
+  }, [usedImageUrls]);
   
   // Handle image selection (set selected image URL)
-  const handleSelectImage = (url: string, id:string) => {
-    setSelectedImageUrl(url);
-    setImagePreview(url); // Preview the selected image
-    setSelectedImageId(id)
-    setShowDropdown(false); // Close dropdown after selection
+  const handleSelectImage = (url: string, id: string) => {
+    setSelectedImageUrl(url); // Save URL for preview
+    setSelectedImageId(id);   // Save ID for Firestore
+    setShowDropdown(false);   // Close dropdown
   };
 
   const handleSaveWithImage = async () => {
     if (selectedImageUrl && selectedImageId) {
       try {
         setIsUploading(true);
-       
-  
+        const filename = selectedImageUrl.split("/").pop();
+        // const filenameWithExtension = selectedImageUrl.split("/").pop(); // "worshipHands.jpg"
+        // const filename = filenameWithExtension?.split(".")[0];
+        if (!filename) {
+            console.error("Filename extraction failed");
+            return;
+          }
+          handleSaveEvent(filename);
         // Any upload logic if required
   
       } catch (error) {
@@ -175,7 +182,7 @@ const EventAddAndEditForm = ({
         setIsUploading(false);
       }
     }
-    handleSaveEvent(selectedImageId);
+   
   
     // Pass the selected image URL to the parent `handleSaveEvent`
   };
@@ -292,11 +299,11 @@ const EventAddAndEditForm = ({
                         padding: "8px",
                         cursor: "pointer",
                       }}
-                      onClick={() => handleSelectImage(img.url,img.id)}
+                      onClick={() => handleSelectImage(img.url, img.id)}
                     >
                       <img
-                        src={img.url}
-                        alt={`Preview of ${img.id}`}
+                         src={img.url}
+                         alt={`Preview of ${img.id}`}
                         style={{
                           width: "40px",
                           height: "40px",
@@ -304,7 +311,7 @@ const EventAddAndEditForm = ({
                           marginRight: "8px",
                         }}
                       />
-                      <span>{`Image ${img.url}`}</span>
+                      <span>{`Image ${img.id}`}</span>
                     </div>
                   ))}
                 </div>

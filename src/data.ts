@@ -34,36 +34,22 @@ import { ImageGallaryItemData } from "./models/ImageGallaryItemData";
 import { CardTextSectionModel } from "./models/CardTextSectionModel";
 
 export const newsImgs = [
-    {
-        id:"edward",
-        url:edward,
-    },
-    {
-        id:"bkcBaby",
-        url:bkcBaby,
-    },
-    {
-        id:"worshipHands",
-        url: worshipHands,  
-    },
-    {
-        id:"worshipHands",
-        url: worshipHands,  
-    },
-    {
-        id:"edward",
-        url: edward,  
-    },
-    {
-        id:" davidPreaching",
-        url:  davidPreaching,  
-    },
-    {
-        id:"bkcBaby",
-        url:   bkcBaby,  
-    }
+  
     
-    ]
+    {
+        id:"Biblep",
+        url:"Biblep.jpg,"  
+    },
+   
+    
+    {
+        id:" edwardp",
+        url:"edwardp.jpg",  
+    },
+    {
+        id:"Worshippp",
+        url:"Worshippp,jpg",  
+    } ]
    
     export const INITIAL_EVENTS =[
         { id: "",
