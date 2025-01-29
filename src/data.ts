@@ -2,7 +2,6 @@ import PrayerBible from "./assets/spiritual-prayer-hands-holding-bible.jpg";
 import worshipHands from "./assets/worshipHands.jpg";
 import edward from "./assets/edward.jpg";
 import BethelWorship from "./assets/BethelWorship.jpg";
-import Worship from "./assets/Worship.jpeg";
 import Conference from "./assets/Conference.jpg";
 import Mission from "./assets/Mission.png";
 import Prayer from "./assets/Prayer.jpg";
@@ -25,7 +24,8 @@ import SundaySchool5 from "./assets/sundaySchool/sundaySchool5.jpg"
 import SundaySchool6 from "./assets/sundaySchool/sundaySchool6.jpg"
 import SundaySchool7 from "./assets/sundaySchool/sundaySchool7.jpg"
 import SundaySchool8 from "./assets/sundaySchool/sundaySchool8.jpg"
-import bs1 from "./assets/bs1.jpg"
+
+
 import bkcBaby from "./assets/sundaySchool/bkcBaby.jpg"
 import davidPreaching from "./assets/sundaySchool/davidPreaching.jpg"
 import sundayServe from "./assets/sundayServe.jpg"
@@ -185,20 +185,20 @@ export const higlightEvents:HighlightEvent[] = [
     startTime:new Date(2024, 9, 22, 14, 30),
     category: EventCategory.YouthService,
     description:"Vi kommer att leva, sova och äta på sommargården Solviken som ligger 5 km utanför Fristad precis vid sjön Ärtingen.  ",
-    images: worshipHands ,
+    images:Bible,
     buttonText:"Learn More",
   }
-  export const homeGroupActivityCardInfor:ImageInforSectionModel={
-    id: "1",
-    inforSectionId:"",
-    title: "Your Small Community",
-    subtitle:"Together,Stronger!",
-    startTime:new Date(2024, 9, 22, 14, 30),
-    category:EventCategory.HomeGroup,
-    description:"Bibeln beskriver Gud som en Fader. Han älskar och längtar efter en relation med varje människa. Jesus säger att han är vägen, sanningen och livet och var och en som längtar efter livets mening, efter tillvarons själva pulserande centrum, är välkommen in i hans stora famn.",
-    buttonText:"Learn More",
-    images:bs1 
-  }
+//   export const homeGroupActivityCardInfor:ImageInforSectionModel={
+//     id: "1",
+//     inforSectionId:"",
+//     title: "Your Small Community",
+//     subtitle:"Together,Stronger!",
+//     startTime:new Date(2024, 9, 22, 14, 30),
+//     category:EventCategory.HomeGroup,
+//     description:"Bibeln beskriver Gud som en Fader. Han älskar och längtar efter en relation med varje människa. Jesus säger att han är vägen, sanningen och livet och var och en som längtar efter livets mening, efter tillvarons själva pulserande centrum, är välkommen in i hans stora famn.",
+//     buttonText:"Learn More",
+//     images:bs1 
+//   }
   export const news:HighlightEvent[] = [
     {
       id: "1",
@@ -223,7 +223,7 @@ export const higlightEvents:HighlightEvent[] = [
       startTime:" new Date(2024, 9, 27, 9, 0)", // October 27, 2024, 9:00 AM
       title: "Expansion",
       category: EventCategory.Event,
-      image: Worship,
+      image:Bible,
       description:
         "Tillsammans med Kidsen`s pant i vår expansions-maskin samlar vi in medel för nya lokaler ..",
     },
@@ -423,6 +423,16 @@ export const ourVisionText = [
     "En plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden Varje människa är så dyrbar i Guds ögon och han kan ge frid mitt i stormen och bygga slott av våra livs spillror. Vi tror att Gud kan och vill hela den som är sjuk, läka det som är brustet, skydda den som är svag och lyfta upp den som är nedböjd.",
   
     "Det finns en särskild plats i Guds hjärta för barn och unga. Han vill att den uppväxande generationen ska bli trygg, välmående och lära känna honom. I vår kyrka finns plats för själavård och omsorg. Vi är huvudman för en kristen förskola och skola och erbjuder söndagsskola och ungdomssamlingar. Detta gör vi för att vi tror på barnen och de unga, och framförallt vet vi att Gud tror på dem. Han vill möta dem och hjälpa dem att bygga ett liv i hans närhet och att sprida hans ljus till många fler.",
+  
+    "Varmt välkommen att besöka oss!",
+  
+  ];
+  export const contectText = [
+   
+    "Skriva direkt här!",
+    "Vi ska svarå så smart som möjlight!",
+  
+    "Du kan bara rigna oss också.",
   
     "Varmt välkommen att besöka oss!",
   

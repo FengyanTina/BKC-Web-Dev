@@ -5,7 +5,7 @@ import { ourHistory, Pastor } from "../../data";
 import ReadMoreDialogs from "../../components/forms/ReadMoreDialog";
 import SectionLine from "../../components/pageSections/SectionLine";
 import TopImageSectionCard from "../../components/cards/customizedCards/TopImageSectionCard.tsx";
-import UserTable from "../../components/tables/UserTable.tsx";
+
 
 const AboutUsPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -249,9 +249,9 @@ const AboutUsPage = () => {
           image={DavidB}
         />
       </Box> */}
-      <SectionLine text="Medlemskap" />
+      {/* <SectionLine text="Medlemskap" />
       <Box id="userTable"></Box>
-      <UserTable />
+      <UserTable /> */}
       <SectionLine text="Vår historia" />
 
       <Box

@@ -7,6 +7,8 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import background from "../assets/sundaySchool/bkcWorship.jpg";
+import smallSreenBackImg from "../assets/smallSreenBackImg.jpg";
+
 import { Link } from "react-router-dom";
 import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCalendar";
 import SectionLine from "../components/pageSections/SectionLine";
@@ -106,10 +108,11 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center",
           width: "100%",
-          height: "45vh",
+          
           ...(isSmallScreen
             ? {} // No backgroundImage for small screens
             : {
+                height: "45vh",
                 backgroundImage: `url(${background})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -119,15 +122,17 @@ const StartPage = () => {
         }}
       >
         {isSmallScreen && (
+            
           <img
-            src={background}
+            src={smallSreenBackImg}
             alt="background image"
             style={{
-              width: "100%",
-              height: "80%",
-              objectFit: "cover",
-              objectPosition: "center",
-            }}
+                width: "100%",
+                height: "60%", // Use full height of the container
+             // Prevent it from exceeding the intended height
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
           />
         )}
       </Box>

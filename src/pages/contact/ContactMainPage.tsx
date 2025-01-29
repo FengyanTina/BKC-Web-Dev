@@ -4,7 +4,7 @@ import Intro from "../../components/pageSections/contact-section/Intro";
 import map from "../../assets/map.png";
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { ourVisionText } from "../../data";
+import { contectText } from "../../data";
 
 export default function ContactMainPage() {
   const [open, setOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function ContactMainPage() {
   return (
     <>
       <div>
-        <Intro content={ourVisionText} />
+        <Intro content={contectText} />
         <ContactSection />
         <>
           {/* Map Frame */}

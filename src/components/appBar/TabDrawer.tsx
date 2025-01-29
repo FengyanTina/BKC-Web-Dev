@@ -8,7 +8,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import { Button, Typography } from "@mui/material";
-import HuvudloggaBKC3 from "../../assets/Huvudlogga-BKC3.png";
 import HomeIcon from "@mui/icons-material/Home";
 import GroupsIcon from "@mui/icons-material/Groups";
 import LocalActivityIcon from "@mui/icons-material/LocalActivity";
@@ -72,11 +71,11 @@ export default function TabDrawer({
             color: "black",
           }}
         >
-          <img
+          {/* <img
             src={HuvudloggaBKC3}
             alt="Logo"
             style={{ maxHeight: 50, marginRight: 10 }}
-          />
+          /> */}
         </Typography>
       </Box>
       <Divider />

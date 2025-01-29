@@ -25,7 +25,7 @@ export default function Intro({ content }: introProp) {
             }}
             variant="h3"
           >
-            Vår vision
+           
           </Typography>
         </Box>
         <Box

@@ -58,8 +58,8 @@ function SlickSlider({ events }: { events: HighlightEvent[] }) {
       >
         <div className="text-overlay">
           <h2>{event.title}</h2>
-          {/* <p>{event.description}</p>
-          {event.startTime && (
+          <p>{event.description}</p>
+         {/*  {event.startTime && (
 
           <p>{formatDateTime(event.startTime)}</p>
           )} */}
