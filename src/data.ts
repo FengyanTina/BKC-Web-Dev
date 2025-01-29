@@ -33,13 +33,13 @@ import sundayServe from "./assets/sundayServe.jpg"
 import { ImageGallaryItemData } from "./models/ImageGallaryItemData";
 import { CardTextSectionModel } from "./models/CardTextSectionModel";
 
-export const carouselImgs = [
+export const newsImgs = [
     {
-        id:"1",
+        id:"edward",
         url:edward,
     },
     {
-        id:"2",
+        id:"bkcBaby",
         url:bkcBaby,
     },
     {
@@ -122,7 +122,7 @@ export const higlightEvents:HighlightEvent[] = [
   export const newHere:ImageInforSectionModel ={
     id:'23',
     inforSectionId:"",
-    title:"New Here? ",
+    title:"New here? ",
     subtitle:"can't wait to meet you!",
     description:" ",
    
@@ -131,31 +131,31 @@ export const higlightEvents:HighlightEvent[] = [
   export const socialMediaActivityCardInfor={
     id: "1",
     inforSectionId:"",
-    title: "All activities on Social media",
-    subtitle:"Together,Stronger!",
+    title: "Buzz on Social media",
+    subtitle:"You@Insta#FaceInBKC!",
     category: EventCategory.SocialMedia,
-    description:"Under höstens tre första veckor (36-38) kommer vi uppmuntra till bön och fasta.Under höstens tre Under höstens tre Under höstens tre Under höstens tre tre Under höstens tre - auto updating activies from our social media",
+    description:"Följ oss på sociala medier",
     images: socialActivity,
   }
   export const sundayServiceCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
-    title: "Våra Tjänster",
-    subtitle:"välkommen till vår kyrka nu på söndag!",
+    title: "-Vad göra på en söndag? ",
+    subtitle:"Välkommen till vår kyrka nu på söndag!",
     startTime:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundayService,
-    description:"Veckans höjdpunkt i kyrkan är våra gudstjänster!",
+    description:"Vi är en bibeltroende kyrka mitt i Borås, som älskar Jesus!",
     images:Varvision,
     buttonText:"Learn More",
   }
   export const activityCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
-    title: "Våra Aktiviteter",
+    title: "Aktiviteter",
     subtitle:"Hitta aktiviteter för både vuxna, ungdomar och små barn",
     startTime:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundaySchoole,
-    description:"BKC-Kids är för barn mellan 2-12 år. Barnens egen gudstjänst där vi tillsammans får möta spännande bibelpersoner, lyssna på Guds ord, lekar och tävlingar, vi äter korv och pysslar tillsammans. Kom med du också!",
+    description:" - BKC-Kids är för barn mellan 2-12 år. Barnens egna gudstjänst..\n- BKC-Ung för dig mellan 13-20 år. Då stavas en perfekt fredag BKC-UNG. Varje fredag ses vi för både häng och snack om Jesus och bibeln.\n - Seniorerna är de i församlingen som är 60+\nKom med du också!",
     images: sundayServe ,
     buttonText:"Learn More",
   }
@@ -164,7 +164,7 @@ export const higlightEvents:HighlightEvent[] = [
     id: "1",
     inforSectionId:"",
     title: "Our Schedules",
-    subtitle:"Bkc Ungdom",
+    subtitle:"BKC Ungdom",
     startTime:new Date(2024, 9, 22, 14, 30),
     category: EventCategory.YouthService,
     description:"Vi kommer att leva, sova och äta på sommargården Solviken som ligger 5 km utanför Fristad precis vid sjön Ärtingen.  ",
@@ -185,55 +185,55 @@ export const higlightEvents:HighlightEvent[] = [
   export const news:HighlightEvent[] = [
     {
       id: "1",
-      startTime: "", // October 22, 2024, 2:30 PM
-      title: "Reaching out ",
+      startTime: "WE LOVE BORÅS ", // October 22, 2024, 2:30 PM
+      title: "Mission ",
       category: EventCategory.Event,
       image: PrayerBible,
       description:
-        "An exhibition featuring contemporary art pieces from local artists.",
+        "Vi når ut i Borås. Välkommen att höra av dig till er hemgruppsledare eller mötesledare för mer information.",
     },
     {
       id: "2",
       startTime: "new Date(2024, 9, 25, 19, 0)", // October 25, 2024, 7:00 PM
-      title: "Tech Conference",
+      title: "Alphakurs",
       category: EventCategory.Event,
       image: edward,
       description:
-        "Join the biggest technology conference of the year with keynote speakers.",
+        "Vem som helst kan gå en Alphakurs, men den vänder sig speciellt till dig som vill utforska livet och den kristna tron lite närmare eller är lite osäker på vad du egentligen tror på. Kursen är utformad för att passa dig som inte är van att gå i kyrkan. \n - Vi börjar med att äta något gott tillsammans, därefter hålls ett kortare föredrag som tar upp ett ämne som berör livet och kristen tro. Sedan delar vi upp oss i grupper för att samtala. Många upplever samtalsgruppen som ett av de mest positiva inslagen i Alphakursen.Här är några exempel på ämnen som tas upp under en Alphakurs: Vem är Jesus? Varför måste Jesus dö? Hur kan jag tro? Vad ska vi ha kyrkan till? Finns det mer att upptäcka i livet?.",
     },
     {
       id: "3",
       startTime:" new Date(2024, 9, 27, 9, 0)", // October 27, 2024, 9:00 AM
-      title: "Charity Run",
+      title: "Expansion",
       category: EventCategory.Event,
       image: Worship,
       description:
-        "Participate in the annual charity run to support a good cause.",
+        "Tillsammans med Kidsen`s pant i vår expansions-maskin samlar vi in medel för nya lokaler ..",
     },
     {
       id: "4",
       startTime: "new Date(2024, 9, 30, 17, 30)", // October 30, 2024, 5:30 PM
-      title: "Food Festival",
+      title: "Bön&Lovsångskväll",
       category: EventCategory.Event,
       image: BethelWorship,
       description:
-        "Savor delicious dishes from a variety of food vendors and enjoy live entertainment.",
+        "Tillsammans över generationera leder BKC-Ung oss i bön och lovsångsgudstjänst sista torsdagen i månaden. Kom med förväntan att bli förvandlad av Den Helige Andes..",
     },
   ];
 
 // About us page
    export const Pastor= {
     id:"pastor",
-    title:"David B",
+    title:"David Byman",
     subTitle:"Main Pastor",
-    content: "BKC pastor, Blog,\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.\n\nPrior to the senior pastorate, he had been a frequent and well-loved speaker at Times Square Church for over 25 years.\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.\n\nPrior to the senior pastorate, he had been a frequent and well-loved speaker at Times Square Church for over 25 years.\n\nThe relationship between Tim Dilena and Times Square Church is a close one. Tim’s father, Paul Dilena, was the police captain in David Wilkerson’s bestselling book The Cross and the Switchblade and was the treasurer of the first Teen Challenge.",
+    content: "BKC pastor, Blog,\n\nSedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.",
     image: DavidB   
     }
 
     export const ourHistory ={
         id:"history",
         title: "Vår historia",
-        description: "1987 startades en bibelskola som under läsåret 2016-2017 alltså fyller 30 år och som hundratals personer i Sjuhärad med omnejd gått. Året efter, 1988, startade församlingen som grundades av pastorsparet Peder och Yvonne Teglund. Församlingen har i dag har omkring 140 medlemmar. \n 1991 startade också en förskoleverksamhet och året efter de första klasserna avBorås Kristna Skola som i dag omfattas av förskola och hela grundskolan. Församlingen är skolans huvudman.\n Borås Kristna Center tillhör det kristna samfund som kallas Trosrörelsen som bland annat betonar betydelsen av att läsa och tro på Bibelns ord och att tron på Jesus ska levas ut i vardagen. Vi har en god och nära relation med andra kyrkor i Borås och samarbetar i olika sammanhang, bland annat med Borås Biståndscenter som samlar in och säljer secondhandvaror till förmån för nödställda ut över världen.\n Här kan du läsa mer om vår vision och vår tro.Kontakta oss gärna för mer information om oss och vårt ställningstagande i olika frågor.",
+        description: "Vår kyrka startades 1988, församlingen som grundades av pastorsparet Peder och Yvonne Teglund. Hade året innan -1987 startat en bibelskola som hundratals personer i Sjuhärdas med omnejd gått. Den liksom församlingen är aktiv idag och har i dag har omkring 140 medlemmar. \n 1991 startade också en förskoleverksamhet och året efter de första klasserna av Borås Kristna Skola som idag omfattas av förskola och hela grundskolan till nionde klass. Församlingen är skolans huvudman.\n Borås Kristna Center tillhör det kristna samfund som kallas Trosrörelsen som bland annat betonar betydelsen av att läsa och tro på Bibelns ord och att tron på Jesus ska levas ut i vardagen. Vi är en frikyrka och har en god och nära relation med andra kyrkor i Borås och samarbetar i olika sammanhang.\n - Kontakta oss gärna för mer information om oss och vårt ställningstagande i olika frågor.",
         
         images:[Varvison,Varhistoria,Mission]
       };
@@ -242,7 +242,7 @@ export const higlightEvents:HighlightEvent[] = [
 export const findYourVision = {
     id:"103",
     title: "Want to Serve",
-    description:"You can find your vision and purpose, and serve the Lord in different ways.\n Gifted in music? Sunday Service you can serve the Lord in worship team.\n Have a vision in young children? Want to help the next generation growing in the knowlege of the Bible?. Our sunday school has two groups, young children and older group. \n Recive people or help with fika prepareation, you can share your love and your smile with people coming to church. Give them the bigest welcome to the house of the Lord in the sunday morning .",
+    description:"You can find your vision and purpose, and serve the Lord in different ways.\n Gifted in music? Sunday Service you can serve the Lord in worship team.\n Have a vision in young children? Want to help the next generation growing in the knowlege of the Bible? \n Recive people or help with fika prepareation, you can share your love and your smile with people coming to church. Give them the bigest welcome to the house of the Lord in the sunday morning .",
     
     images:[sundaySchol11,serve1,socialActivity],
     links:[
@@ -265,7 +265,7 @@ export const findYourVision = {
     category:EventCategory.SundayService,
     images: Conference,
     description:
-      "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes.\n\n Day: Sunday 11:00-13:00",
+      "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our pastor, David Byman. Each service lasts around 90 minutes.\n\n Day: Sunday 11:00-13:00",
       buttontex:"",
       links:[
           
@@ -285,7 +285,7 @@ export const findYourVision = {
   linkSubtitle: "send in your prayer",
   images: Prayer,
   description:
-    "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our senior pastor, Tim Dilena. Each service lasts around 90 minutes. Engaging worship music. Come as you are. There is no dress code.",
+    "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our pastor, David Byman. Each service lasts around 90 minutes. Engaging worship music. Come as you are. There is no dress code.",
     buttontext:"",
     links:[
         
@@ -361,7 +361,7 @@ export const BKCkIDS2:CardTextSectionModel = {
     id:"kids",
       title:"Sunday School",
       subtitle: "Lets kids come to the Lord",
-      description:"The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family.\n\n Day: Sunday ", 
+      description:"They learn the word, while having fun. In Swedish, they build their little community, and grow together as part of the church family,\n\n Day: Sunday ", 
       startTime: new Date(2024, 9, 30, 12, ),
       endTime:new Date(2024, 9, 30, 13, 30),
    location:"BKC",  
@@ -382,7 +382,7 @@ export const BKCkYouth:CardTextSectionModel = {
     id:"youth",
     title:"Youth Group",
     subtitle: "Join Us Every Friday Night",
-    description:"The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family,The learn the word, while having fun. They build their little community, and grow together as part of the church family.Find a group of friends who you can be yourself with while growing in your relationship with God. By joining us in-person or online you can discover exactly who God intentionally made you to be.\n\n Day: Friday ", 
+    description:" Here you find a group of friends who you can be yourself with while growing in your relationship with God. By joining us in-person you can discover exactly who God intentionally made you to be.\n\n Day: Friday ", 
     startTime: new Date(2024, 9, 30, 19, 30),
     endTime: new Date(2024, 9, 30, 21, 30),
 

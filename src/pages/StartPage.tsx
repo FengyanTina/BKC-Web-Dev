@@ -262,7 +262,7 @@ const StartPage = () => {
             marginBottom: "50px",
           }}
         >
-          <SlickSlider events={news} />
+          <SlickSlider  />
         </Box>
       </Box>
     </Box>
