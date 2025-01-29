@@ -10,8 +10,8 @@ import { useState } from "react";
 import EventDetailsModal from "../forms/EventDetailModel";
 
 const Carousel = ({ events }: { events: HighlightEvent[] }) => {
-  const [selectedEvent, setSelectedEvent] = useState<HighlightEvent | null>(
-    null
+  const [selectedEvent, setSelectedEvent] = useState<HighlightEvent | undefined>(
+    undefined
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -22,7 +22,7 @@ const Carousel = ({ events }: { events: HighlightEvent[] }) => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setSelectedEvent(null);
+    setSelectedEvent(undefined);
   };
   const displayEvents = events.map((event) => {
     let imageUrl: string | undefined;

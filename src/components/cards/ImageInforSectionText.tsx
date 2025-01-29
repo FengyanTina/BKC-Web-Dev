@@ -2,7 +2,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { formatDate, formatTime } from "../../utils/FormatDateOrTime";
+import { formatTime } from "../../utils/FormatDateOrTime";
 import { CardTextSectionModel } from "../../models/CardTextSectionModel";
 import { HashLink } from "react-router-hash-link";
 import { SocialIcon } from "react-social-icons";

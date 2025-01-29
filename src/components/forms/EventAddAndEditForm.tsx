@@ -9,15 +9,7 @@ import {
   Checkbox,
 } from "@mui/material";
 import { CalendarEvent } from "../../models/CalendarEvent";
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  FirebaseStorage,
-} from "firebase/storage";
 import { User } from "../../models/User";
-import { storage } from "../../configs/firebaseConfig";
 import { newsImgs } from "../../data";
 import { useEvents } from "../../context/EventContext";
 
@@ -39,14 +31,13 @@ const EventAddAndEditForm = ({
   isEditing,
   handleFieldChange,
   handleSaveEvent,
-  currentDevUser,
 }: EventFormProps) => {
 //   const [selectedFile, setSelectedFile] = useState<File | undefined>(undefined);
-  const [Selectedimage, setSelectedImage] = useState(null);
+//   const [Selectedimage, setSelectedImage] = useState(null);
   
   const [isUploading, setIsUploading] = useState(false);
-  const [usedImageIds, setUsedImageIds] = useState<string[] | undefined>(undefined);
-  const [selectedImageId, setSelectedImageId] = useState<string | undefined>(undefined);
+//   const [usedImageIds, setUsedImageIds] = useState<string[] | undefined>(undefined);
+  
   
   const { events } = useEvents();
 
@@ -137,6 +128,7 @@ const EventAddAndEditForm = ({
   //   };
   const [selectedImageUrl, setSelectedImageUrl] = useState<string | undefined>(undefined);
   const [imagePreview, setImagePreview] = useState<string | undefined>(undefined);
+  const [selectedImageId, setSelectedImageId] = useState<string | undefined>(undefined);
   const [showDropdown, setShowDropdown] = useState(false);
   const [usedImageUrls, setUsedImageUrls] = useState<string[]>([]);
   
@@ -160,16 +152,18 @@ const EventAddAndEditForm = ({
     : newsImgs; // Fallback to all images if usedImageUrls is null or not an array
   
   // Handle image selection (set selected image URL)
-  const handleSelectImage = (url: string) => {
+  const handleSelectImage = (url: string, id:string) => {
     setSelectedImageUrl(url);
     setImagePreview(url); // Preview the selected image
+    setSelectedImageId(id)
     setShowDropdown(false); // Close dropdown after selection
   };
 
   const handleSaveWithImage = async () => {
-    if (selectedImageUrl) {
+    if (selectedImageUrl && selectedImageId) {
       try {
         setIsUploading(true);
+       
   
         // Any upload logic if required
   
@@ -181,9 +175,9 @@ const EventAddAndEditForm = ({
         setIsUploading(false);
       }
     }
+    handleSaveEvent(selectedImageId);
   
     // Pass the selected image URL to the parent `handleSaveEvent`
-    handleSaveEvent(selectedImageUrl);
   };
 
   return (
@@ -298,7 +292,7 @@ const EventAddAndEditForm = ({
                         padding: "8px",
                         cursor: "pointer",
                       }}
-                      onClick={() => handleSelectImage(img.url)}
+                      onClick={() => handleSelectImage(img.url,img.id)}
                     >
                       <img
                         src={img.url}

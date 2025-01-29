@@ -3,18 +3,12 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useRef, useState } from "react";
-import { HighlightEvent } from "../../models/Event";
+import {HighlightEvent }from "../../models/Event"
 import EventDetailsModal from "../forms/EventDetailModel";
-import { CalendarEvent } from "../../models/CalendarEvent";
-import { useEvents } from "../../context/EventContext";
-function SlickSlider() {
-  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | undefined>(
-    undefined
-  );
+function SlickSlider({ events }: { events: HighlightEvent[] }) {
+  const [selectedEvent, setSelectedEvent] = useState<HighlightEvent | undefined>(undefined);
   const [isModalOpen, setIsModalOpen] = useState(false);
-   const { events } = useEvents();
-   const newEvents = events.filter((event) => event.showOnNews === true);
-
+ 
   const settings = {
     dots: true,
     infinite: true,
@@ -24,29 +18,29 @@ function SlickSlider() {
     autoplaySpeed: 3000,
     pauseOnHover: true,
     responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
+        {
+          breakpoint: 768, 
+          settings: {
+            slidesToShow: 1, 
+          },
         },
-      },
-    ],
-  };
+      ],
+    };
 
   let sliderRef = useRef<Slider>(null);
 
   const next = () => {
     if (sliderRef.current) {
-      (sliderRef.current as any).slickNext();
+      (sliderRef.current as any).slickNext(); 
     }
   };
 
   const previous = () => {
     if (sliderRef.current) {
-      (sliderRef.current as any).slickPrev();
+      (sliderRef.current as any).slickPrev(); 
     }
   };
-  const handleSlideClick = (event: CalendarEvent) => {
+  const handleSlideClick = (event: HighlightEvent) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
   };
@@ -56,31 +50,30 @@ function SlickSlider() {
     setSelectedEvent(undefined);
   };
 
-  const displayImages = newEvents.map((event, i) => (
+  const displayImages = events.map((event, i) => (
     <div key={i} className="slide" onClick={() => handleSlideClick(event)}>
       <div
         className="image-container"
-        style={{
-            backgroundImage: `url(${event.imgUrl})`,
-          }}
-        //   style={{
-        //     backgroundImage: event.imgUrl ? `url(${event.imgUrl})` : `url(/path/to/default/image.jpg)`,
-        //   }}
+        style={{ backgroundImage: `url(${event.image})` }}
       >
         <div className="text-overlay">
           <h2>{event.title}</h2>
-           <p>{event.description}</p>
-          {/*{event.startTime && (
+          {/* <p>{event.description}</p>
+          {event.startTime && (
 
           <p>{formatDateTime(event.startTime)}</p>
           )} */}
+           
 
-          <p>{event.start}</p>
+<p>{event.startTime}</p>
+
         </div>
       </div>
     </div>
   ));
 
+
+  
   return (
     <div className="slider-container">
       <section className="slick-container">

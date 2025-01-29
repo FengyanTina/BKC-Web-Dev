@@ -1,7 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { User, UserCategory } from '../models/User';
-import { useLocalStorage } from '../hooks/UseLocalStorage';
-import initialUsers from '../data';
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
 import { auth, db } from '../configs/firebaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -39,11 +37,11 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
         fetchUsers();
       }, []);
 
-    const updateUser = (updatedUser: User) => {
-        setDevUsers((prevUsers) =>
-          prevUsers.map((user) => (user.id === updatedUser.id ? updatedUser : user))
-        );
-      };
+    // const updateUser = (updatedUser: User) => {
+    //     setDevUsers((prevUsers) =>
+    //       prevUsers.map((user) => (user.id === updatedUser.id ? updatedUser : user))
+    //     );
+    //   };
 
     // const addUser = (newUser: User) => {
     //     const updatedData = [...devUsers, newUser];

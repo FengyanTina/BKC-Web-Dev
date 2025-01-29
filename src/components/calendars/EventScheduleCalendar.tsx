@@ -1,5 +1,5 @@
 import "./calendar.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import { EventClickArg, EventContentArg } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";

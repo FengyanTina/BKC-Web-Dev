@@ -13,7 +13,6 @@ import Varvison from "./assets/Varvision.jpg";
 import Varhistoria from "./assets/Varhistoria.jpg"
 import DavidB from "./assets/DavidB.jpg"
 import Bible from "./assets/Bible.jpg"
-import happySenior from "./assets/happySenior.jpg"
 import Varvision from "./assets/Varvision.jpg"
 import socialActivity from "./assets/socialActivity.jpg"
 import { EventCategory,HighlightEvent } from "./models/Event";
@@ -43,29 +42,47 @@ export const newsImgs = [
         url:bkcBaby,
     },
     {
-        id:"3",
+        id:"worshipHands",
         url: worshipHands,  
     },
     {
-        id:"3",
+        id:"worshipHands",
         url: worshipHands,  
     },
     {
-        id:"4",
+        id:"edward",
         url: edward,  
     },
     {
-        id:"5",
+        id:" davidPreaching",
         url:  davidPreaching,  
     },
     {
-        id:"6",
+        id:"bkcBaby",
         url:   bkcBaby,  
     }
     
-    
+    ]
    
-    
+    export const INITIAL_EVENTS =[
+        { id: "",
+            title: "sundayServe",
+            start:"Sunday: 11:00-",
+            end: "13:00",
+            allDay: false,
+            description: "Welcome to sunday",
+            location: "BKC",
+        },
+        {
+            id: "",
+            title: "sundayServe",
+            start:"Sunday: 11:00-",
+            end: "13:00",
+            allDay: false,
+            description: "Welcome to sunday",
+            location: "BKC",
+        },
+        {}    
    
    
 ]
