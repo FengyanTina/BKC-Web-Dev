@@ -29,6 +29,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
 import MyMap from "../apis/GoogleMap";
 import CloseIcon from "@mui/icons-material/Close";
+import InstagramEmbed from "../components/instagram/InstagramEmbed";
 
 const StartPage = () => {
   const [openMap, setOpenMap] = useState(false);
@@ -248,6 +249,10 @@ const StartPage = () => {
         /> */}
       </Box>
       {/* --------------NEWS SLIDES----------- */}
+      <SectionLine text="Instagram Aktivitet" />
+        
+      <InstagramEmbed />
+    
       <Box
         sx={{
           width: "100%",
@@ -259,16 +264,16 @@ const StartPage = () => {
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <SectionLine text="Nyheter" />
-        <Box
+   
+        {/* <Box
           sx={{
             backgroundColor: "#f0f4f8",
             width: "100%",
             marginBottom: "50px",
           }}
         >
-          <SlickSlider events={news} />
-        </Box>
+          <SlickSlider  />
+        </Box> */}
       </Box>
     </Box>
   );
