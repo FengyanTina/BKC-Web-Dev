@@ -11,6 +11,7 @@ import TeamIntroCard from "../../components/cards/TeamIntroCard.tsx";
 import ImageInforSectionText from "../../components/cards/ImageInforSectionText.tsx";
 import InstagramEmbed from "../../components/instagram/InstagramEmbed.tsx";
 import { useState } from "react";
+import { SocialIcon } from "react-social-icons";
 
 export default function ActivitiesMainPage() {
   const [hasInstagramContent, setHasInstagramContent] = useState(false);
@@ -28,9 +29,37 @@ export default function ActivitiesMainPage() {
     >
       <div id="groups"></div>
 
-      {hasInstagramContent && (
-        <InstagramEmbed setHasContent={setHasInstagramContent} />
+      {!hasInstagramContent && (
+        
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-start",
+              gap: "10px",
+              paddingTop: "10px",
+              paddingLeft: "10px",
+            }}
+          >
+            <SocialIcon
+              url="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter"
+              network="youtube"
+              style={{ height: 25, width: 25 }}
+            />
+            <SocialIcon
+              url="https://www.instagram.com/boraskristnacenter/"
+              network="instagram"
+              style={{ height: 25, width: 25 }}
+            />
+
+            <SocialIcon
+              url="https://www.facebook.com/BorasKristnaCenter/?locale=sv_SE"
+              network="facebook"
+              style={{ height: 25, width: 25 }}
+            />
+          </Box>
+        
       )}
+      <InstagramEmbed setHasContent={setHasInstagramContent} />
 
       {/* <Box
         style={{

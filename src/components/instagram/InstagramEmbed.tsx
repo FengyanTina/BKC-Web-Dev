@@ -89,27 +89,50 @@ type InstagramFeedProps = {
   setHasContent: (hasContent: boolean) => void; // Define postUrl as a prop
 };
 const InstagramFeed = ({ setHasContent }: InstagramFeedProps) => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://apps.elfsight.com/p/platform.js";
-    script.async = true;
-    script.onload = () => {
-      // Wait a bit to ensure the content is loaded
-      setTimeout(() => {
-        const content = document.querySelector(
-          ".elfsight-app-4542db50-93c5-4a1c-a31c-f056f99e5068"
-        );
-        const hasContent = !!(content && content.innerHTML.trim().length > 0);
-
-        setHasContent(hasContent); // Notify parent component
-      }, 3000); // Increase timeout from 2000 to 3000 ms
-    };
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [setHasContent]);
+    useEffect(() => {
+        // Check if the script is already added to prevent reloading
+        if (document.querySelector('script[src="https://apps.elfsight.com/p/platform.js"]')) {
+          console.log("Elfsight script already loaded");
+          return;
+        }
+    
+        const script = document.createElement("script");
+        script.src = "https://apps.elfsight.com/p/platform.js";
+        script.async = true;
+        script.onload = () => {
+          // Attempt to find the content after the script has loaded
+          const checkContentLoaded = () => {
+            const content = document.querySelector(
+              ".elfsight-app-4542db50-93c5-4a1c-a31c-f056f99e5068"
+            );
+            if (content && content.innerHTML.trim().length > 0) {
+              setHasContent(true); // Notify parent when content is loaded
+            } else {
+              setHasContent(false); // If no content, set as false
+            }
+          };
+    
+          // Check after script load, without relying on arbitrary timeout
+          checkContentLoaded();
+    
+          // Optionally, we could try again if content isn't ready after a few seconds
+          setTimeout(() => {
+            checkContentLoaded(); // Fallback check in case content didn't load immediately
+          }, 3000); // Check again after 3 seconds
+        };
+    
+        script.onerror = () => {
+          console.error("Error loading the Elfsight script.");
+          setHasContent(false); // Notify that there was an error loading the content
+        };
+    
+        document.body.appendChild(script);
+    
+        // Cleanup script when component is unmounted
+        return () => {
+          document.body.removeChild(script);
+        };
+      }, [setHasContent]); 
 
   return (
     <Box
