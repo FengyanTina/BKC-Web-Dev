@@ -249,11 +249,12 @@ const StartPage = () => {
 
       {hasInstagramContent && (
       <>
-        <SectionLine text="Instagram Aktivitet" />
+    <SectionLine text="Instagram Aktivitet" />
       </>
     )}
+    <InstagramEmbed setHasContent={setHasInstagramContent} />
 
-<InstagramEmbed setHasContent={setHasInstagramContent} />
+
 
    
 

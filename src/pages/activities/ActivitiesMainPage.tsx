@@ -3,12 +3,7 @@ import { Box } from "@mui/material";
 import happySenior from "../../assets/happySenior.jpg";
 import Woman from "../../assets/woman.jpg";
 import Home from "../../assets/homeGroup.jpg";
-import {
-  BKCkYouth,
-  BKCkIDS2,
- 
-  SundaySchoolImageGallary,
-} from "../../data.ts";
+import { BKCkYouth, BKCkIDS2, SundaySchoolImageGallary } from "../../data.ts";
 import SudaySchoolImageGallary from "../../components/imageManagements/ImageGallaryWithColsRows.tsx";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import videoFile from "../../assets/istockphoto-987329642-640_adpp_is.mp4";
@@ -18,26 +13,25 @@ import InstagramEmbed from "../../components/instagram/InstagramEmbed.tsx";
 import { useState } from "react";
 
 export default function ActivitiesMainPage() {
-    const [hasInstagramContent, setHasInstagramContent] = useState(false);
+  const [hasInstagramContent, setHasInstagramContent] = useState(false);
   return (
-    <Box sx={{ 
-        marginTop:{
-            md:"130px",      
-            xs:"100px",
-              px: 3,
-        pb:3,
-        }, 
-         backgroundColor: "#f0f4f8" }}>
+    <Box
+      sx={{
+        marginTop: {
+          md: "130px",
+          xs: "100px",
+          px: 3,
+          pb: 3,
+        },
+        backgroundColor: "#f0f4f8",
+      }}
+    >
       <div id="groups"></div>
 
       {hasInstagramContent && (
-      <>
-    <InstagramEmbed  setHasContent={setHasInstagramContent} />
-      </>
-    )}
+        <InstagramEmbed setHasContent={setHasInstagramContent} />
+      )}
 
-   
-    
       {/* <Box
         style={{
           display: "flex",
@@ -58,14 +52,14 @@ export default function ActivitiesMainPage() {
           justifyContent: "center",
           backgroundColor: "#f0f4f8",
           px: 3,
-          pb:3,
+          pb: 3,
         }}
       >
         <Grid
           container
           spacing={1}
           sx={{
-            flexDirection: { xs: "column", sm: "row", },
+            flexDirection: { xs: "column", sm: "row" },
           }}
         >
           <Grid
@@ -91,7 +85,7 @@ export default function ActivitiesMainPage() {
               alignContent: "center",
               paddingRight: { sm: "10px", md: "100px" },
               paddingLeft: { sm: "10px" },
-              marginTop:"30px"
+              marginTop: "30px",
             }}
           >
             <ImageInforSectionText
@@ -118,7 +112,7 @@ export default function ActivitiesMainPage() {
           justifyContent: "center",
           backgroundColor: "#f0f4f8",
           px: 3,
-          pb:3,
+          pb: 3,
         }}
       >
         <Grid
@@ -180,21 +174,21 @@ export default function ActivitiesMainPage() {
       {/* --------------ACTIVITIES-ACTIVITIES-BKC Other Groups----------- */}
       <div id="otherGroups"></div>
       <SectionLine text="Andra Gruper" />
-      
+
       <Box
         sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
-            alignItems: "center",
-            flexDirection: {
-              md: "row",
-              sm: "column",
-              xs: "column",
-            },
-            gap: "50px",
-           px:3
-          }}
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
+          flexDirection: {
+            md: "row",
+            sm: "column",
+            xs: "column",
+          },
+          gap: "50px",
+          px: 3,
+        }}
       >
         <TeamIntroCard
           title={"Home Group"}
@@ -216,7 +210,6 @@ export default function ActivitiesMainPage() {
         />
       </Box>
       {/* --------------ACTIVITIES-ACTIVITIES-Other Activities----------- */}
-      
 
       <Box />
       <Box />

@@ -84,26 +84,26 @@
 
 // export default InstagramEmbed;
 import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 type InstagramFeedProps = {
-    setHasContent: (hasContent: boolean) => void; // Define postUrl as a prop
-  };
-const InstagramFeed = ({ setHasContent }:InstagramFeedProps) => {
-    const [isLoaded, setIsLoaded] = useState(false);
-    
+  setHasContent: (hasContent: boolean) => void; // Define postUrl as a prop
+};
+const InstagramFeed = ({ setHasContent }: InstagramFeedProps) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://apps.elfsight.com/p/platform.js";
     script.async = true;
     script.onload = () => {
-        // Wait a bit to ensure the content is loaded
-        setTimeout(() => {
-          const content = document.querySelector(".elfsight-app-4542db50-93c5-4a1c-a31c-f056f99e5068");
-         const hasContent = !!(content && content.innerHTML.trim().length > 0); 
-          setIsLoaded(hasContent);
-          setHasContent(hasContent); // Notify parent component
-        }, 2000); // Delay to allow Instagram feed to render
-      };
+      // Wait a bit to ensure the content is loaded
+      setTimeout(() => {
+        const content = document.querySelector(
+          ".elfsight-app-4542db50-93c5-4a1c-a31c-f056f99e5068"
+        );
+        const hasContent = !!(content && content.innerHTML.trim().length > 0);
+
+        setHasContent(hasContent); // Notify parent component
+      }, 3000); // Increase timeout from 2000 to 3000 ms
+    };
     document.body.appendChild(script);
 
     return () => {
@@ -111,7 +111,7 @@ const InstagramFeed = ({ setHasContent }:InstagramFeedProps) => {
     };
   }, [setHasContent]);
 
-  return isLoaded ? (
+  return (
     <Box
       style={{
         width: "100%",
@@ -120,9 +120,17 @@ const InstagramFeed = ({ setHasContent }:InstagramFeedProps) => {
       }}
       className="elfsight-app-4542db50-93c5-4a1c-a31c-f056f99e5068"
       data-elfsight-app-lazy
-    ></Box>
-  ) : null;  // Hide if no content
+    >
+      <script
+        src="https://static.elfsight.com/platform/platform.js"
+        async
+      ></script>
+      <div
+        className="elfsight-app-4542db50-93c5-4a1c-a31c-f056f99e5068"
+        data-elfsight-app-lazy
+      ></div>
+    </Box>
+  ); // Hide if no content
 };
-
 
 export default InstagramFeed;
