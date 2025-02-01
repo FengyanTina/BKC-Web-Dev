@@ -26,9 +26,73 @@ const Footer: React.FC = () => {
     >
 
      
-      <Box>
-      <Typography variant="h5" sx={{display:"flex",flexDirection:"column", }}>
+      <Box
+       sx={{
+        width: "100%",
+        // backgroundColor: "transparent",
+        backgroundColor:"#202A44",
+        color: "#CED9E5",
+        
+    
+        padding: "20px",
+        textAlign: "center",
+        bottom: 0,
+        left: 0,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+        gap: "20px",
+      }}>
+        <Box>
+        <Typography variant="body1" sx={{display:"flex",flexDirection:"column", }}>
         <Link href="/home" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Home
+        </Link>
+       
+        <Link href="/aboutUs" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          About Us
+        </Link>
+        {/* <Link href="/schedules" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Schedules
+        </Link> */}
+        {/* <Link href="/services" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Service
+        </Link>
+        <Link href="/activities" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+         Activity
+        </Link>
+        <Link href="/contact" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+         Contact Us
+        </Link> */}
+        </Typography>
+        </Box>
+        <Box>
+        <Typography variant="body1" sx={{display:"flex",flexDirection:"column", }}>
+        {/* <Link href="/home" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Home
+        </Link>
+       
+        <Link href="/aboutUs" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          About Us
+        </Link> */}
+        <Link href="/schedules" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Schedules
+        </Link>
+         <Link href="/services" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+          Service
+        </Link>
+       {/* <Link href="/activities" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+         Activity
+        </Link>
+        <Link href="/contact" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+         Contact Us
+        </Link> */}
+        </Typography>
+        </Box>
+        <Box>
+        <Typography variant="body1" sx={{display:"flex",flexDirection:"column", }}>
+        {/* <Link href="/home" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
           Home
         </Link>
        
@@ -37,10 +101,10 @@ const Footer: React.FC = () => {
         </Link>
         <Link href="/schedules" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
           Schedules
-        </Link>
-        <Link href="/services" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
+        </Link> */}
+        {/* <Link href="/services" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
           Service
-        </Link>
+        </Link> */}
         <Link href="/activities" color="inherit" sx={{ mb: 1,textDecoration:"none",fontWeight:"700", }}>
          Activity
         </Link>
@@ -49,6 +113,8 @@ const Footer: React.FC = () => {
         </Link>
         </Typography>
         
+        </Box>
+     
       </Box>
       <Typography variant="body1" >
         &copy; {new Date().getFullYear()} Borås Kristna Center. All rights
@@ -64,7 +130,7 @@ const Footer: React.FC = () => {
           Terms of Service
         </Link>
 
-        <Link href="#" color="inherit" sx={{ mx: 1 }}>
+        <Link href="/contact" color="inherit" sx={{ mx: 1 }}>
           Contact Us
         </Link>
         </Typography>

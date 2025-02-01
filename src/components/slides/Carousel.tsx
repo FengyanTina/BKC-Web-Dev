@@ -5,17 +5,18 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./slide.css";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
-import { HighlightEvent } from "../../models/Event";
+
 import { useState } from "react";
 import EventDetailsModal from "../forms/EventDetailModel";
+import { CalendarEvent } from "../../models/CalendarEvent";
 
-const Carousel = ({ events }: { events: HighlightEvent[] }) => {
-  const [selectedEvent, setSelectedEvent] = useState<HighlightEvent | undefined>(
+const Carousel = ({ events }: { events: CalendarEvent[] }) => {
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent| undefined>(
     undefined
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSlideClick = (event: HighlightEvent) => {
+  const handleSlideClick = (event: CalendarEvent) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
   };
@@ -28,11 +29,11 @@ const Carousel = ({ events }: { events: HighlightEvent[] }) => {
     let imageUrl: string | undefined;
 
     // Handle different cases for `event.image`
-    if (typeof event.image === "string") {
-      imageUrl = event.image;
-    } else if (Array.isArray(event.image)) {
+    if (typeof event.imgUrl === "string") {
+      imageUrl = event.imgUrl;
+    } else if (Array.isArray(event.imgUrl)) {
       imageUrl =
-        typeof event.image[0] === "string" ? event.image[0] : undefined;
+        typeof event.imgUrl  === "string" ? event.imgUrl : undefined;
     }
 
     return (
@@ -43,7 +44,7 @@ const Carousel = ({ events }: { events: HighlightEvent[] }) => {
       >
         {imageUrl && <img src={imageUrl} alt={event.title} />}{" "}
         <h2>{event.title}</h2>
-        {event.startTime && <h5>{event.startTime}</h5>}
+        {event.start && <h5>{event.start}</h5>}
         {event.location && <h5>{event.location}</h5>}
         {event.description && <p  className="description">{event.description}</p>}{" "}
       </SwiperSlide>

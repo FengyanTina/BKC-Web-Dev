@@ -15,7 +15,6 @@ import SectionLine from "../components/pageSections/SectionLine";
 import {
   higlightEvents,
   newHere,
-  news,
   socialMediaActivityCardInfor,
   activityCardInfor,
   sundayServiceCardInfor,
@@ -24,7 +23,6 @@ import {
 import Carousel from "../components/slides/Carousel";
 import NewHereSectionGrid from "../components/pageSections/NewHereSection";
 import ImageInforCardSection from "../components/pageSections/ImageInforCardSection";
-import SlickSlider from "../components/slides/SlickSlider";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
 import MyMap from "../apis/GoogleMap";
@@ -33,7 +31,7 @@ import InstagramEmbed from "../components/instagram/InstagramEmbed";
 
 const StartPage = () => {
   const [openMap, setOpenMap] = useState(false);
-
+  const [hasInstagramContent, setHasInstagramContent] = useState(false);
   const handleOpenMap = () => {
     setOpenMap(true);
   };
@@ -109,7 +107,7 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center",
           width: "100%",
-          
+
           ...(isSmallScreen
             ? {} // No backgroundImage for small screens
             : {
@@ -123,17 +121,16 @@ const StartPage = () => {
         }}
       >
         {isSmallScreen && (
-            
           <img
             src={smallSreenBackImg}
             alt="background image"
             style={{
-                width: "100%",
-                height: "60%", // Use full height of the container
-             // Prevent it from exceeding the intended height
-                objectFit: "cover",
-                objectPosition: "center",
-              }}
+              width: "100%",
+              height: "60%", // Use full height of the container
+              // Prevent it from exceeding the intended height
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
           />
         )}
       </Box>
@@ -248,12 +245,19 @@ const StartPage = () => {
           buttonText={homeGroupActivityCardInfor.buttonText}
         /> */}
       </Box>
-      {/* --------------NEWS SLIDES----------- */}
-      <SectionLine text="Instagram Aktivitet" />
-        
-      <InstagramEmbed />
-    
-      <Box
+      {/* --------------NEWS SLIDES/Instagram Activities----------- */}
+
+      {hasInstagramContent && (
+      <>
+        <SectionLine text="Instagram Aktivitet" />
+      </>
+    )}
+
+<InstagramEmbed setHasContent={setHasInstagramContent} />
+
+   
+
+      {/* <Box
         sx={{
           width: "100%",
           display: "flex",
@@ -263,8 +267,7 @@ const StartPage = () => {
           backgroundColor: "#f0f4f8",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
-      >
-   
+      > */}
         {/* <Box
           sx={{
             backgroundColor: "#f0f4f8",
@@ -274,7 +277,7 @@ const StartPage = () => {
         >
           <SlickSlider  />
         </Box> */}
-      </Box>
+      {/* </Box> */}
     </Box>
   );
 };

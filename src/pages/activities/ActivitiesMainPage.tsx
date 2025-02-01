@@ -6,18 +6,19 @@ import Home from "../../assets/homeGroup.jpg";
 import {
   BKCkYouth,
   BKCkIDS2,
-  news,
+ 
   SundaySchoolImageGallary,
 } from "../../data.ts";
 import SudaySchoolImageGallary from "../../components/imageManagements/ImageGallaryWithColsRows.tsx";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import videoFile from "../../assets/istockphoto-987329642-640_adpp_is.mp4";
-import SlickSlider from "../../components/slides/SlickSlider.tsx";
-//import PageTextPart from "../../components/cards/PageText.tsx";
 import TeamIntroCard from "../../components/cards/TeamIntroCard.tsx";
 import ImageInforSectionText from "../../components/cards/ImageInforSectionText.tsx";
+import InstagramEmbed from "../../components/instagram/InstagramEmbed.tsx";
+import { useState } from "react";
 
 export default function ActivitiesMainPage() {
+    const [hasInstagramContent, setHasInstagramContent] = useState(false);
   return (
     <Box sx={{ 
         marginTop:{
@@ -28,7 +29,16 @@ export default function ActivitiesMainPage() {
         }, 
          backgroundColor: "#f0f4f8" }}>
       <div id="groups"></div>
-      <Box
+
+      {hasInstagramContent && (
+      <>
+    <InstagramEmbed  setHasContent={setHasInstagramContent} />
+      </>
+    )}
+
+   
+    
+      {/* <Box
         style={{
           display: "flex",
           flexDirection: "column",
@@ -37,7 +47,7 @@ export default function ActivitiesMainPage() {
         }}
       > 
           <SlickSlider events={news} />
-      </Box>
+      </Box> */}
       {/* --------------ACTIVITIES-BKC Kids----------- */}
       <div id="sundaySchool"></div>
       <SectionLine text="BKC Barn" />

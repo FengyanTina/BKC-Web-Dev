@@ -3,7 +3,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useRef, useState } from "react";
-import { HighlightEvent } from "../../models/Event";
 import EventDetailsModal from "../forms/EventDetailModel";
 import { CalendarEvent } from "../../models/CalendarEvent";
 import { useEvents } from "../../context/EventContext";
@@ -55,9 +54,7 @@ function SlickSlider( ) {
     setIsModalOpen(false);
     setSelectedEvent(undefined);
   };
-  const getImageUrl = (filename: string | undefined) => {
-    return filename ? `/images/${filename}` : ""; // This will resolve to /images/filename.jpg
-  };
+ 
   const displayImages = newsEvents.map((event, i) => (
     <div key={i} className="slide" onClick={() => handleSlideClick(event)}>
       <div

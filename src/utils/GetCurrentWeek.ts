@@ -28,7 +28,9 @@ export const getCurrentWeek = () => {
   
       // Format the date as "DD/MM"
       const formattedDate = date.toLocaleDateString("sv-SE", dateOptions);
-      const dayEvents = events.filter((event) => {
+    
+      const dayEvents = events
+      .filter((event) => {
         // Assuming event.date is in ISO format (YYYY-MM-DD)
         const eventDate = new Date(event.start);
         return (
@@ -36,13 +38,27 @@ export const getCurrentWeek = () => {
           eventDate.getMonth() === date.getMonth() &&
           eventDate.getDate() === date.getDate()
         );
-      });
+      })
+      .map((event) => ({
+        title: event.title,
+        starTime: new Date(event.start).toLocaleTimeString("sv-SE", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false, // Ensures 24-hour format
+        }),
+        endTime: new Date(event.end).toLocaleTimeString("sv-SE", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false, // Ensures 24-hour format
+          }),
+      }));
   
       // Return both the formatted date and the corresponding day name in Swedish
       return {
         date: formattedDate,
+     
         dayName: daysInSwedish[date.getDay()], // Get day name using current day of the week index 
-        events: dayEvents.map((event) => event.title),
+        events: dayEvents,
       };
     });
   };

@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./form.css";
 import { Box,  DialogActions, Slider } from "@mui/material";
 import Button from '@mui/material/Button';
-import { HighlightEvent } from "../../models/Event";
 import { CalendarEvent } from "../../models/CalendarEvent";
 
 // interface EventDetailsModalProps {
