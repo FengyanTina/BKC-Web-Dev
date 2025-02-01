@@ -25,6 +25,11 @@ const Sidebar = ({
   const titleColumnSize = isAdmin ? 2 : 3;
   const locationColumnSize = isAdmin ? 3 : 3;
   const actionColumnSize = isAdmin ? 3 : 2;
+  const sortedEvents = events.sort((a, b) => {
+    const dateA = new Date(a.start);
+    const dateB = new Date(b.start);
+    return dateA.getTime() - dateB.getTime(); // descending order
+  });
 
   return (
     <div className="demo-app-sidebar">
@@ -53,7 +58,7 @@ const Sidebar = ({
             </Grid>
           </Grid>
           {/* Event Rows */}
-          {events.map((event) => (
+          {sortedEvents.map((event) => (
             <SidebarEvent
               key={event.id}
               event={event}
