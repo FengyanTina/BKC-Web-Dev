@@ -15,7 +15,12 @@ const SectionLine = ({ text, useWhiteStroke}: Props) => {
         alignItems: "center",
         textAlign: "center",
         width: "100vw",
-        py:8,
+        py:{
+            xs:4,
+            sm:4,
+            md:8,
+            lg:8,
+        }
         
       }}
     >

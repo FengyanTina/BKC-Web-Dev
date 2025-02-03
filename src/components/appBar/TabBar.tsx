@@ -27,7 +27,7 @@ export default function TabBar() {
   const navigate = useNavigate();
   const location = useLocation();
   //const currentTab = location.pathname;
-  const currentTab = location.pathname === '/' ? '/home' : location.pathname;
+  const currentTab = location.pathname === "/" ? "/home" : location.pathname;
   const { currentDevUser, logout } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [logOutFormOpen, setlogOutFormOpen] = useState(false);
@@ -93,12 +93,17 @@ export default function TabBar() {
           >
             <MenuIcon />
           </IconButton>
-<Box sx={{ml:2}}>
-          <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-            {" "}
-            Borås Kristna Center
-          </Typography></Box>
-         
+          <Box sx={{ ml: 2 }}>
+            <Typography variant="h5" sx={{
+        fontWeight: "bold",
+        whiteSpace: "nowrap", // Prevents wrapping
+        fontSize: { sm: "1.5rem", md: "1.7rem", lg: "2rem" }, // Adjust font size dynamically
+      }}>
+              {" "}
+              Borås Kristna Center
+            </Typography>
+          </Box>
+
           <Box
             sx={{
               display: { lg: "flex", md: "none", sm: "none", xs: "none" },
@@ -107,10 +112,10 @@ export default function TabBar() {
               justifyContent: "center", // Center the MenuItems
               flexGrow: 1, // Allow the Box to grow to occupy space and center its content
               "&:focus": { outline: "none" },
-            ml:{
-                lg:10,
-                xl:50,
-            }
+              ml: {
+                lg: 10,
+                xl: 50,
+              },
             }}
           >
             <Tabs
@@ -118,7 +123,6 @@ export default function TabBar() {
               onChange={handleChange}
               aria-label="secondary tabs"
               sx={{
-               
                 "& .MuiTabs-indicator": {
                   backgroundColor: "#00acc1",
                 },
