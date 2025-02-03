@@ -19,7 +19,12 @@ const TopImageSectionCard = ({
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box sx={{ flexGrow: 1, width: { lg: "70%", md: "100%", sm: "100%" } }}>
+    <Box sx={{ flexGrow: 1, width: { lg: "70%", md: "100%", sm: "100%" },pb: {
+        xs:0,
+        sm:0,
+        md:3,
+        lg:3,
+    } }}>
       <Grid container spacing={{ md: 1 }} columns={{ xs: 1, sm: 12, md: 12 }}>
         {!isSmallOrMediumScreen && (
           <>

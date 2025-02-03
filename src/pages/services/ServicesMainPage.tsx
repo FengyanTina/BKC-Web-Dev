@@ -105,8 +105,7 @@ export default function ServicesMainPage() {
       <SectionLine text="hitta din vision" />
       <Box
       sx={{
-       
-        marginBottom: "30px",
+      
         display: "flex",
         justifyContent: "center",
         flexDirection: "column",

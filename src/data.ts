@@ -378,7 +378,7 @@ export const BKCkIDS2:CardTextSectionModel = {
     },
     {
       label: "BKC Ung",
-      url: "https://example.com/register",
+      url: "#youth",
     },
     
   ]    
