@@ -421,11 +421,11 @@ export const ourVisionText = [
   ];
   export const contectText = [
    
-    "Skriva direkt här!",
-    "Vi ska svarå så smart som möjlight!",
+   
+    "Vi svarar så snart som möjlight.",
   
-    "Du kan bara rigna oss också.",
+    "Du kan också ringa eller skicka SMS till oss.",
   
-    "Varmt välkommen att besöka oss!",
+    "Varmt välkommen att höra av dig.",
   
   ];

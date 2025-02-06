@@ -47,11 +47,7 @@ export default function  ImageInforSectionText({
             sx={{
               color: "text.secondary",
               fontSize: 18,
-              WebkitLineClamp: 1,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              display: "-webkit-box",
-              WebkitBoxOrient: "vertical",
+             
             }}
           >
             {category}
@@ -63,11 +59,7 @@ export default function  ImageInforSectionText({
           component="div"
           sx={{
             mb: 1,
-            WebkitLineClamp: 1,
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
+            
           }}
         >
           {title}
@@ -77,11 +69,7 @@ export default function  ImageInforSectionText({
             color: "text.secondary",
             mb: 1.5,
             fontSize: 18,
-            WebkitLineClamp: 1,
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
+           
           }}
         >
           {subtitle}
@@ -93,11 +81,7 @@ export default function  ImageInforSectionText({
               variant="body2"
               sx={{
                 width: "100%",
-                WebkitLineClamp: 5,
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                display: "-webkit-box",
-                WebkitBoxOrient: "vertical",
+               
                 fontSize: 18,
               }}
             >

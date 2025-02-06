@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         // backgroundColor: "transparent",
         backgroundColor: "#202A44",
         color: "#CED9E5",
-        padding: "20px",
+        py: "20px",
         textAlign: "center",
         bottom: 0,
         left: 0,
@@ -152,7 +152,11 @@ const Footer: React.FC = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          flexDirection: "row",
+          flexDirection:{
+            xs:"column",
+            sm:"column",
+            md:"row",
+          } ,
           gap: "40px",
         }}
       >
@@ -170,9 +174,7 @@ const Footer: React.FC = () => {
             Terms of Service
           </Link>
 
-          <Link href="/contact" color="inherit" sx={{ mx: 1 }}>
-            Contact Us
-          </Link>
+         
         </Typography>
       </Box>
     </Box>
