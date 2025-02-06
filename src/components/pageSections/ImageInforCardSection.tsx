@@ -8,7 +8,8 @@ const ImageInforCardSection = ({
   inforSectionId,
   title,
   category,
-  startTime,
+  start,
+  end,
   location,
   subtitle,
   description,
@@ -91,7 +92,8 @@ const ImageInforCardSection = ({
             id={inforSectionId}
             category={category}
             title={title}
-            startTime={startTime}
+            start={start}
+            end={end}
             location={location}
             subtitle={subtitle}
             description={description}

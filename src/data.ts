@@ -148,7 +148,7 @@ export const higlightEvents:CalendarEvent[] = [
     inforSectionId:"",
     title: "-Vad göra på en söndag? ",
     subtitle:"Välkommen till vår kyrka nu på söndag!",
-    startTime:new Date(2024, 9, 22, 14, 30),
+    start:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundayService,
     description:"Vi är en bibeltroende kyrka mitt i Borås, som älskar Jesus!",
     images:Varvision,
@@ -159,7 +159,7 @@ export const higlightEvents:CalendarEvent[] = [
     inforSectionId:"",
     title: "Aktiviteter",
     subtitle:"Hitta aktiviteter för både vuxna, ungdomar och små barn",
-    startTime:new Date(2024, 9, 22, 14, 30),
+    start:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundaySchoole,
     description:" - BKC-Kids är för barn mellan 2-12 år. Barnens egna gudstjänst..\n- BKC-Ung för dig mellan 13-20 år. Då stavas en perfekt fredag BKC-UNG. Varje fredag ses vi för både häng och snack om Jesus och bibeln.\n - Seniorerna är de i församlingen som är 60+\nKom med du också!",
     images:ungWorship ,
@@ -171,7 +171,7 @@ export const higlightEvents:CalendarEvent[] = [
     inforSectionId:"",
     title: "Vår Schema",
     subtitle:"Hitta tider för alla aktiviteter och jänster",
-    startTime:new Date(2024, 9, 22, 14, 30),
+    start:new Date(2024, 9, 22, 14, 30),
     category: EventCategory.YouthService,
     description:"Välkommen att ta del av våra gudstjänster, aktiviteter och gemenskap! Vi har regelbundna samlingar för alla åldrar. Besök vår kalender för att se kommande evenemang och hitta en tid som passar dig. Vi ser fram emot att träffa dig!",
     images:Bible,
@@ -264,7 +264,8 @@ export const findYourVision = {
 
   export const sundayServiceSection  = {
     id: "1",
-    startTime: new Date(2024, 9, 30, 17, 30),
+    startTime: new Date(2024, 9, 30, 11,),
+    endTime: new Date(2024, 9, 30, 13,),
   
     location:"BKC",  // October 22, 2024, 2:30 PM
     title: "Välkommen till vår söndagsgudstjänst!",
@@ -272,8 +273,8 @@ export const findYourVision = {
     category:EventCategory.SundayService,
     images: ungWorship,
     description:
-      "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our pastor, David Byman. Each service lasts around 90 minutes.\n\n Day: Sunday 11:00-13:00",
-      buttontex:"",
+      "Engelsk simultanöversättning finns tillgänglig för gudstjänsterna på söndagar. Tankeväckande och engagerande budskap baserade på Bibeln från vår pastor, David Byman. Varje gudstjänst varar i cirka 90 minuter.\nLive English simultaneous translation is available for the Sunday services.",
+     
       links:[
           
           {
@@ -292,7 +293,7 @@ export const findYourVision = {
   subtitle: "We want to pray for you!",
   images: Prayer,
   description:
-    "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our pastor, David Byman. Each service lasts around 90 minutes. Engaging worship music. Come as you are. There is no dress code.",
+    "Känner du att du behöver förbön? Tveka inte att kontakta oss eller skicka in din bönelista. Vi vill gärna be för dig och stå tillsammans med dig i bön. Vi tror på Guds kraft att förändra liv och svara på böner.\nVår bön är att du ska uppleva Guds närvaro och styrka i varje situation. Skicka gärna din bön till oss, vi ser fram emot att lyfta dig och dina behov i våra böner.",
     buttontext:"",
     links:[
         
@@ -306,16 +307,17 @@ export const findYourVision = {
 
   export const baptismService = {
     id:"102",
-    title: "Want to be baptized?",
+    title: "Vill du bli döpt?",
+    subtitle:"Want to be baptized?",
     linkSubtitle: "Register Here",
-    description:"Learn what is the meaning of baptism",
+    description:"Vi erbjuder dopservice för alla som känner ett kall att bli döpta. Dopet är ett viktigt steg i den kristna tron och ett offentligt uttryck för din tro på Jesus Kristus. Om du känner att du vill ta detta steg, tveka inte att kontakta oss. Vi hjälper gärna till att ordna en dopgudstjänst för dig och stöder dig på din resa i tron.\nKontakta oss för mer information och för att planera din dopceremoni. Vi ser fram emot att vara en del av denna speciella händelse i ditt liv!",
    
     image: Mission,
     buttontex:"",
     links:[
         
         {
-            label: "Contact Us Here",
+            label: "Kontakta oss här",
             url: "/contact",
           }, 
     
@@ -366,11 +368,11 @@ export const SundaySchoolImageGallary:ImageGallaryItemData [] = [
 ];
 export const BKCkIDS2:CardTextSectionModel = {
     id:"kids",
-      title:"Sunday School",
+      title:"Söndagsskola",
       subtitle: "Lets kids come to the Lord",
-      description:"They learn the word, while having fun. In Swedish, they build their little community, and grow together as part of the church family,\n\n Day: Sunday ", 
-      startTime: new Date(2024, 9, 30, 12, ),
-      endTime:new Date(2024, 9, 30, 13, 30),
+      description:"Vår söndagsskola erbjuder en trygg och inspirerande plats för barnen att lära känna Gud och växa i sin tro. Vi tror på att varje barn har en speciell plats i Guds hjärta, och vi vill ge dem verktygen att förstå Bibeln på ett roligt och engagerande sätt.\nSöndagsskolan är en plats där barnen får lära sig om Guds kärlek genom lek, sång, berättelser och praktiska aktiviteter. Vi välkomnar alla barn, oavsett ålder, att vara med och upptäcka den kristna tron på sitt eget sätt.\nOm du vill veta mer om vår söndagsskola eller anmäla ditt barn, tveka inte att kontakta oss. Vi ser fram emot att ge ditt barn en trygg och lärorik upplevelse varje söndag! ", 
+      start: new Date(2024, 9, 30, 12, ),
+      end:new Date(2024, 9, 30, 13, 30),
    location:"BKC",  
    links: [
     {
@@ -387,11 +389,11 @@ export const BKCkIDS2:CardTextSectionModel = {
   
 export const BKCkYouth:CardTextSectionModel = {
     id:"youth",
-    title:"Youth Group",
+    title:"Ungdomsgrupp",
     subtitle: "Join Us Every Friday Night",
-    description:" Here you find a group of friends who you can be yourself with while growing in your relationship with God. By joining us in-person you can discover exactly who God intentionally made you to be.\n\n Day: Friday ", 
-    startTime: new Date(2024, 9, 30, 19, 30),
-    endTime: new Date(2024, 9, 30, 21, 30),
+    description:" Vår ungdomsgrupp är en plats för unga människor att växa i sin tro, bygga vänskap och hitta stöd i en gemenskap som värdesätter både individuell och kollektiv utveckling. Vi erbjuder en trygg och öppen miljö där ungdomar kan diskutera tro, livsfrågor och framtidsdrömmar.\nGenom bibliska studier, aktiviteter, evenemang och sociala sammankomster får ungdomarna möjlighet att upptäcka och fördjupa sin relation med Gud, samtidigt som de stärker banden med andra unga i församlingen.\n Om du är ung och vill vara en del av vår ungdomsgrupp eller har frågor, tveka inte att kontakta oss. Vi ser fram emot att välkomna dig till gemenskapen och resan i tron! ", 
+    start: new Date(2024, 9, 30, 19, 30),
+    end: new Date(2024, 9, 30, 21, 30),
 
  location:"BKC",  
 }

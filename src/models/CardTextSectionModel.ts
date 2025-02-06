@@ -6,8 +6,8 @@ export interface CardTextSectionModel extends BaseModel {
     subtitle?: string;
     linkSubtitle?: string;
     buttonText?: string;
-   startTime?:Date;
-   endTime?:Date;
+   start?:Date;
+   end?:Date;
    location?:string;
    buttonLink?:string;
   showStepsLink?:boolean;

@@ -128,7 +128,8 @@ export default function ServicesMainPage() {
       <SectionLine text="Söndagsgudstjänst" />
       < ImageInforCardSection
         inforSectionId=""
-        startTime={sundayServiceSection.startTime}
+        start={sundayServiceSection.startTime}
+        end={sundayServiceSection.endTime}
         location={sundayServiceSection.location}
         id={sundayServiceSection.id}
         title={sundayServiceSection.title}
@@ -137,7 +138,7 @@ export default function ServicesMainPage() {
         images={sundayServiceSection.images}
         category={""}
         imageLeft={false}
-        buttonText={sundayServiceSection.buttontex}
+        buttonText=""
         links={sundayServiceSection.links}
       />
 
@@ -166,7 +167,7 @@ export default function ServicesMainPage() {
         inforSectionId=""
         id={baptismService.id}
         title={baptismService.title}
-        subtitle={""}
+        subtitle={baptismService.subtitle}
         description={baptismService.description}
         images={baptismService.image}
         category={""}

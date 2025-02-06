@@ -131,8 +131,8 @@ export default function ActivitiesMainPage() {
               title={BKCkIDS2.title}
               subtitle={BKCkIDS2.subtitle}
               description={BKCkIDS2.description}
-              startTime={BKCkIDS2.startTime}
-              endTime={BKCkIDS2.endTime}
+              start={BKCkIDS2.start}
+              end={BKCkIDS2.end}
               location={BKCkIDS2.location}
               links={BKCkIDS2.links}
             />
@@ -209,7 +209,7 @@ export default function ActivitiesMainPage() {
             title={BKCkYouth.title}
             subtitle={BKCkYouth.subtitle}
             description={BKCkYouth.description}
-            startTime={BKCkYouth.startTime}
+            start={BKCkYouth.start}
             location={BKCkYouth.location}
           />
         </Grid>
