@@ -46,7 +46,7 @@ const StartPage = () => {
           display: "flex",
           flexDirection: "column",
           marginTop: { xs: "60px", sm: "70px", md: "70px" },
-          backgroundColor: "#CED9E5",
+          backgroundColor: "#CED9E5",//#7089AC
         }}
       >
         <Box
@@ -61,7 +61,7 @@ const StartPage = () => {
         >
           <Link
             style={{
-              color: "grey",
+              color: "#202A44",
               textDecoration: "none",
               fontWeight: "800",
               fontSize: "20px",

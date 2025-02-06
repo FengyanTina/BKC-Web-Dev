@@ -30,34 +30,32 @@ export default function ActivitiesMainPage() {
       <div id="groups"></div>
 
       {!hasInstagramContent && (
-        
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-              gap: "10px",
-              paddingTop: "10px",
-              paddingLeft: "10px",
-            }}
-          >
-            <SocialIcon
-              url="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter"
-              network="youtube"
-              style={{ height: 25, width: 25 }}
-            />
-            <SocialIcon
-              url="https://www.instagram.com/boraskristnacenter/"
-              network="instagram"
-              style={{ height: 25, width: 25 }}
-            />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-start",
+            gap: "10px",
+            paddingTop: "10px",
+            paddingLeft: "10px",
+          }}
+        >
+          <SocialIcon
+            url="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter"
+            network="youtube"
+            style={{ height: 25, width: 25 }}
+          />
+          <SocialIcon
+            url="https://www.instagram.com/boraskristnacenter/"
+            network="instagram"
+            style={{ height: 25, width: 25 }}
+          />
 
-            <SocialIcon
-              url="https://www.facebook.com/BorasKristnaCenter/?locale=sv_SE"
-              network="facebook"
-              style={{ height: 25, width: 25 }}
-            />
-          </Box>
-        
+          <SocialIcon
+            url="https://www.facebook.com/BorasKristnaCenter/?locale=sv_SE"
+            network="facebook"
+            style={{ height: 25, width: 25 }}
+          />
+        </Box>
       )}
       <InstagramEmbed setHasContent={setHasInstagramContent} />
 
@@ -78,15 +76,17 @@ export default function ActivitiesMainPage() {
         sx={{
           width: "100%",
           display: "flex",
+
+          alignItems: "stretch", // Allow items to stretch and fill the
           justifyContent: "center",
           backgroundColor: "#f0f4f8",
           px: 3,
           pb: {
-            xs:0,
-            sm:0,
-            md:3,
-            lg:3,
-        }
+            xs: 0,
+            sm: 0,
+            md: 3,
+            lg: 3,
+          },
         }}
       >
         <Grid
@@ -115,8 +115,12 @@ export default function ActivitiesMainPage() {
             size={{ xs: 12, sm: 12, md: 6 }}
             sx={{
               display: "flex",
-              flexDirection: "column",
-              alignContent: "center",
+              flexGrow: 1, // Ensures it takes available space
+              justifyContent: "flex-start", // Ensure the content aligns to the top
+              alignItems: "flex-start", // Align content to the left
+              alignContent: "flex-start", // Prevents centering of content
+              //   flexDirection: "column",
+              //   alignContent: "center",
               paddingRight: { sm: "10px", md: "100px" },
               paddingLeft: { sm: "10px" },
               marginTop: "30px",
@@ -147,11 +151,11 @@ export default function ActivitiesMainPage() {
           backgroundColor: "#f0f4f8",
           px: 3,
           pb: {
-            xs:0,
-            sm:0,
-            md:3,
-            lg:3,
-        }
+            xs: 0,
+            sm: 0,
+            md: 3,
+            lg: 3,
+          },
         }}
       >
         <Grid

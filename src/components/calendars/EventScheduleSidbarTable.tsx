@@ -6,7 +6,7 @@ import { CalendarEvent } from "../../models/CalendarEvent";
 
 // Sidebar Component
 const Sidebar = ({
- events,
+  events,
   handleEdit,
   handleDelete,
   handleDetailOnTable: handleDetail,
@@ -25,7 +25,16 @@ const Sidebar = ({
   const titleColumnSize = isAdmin ? 2 : 3;
   const locationColumnSize = isAdmin ? 3 : 3;
   const actionColumnSize = isAdmin ? 3 : 2;
-  const sortedEvents = events.sort((a, b) => {
+
+  const today = new Date();
+  const fourWeeksLater = new Date();
+  fourWeeksLater.setDate(today.getDate() + 28);
+
+  const filteredEvents = events.filter((event) => {
+    const eventDate = new Date(event.start);
+    return eventDate >= today && eventDate <= fourWeeksLater;
+  });
+  const sortedEvents = filteredEvents.sort((a, b) => {
     const dateA = new Date(a.start);
     const dateB = new Date(b.start);
     return dateA.getTime() - dateB.getTime(); // descending order
@@ -34,7 +43,7 @@ const Sidebar = ({
   return (
     <div className="demo-app-sidebar">
       <div className="demo-app-sidebar-section">
-        <h2>All Events ({events.length})</h2>
+        <h2>Evenemang de kommande 4 veckorna ({events.length})</h2>
         <Paper
           elevation={1}
           style={{ marginBottom: "30px", backgroundColor: "#d0d8e0" }}
@@ -123,7 +132,7 @@ const SidebarEvent = ({
         size={locationColumnSize}
         style={{
           textAlign: "center",
-          overflow: "hidden", 
+          overflow: "hidden",
           whiteSpace: "nowrap", // Prevent text from wrapping to the next line
           textOverflow: "ellipsis",
         }}

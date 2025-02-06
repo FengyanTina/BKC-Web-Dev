@@ -45,16 +45,17 @@ const ImageInforCardSection = ({
       sx={{
         width: "100%",
         display: "flex",
-        alignItems: "center",
+        alignItems: "stretch", // Allow items to stretch and fill the container height{/* Updated */}
+        //   alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#f0f4f8",
         px: 3,
         pb: {
-            xs:0,
-            sm:0,
-            md:3,
-            lg:3,
-        }
+          xs: 0,
+          sm: 0,
+          md: 3,
+          lg: 3,
+        },
       }}
     >
       <Grid
@@ -67,12 +68,13 @@ const ImageInforCardSection = ({
             md: imageLeft ? "row-reverse" : "row",
           },
           maxWidth: 1200,
-
-          alignItems: "center",
+          alignItems: "stretch", // Ensures both the image and text sections stretch{/* Updated */}
+          //   alignItems: "center",
           justifyContent: "center",
+          height: "100%", // Allow the Grid to fill the height{/* Updated */}
         }}
       >
-        {/* Updated */}
+        
         <Grid
           size={{ xs: 12, sm: 12, md: 6 }}
           sx={{

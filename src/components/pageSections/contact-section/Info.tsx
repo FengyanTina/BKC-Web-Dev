@@ -18,7 +18,7 @@ const contactDetails: ContactDetail[] = [
   },
   { value: "+46 0790189720", icon: <PhoneIcon /> },
   { value: " info@bkc.nu", icon: <EmailIcon /> },
-  { value: " PG 53365-3 / Swish 123 6919 278", icon: <CardGiftcardIcon /> },
+  { value: "Ge En Gåva: PG 53365-3 / Swish 123 6919 278", icon: <CardGiftcardIcon /> },
 ];
 
 const renderContactDetails = (): JSX.Element[] =>

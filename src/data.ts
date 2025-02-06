@@ -169,11 +169,11 @@ export const higlightEvents:CalendarEvent[] = [
   export const scheduleCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
-    title: "Our Schedules",
-    subtitle:"BKC Ungdom",
+    title: "Vår Schema",
+    subtitle:"Hitta tider för alla aktiviteter och jänster",
     startTime:new Date(2024, 9, 22, 14, 30),
     category: EventCategory.YouthService,
-    description:"Vi kommer att leva, sova och äta på sommargården Solviken som ligger 5 km utanför Fristad precis vid sjön Ärtingen.  ",
+    description:"Välkommen att ta del av våra gudstjänster, aktiviteter och gemenskap! Vi har regelbundna samlingar för alla åldrar. Besök vår kalender för att se kommande evenemang och hitta en tid som passar dig. Vi ser fram emot att träffa dig!",
     images:Bible,
     buttonText:"Learn More",
   }
@@ -232,7 +232,7 @@ export const higlightEvents:CalendarEvent[] = [
     id:"pastor",
     title:"David Byman",
     subTitle:"Main Pastor",
-    content: "BKC pastor, Blog,\n\nSedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.",
+    content: "\nI november 2018 lämnade pastorsparet Yvonne och Peder Teglund över stafettpinnen i Borås kristna center, en församling de grundat och lett i 30 år, till David och Johanna Byman.– Vi ber att vi ska få vara en plats där vi kan stärka och träna ledare, det har jag med mig i min andliga modersmjölk, säger David.\n I september flyttade David och Johanna Byman till Borås för att ta sig an det nya uppdraget att leda Borås kristna center. Under två månader har David kunnat jobba tillsammans med Peder Teglund, innan David den 18 november formellt tog över pastorsrollen",
     image: DavidB   
     }
 
@@ -247,14 +247,15 @@ export const higlightEvents:CalendarEvent[] = [
 // Tjänster page
 export const findYourVision = {
     id:"103",
-    title: "Want to Serve",
-    description:"You can find your vision and purpose, and serve the Lord in different ways.\n Gifted in music? Sunday Service you can serve the Lord in worship team.\n Have a vision in young children? Want to help the next generation growing in the knowlege of the Bible? \n Recive people or help with fika prepareation, you can share your love and your smile with people coming to church. Give them the bigest welcome to the house of the Lord in the sunday morning .",
+    title: "Vill du tjäna?",
+    subtitle: "You can serve the Lord in many different ways!",
+    description:"Upptäck din kallelse och tjäna Herren på ett sätt som passar dina gåvor och din passion.\n  Älskar du musik? Var med i lovsångsteamet och prisa Gud genom sång under söndagens gudstjänst.\n Brinner du för barn? Hjälp nästa generation att växa i tro och kunskap om Bibeln. \n Tycker du om att välkomna människor? Hälsa besökare med värme och glädje eller hjälp till med att förbereda fika. Ditt leende och din omtanke kan få alla att känna sig hemma i Herrens hus!",
     
     images:[sundaySchol11,serve1,socialActivity],
     links:[
         
             {
-                label: "Contact Us Here",
+                label: "Kontakta oss här",
                 url: "/contact",
               }, 
         
@@ -266,8 +267,8 @@ export const findYourVision = {
     startTime: new Date(2024, 9, 30, 17, 30),
   
     location:"BKC",  // October 22, 2024, 2:30 PM
-    title: "Welcom to our Sunday Service! ",
-    subTitle: "  Come as you are !",
+    title: "Välkommen till vår söndagsgudstjänst!",
+    subTitle: "Welcom to our Sunday Service!",
     category:EventCategory.SundayService,
     images: ungWorship,
     description:
@@ -276,7 +277,7 @@ export const findYourVision = {
       links:[
           
           {
-              label: "Learn More Schedule",
+              label: "Läs mer om schemat",
               url: "/schedules",
             }, 
       
@@ -287,8 +288,8 @@ export const findYourVision = {
 
   export const prayerService = {
     id:'12',
-  title: "We want to pray for you!",
-  linkSubtitle: "send in your prayer",
+  title: "Vi vill be för dig!",
+  subtitle: "We want to pray for you!",
   images: Prayer,
   description:
     "Live English simultaneous translation is available for theSunday services. Thought-provoking and engaging messages based on the Bible from our pastor, David Byman. Each service lasts around 90 minutes. Engaging worship music. Come as you are. There is no dress code.",
@@ -296,7 +297,7 @@ export const findYourVision = {
     links:[
         
         {
-            label: "Send In Your Prayer",
+            label: "Skicka in din bön",
             url: "/contact",
           }, 
     

@@ -39,6 +39,9 @@ export default function  ImageInforSectionText({
           flexGrow: 1,
           overflow: "hidden",
           paddingLeft: "0",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
         }}
       >
         {category && (
@@ -202,7 +205,7 @@ export default function  ImageInforSectionText({
           ))}
       </Box>
       {buttonLink && (
-        <CardActions>
+        <CardActions style={{ marginTop: 'auto' }}>
           {buttonLink.startsWith("#") || buttonLink.includes("#") ? (
             <HashLink style={{color:"#337f83",fontWeight:"800"}}smooth to={buttonLink}>
               {buttonText}

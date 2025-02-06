@@ -116,6 +116,7 @@ export default function ServicesMainPage() {
       <TopImageSectionCard
         id={findYourVision.id}
         title={findYourVision.title}
+        subtitle={findYourVision.subtitle}
         description={findYourVision.description}
         images={findYourVision.images}
         links={findYourVision.links}
@@ -147,7 +148,7 @@ export default function ServicesMainPage() {
         inforSectionId=""
         id={prayerService.id}
         title={prayerService.title}
-        subtitle={""}
+        subtitle={prayerService.subtitle}
         description={prayerService.description}
         images={prayerService.images}
         category={""}

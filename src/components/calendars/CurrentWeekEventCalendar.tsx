@@ -11,7 +11,7 @@ const Item = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  color: "#424242",
+
 }));
 
 export default function RowAndColumnSpacing() {
@@ -42,8 +42,8 @@ export default function RowAndColumnSpacing() {
           <Grid container columns={12} key={index} size={12}>
             <Grid size={3}>
               <Item>
-                <Typography>{day.date}</Typography>
-                <Typography>{day.dayName}</Typography>
+                <Typography  sx={{ fontWeight: "bold", color:"#202A44" }}>{day.date}</Typography>
+                <Typography  sx={{ fontWeight: "bold", color:"#202A44" }}>{day.dayName}</Typography>
               </Item>
             </Grid>
 
@@ -68,10 +68,10 @@ export default function RowAndColumnSpacing() {
                         justifyContent: "space-between",
                       }}
                     >
-                      <Typography sx={{ fontWeight: "bold" }}>
+                      <Typography sx={{ fontWeight: "bold", color:"#202A44" }}>
                         {event.starTime} - {event.endTime}
                       </Typography>
-                      <Typography noWrap>{event.title}</Typography>
+                      <Typography  sx={{ fontWeight: "bold", color:"#202A44" }} noWrap>{event.title}</Typography>
                     </Grid>
                   ))
                 ) : (
