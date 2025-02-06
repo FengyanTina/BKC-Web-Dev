@@ -8,11 +8,9 @@ import {
   Typography,
   Checkbox,
   Button,
-  Link,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 
@@ -77,11 +75,11 @@ const LoginPage = ({ onClose }: LoginPageProp) => {
           </Button>
         </Box>
         <Grid container justifyContent="space-between" sx={{ mt: 1 }}>
-          <Grid>
+          {/* <Grid>
             <Link component={RouterLink} to="/forgot">
               Forgot password?
             </Link>
-          </Grid>
+          </Grid> */}
           <Grid></Grid>
         </Grid>
       </Paper>

@@ -46,7 +46,7 @@ const StartPage = () => {
           display: "flex",
           flexDirection: "column",
           marginTop: { xs: "60px", sm: "70px", md: "70px" },
-          backgroundColor: "#CED9E5",//#7089AC
+          backgroundColor: "#CED9E5", //#7089AC
         }}
       >
         <Box
@@ -248,15 +248,11 @@ const StartPage = () => {
       {/* --------------NEWS SLIDES/Instagram Activities----------- */}
 
       {hasInstagramContent && (
-      <>
-    <SectionLine text="Instagram Aktivitet" />
-      </>
-    )}
-    <InstagramEmbed setHasContent={setHasInstagramContent} />
-
-
-
-   
+        <>
+          <SectionLine text="Instagram Aktivitet" />
+        </>
+      )}
+      <InstagramEmbed setHasContent={setHasInstagramContent} />
 
       {/* <Box
         sx={{
@@ -269,7 +265,7 @@ const StartPage = () => {
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
       > */}
-        {/* <Box
+      {/* <Box
           sx={{
             backgroundColor: "#f0f4f8",
             width: "100%",

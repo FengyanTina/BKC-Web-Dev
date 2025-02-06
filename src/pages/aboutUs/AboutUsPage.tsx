@@ -6,7 +6,6 @@ import ReadMoreDialogs from "../../components/forms/ReadMoreDialog";
 import TopImageSectionCard from "../../components/cards/customizedCards/TopImageSectionCard.tsx";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 
-
 const AboutUsPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(true);
@@ -37,7 +36,6 @@ const AboutUsPage = () => {
         pb: 3,
       }}
     >
-
       <Grid
         container
         sx={{
@@ -252,7 +250,7 @@ const AboutUsPage = () => {
       {/* <SectionLine text="Medlemskap" />
       <Box id="userTable"></Box>
       <UserTable /> */}
-     
+
       <SectionLine text="Vår historia" />
       <Box
         sx={{
