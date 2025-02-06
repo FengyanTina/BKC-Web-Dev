@@ -231,8 +231,8 @@ export const higlightEvents:CalendarEvent[] = [
    export const Pastor= {
     id:"pastor",
     title:"David Byman",
-    subTitle:"Main Pastor",
-    content: "\nI november 2018 lämnade pastorsparet Yvonne och Peder Teglund över stafettpinnen i Borås kristna center, en församling de grundat och lett i 30 år, till David och Johanna Byman.– Vi ber att vi ska få vara en plats där vi kan stärka och träna ledare, det har jag med mig i min andliga modersmjölk, säger David.\n I september flyttade David och Johanna Byman till Borås för att ta sig an det nya uppdraget att leda Borås kristna center. Under två månader har David kunnat jobba tillsammans med Peder Teglund, innan David den 18 november formellt tog över pastorsrollen.",
+    subTitle:"",
+    content: "BKC pastor,\n\nSedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.",
     image: DavidB   
     }
 
