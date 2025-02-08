@@ -26,7 +26,7 @@ export default function SchedulesMainPage() {
         </Box>
         <Box
           sx={{
-            backgroundColor: "#d0d8e0",
+            backgroundColor: "#CED9E5",
             width: "100%",
           }}
         >

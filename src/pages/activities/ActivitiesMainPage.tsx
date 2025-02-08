@@ -141,7 +141,7 @@ export default function ActivitiesMainPage() {
       </Box>
       {/* --------------ACTIVITIES-BKC Youth----------- */}
       <div id="youth"></div>
-      <SectionLine text="BKC Ung" />
+    
       <Box
         sx={{
           width: "100%",
@@ -158,6 +158,7 @@ export default function ActivitiesMainPage() {
           },
         }}
       >
+          <SectionLine text="BKC Ung" />
         <Grid
           container
           spacing={1}
@@ -229,8 +230,19 @@ export default function ActivitiesMainPage() {
             sm: "column",
             xs: "column",
           },
-          gap: "50px",
+          gap: {
+            xs: 0,
+            sm: 0,
+            md: 3,
+            lg: "50px",
+          }, 
           px: 3,
+          pb: {
+            xs: 1,
+            sm: 1,
+            md: 3,
+            lg: 5,
+          },
         }}
       >
         <TeamIntroCard

@@ -22,7 +22,7 @@ export default function TeamIntroCard({
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
   return (
-    <Card sx={{ maxWidth: 400,backgroundColor:"transparent",cursor: "default",
+    <Card sx={{ maxWidth: 400,backgroundColor:"transparent",cursor: "#CED9E5",
         "&:hover": {
           cursor: "default", // Ensure hover does not change the cursor
         }, }}   elevation={0}>
@@ -31,7 +31,7 @@ export default function TeamIntroCard({
           <CardMedia component="img" height="250" image={image} alt="" />
         )}
 
-        <CardContent>
+        <CardContent sx={{color:"#CED9E5"}}>
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
@@ -41,7 +41,7 @@ export default function TeamIntroCard({
           <Typography
             variant="body1"
             sx={{
-              color: "text.secondary",
+              color: "#CED9E5",
               display: "-webkit-box",
               overflow: "hidden",
               WebkitBoxOrient: "vertical",
@@ -54,7 +54,7 @@ export default function TeamIntroCard({
         </CardContent>
       
       <CardActions>
-        <Button size="small" color="primary" onClick={handleOpen}  sx={{ color: "#337f83",fontWeight:"800",textDecoration: "underline", }}>
+        <Button size="small"  onClick={handleOpen}  sx={{ color: "#CED9E5",fontWeight:"800",textDecoration: "underline", }}>
           Read More
         </Button>
       </CardActions>

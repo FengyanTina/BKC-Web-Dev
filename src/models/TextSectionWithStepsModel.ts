@@ -7,7 +7,7 @@ export interface TextSectionWithStepsModel extends BaseModel {
     buttonText?:string;
     images: string | string[]; 
    
-    showStepsLink?:boolean;
+   
     links?:  LinkModel[];
     showAllAsFeatured?: boolean;
     linkSubtitle?: string;

@@ -12,7 +12,8 @@ export interface CardTextSectionModel extends BaseModel {
    buttonLink?:string;
   showStepsLink?:boolean;
    links?: LinkModel[];
-   showSocialIcons?:boolean
+   showSocialIcons?:boolean;
+   maxLines?:number;
   }
 
   interface LinkModel {

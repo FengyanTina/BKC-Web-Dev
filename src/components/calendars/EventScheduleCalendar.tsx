@@ -1,5 +1,5 @@
 import "./calendar.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import { EventClickArg, EventContentArg } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -15,7 +15,6 @@ import { CalendarEvent } from "../../models/CalendarEvent";
 import { generateRepeatEvents } from "../../utils/GenerateRepeatEvent";
 import { useEvents } from "../../context/EventContext";
 import { UserCategory } from "../../models/User";
-import { Theme, Tooltip, useMediaQuery } from "@mui/material";
 
 
 
@@ -30,6 +29,7 @@ const EventScheduleCalendar: React.FC = () => {
   const { events, addEvent, deleteEvent, updateEvent } = useEvents();
   const [isConfirmDeleteOpen, setConfirmDeleteOpen] = useState<boolean>(false);
  const isAdmin = currentDevUser?.category === UserCategory.Admin;
+ 
   const handleDelete = (event: CalendarEvent) => {
     setSelectedEvent(event);
     setConfirmDeleteOpen(true);
@@ -228,52 +228,13 @@ const EventScheduleCalendar: React.FC = () => {
     </div>
   );
 };
-const EventContent: React.FC<{ eventInfo: EventContentArg }> = ({ eventInfo }) => {
-    const isSmallScreen = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
-    const { events, addEvent, deleteEvent, updateEvent } = useEvents();
-    const maxVisible = 2;
-    if (isSmallScreen) {
-        return (
-          <div className="event-text">
-            {events.length > 0 && (
-              <Tooltip
-                title={
-                  events.slice(maxVisible).map((event) => (
-                    <div key={event.id}>
-                      <b>{event.start}</b> - {event.title}
-                    </div>
-                  ))
-                }
-                arrow
-              >
-                <span style={{ color: "blue", fontWeight: "bold" }}>
-                  +{events.length} events
-                </span>
-              </Tooltip>
-            )}
-          </div>
-        );
-      }
-    
-    return (
-      <div className="event-text">
-        {isSmallScreen ? (
-          <Tooltip title={`+${eventInfo.event.extendedProps.moreEventsCount} events`} arrow>
-            <span style={{ color: "blue", fontWeight: "bold" }}>
-              +{eventInfo.event.extendedProps.moreEventsCount} events
-            </span>
-          </Tooltip>
-        ) : (
-          <>
-            <b>{eventInfo.timeText}</b> {/* Display event time */}
-            <i>{eventInfo.event.title}</i> {/* Display event title */}
-          </>
-        )}
-      </div>
-    );
-  };
-  function renderEventContent(eventInfo: EventContentArg) {
-    return <EventContent eventInfo={eventInfo} />;
-  }
+function renderEventContent(eventInfo: EventContentArg) {
+  return (
+    <div className="event-text">
+      <b>{eventInfo.timeText}</b> {/* Display event time */}
+      <i>{eventInfo.event.title}</i> {/* Display event title */}
+    </div>
+  );
+}
 
 export default EventScheduleCalendar;

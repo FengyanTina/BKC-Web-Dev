@@ -5,7 +5,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./slide.css";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
-
 import { useState } from "react";
 import EventDetailsModal from "../forms/EventDetailModel";
 import { CalendarEvent } from "../../models/CalendarEvent";

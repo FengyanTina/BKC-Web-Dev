@@ -46,7 +46,7 @@ const Sidebar = ({
         <h2>Evenemang de kommande 4 veckorna ({events.length})</h2>
         <Paper
           elevation={1}
-          style={{ marginBottom: "30px", backgroundColor: "#d0d8e0" }}
+          style={{ marginBottom: "30px", backgroundColor: "#CED9E5", borderRadius: "10px",padding:10 }}
         >
           <Grid container spacing={0} style={{ padding: "10px" }}>
             {/* Header Row */}
@@ -124,6 +124,7 @@ const SidebarEvent = ({
           overflow: "hidden",
           whiteSpace: "nowrap", // Prevent text from wrapping to the next line
           textOverflow: "ellipsis",
+          
         }}
       >
         {event.title}
@@ -142,7 +143,7 @@ const SidebarEvent = ({
       <Grid size={actionColumnSize} style={{ textAlign: "left" }}>
         <Button
           onClick={() => handleDetail(event)}
-          style={{ color: "#1B365D", marginRight: "5px" }}
+          style={{ color: "#202A44", marginRight: "5px" }}
         >
           Detail
         </Button>

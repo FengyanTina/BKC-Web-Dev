@@ -154,7 +154,13 @@ export const higlightEvents:CalendarEvent[] = [
     category:EventCategory.SundayService,
     description:"Vi är en bibeltroende kyrka mitt i Borås, som älskar Jesus!",
     images:Varvision,
-    buttonText:"Learn More",
+   
+    links:[
+        
+        {
+            label: "Kolla mer här",
+            url: "/services",
+          }, ]
   }
   export const activityCardInfor:ImageInforSectionModel={
     id: "1",
@@ -165,7 +171,13 @@ export const higlightEvents:CalendarEvent[] = [
     category:EventCategory.SundaySchoole,
     description:" - BKC-Kids är för barn mellan 2-12 år. Barnens egna gudstjänst..\n- BKC-Ung för dig mellan 13-20 år. Då stavas en perfekt fredag BKC-UNG. Varje fredag ses vi för både häng och snack om Jesus och bibeln.\n - Seniorerna är de i församlingen som är 60+\nKom med du också!",
     images:ungWorship ,
-    buttonText:"Learn More",
+    buttonText:"Läsa mer",
+    links:[
+        
+        {
+            label: "Kolla mer här",
+            url: "/activities",
+          }, ]
   }
  
   export const scheduleCardInfor:ImageInforSectionModel={
@@ -177,7 +189,13 @@ export const higlightEvents:CalendarEvent[] = [
     category: EventCategory.YouthService,
     description:"Välkommen att ta del av våra gudstjänster, aktiviteter och gemenskap! Vi har regelbundna samlingar för alla åldrar. Besök vår kalender för att se kommande evenemang och hitta en tid som passar dig. Vi ser fram emot att träffa dig!",
     images:Bible,
-    buttonText:"Learn More",
+    
+    links:[
+        
+        {
+            label: "Kolla mer här",
+            url: "/schedules",
+          }, ]
   }
 //   export const homeGroupActivityCardInfor:ImageInforSectionModel={
 //     id: "1",
@@ -237,7 +255,7 @@ export const ourVision:ImageInforSectionModel={
     subtitle:"",
     start:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundayService,
-    description:"Borås Kristna Center vill vi vara:\n– en plats för mötet mellan Gud och människa, en plats där vi ber och tillber Gud \n– en plats där du kan lära känna och utvecklas i den plan Gud har för dig så att du blir hans lärjunge\n– en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.\n.Bibeln beskriver Gud som en Fader. Han älskar och längtar efter en relation med varje människa. Jesus säger att han är vägen, sanningen och livet och var och en som längtar efter livets mening, efter tillvarons själva pulserande centrum, är välkommen in i hans stora famn.\nGud vill inte bara att vi ska kalla oss kristna, värma en stol vid en gudstjänst en gång i veckan och få en andlig upplevelse då och då. Han har mycket mer för oss. Gud har en fantastisk plan för varje människas liv och en uppgift för var och en att utföra, mitt i vardagen. Den vill vi som kyrka hjälpa dig att finna och utvecklas i.\nVarje människa är så dyrbar i Guds ögon och han kan ge frid mitt i stormen och bygga slott av våra livs spillror. Vi tror att Gud kan och vill hela den som är sjuk, läka det som är brustet, skydda den som är svag och lyfta upp den som är nedböjd.",
+    description:"Borås Kristna Center vill vi vara:\n– en plats för mötet mellan Gud och människa, en plats där vi ber och tillber Gud \n– en plats där du kan lära känna och utvecklas i den plan Gud har för dig så att du blir hans lärjunge\n– en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.\nBibeln beskriver Gud som en Fader. Han älskar och längtar efter en relation med varje människa. Jesus säger att han är vägen, sanningen och livet och var och en som längtar efter livets mening, efter tillvarons själva pulserande centrum, är välkommen in i hans stora famn.\nGud vill inte bara att vi ska kalla oss kristna, värma en stol vid en gudstjänst en gång i veckan och få en andlig upplevelse då och då. Han har mycket mer för oss. Gud har en fantastisk plan för varje människas liv och en uppgift för var och en att utföra, mitt i vardagen. Den vill vi som kyrka hjälpa dig att finna och utvecklas i.\nVarje människa är så dyrbar i Guds ögon och han kan ge frid mitt i stormen och bygga slott av våra livs spillror. Vi tror att Gud kan och vill hela den som är sjuk, läka det som är brustet, skydda den som är svag och lyfta upp den som är nedböjd.",
     images:ourvision,
     buttonText:"Read More",
   }
@@ -261,6 +279,7 @@ export const ourVision:ImageInforSectionModel={
       
 // Tjänster page
 export const findYourVision = {
+    inforSectionId:"",
     id:"103",
     title: "Vill du tjäna?",
     subtitle: "You can serve the Lord in many different ways!",
@@ -277,14 +296,15 @@ export const findYourVision = {
     ]
   };
 
-  export const sundayServiceSection  = {
+  export const sundayServiceSection:ImageInforSectionModel  = {
+    inforSectionId:"",
     id: "1",
-    startTime: new Date(2024, 9, 30, 11,),
-    endTime: new Date(2024, 9, 30, 13,),
+    start: new Date(2024, 9, 30, 11,),
+    end: new Date(2024, 9, 30, 13,),
   
     location:"BKC",  // October 22, 2024, 2:30 PM
     title: "Välkommen till vår söndagsgudstjänst!",
-    subTitle: "Welcom to our Sunday Service!",
+    subtitle: "Welcom to our Sunday Service!",
     category:EventCategory.SundayService,
     images: ungWorship,
     description:
@@ -302,14 +322,15 @@ export const findYourVision = {
   };
 
 
-  export const prayerService = {
+  export const prayerService:ImageInforSectionModel = {
+    inforSectionId:"",
     id:'12',
   title: "Vi vill be för dig!",
   subtitle: "We want to pray for you!",
   images: Prayer,
   description:
     "Känner du att du behöver förbön? Tveka inte att kontakta oss eller skicka in din bönelista. Vi vill gärna be för dig och stå tillsammans med dig i bön. Vi tror på Guds kraft att förändra liv och svara på böner.\nVår bön är att du ska uppleva Guds närvaro och styrka i varje situation. Skicka gärna din bön till oss, vi ser fram emot att lyfta dig och dina behov i våra böner.",
-    buttontext:"",
+   
     links:[
         
         {
@@ -320,15 +341,16 @@ export const findYourVision = {
 ]
 };
 
-  export const baptismService = {
+  export const baptismService:ImageInforSectionModel = {
+    inforSectionId:"",
     id:"102",
     title: "Vill du bli döpt?",
     subtitle:"Want to be baptized?",
     linkSubtitle: "Register Here",
     description:"Vi erbjuder dopservice för alla som känner ett kall att bli döpta. Dopet är ett viktigt steg i den kristna tron och ett offentligt uttryck för din tro på Jesus Kristus. Om du känner att du vill ta detta steg, tveka inte att kontakta oss. Vi hjälper gärna till att ordna en dopgudstjänst för dig och stöder dig på din resa i tron.\nKontakta oss för mer information och för att planera din dopceremoni. Vi ser fram emot att vara en del av denna speciella händelse i ditt liv!",
    
-    image: Mission,
-    buttontex:"",
+    images: Mission,
+    
     links:[
         
         {

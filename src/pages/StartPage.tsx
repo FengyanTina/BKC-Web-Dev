@@ -8,7 +8,6 @@ import {
 import Grid from "@mui/material/Grid2";
 import background from "../assets/sundaySchool/bkcWorship.jpg";
 import smallSreenBackImg from "../assets/smallSreenBackImg.jpg";
-
 import { Link } from "react-router-dom";
 import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCalendar";
 import SectionLine from "../components/pageSections/SectionLine";
@@ -103,7 +102,7 @@ const StartPage = () => {
 
       <Box
         sx={{
-          backgroundColor: "#1B365D",//#CED9E5
+          backgroundColor: "#1B365D", //#CED9E5
           display: "flex",
           alignItems: "center",
           width: "100%",
@@ -140,7 +139,7 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center", // Vertically centers the content
           justifyContent: "center",
-          backgroundColor: "#1B365D",//#CED9E5
+          backgroundColor: "#1B365D", //#CED9E5
         }}
       >
         <CurrentWeekEventCalendar />
@@ -153,7 +152,8 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          backgroundColor: "#1B365D",//#dbe1e8
+          backgroundColor: "#1B365D", //#dbe1e8
+          
         }}
       >
         {/* --------------COMMING EVENTS----------- */}
@@ -164,24 +164,22 @@ const StartPage = () => {
         </Box>
 
         {/* --------------WELCOME NEW----------- */}
-        <Box
-        sx={{backgroundColor:"#7089AC"}}>
-
-        
-        <SectionLine text="Välkomna" useWhiteStroke={true} />
-        <NewHereSectionGrid
-          inforSectionId=""
-          id={newHere.id}
-          title={newHere.title}
-          description={newHere.description}
-          images={newHere.images}
-          subtitle={newHere.subtitle}
-        /></Box>
+        <Box sx={{ backgroundColor: "#7089AC" }}>
+          <SectionLine text="Välkomna" useWhiteStroke={true} />
+          <NewHereSectionGrid
+            inforSectionId=""
+            id={newHere.id}
+            title={newHere.title}
+            description={newHere.description}
+            images={newHere.images}
+            subtitle={newHere.subtitle}
+          />
+        </Box>
       </Box>
       {/* --------------ACTIVITIES and Services----------- */}
       {/* #dbe1e8*/}
-      <Box sx={{ backgroundColor: "#1B365D" }}> 
-      <SectionLine text=" Aktiviteter " />
+      <Box sx={{ backgroundColor: "#1B365D", px: 3, }}>
+        <SectionLine text=" Aktiviteter " />
         <ImageInforCardSection
           inforSectionId=""
           id={socialMediaActivityCardInfor.id}
@@ -205,8 +203,7 @@ const StartPage = () => {
           images={sundayServiceCardInfor.images}
           category={""}
           imageLeft={false}
-          buttonLink="/services"
-          buttonText={sundayServiceCardInfor.buttonText}
+          links={sundayServiceCardInfor.links}
         />
 
         {/* --------------ACTIVITIES----------- */}
@@ -221,6 +218,7 @@ const StartPage = () => {
           //   buttonLink={"/activities#sundaySchool"}
           buttonLink={"/activities"}
           buttonText={activityCardInfor.buttonText}
+          links={activityCardInfor.links}
         />
 
         {/* --------------SCHEDULES----------- */}
@@ -234,7 +232,7 @@ const StartPage = () => {
           category={""}
           imageLeft={false}
           buttonLink="/schedules"
-          buttonText={scheduleCardInfor.buttonText}
+          links={scheduleCardInfor.links}
         />
         {/* --------------ACTIVITIES-Groups----------- */}
         {/* <ImageInforCardSection
@@ -252,8 +250,7 @@ const StartPage = () => {
       {/* --------------NEWS SLIDES/Instagram Activities----------- */}
 
       {hasInstagramContent && (
-        <Box
-        sx={{backgroundColor:"#7089AC"}}>
+        <Box sx={{ backgroundColor: "#7089AC" }}>
           <SectionLine text="Instagram Aktivitet" />
         </Box>
       )}

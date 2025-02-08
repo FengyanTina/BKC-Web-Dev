@@ -15,9 +15,8 @@ const ImageInforCardSection = ({
   description,
   images,
   imageLeft = true,
-  buttonLink,
-  buttonText,
   links,
+  maxLines,
   showSocialIcons = false,
 }: ImageInforSectionModel) => {
   const renderImageGallery = () => {
@@ -50,13 +49,8 @@ const ImageInforCardSection = ({
         //   alignItems: "center",
         justifyContent: "center",
     //    backgroundColor: "#f0f4f8",
-        px: 3,
-        pb: {
-          xs: 0,
-          sm: 0,
-          md: 3,
-          lg: 3,
-        },
+        
+       
       }}
     >
       <Grid
@@ -97,8 +91,7 @@ const ImageInforCardSection = ({
             location={location}
             subtitle={subtitle}
             description={description}
-            buttonText={buttonText}
-            buttonLink={buttonLink}
+           maxLines={maxLines}
             showSocialIcons={showSocialIcons}
             links={links}
           />

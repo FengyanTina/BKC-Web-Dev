@@ -34,6 +34,7 @@ export default function ServicesMainPage() {
         backgroundColor: "#1B365D",
         minHeight: "100vh",
         flexGrow: 1,
+        
       }}
     >
       {/* --------------SundayService First Section----------- */}
@@ -120,29 +121,40 @@ export default function ServicesMainPage() {
         description={findYourVision.description}
         images={findYourVision.images}
         links={findYourVision.links}
-        showStepsLink ={false}
+        
       />
       </Box>
+
       {/* --------------SundayService ----------- */}
+      <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+        px: 3, // Ensure this padding is applied correctly
+        width: "100%",
+      }}>
       <div id="sundayService"></div>
       <SectionLine text="Söndagsgudstjänst" />
       < ImageInforCardSection
         inforSectionId=""
-        start={sundayServiceSection.startTime}
-        end={sundayServiceSection.endTime}
+        start={sundayServiceSection.start}
+        end={sundayServiceSection.end}
         location={sundayServiceSection.location}
         id={sundayServiceSection.id}
         title={sundayServiceSection.title}
-        subtitle={sundayServiceSection.subTitle}
+        subtitle={sundayServiceSection.subtitle}
         description={sundayServiceSection.description}
         images={sundayServiceSection.images}
         category={""}
         imageLeft={false}
-        buttonText=""
         links={sundayServiceSection.links}
+        maxLines={4}
       />
 
       {/* --------------PrayerService ----------- */}
+  
       <div id="prayerService"></div>
       <SectionLine text="Bönetjänster" />
       < ImageInforCardSection
@@ -153,13 +165,11 @@ export default function ServicesMainPage() {
         description={prayerService.description}
         images={prayerService.images}
         category={""}
-        //   buttonLink={"/activities#sundaySchool"}
-        buttonLink="/contact"
-        buttonText={prayerService.buttontext}
         links={prayerService.links}
       />
-
+ 
       {/* -------------BaptismService----------- */}
+  
       <SectionLine text="Doptjänster" />
       <div id="baptismService"></div>
 
@@ -169,14 +179,13 @@ export default function ServicesMainPage() {
         title={baptismService.title}
         subtitle={baptismService.subtitle}
         description={baptismService.description}
-        images={baptismService.image}
+        images={baptismService.images}
         category={""}
         imageLeft={false}
-        buttonText={baptismService.buttontex}
-        buttonLink="/contact"
+       
         links={baptismService.links}
       />
-
+ 
       {/*******YoutubeVideoLink***********/}
       <SectionLine text="Servicevideor" />
 
@@ -201,6 +210,7 @@ export default function ServicesMainPage() {
             style={{ height: 30, width: 30 }}
           />
         </Typography>
+        </Box>
       </Box>
     </Box>
   );

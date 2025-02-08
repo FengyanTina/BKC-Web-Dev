@@ -6,22 +6,28 @@ import { formatTime } from "../../utils/FormatDateOrTime";
 import { CardTextSectionModel } from "../../models/CardTextSectionModel";
 import { HashLink } from "react-router-hash-link";
 import { SocialIcon } from "react-social-icons";
-import { Box } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
-export default function  ImageInforSectionText({
+import { useState } from "react";
+import ReadMoreDialogs from "../forms/ReadMoreDialog";
+const MAX_LINES = 8;
+export default function ImageInforSectionText({
   category,
   title,
   subtitle,
   description,
-  buttonText,
   start: startTime,
   end: endTime,
   location,
-  buttonLink,
   links,
   showSocialIcons = false,
+  maxLines = 5,
 }: CardTextSectionModel) {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleOpen = () => setModalOpen(true);
+  const handleClose = () => setModalOpen(false);
+
   return (
     <Card
       sx={{
@@ -29,10 +35,9 @@ export default function  ImageInforSectionText({
         border: "none",
         backgroundColor: "transparent",
         boxShadow: "none",
-        overflow: "hidden",
+
         display: "flex",
         flexDirection: "column",
-        
       }}
     >
       <CardContent
@@ -40,91 +45,67 @@ export default function  ImageInforSectionText({
           flexGrow: 1,
           overflow: "hidden",
           paddingLeft: "0",
-          color:"#CED9E5"
+          color: "#CED9E5",
         }}
       >
         {category && (
           <Typography
             gutterBottom
             sx={{
-            //   color: "text.secondary",
+              //   color: "text.secondary",
               fontSize: 18,
-              color:"#CED9E5",
+              color: "#CED9E5",
             }}
           >
             {category}
           </Typography>
         )}
-       
+
         <Typography
           variant="h5"
           component="div"
           sx={{
             mb: 1,
-            
           }}
         >
           {title}
         </Typography>
         <Typography
           sx={{
-           // color: "text.secondary",
+            // color: "text.secondary",
             mb: 1.5,
             fontSize: 18,
-            color:"#CED9E5",
+            color: "#CED9E5",
           }}
         >
           {subtitle}
         </Typography>
-
-        {description.split("\n").map((paragraph, index) => (
-          <Box key={index} sx={{ display: "block", mb: 2 }}>
-            <Typography
-              variant="body2"
-              sx={{
-                width: "100%",
-                color:"#CED9E5",
-                fontSize: 18,
-              }}
-            >
-              {paragraph}
-            </Typography>
-          </Box>
-        ))}
-
-    <Box
-      sx={{
-        // marginTop: "auto", // Push this section to the bottom
-        marginTop: "30px",
-      }}
-    >
-      {startTime && (
-        <Typography
-          variant="h5"
+        <Box
           sx={{
-            //color: "text.secondary",
-            fontSize:  "20px",
-            color:"#CED9E5",
+            display: "-webkit-box",
+            WebkitLineClamp: maxLines, // Limit to 11 lines
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
           }}
         >
-          <strong>Time: </strong> 
-          {formatTime(startTime)}
-          {endTime && ` - ${formatTime(endTime)}`}{" "}
-          {/* Only render endTime if it exists */}
-        </Typography>
-      )}
-      {location && (
-        <Typography
-          variant="h5"
-          sx={{
-            color:"#CED9E5",
-            fontSize: "20px",
-          }}
-        >
-          <strong>Location:</strong> {location}
-        </Typography>
-      )}
-    </Box>
+          {description.split("\n").map((paragraph, index) => (
+            <Box key={index} sx={{ mb: 2 }}>
+              <Typography
+                variant="body2"
+                sx={{
+                  width: "100%",
+                  color: "#CED9E5",
+                  fontSize: 18,
+                  whiteSpace: "pre-line",
+                }}
+              >
+                {paragraph}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+
         {showSocialIcons && (
           <Box
             sx={{
@@ -154,52 +135,121 @@ export default function  ImageInforSectionText({
           </Box>
         )}
       </CardContent>
-     
-      <Box>
+      <CardActions>
+          <Link
+            onClick={handleOpen}
+            sx={{
+              cursor: "pointer",
+              color: "#CED9E5",
+              fontWeight: "800",
+              textDecoration: "underline",
+              fontSize: "18px",
+              mb:3,
+            }}
+            target="_blank"
+            rel="noopener"
+            // underline="hover"
+          >
+            Läsa Mer
+          </Link>
+        </CardActions>
+        <ReadMoreDialogs
+          open={modalOpen}
+          onClose={handleClose}
+          title={title}
+          subtitle={subtitle}
+          content={description}
+        />
+      <Box
+        sx={{
+          // marginTop: "auto", // Push this section to the bottom
+          
+        }}
+      >
+        {startTime && (
+          <Typography
+            variant="h5"
+            sx={{
+              //color: "text.secondary",
+              fontSize: "18px",
+              color: "#CED9E5",
+            }}
+          >
+            <strong>Time: </strong>
+            {formatTime(startTime)}
+            {endTime && ` - ${formatTime(endTime)}`}{" "}
+            {/* Only render endTime if it exists */}
+          </Typography>
+        )}
+        {location && (
+          <Typography
+            variant="h5"
+            sx={{
+              color: "#CED9E5",
+              fontSize: "18px",
+              mb: 3,
+            }}
+          >
+            <strong>Location:</strong> {location}
+          </Typography>
+        )}
+      </Box>
+      <Box sx={{ marginBottom: links && links.length > 0 ? 5 : 0  }}>
         {links &&
           links.map((link, index) => (
-            <div key={index} style={{ marginBottom: "16px" }}>
+            <div key={index}>
               <Typography
                 variant="h5"
                 sx={{
                   textAlign: "left",
-                  fontSize:  "18px",
+                  fontSize: "18px",
                   lineHeight: 1.5,
-                  color:"#CED9E5",
+                  color: "#CED9E5",
+                  
                 }}
               >
-                <a
-                  href={link.url}
-                  style={{
-                    color:"#CED9E5",
-                    textDecoration: "none",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <ChevronRightIcon
-                    sx={{
-                      fontSize:  "18px",
-                      marginRight: "8px",
-                      color:"#CED9E5",
-                    }} // Customize icon size and spacing
-                  />
-                  {link.label}
-                </a>
+                {link.url.startsWith("#") ? (
+                  <HashLink
+                    style={{
+                      color: "#CED9E5",
+                      fontWeight: "800",
+                      textDecoration: "none",
+                    }}
+                    smooth
+                    to={link.url}
+                  >
+                    <ChevronRightIcon
+                      sx={{
+                        fontSize: "18px",
+                        marginRight: "8px",
+                        color: "#CED9E5",
+                      }} // Customize icon size and spacing
+                    />
+                    {link.label}
+                  </HashLink>
+                ) : (
+                  <a
+                    href={link.url}
+                    style={{
+                      color: "#CED9E5",
+                      textDecoration: "none",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <ChevronRightIcon
+                      sx={{
+                        fontSize: "18px",
+                        marginRight: "8px",
+                        color: "#CED9E5",
+                      }} // Customize icon size and spacing
+                    />
+                    {link.label}
+                  </a>
+                )}
               </Typography>
             </div>
           ))}
       </Box>
-      {buttonLink && (
-        <CardActions>
-          {buttonLink.startsWith("#") || buttonLink.includes("#") ? (
-            <HashLink style={{color:"#CED9E5",fontWeight:"800"}}smooth to={buttonLink}>
-              {buttonText}
-            </HashLink>
-          ) : (
-            <a style={{color:"#CED9E5", fontWeight:"800"}} href={buttonLink}>{buttonText}</a>
-          )}
-        </CardActions>
-      )}
     </Card>
   );
 }
