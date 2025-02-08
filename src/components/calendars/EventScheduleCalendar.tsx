@@ -1,5 +1,5 @@
 import "./calendar.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import { EventClickArg, EventContentArg } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -15,6 +15,9 @@ import { CalendarEvent } from "../../models/CalendarEvent";
 import { generateRepeatEvents } from "../../utils/GenerateRepeatEvent";
 import { useEvents } from "../../context/EventContext";
 import { UserCategory } from "../../models/User";
+import { Theme, Tooltip, useMediaQuery } from "@mui/material";
+
+
 
 const EventScheduleCalendar: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(
@@ -175,7 +178,7 @@ const EventScheduleCalendar: React.FC = () => {
         events={events}
         editable={isAdmin}
         selectMirror={true}
-        dayMaxEvents={true}
+        dayMaxEvents={1}
         eventContent={renderEventContent}
         eventClick={handleEventClick}
         locale={svLocale}
@@ -190,6 +193,10 @@ const EventScheduleCalendar: React.FC = () => {
           omitZeroMinute: false,
           hour12: false, // 24-hour format
         }}
+        height="100%" /* This makes the calendar take full height */
+        contentHeight="auto" /* Adjusts height dynamically based on content */
+        expandRows={true}
+       
       />
       <Sidebar
         events={events}
@@ -221,13 +228,52 @@ const EventScheduleCalendar: React.FC = () => {
     </div>
   );
 };
-function renderEventContent(eventInfo: EventContentArg) {
-  return (
-    <>
-      <b>{eventInfo.timeText}</b> {/* Display event time */}
-      <i>{eventInfo.event.title}</i> {/* Display event title */}
-    </>
-  );
-}
+const EventContent: React.FC<{ eventInfo: EventContentArg }> = ({ eventInfo }) => {
+    const isSmallScreen = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+    const { events, addEvent, deleteEvent, updateEvent } = useEvents();
+    const maxVisible = 2;
+    if (isSmallScreen) {
+        return (
+          <div className="event-text">
+            {events.length > 0 && (
+              <Tooltip
+                title={
+                  events.slice(maxVisible).map((event) => (
+                    <div key={event.id}>
+                      <b>{event.start}</b> - {event.title}
+                    </div>
+                  ))
+                }
+                arrow
+              >
+                <span style={{ color: "blue", fontWeight: "bold" }}>
+                  +{events.length} events
+                </span>
+              </Tooltip>
+            )}
+          </div>
+        );
+      }
+    
+    return (
+      <div className="event-text">
+        {isSmallScreen ? (
+          <Tooltip title={`+${eventInfo.event.extendedProps.moreEventsCount} events`} arrow>
+            <span style={{ color: "blue", fontWeight: "bold" }}>
+              +{eventInfo.event.extendedProps.moreEventsCount} events
+            </span>
+          </Tooltip>
+        ) : (
+          <>
+            <b>{eventInfo.timeText}</b> {/* Display event time */}
+            <i>{eventInfo.event.title}</i> {/* Display event title */}
+          </>
+        )}
+      </div>
+    );
+  };
+  function renderEventContent(eventInfo: EventContentArg) {
+    return <EventContent eventInfo={eventInfo} />;
+  }
 
 export default EventScheduleCalendar;

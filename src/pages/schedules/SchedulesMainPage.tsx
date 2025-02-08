@@ -9,11 +9,11 @@ export default function SchedulesMainPage() {
     <>
       <Box
         sx={{
-          marginTop: {
+          paddingTop: {
             md: "130px",
             xs: "100px",
           },
-          backgroundColor: "#f0f4f8",
+          backgroundColor: "#7089AC",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
@@ -30,7 +30,7 @@ export default function SchedulesMainPage() {
             width: "100%",
           }}
         >
-          <SectionLine text="Evenemangskalender" useWhiteStroke={true} />
+          <SectionLine text="KOMMAND EVENT" useWhiteStroke={true} />
         </Box>
         <Box
           sx={{

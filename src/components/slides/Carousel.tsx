@@ -43,10 +43,10 @@ const Carousel = ({ events }: { events: CalendarEvent[] }) => {
         onClick={() => handleSlideClick(event)}
       >
         {imageUrl && <img src={imageUrl} alt={event.title} />}{" "}
-        <h2>{event.title}</h2>
-        {event.start && <h5>{event.start}</h5>}
-        {event.location && <h5>{event.location}</h5>}
-        {event.description && <p  className="description">{event.description}</p>}{" "}
+        <h2 style={{color: "#CED9E5"}}>{event.title}</h2>
+        {event.start && <h5 style={{color: "#CED9E5"}}>{event.start}</h5>}
+        {event.location && <h5 style={{color: "#CED9E5"}}>{event.location}</h5>}
+        {event.description && <p style={{color: "#CED9E5"}} className="description">{event.description}</p>}{" "}
       </SwiperSlide>
     );
   });

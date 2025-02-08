@@ -14,7 +14,7 @@ export default function NewHereSectionGrid({
       sx={{
         flexGrow: 1,
         backgroundImage: `url(${images})`,
-        backgroundColor: "#CED9E5",
+        
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -84,7 +84,7 @@ export default function NewHereSectionGrid({
               sm: "30px",
               xs: "28px",
             },
-            color: "#1B365D",
+            color: "black",
           }}
         >
           {title}
@@ -103,8 +103,8 @@ export default function NewHereSectionGrid({
               sm: "22px",
               xs: "20px",
             },
-            color: "#1B365D",
-            textShadow: "2px 2px 4px rgba(0,0,0,1)",
+            color: "black",
+           //textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
           {subtitle}
@@ -121,7 +121,7 @@ export default function NewHereSectionGrid({
               sm: "20px",
               xs: "18px",
             },
-            color: "#1B365D",
+            color: "black",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >

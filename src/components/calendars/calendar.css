@@ -1,4 +1,15 @@
+
+.fc {
+    background-color: #CED9E5; /* Light gray background */
+    border-radius: 10px; /* Optional: rounded corners */
+    padding: 5px;
+  
+    
+  }
+
+
 Default styling for prev, next, and today buttons
+
 
   /* Custom size for prev/next icons */
   
@@ -14,12 +25,17 @@ Default styling for prev, next, and today buttons
 /* Target FullCalendar navigation buttons */
 .fc-toolbar button.fc-button {
   background-color: transparent !important; /* Remove background color */
-  color: #007bff !important; /* Set default text/icon color for all buttons */
+  color: #202A44!important; /* Set default text/icon color for all buttons */
   border: none !important; /* Remove border */
   padding: 5px 10px !important; /* Adjust padding */
   font-size: 20px !important; /* Adjust button text/icon size */
   box-shadow: none !important; /* Remove any button shadow */
 }
+ .calendar-container {
+      padding-top: 15px !important; /* Optional padding */
+      color:#202A44 !important;
+      height: 100%;
+    } 
   /* On small screens, reduce the button size */
   @media only screen and (max-width: 768px) {
     .fc-button {
@@ -39,9 +55,7 @@ Default styling for prev, next, and today buttons
   }
 
   @media (min-width: 768px) {
-    .calendar-container {
-      padding: 20px !important; /* Optional padding */
-    }    
+    
   }
   
   /* Adjust styles for very small screens */
@@ -65,4 +79,21 @@ Default styling for prev, next, and today buttons
   }
   .fc-toolbar-title {
     font-size: 30px !important; /* Regular size for larger screens */
+     color: #202A44!important;
+  }
+
+  .event-text {
+    font-size: 16px;
+    word-wrap: break-word; /* Ensures long words break into multiple lines */
+    white-space: normal; /* Ensures the text wraps and doesn't overflow */
+    overflow: hidden; /* Prevents text from overflowing the container */
+    text-overflow: ellipsis; /* Shows ellipsis when text is too long */
+    display: block; /* Ensures the content is block-level for wrapping */
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 600px) {
+    .event-text {
+      font-size: 10px; /* Adjust text size for small screens */
+    }
   }

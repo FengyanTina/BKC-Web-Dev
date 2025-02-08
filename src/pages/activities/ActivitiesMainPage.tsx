@@ -18,13 +18,13 @@ export default function ActivitiesMainPage() {
   return (
     <Box
       sx={{
-        marginTop: {
+        paddingTop: {
           md: "130px",
           xs: "100px",
           px: 3,
           pb: 3,
         },
-        backgroundColor: "#f0f4f8",
+        backgroundColor: "#7089AC",
       }}
     >
       <div id="groups"></div>
@@ -79,7 +79,7 @@ export default function ActivitiesMainPage() {
 
           alignItems: "stretch", // Allow items to stretch and fill the
           justifyContent: "center",
-          backgroundColor: "#f0f4f8",
+         
           px: 3,
           pb: {
             xs: 0,
@@ -148,7 +148,7 @@ export default function ActivitiesMainPage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          backgroundColor: "#f0f4f8",
+          backgroundColor: "#1B365D",
           px: 3,
           pb: {
             xs: 0,

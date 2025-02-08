@@ -49,7 +49,7 @@ const ImageInforCardSection = ({
         alignItems: "stretch", // Allow items to stretch and fill the container height{/* Updated */}
         //   alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f0f4f8",
+    //    backgroundColor: "#f0f4f8",
         px: 3,
         pb: {
           xs: 0,

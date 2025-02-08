@@ -6,8 +6,10 @@ import sundaySchol11 from "./assets/sundaySchol11.jpg";
 import serve1 from "./assets/serve1.png";
 import bibelsko from "./assets/bibelsko.jpg";
 import Varvison from "./assets/Varvision.jpg";
+import ourvision from "./assets/ourvision.jpg";
+
 import Varhistoria from "./assets/Varhistoria.jpg"
-import DavidB from "./assets/DavidB.jpg"
+import davidNew from "./assets/davidNew.jpg"
 import Bible from "./assets/Bible.jpg"
 import Varvision from "./assets/Varvision.jpg"
 import socialActivity from "./assets/socialActivity.jpg"
@@ -228,12 +230,25 @@ export const higlightEvents:CalendarEvent[] = [
 //   ];
 
 // About us page
-   export const Pastor= {
+export const ourVision:ImageInforSectionModel={
+    id: "44",
+    inforSectionId:"",
+    title: "Vår Vision ",
+    subtitle:"",
+    start:new Date(2024, 9, 22, 14, 30),
+    category:EventCategory.SundayService,
+    description:"Borås Kristna Center vill vi vara:\n– en plats för mötet mellan Gud och människa, en plats där vi ber och tillber Gud \n– en plats där du kan lära känna och utvecklas i den plan Gud har för dig så att du blir hans lärjunge\n– en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.\n.Bibeln beskriver Gud som en Fader. Han älskar och längtar efter en relation med varje människa. Jesus säger att han är vägen, sanningen och livet och var och en som längtar efter livets mening, efter tillvarons själva pulserande centrum, är välkommen in i hans stora famn.\nGud vill inte bara att vi ska kalla oss kristna, värma en stol vid en gudstjänst en gång i veckan och få en andlig upplevelse då och då. Han har mycket mer för oss. Gud har en fantastisk plan för varje människas liv och en uppgift för var och en att utföra, mitt i vardagen. Den vill vi som kyrka hjälpa dig att finna och utvecklas i.\nVarje människa är så dyrbar i Guds ögon och han kan ge frid mitt i stormen och bygga slott av våra livs spillror. Vi tror att Gud kan och vill hela den som är sjuk, läka det som är brustet, skydda den som är svag och lyfta upp den som är nedböjd.",
+    images:ourvision,
+    buttonText:"Read More",
+  }
+   export const Pastor:ImageInforSectionModel= {
     id:"pastor",
     title:"David Byman",
-    subTitle:"",
-    content: "BKC pastor,\n\nSedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.",
-    image: DavidB   
+    inforSectionId:"Huvud Pastor",
+    subtitle:"Huvud Pastor",
+    description: "BKC Pastor, sedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.",
+    images:davidNew,
+    buttonText:"Read More" 
     }
 
     export const ourHistory ={

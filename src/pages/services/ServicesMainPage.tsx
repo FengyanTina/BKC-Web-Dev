@@ -31,7 +31,7 @@ export default function ServicesMainPage() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: "#f0f4f8",
+        backgroundColor: "#1B365D",
         minHeight: "100vh",
         flexGrow: 1,
       }}
@@ -185,13 +185,13 @@ export default function ServicesMainPage() {
         <Typography
           variant="h5"
           sx={{
-            color: "black",
+            color: "#CED9E5",
             textAlign: "center",
             marginTop: "10px",
             marginBottom: "40px",
           }}
         >
-          <a href="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter">
+          <a style={{color:"#CED9E5"}} href="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter">
             {" "}
             Check Our Preachings on Youtube{" "}
           </a>{" "}

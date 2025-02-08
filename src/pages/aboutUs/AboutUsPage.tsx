@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Box, Link, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import { ourHistory, Pastor } from "../../data";
+import { ourHistory, ourVision, Pastor } from "../../data";
 import ReadMoreDialogs from "../../components/forms/ReadMoreDialog";
 import TopImageSectionCard from "../../components/cards/customizedCards/TopImageSectionCard.tsx";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
+import ImageInforCardSection from "../../components/pageSections/ImageInforCardSection.tsx";
 
 const AboutUsPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,29 +27,96 @@ const AboutUsPage = () => {
   return (
     <Box
       sx={{
-        marginTop: {
+        paddingTop: {
           md: "130px",
           sm: "75px",
           xs: "60px",
         },
-        backgroundColor: "#f0f4f8",
+        backgroundColor: "#7089AC",
         px: 3,
         pb: 3,
       }}
     >
-      <Grid
+        <Box
+         sx={{
+            marginBottom: "50px",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+          }}>
+        <SectionLine text="Vår Vision" />
+        <ImageInforCardSection
+          inforSectionId=""
+          id={ourVision.id}
+          title={ourVision.title}
+          subtitle={ourVision.subtitle}
+          description={ourVision.description}
+          images={ourVision.images}
+          category={""}
+          imageLeft={false}
+          buttonLink=""
+          buttonText=""
+        />
+        
+        </Box>
+       
+      <Box
+        sx={{
+          marginBottom: "50px",
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+         <SectionLine text="Vår Historia" />
+        <TopImageSectionCard
+          id={ourHistory.id}
+          title={ourHistory.title}
+          description={ourHistory.description}
+          images={ourHistory.images}
+          showStepsLink={false}
+        />
+      </Box>
+      <Box
+            sx={{
+              marginTop: "20px",
+              marginBottom: "50px",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              position: "relative",
+              color:"#CED9E5",
+              overflow: "hidden",
+              width: "100%",
+            }}
+          >
+      <SectionLine text="Vår team" />
+      <ImageInforCardSection
+          inforSectionId=""
+          id={Pastor.id}
+          title={Pastor.title}
+          subtitle={Pastor.subtitle}
+          description={Pastor.description}
+          images={Pastor.images}
+          category={""}
+          //   buttonLink={"/activities#sundaySchool"}
+          buttonLink=""
+          buttonText=""
+        />
+      {/* <Grid
         container
         sx={{
           display: "flex",
           justifyContent: "center",
-          width: "100%", // Full width of the container change to 90%
-          height: "100%",
+          width: "90%", // Full width of the container change to 90%
           flexDirection: {
             md: "row",
             sm: "column",
           },
           marginBottom: "20px",
-
           flexGrow: "1",
         }}
       >
@@ -64,16 +132,16 @@ const AboutUsPage = () => {
             style={{
               width: "100%",
               height: "auto",
-              maxWidth: "550px",
+              maxWidth: "450px",
               objectFit: "cover",
             }}
             src={Pastor.image}
             alt=""
           />
-        </Grid>
-        <Grid
+        </Grid> */}
+        {/* <Grid
           sx={{
-            width: "100%",
+            width: "90%",
             maxHeight: 450,
             display: "flex",
             flexDirection: "column",
@@ -85,7 +153,7 @@ const AboutUsPage = () => {
               sm: "30px",
               xs: "28px",
             },
-            paddingLeft: "0px",
+            
             paddingRight: {
               lg: "100px",
               md: "30px",
@@ -97,7 +165,7 @@ const AboutUsPage = () => {
           <Typography
             sx={{
               marginTop: { xs: "20px", sm: "30px" },
-
+              color:"#CED9E5",
               fontSize: {
                 lg: "25px",
                 md: "25px",
@@ -112,6 +180,7 @@ const AboutUsPage = () => {
           <Typography
             sx={{
               marginTop: "10px",
+              color:"#CED9E5",
               fontSize: {
                 lg: "20px",
                 md: "20px",
@@ -123,17 +192,8 @@ const AboutUsPage = () => {
           >
             {Pastor.subTitle}
           </Typography>
-          <Box
-            sx={{
-              marginTop: "20px",
-
-              position: "relative",
-
-              overflow: "hidden",
-              width: "100%",
-            }}
-          >
-            <Box
+         */}
+            {/* <Box
               sx={{
                 height: "100%",
                 maxHeight: {
@@ -146,9 +206,9 @@ const AboutUsPage = () => {
                 scrollbarWidth: "none", // Firefox
                 "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari
               }}
-            >
+            > */}
               {/* Directly using Box to prevent wrapping issues with Typography */}
-              {Pastor.content.split("\n").map((paragraph, index) => (
+              {/* {Pastor.content.split("\n").map((paragraph, index) => (
                 <Box key={index} sx={{ display: "block", mb: 2 }}>
                   <Typography
                     sx={{
@@ -159,9 +219,9 @@ const AboutUsPage = () => {
                     {paragraph}
                   </Typography>
                 </Box>
-              ))}
-            </Box>
-          </Box>
+              ))} */}
+            {/* </Box> */}
+          
           {/* <Box sx={{ marginTop: "20px" }}>
             <Typography variant="body1">
               <Link
@@ -184,13 +244,13 @@ const AboutUsPage = () => {
               </Link>
             </Typography>
           </Box> */}
-          <Box sx={{ marginTop: "30px" }}>
+          {/* <Box sx={{ marginTop: "30px" }}>
             <Typography variant="body1">
               <Link
                 onClick={handleOpen}
                 sx={{
                   cursor: "pointer",
-                  color: "#337f83",
+                  color:"#CED9E5",
                   fontWeight: "800",
                   textDecoration: "underline",
                   fontSize: "18px",
@@ -202,8 +262,8 @@ const AboutUsPage = () => {
                 Read More
               </Link>
             </Typography>
-          </Box>
-        </Grid>
+          </Box> */}
+        {/* </Grid>
         <ReadMoreDialogs
           open={modalOpen}
           onClose={handleClose}
@@ -211,7 +271,9 @@ const AboutUsPage = () => {
           subtitle={Pastor.subTitle}
           content={Pastor.content}
         />
-      </Grid>
+      </Grid> */}
+      </Box>
+
       {/* <SectionLine text="Ledarskap" /> */}
       {/* <Box
         sx={{
@@ -251,24 +313,7 @@ const AboutUsPage = () => {
       <Box id="userTable"></Box>
       <UserTable /> */}
 
-      <SectionLine text="Vår historia" />
-      <Box
-        sx={{
-          marginBottom: "50px",
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <TopImageSectionCard
-          id={ourHistory.id}
-          title={ourHistory.title}
-          description={ourHistory.description}
-          images={ourHistory.images}
-          showStepsLink={false}
-        />
-      </Box>
+     
     </Box>
   );
 };

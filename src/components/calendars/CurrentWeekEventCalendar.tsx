@@ -42,8 +42,8 @@ export default function RowAndColumnSpacing() {
           <Grid container columns={12} key={index} size={12}>
             <Grid size={3}>
               <Item>
-                <Typography  sx={{ fontWeight: "bold", color:"#202A44" }}>{day.date}</Typography>
-                <Typography  sx={{ fontWeight: "bold", color:"#202A44" }}>{day.dayName}</Typography>
+                <Typography  sx={{ fontWeight: "bold", color:"#CED9E5" }}>{day.date}</Typography>
+                <Typography  sx={{ fontWeight: "bold", color:"#CED9E5" }}>{day.dayName}</Typography>
               </Item>
             </Grid>
 
@@ -66,12 +66,14 @@ export default function RowAndColumnSpacing() {
                         display: "flex",
                         flexDirection: "row",
                         justifyContent: "space-between",
+                       
                       }}
                     >
-                      <Typography sx={{ fontWeight: "bold", color:"#202A44" }}>
+                        {/* //#202A44 */}
+                      <Typography sx={{ fontWeight: "bold", color:"#CED9E5" }}> 
                         {event.starTime} - {event.endTime}
                       </Typography>
-                      <Typography  sx={{ fontWeight: "bold", color:"#202A44" }} noWrap>{event.title}</Typography>
+                      <Typography  sx={{ fontWeight: "bold", color:"#CED9E5" }} noWrap>{event.title}</Typography>
                     </Grid>
                   ))
                 ) : (
@@ -83,7 +85,7 @@ export default function RowAndColumnSpacing() {
 
             <Grid size={12}>
               <Box
-                sx={{ borderBottom: "1px solid #ccc", width: "100%", my: 0 }}
+                sx={{ borderBottom: "1px solid #7089AC", width: "100%", my: 0 }}
               />
             </Grid>
           </Grid>

@@ -45,8 +45,8 @@ const StartPage = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          marginTop: { xs: "60px", sm: "70px", md: "70px" },
-          backgroundColor: "#CED9E5", //#7089AC
+          paddingTop: { xs: "60px", sm: "70px", md: "70px" },
+          backgroundColor: "#1B365D", //#7089AC  #CED9E5
         }}
       >
         <Box
@@ -56,12 +56,12 @@ const StartPage = () => {
             alignItems: "center", // Center horizontally
             textAlign: "center", // Center text content
             marginBottom: { xs: "20px", sm: "40px", md: "40px" },
-            marginTop: { xs: "60px", sm: "70px", md: "70px" },
+            paddingTop: { xs: "60px", sm: "70px", md: "70px" },
           }}
         >
           <Link
             style={{
-              color: "#202A44",
+              color: "#CED9E5", //#202A44
               textDecoration: "none",
               fontWeight: "800",
               fontSize: "20px",
@@ -103,7 +103,7 @@ const StartPage = () => {
 
       <Box
         sx={{
-          backgroundColor: "#CED9E5",
+          backgroundColor: "#1B365D",//#CED9E5
           display: "flex",
           alignItems: "center",
           width: "100%",
@@ -140,7 +140,7 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center", // Vertically centers the content
           justifyContent: "center",
-          backgroundColor: "#CED9E5",
+          backgroundColor: "#1B365D",//#CED9E5
         }}
       >
         <CurrentWeekEventCalendar />
@@ -153,7 +153,7 @@ const StartPage = () => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          backgroundColor: "#dbe1e8",
+          backgroundColor: "#1B365D",//#dbe1e8
         }}
       >
         {/* --------------COMMING EVENTS----------- */}
@@ -164,6 +164,10 @@ const StartPage = () => {
         </Box>
 
         {/* --------------WELCOME NEW----------- */}
+        <Box
+        sx={{backgroundColor:"#7089AC"}}>
+
+        
         <SectionLine text="Välkomna" useWhiteStroke={true} />
         <NewHereSectionGrid
           inforSectionId=""
@@ -172,12 +176,12 @@ const StartPage = () => {
           description={newHere.description}
           images={newHere.images}
           subtitle={newHere.subtitle}
-        />
+        /></Box>
       </Box>
       {/* --------------ACTIVITIES and Services----------- */}
-
-      <SectionLine text=" Aktiviteter och Tjänster" />
-      <Box sx={{ backgroundColor: "#dbe1e8" }}>
+      {/* #dbe1e8*/}
+      <Box sx={{ backgroundColor: "#1B365D" }}> 
+      <SectionLine text=" Aktiviteter " />
         <ImageInforCardSection
           inforSectionId=""
           id={socialMediaActivityCardInfor.id}
@@ -248,9 +252,10 @@ const StartPage = () => {
       {/* --------------NEWS SLIDES/Instagram Activities----------- */}
 
       {hasInstagramContent && (
-        <>
+        <Box
+        sx={{backgroundColor:"#7089AC"}}>
           <SectionLine text="Instagram Aktivitet" />
-        </>
+        </Box>
       )}
       <InstagramEmbed setHasContent={setHasInstagramContent} />
 

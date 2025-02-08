@@ -32,6 +32,7 @@ export default function  ImageInforSectionText({
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
+        
       }}
     >
       <CardContent
@@ -39,15 +40,16 @@ export default function  ImageInforSectionText({
           flexGrow: 1,
           overflow: "hidden",
           paddingLeft: "0",
+          color:"#CED9E5"
         }}
       >
         {category && (
           <Typography
             gutterBottom
             sx={{
-              color: "text.secondary",
+            //   color: "text.secondary",
               fontSize: 18,
-             
+              color:"#CED9E5",
             }}
           >
             {category}
@@ -66,10 +68,10 @@ export default function  ImageInforSectionText({
         </Typography>
         <Typography
           sx={{
-            color: "text.secondary",
+           // color: "text.secondary",
             mb: 1.5,
             fontSize: 18,
-           
+            color:"#CED9E5",
           }}
         >
           {subtitle}
@@ -81,7 +83,7 @@ export default function  ImageInforSectionText({
               variant="body2"
               sx={{
                 width: "100%",
-               
+                color:"#CED9E5",
                 fontSize: 18,
               }}
             >
@@ -100,8 +102,9 @@ export default function  ImageInforSectionText({
         <Typography
           variant="h5"
           sx={{
-            color: "text.secondary",
+            //color: "text.secondary",
             fontSize:  "20px",
+            color:"#CED9E5",
           }}
         >
           <strong>Time: </strong> 
@@ -114,7 +117,7 @@ export default function  ImageInforSectionText({
         <Typography
           variant="h5"
           sx={{
-            color: "text.secondary",
+            color:"#CED9E5",
             fontSize: "20px",
           }}
         >
@@ -162,12 +165,13 @@ export default function  ImageInforSectionText({
                   textAlign: "left",
                   fontSize:  "18px",
                   lineHeight: 1.5,
+                  color:"#CED9E5",
                 }}
               >
                 <a
                   href={link.url}
                   style={{
-                    color: "#337f83",
+                    color:"#CED9E5",
                     textDecoration: "none",
                     fontWeight: "bold",
                   }}
@@ -176,7 +180,7 @@ export default function  ImageInforSectionText({
                     sx={{
                       fontSize:  "18px",
                       marginRight: "8px",
-                      color: "#337f83",
+                      color:"#CED9E5",
                     }} // Customize icon size and spacing
                   />
                   {link.label}
@@ -188,11 +192,11 @@ export default function  ImageInforSectionText({
       {buttonLink && (
         <CardActions>
           {buttonLink.startsWith("#") || buttonLink.includes("#") ? (
-            <HashLink style={{color:"#337f83",fontWeight:"800"}}smooth to={buttonLink}>
+            <HashLink style={{color:"#CED9E5",fontWeight:"800"}}smooth to={buttonLink}>
               {buttonText}
             </HashLink>
           ) : (
-            <a style={{color:"#337f83", fontWeight:"800"}} href={buttonLink}>{buttonText}</a>
+            <a style={{color:"#CED9E5", fontWeight:"800"}} href={buttonLink}>{buttonText}</a>
           )}
         </CardActions>
       )}
