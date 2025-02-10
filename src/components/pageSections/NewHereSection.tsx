@@ -2,11 +2,8 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
-import videoFile from "../../assets/istockphoto-987329642-640_adpp_is.mp4";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ImageInforSectionText from "../cards/ImageInforSectionText";
 export default function NewHereSectionGrid({
-    id,
   title,
   description,
   images,
@@ -135,7 +132,6 @@ export default function NewHereSectionGrid({
             marginTop: "0px",
             paddingTop: "20px",
             paddingBottom: "20px",
-
             maxWidth: "1100px",
             marginLeft: "auto",
             marginRight: "auto",
@@ -149,7 +145,6 @@ export default function NewHereSectionGrid({
             display: "flex", // Ensure flexbox is used
             flexDirection: "column", // Stack items vertically
             height: "100%",
-
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -219,8 +214,7 @@ export default function NewHereSectionGrid({
             </div>
           ))}
             
-          </Box>
-        
+          </Box>  
         </Box>
       </Box>
     </Box>

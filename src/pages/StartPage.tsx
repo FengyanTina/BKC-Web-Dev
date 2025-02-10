@@ -13,7 +13,6 @@ import CurrentWeekEventCalendar from "../components/calendars/CurrentWeekEventCa
 import SectionLine from "../components/pageSections/SectionLine";
 import {
   higlightEvents,
-  newHere,
   socialMediaActivityCardInfor,
   activityCardInfor,
   sundayServiceCardInfor,
@@ -28,7 +27,6 @@ import { useState } from "react";
 import MyMap from "../apis/GoogleMap";
 import CloseIcon from "@mui/icons-material/Close";
 import InstagramEmbed from "../components/instagram/InstagramEmbed";
-import ImageInforSectionText from "../components/cards/ImageInforSectionText";
 
 const StartPage = () => {
   const [openMap, setOpenMap] = useState(false);
@@ -127,8 +125,7 @@ const StartPage = () => {
             alt="background image"
             style={{
               width: "100%",
-              height: "60%", // Use full height of the container
-              // Prevent it from exceeding the intended height
+              height: "60%",
               objectFit: "cover",
               objectPosition: "center",
             }}
@@ -155,7 +152,6 @@ const StartPage = () => {
           alignItems: "center",
           flexDirection: "column",
           backgroundColor: "#1B365D", //#dbe1e8
-          
         }}
       >
         {/* --------------COMMING EVENTS----------- */}
@@ -167,7 +163,7 @@ const StartPage = () => {
 
         {/* --------------WELCOME NEW----------- */}
         <Box sx={{ backgroundColor: "#7089AC" }}>
-          <SectionLine text="Välkomna"  useWhiteStroke={true} />
+          <SectionLine text="Välkomna" useWhiteStroke={true} />
           <NewHereSectionGrid
             inforSectionId=""
             id={newHere1.id}
@@ -177,12 +173,11 @@ const StartPage = () => {
             subtitle={newHere1.subtitle}
             links={newHere1.links}
           />
-       
         </Box>
       </Box>
       {/* --------------ACTIVITIES and Services----------- */}
       {/* #dbe1e8*/}
-      <Box sx={{ backgroundColor: "#1B365D", px: 3,paddingBottom: "50px", }}>
+      <Box sx={{ backgroundColor: "#1B365D", px: 3, paddingBottom: "50px" }}>
         <SectionLine text=" Aktiviteter " useWhiteStroke={true} />
         <ImageInforCardSection
           inforSectionId=""
@@ -238,13 +233,12 @@ const StartPage = () => {
           buttonLink="/schedules"
           links={scheduleCardInfor.links}
         />
-      
       </Box>
       {/* --------------NEWS SLIDES/Instagram Activities----------- */}
 
       {hasInstagramContent && (
         <Box sx={{ backgroundColor: "#7089AC" }}>
-          <SectionLine text="Instagram Aktivitet"  useWhiteStroke={true} />
+          <SectionLine text="Instagram Aktivitet" useWhiteStroke={true} />
         </Box>
       )}
       <InstagramEmbed setHasContent={setHasInstagramContent} />

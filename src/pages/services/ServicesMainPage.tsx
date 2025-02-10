@@ -13,7 +13,7 @@ import { SocialIcon } from "react-social-icons";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import MyMap from "../../apis/GoogleMap.tsx";
 import TopImageSectionCard from "../../components/cards/customizedCards/TopImageSectionCard.tsx";
-import  ImageInforCardSection from "../../components/pageSections/ImageInforCardSection.tsx";
+import ImageInforCardSection from "../../components/pageSections/ImageInforCardSection.tsx";
 
 export default function ServicesMainPage() {
   const [openMap, setOpenMap] = useState(false);
@@ -34,7 +34,6 @@ export default function ServicesMainPage() {
         backgroundColor: "#1B365D",
         minHeight: "100vh",
         flexGrow: 1,
-        
       }}
     >
       {/* --------------SundayService First Section----------- */}
@@ -103,113 +102,114 @@ export default function ServicesMainPage() {
       </Grid>
       {/* -------------FindYourVision----------- */}
       <div id="serve"></div>
-      <SectionLine text="hitta din vision" useWhiteStroke={true}/>
+      <SectionLine text="hitta din vision" useWhiteStroke={true} />
       <Box
-      sx={{
-      
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        px:3,
-      }}>
-
-      <TopImageSectionCard
-        id={findYourVision.id}
-        title={findYourVision.title}
-        subtitle={findYourVision.subtitle}
-        description={findYourVision.description}
-        images={findYourVision.images}
-        links={findYourVision.links}
-        
-      />
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+          px: 3,
+        }}
+      >
+        <TopImageSectionCard
+          id={findYourVision.id}
+          title={findYourVision.title}
+          subtitle={findYourVision.subtitle}
+          description={findYourVision.description}
+          images={findYourVision.images}
+          links={findYourVision.links}
+        />
       </Box>
 
       {/* --------------SundayService ----------- */}
       <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        px: 3, // Ensure this padding is applied correctly
-        width: "100%",
-      }}>
-      <div id="sundayService"></div>
-      <SectionLine text="Söndagsgudstjänst" useWhiteStroke={true}/>
-      < ImageInforCardSection
-        inforSectionId=""
-        start={sundayServiceSection.start}
-        end={sundayServiceSection.end}
-        location={sundayServiceSection.location}
-        id={sundayServiceSection.id}
-        title={sundayServiceSection.title}
-        subtitle={sundayServiceSection.subtitle}
-        description={sundayServiceSection.description}
-        images={sundayServiceSection.images}
-        category={""}
-        imageLeft={false}
-        links={sundayServiceSection.links}
-        maxLines={4}
-      />
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+          px: 3, // Ensure this padding is applied correctly
+          width: "100%",
+        }}
+      >
+        <div id="sundayService"></div>
+        <SectionLine text="Söndagsgudstjänst" useWhiteStroke={true} />
+        <ImageInforCardSection
+          inforSectionId=""
+          start={sundayServiceSection.start}
+          end={sundayServiceSection.end}
+          location={sundayServiceSection.location}
+          id={sundayServiceSection.id}
+          title={sundayServiceSection.title}
+          subtitle={sundayServiceSection.subtitle}
+          description={sundayServiceSection.description}
+          images={sundayServiceSection.images}
+          category={""}
+          imageLeft={false}
+          links={sundayServiceSection.links}
+          maxLines={4}
+        />
 
-      {/* --------------PrayerService ----------- */}
-  
-      <div id="prayerService"></div>
-      <SectionLine text="Bönetjänster" useWhiteStroke={true} />
-      < ImageInforCardSection
-        inforSectionId=""
-        id={prayerService.id}
-        title={prayerService.title}
-        subtitle={prayerService.subtitle}
-        description={prayerService.description}
-        images={prayerService.images}
-        category={""}
-        links={prayerService.links}
-      />
- 
-      {/* -------------BaptismService----------- */}
-  
-      <SectionLine text="Doptjänster" useWhiteStroke={true}/>
-      <div id="baptismService"></div>
+        {/* --------------PrayerService ----------- */}
 
-      < ImageInforCardSection
-        inforSectionId=""
-        id={baptismService.id}
-        title={baptismService.title}
-        subtitle={baptismService.subtitle}
-        description={baptismService.description}
-        images={baptismService.images}
-        category={""}
-        imageLeft={false}
-       
-        links={baptismService.links}
-      />
- 
-      {/*******YoutubeVideoLink***********/}
-      <SectionLine text="Servicevideor" useWhiteStroke={true}/>
+        <div id="prayerService"></div>
+        <SectionLine text="Bönetjänster" useWhiteStroke={true} />
+        <ImageInforCardSection
+          inforSectionId=""
+          id={prayerService.id}
+          title={prayerService.title}
+          subtitle={prayerService.subtitle}
+          description={prayerService.description}
+          images={prayerService.images}
+          category={""}
+          links={prayerService.links}
+        />
 
-      {/* <YouTubePlaylists/>     */}
-      <Box sx={{ marginBottom: "40px", marginTop: "20px" }}>
-        <Typography
-          variant="h5"
-          sx={{
-            color: "#CED9E5",
-            textAlign: "center",
-            marginTop: "10px",
-            marginBottom: "40px",
-          }}
-        >
-          <a style={{color:"#CED9E5"}} href="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter">
-            {" "}
-            Check Our Preachings on Youtube{" "}
-          </a>{" "}
-          <SocialIcon
-            url="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter"
-            network="youtube"
-            style={{ height: 30, width: 30 }}
-          />
-        </Typography>
+        {/* -------------BaptismService----------- */}
+
+        <SectionLine text="Doptjänster" useWhiteStroke={true} />
+        <div id="baptismService"></div>
+
+        <ImageInforCardSection
+          inforSectionId=""
+          id={baptismService.id}
+          title={baptismService.title}
+          subtitle={baptismService.subtitle}
+          description={baptismService.description}
+          images={baptismService.images}
+          category={""}
+          imageLeft={false}
+          links={baptismService.links}
+        />
+
+        {/*******YoutubeVideoLink***********/}
+        <SectionLine text="Servicevideor" useWhiteStroke={true} />
+
+        {/* <YouTubePlaylists/>     */}
+        <Box sx={{ marginBottom: "40px", marginTop: "20px" }}>
+          <Typography
+            variant="h5"
+            sx={{
+              color: "#CED9E5",
+              textAlign: "center",
+              marginTop: "10px",
+              marginBottom: "40px",
+            }}
+          >
+            <a
+              style={{ color: "#CED9E5" }}
+              href="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter"
+            >
+              {" "}
+              Check Our Preachings on Youtube{" "}
+            </a>{" "}
+            <SocialIcon
+              url="https://www.youtube.com/c/Bor%C3%A5sKristnaCenter"
+              network="youtube"
+              style={{ height: 30, width: 30 }}
+            />
+          </Typography>
         </Box>
       </Box>
     </Box>

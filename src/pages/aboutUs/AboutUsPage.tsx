@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import { Box, Link, Typography } from "@mui/material";
-import Grid from "@mui/material/Grid2";
+import { useEffect } from "react";
+import { Box } from "@mui/material";
 import { ourHistory, ourVision, Pastor } from "../../data";
-import ReadMoreDialogs from "../../components/forms/ReadMoreDialog";
 import TopImageSectionCard from "../../components/cards/customizedCards/TopImageSectionCard.tsx";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import ImageInforCardSection from "../../components/pageSections/ImageInforCardSection.tsx";
@@ -57,20 +55,19 @@ const AboutUsPage = () => {
         description={ourHistory.description}
         images={ourHistory.images}
       />
-    
-        <SectionLine text="Vår team" useWhiteStroke={true} />
-        <ImageInforCardSection
-          inforSectionId=""
-          id={Pastor.id}
-          title={Pastor.title}
-          subtitle={Pastor.subtitle}
-          description={Pastor.description}
-          images={Pastor.images}
-          category={""}
-          maxLines={11}
-        />
-     
-    
+
+      <SectionLine text="Vår team" useWhiteStroke={true} />
+      <ImageInforCardSection
+        inforSectionId=""
+        id={Pastor.id}
+        title={Pastor.title}
+        subtitle={Pastor.subtitle}
+        description={Pastor.description}
+        images={Pastor.images}
+        category={""}
+        maxLines={11}
+      />
+
       {/* <SectionLine text="Medlemskap" />
       <Box id="userTable"></Box>
       <UserTable /> */}

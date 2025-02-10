@@ -1,9 +1,13 @@
 import Grid from "@mui/material/Grid2";
 import { Box, Container } from "@mui/material";
-import happySenior from "../../assets/happySenior.jpg";
-import Woman from "../../assets/woman.jpg";
-import Home from "../../assets/homeGroup.jpg";
-import { BKCkYouth, BKCkIDS2, SundaySchoolImageGallary, homeGroup, seniorgroup, womangroup } from "../../data.ts";
+import {
+  BKCkYouth,
+  BKCkIDS2,
+  SundaySchoolImageGallary,
+  homeGroup,
+  seniorgroup,
+  womangroup,
+} from "../../data.ts";
 import SudaySchoolImageGallary from "../../components/imageManagements/ImageGallaryWithColsRows.tsx";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
 import videoFile from "../../assets/istockphoto-987329642-640_adpp_is.mp4";
@@ -192,7 +196,6 @@ export default function ActivitiesMainPage() {
         {/* --------------ACTIVITIES-ACTIVITIES-BKC Other Groups----------- */}
         <div id="otherGroups"></div>
         <SectionLine text="Andra Gruper" useWhiteStroke={true} />
-
         <Box
           sx={{
             display: "flex",
@@ -220,8 +223,8 @@ export default function ActivitiesMainPage() {
           }}
         >
           <TeamIntroCard
-          id={homeGroup.id}
-          inforSectionId=""
+            id={homeGroup.id}
+            inforSectionId=""
             title={homeGroup.title}
             subtitle={homeGroup.subtitle}
             description={homeGroup.description}
@@ -229,8 +232,8 @@ export default function ActivitiesMainPage() {
             buttonText={homeGroup.buttonText}
           />
           <TeamIntroCard
-          id={seniorgroup.id}
-          inforSectionId={seniorgroup.inforSectionId}
+            id={seniorgroup.id}
+            inforSectionId={seniorgroup.inforSectionId}
             title={seniorgroup.title}
             subtitle={seniorgroup.subtitle}
             description={seniorgroup.description}
@@ -238,8 +241,8 @@ export default function ActivitiesMainPage() {
             buttonText={homeGroup.buttonText}
           />
           <TeamIntroCard
-          id={womangroup.id}
-          inforSectionId={womangroup.inforSectionId}
+            id={womangroup.id}
+            inforSectionId={womangroup.inforSectionId}
             title={womangroup.title}
             subtitle={womangroup.subtitle}
             description={womangroup.description}
@@ -247,7 +250,6 @@ export default function ActivitiesMainPage() {
             buttonText={homeGroup.buttonText}
           />
         </Box>
-
         <Box />
         <Box />
       </Box>

@@ -46,11 +46,7 @@ const ImageInforCardSection = ({
         width: "100%",
         display: "flex",
         alignItems: "stretch", // Allow items to stretch and fill the container height{/* Updated */}
-        //   alignItems: "center",
         justifyContent: "center",
-    //    backgroundColor: "#f0f4f8",
-        
-       
       }}
     >
       <Grid
@@ -64,12 +60,10 @@ const ImageInforCardSection = ({
           },
           maxWidth: 1200,
           alignItems: "stretch", // Ensures both the image and text sections stretch{/* Updated */}
-          //   alignItems: "center",
           justifyContent: "center",
           height: "100%", // Allow the Grid to fill the height{/* Updated */}
         }}
       >
-        
         <Grid
           size={{ xs: 12, sm: 12, md: 6 }}
           sx={{
@@ -91,7 +85,7 @@ const ImageInforCardSection = ({
             location={location}
             subtitle={subtitle}
             description={description}
-           maxLines={maxLines}
+            maxLines={maxLines}
             showSocialIcons={showSocialIcons}
             links={links}
           />
@@ -118,7 +112,6 @@ const ImageInforCardSection = ({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              
             }}
           >
             {renderImageGallery()}

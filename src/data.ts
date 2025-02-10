@@ -7,9 +7,7 @@ import serve1 from "./assets/serve1.png";
 import bibelsko from "./assets/bibelsko.jpg";
 import Varvison from "./assets/Varvision.jpg";
 import ourvision from "./assets/ourvision.jpg";
-
 import Varhistoria from "./assets/Varhistoria.jpg"
-import welcomeNew from "./assets/welcomeNew.png"
 import davidNew from "./assets/davidNew.jpg"
 import Bible from "./assets/Bible.jpg"
 import Varvision from "./assets/Varvision.jpg"

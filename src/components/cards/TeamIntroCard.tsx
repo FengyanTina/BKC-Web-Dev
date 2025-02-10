@@ -6,58 +6,71 @@ import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import { useState } from "react";
 import ReadMoreDialogs from "../forms/ReadMoreDialog";
-import { CardTextSectionModel } from "../../models/CardTextSectionModel";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
-interface IntroCardProps {
-  title: string;
-  subTitle: string;
-  description: string;
-  image?: string;
-}
+
 export default function TeamIntroCard({
   title,
   subtitle,
   description,
   images,
   buttonText,
-}:ImageInforSectionModel) {
+}: ImageInforSectionModel) {
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
   return (
-    <Card sx={{ maxWidth: 400,backgroundColor:"transparent",cursor: "#CED9E5",
+    <Card
+      sx={{
+        maxWidth: 400,
+        backgroundColor: "transparent",
+        cursor: "#CED9E5",
         "&:hover": {
           cursor: "default", // Ensure hover does not change the cursor
-        }, }}   elevation={0}>
-      
-        {images && (
-          <CardMedia component="img" height="250"  image={Array.isArray(images) ? images[0] : images}alt="" />
-        )}
+        },
+      }}
+      elevation={0}
+    >
+      {images && (
+        <CardMedia
+          component="img"
+          height="250"
+          image={Array.isArray(images) ? images[0] : images}
+          alt=""
+        />
+      )}
 
-        <CardContent sx={{color:"#CED9E5"}}>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography gutterBottom variant="h6" component="div">
-            {subtitle}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: "#CED9E5",
-              display: "-webkit-box",
-              overflow: "hidden",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 3,
-              position: "relative",
-            }}
-          >
-            {description}
-          </Typography>
-        </CardContent>
-      
+      <CardContent sx={{ color: "#CED9E5" }}>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          {subtitle}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "#CED9E5",
+            display: "-webkit-box",
+            overflow: "hidden",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 3,
+            position: "relative",
+          }}
+        >
+          {description}
+        </Typography>
+      </CardContent>
+
       <CardActions>
-        <Button size="small"  onClick={handleOpen}  sx={{ color: "#CED9E5",fontWeight:"800",textDecoration: "underline", }}>
+        <Button
+          size="small"
+          onClick={handleOpen}
+          sx={{
+            color: "#CED9E5",
+            fontWeight: "800",
+            textDecoration: "underline",
+          }}
+        >
           {buttonText}
         </Button>
       </CardActions>

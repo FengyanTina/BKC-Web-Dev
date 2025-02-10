@@ -52,7 +52,6 @@ export default function ImageInforSectionText({
           <Typography
             gutterBottom
             sx={{
-              //   color: "text.secondary",
               fontSize: 18,
               color: "#CED9E5",
             }}
@@ -136,36 +135,31 @@ export default function ImageInforSectionText({
         )}
       </CardContent>
       <CardActions>
-          <Link
-            onClick={handleOpen}
-            sx={{
-              cursor: "pointer",
-              color: "#CED9E5",
-              fontWeight: "800",
-              textDecoration: "underline",
-              fontSize: "18px",
-              mb:3,
-            }}
-            target="_blank"
-            rel="noopener"
-            // underline="hover"
-          >
-            Läsa Mer
-          </Link>
-        </CardActions>
-        <ReadMoreDialogs
-          open={modalOpen}
-          onClose={handleClose}
-          title={title}
-          subtitle={subtitle}
-          content={description}
-        />
-      <Box
-        sx={{
-          // marginTop: "auto", // Push this section to the bottom
-          
-        }}
-      >
+        <Link
+          onClick={handleOpen}
+          sx={{
+            cursor: "pointer",
+            color: "#CED9E5",
+            fontWeight: "800",
+            textDecoration: "underline",
+            fontSize: "18px",
+            mb: 3,
+          }}
+          target="_blank"
+          rel="noopener"
+          // underline="hover"
+        >
+          Läsa Mer
+        </Link>
+      </CardActions>
+      <ReadMoreDialogs
+        open={modalOpen}
+        onClose={handleClose}
+        title={title}
+        subtitle={subtitle}
+        content={description}
+      />
+      <Box>
         {startTime && (
           <Typography
             variant="h5"
@@ -194,7 +188,7 @@ export default function ImageInforSectionText({
           </Typography>
         )}
       </Box>
-      <Box sx={{ marginBottom: links && links.length > 0 ? 5 : 0  }}>
+      <Box sx={{ marginBottom: links && links.length > 0 ? 5 : 0 }}>
         {links &&
           links.map((link, index) => (
             <div key={index}>
@@ -205,7 +199,6 @@ export default function ImageInforSectionText({
                   fontSize: "18px",
                   lineHeight: 1.5,
                   color: "#CED9E5",
-                  
                 }}
               >
                 {link.url.includes("#") ? (

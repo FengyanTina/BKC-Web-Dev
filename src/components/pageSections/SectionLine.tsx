@@ -3,10 +3,9 @@ import { Box, Typography } from "@mui/material";
 type Props = {
   text: string;
   useWhiteStroke?: boolean;
-  darkColor?:boolean;
 };
 
-const SectionLine = ({ text, useWhiteStroke,darkColor}: Props) => {
+const SectionLine = ({ text, useWhiteStroke}: Props) => {
   return (
     <Box
       sx={{

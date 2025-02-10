@@ -4,7 +4,6 @@ import Grid from "@mui/material/Grid2";
 import ImageInforSectionText from "../ImageInforSectionText";
 import { TextSectionWithStepsModel } from "../../../models/TextSectionWithStepsModel";
 
-
 const TopImageSectionCard = ({
   id,
   title,
@@ -19,20 +18,22 @@ const TopImageSectionCard = ({
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box sx={{ 
-        flexGrow: 1, 
+    <Box
+      sx={{
+        flexGrow: 1,
         width: { lg: "75%", md: "100%", sm: "100%" },
-    pb: {
-        xs:0,
-        sm:0,
-        md:3,
-        lg:3,
-    },
-    display: "flex",
-    alignItems: "center", // Allow items to stretch and fill the container height{/* Updated */}
-    //   alignItems: "center",
-    justifyContent: "center", 
-    }}>
+        pb: {
+          xs: 0,
+          sm: 0,
+          md: 3,
+          lg: 3,
+        },
+        display: "flex",
+        alignItems: "center", // Allow items to stretch and fill the container height{/* Updated */}
+        //   alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Grid container spacing={{ md: 1 }} columns={{ xs: 1, sm: 12, md: 12 }}>
         {!isSmallOrMediumScreen && (
           <>
@@ -154,8 +155,6 @@ const TopImageSectionCard = ({
             buttonText={buttonText}
             links={links}
           />
-         
-        
         </Grid>
       </Grid>
     </Box>
