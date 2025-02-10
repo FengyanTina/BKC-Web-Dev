@@ -119,6 +119,7 @@ export default function ServicesMainPage() {
           description={findYourVision.description}
           images={findYourVision.images}
           links={findYourVision.links}
+          buttonText={findYourVision.buttonText}
         />
       </Box>
 
@@ -149,6 +150,7 @@ export default function ServicesMainPage() {
           imageLeft={false}
           links={sundayServiceSection.links}
           maxLines={4}
+          buttonText={sundayServiceSection.buttonText}
         />
 
         {/* --------------PrayerService ----------- */}
@@ -164,6 +166,7 @@ export default function ServicesMainPage() {
           images={prayerService.images}
           category={""}
           links={prayerService.links}
+          buttonText={prayerService.buttonText}
         />
 
         {/* -------------BaptismService----------- */}
@@ -181,6 +184,7 @@ export default function ServicesMainPage() {
           category={""}
           imageLeft={false}
           links={baptismService.links}
+          buttonText={baptismService.buttonText}
         />
 
         {/*******YoutubeVideoLink***********/}

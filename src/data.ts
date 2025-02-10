@@ -195,7 +195,7 @@ export const higlightEvents:CalendarEvent[] = [
     category:EventCategory.SundaySchoole,
     description:" - BKC-Kids är för barn mellan 2-12 år. Barnens egna gudstjänst..\n- BKC-Ung för dig mellan 13-20 år. Då stavas en perfekt fredag BKC-UNG. Varje fredag ses vi för både häng och snack om Jesus och bibeln.\n - Seniorerna är de i församlingen som är 60+\nKom med du också!",
     images:ungWorship ,
-    buttonText:"Läsa mer",
+    buttonText:"Läs mer",
     links:[
         
         {
@@ -281,7 +281,7 @@ export const ourVision:ImageInforSectionModel={
     category:EventCategory.SundayService,
     description:"Borås Kristna Center vill vi vara:\n– en plats för mötet mellan Gud och människa, en plats där vi ber och tillber Gud \n– en plats där du kan lära känna och utvecklas i den plan Gud har för dig så att du blir hans lärjunge\n– en plats där sår läks, hopp spirar och där barn och unga kan se med tillförsikt på framtiden.\nBibeln beskriver Gud som en Fader. Han älskar och längtar efter en relation med varje människa. Jesus säger att han är vägen, sanningen och livet och var och en som längtar efter livets mening, efter tillvarons själva pulserande centrum, är välkommen in i hans stora famn.\nGud vill inte bara att vi ska kalla oss kristna, värma en stol vid en gudstjänst en gång i veckan och få en andlig upplevelse då och då. Han har mycket mer för oss. Gud har en fantastisk plan för varje människas liv och en uppgift för var och en att utföra, mitt i vardagen. Den vill vi som kyrka hjälpa dig att finna och utvecklas i.\nVarje människa är så dyrbar i Guds ögon och han kan ge frid mitt i stormen och bygga slott av våra livs spillror. Vi tror att Gud kan och vill hela den som är sjuk, läka det som är brustet, skydda den som är svag och lyfta upp den som är nedböjd.",
     images:ourvision,
-    buttonText:"Read More",
+    buttonText:"Läs mer",
   }
    export const Pastor:ImageInforSectionModel= {
     id:"pastor",
@@ -290,7 +290,7 @@ export const ourVision:ImageInforSectionModel={
     subtitle:"Huvud Pastor",
     description: "BKC Pastor, sedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.",
     images:davidNew,
-    buttonText:"Read More" 
+    buttonText:"Läs mer" 
     }
 
     export const ourHistory ={
@@ -308,7 +308,7 @@ export const findYourVision = {
     title: "Vill du tjäna?",
     subtitle: "You can serve the Lord in many different ways!",
     description:"Upptäck din kallelse och tjäna Herren på ett sätt som passar dina gåvor och din passion.\n  Älskar du musik? Var med i lovsångsteamet och prisa Gud genom sång under söndagens gudstjänst.\n Brinner du för barn? Hjälp nästa generation att växa i tro och kunskap om Bibeln. \n Tycker du om att välkomna människor? Hälsa besökare med värme och glädje eller hjälp till med att förbereda fika. Ditt leende och din omtanke kan få alla att känna sig hemma i Herrens hus!",
-    
+    buttonText:"Läs mer",
     images:[sundaySchol11,serve1,socialActivity],
     links:[
         
@@ -333,7 +333,7 @@ export const findYourVision = {
     images: ungWorship,
     description:
       "Engelsk simultanöversättning finns tillgänglig för gudstjänsterna på söndagar. Tankeväckande och engagerande budskap baserade på Bibeln från vår pastor, David Byman. Varje gudstjänst varar i cirka 90 minuter.\nLive English simultaneous translation is available for the Sunday services.",
-     
+      buttonText:"Läs mer",
       links:[
           
           {
@@ -354,7 +354,7 @@ export const findYourVision = {
   images: Prayer,
   description:
     "Känner du att du behöver förbön? Tveka inte att kontakta oss eller skicka in din bönelista. Vi vill gärna be för dig och stå tillsammans med dig i bön. Vi tror på Guds kraft att förändra liv och svara på böner.\nVår bön är att du ska uppleva Guds närvaro och styrka i varje situation. Skicka gärna din bön till oss, vi ser fram emot att lyfta dig och dina behov i våra böner.",
-   
+    buttonText:"Läs mer",
     links:[
         
         {
@@ -374,7 +374,7 @@ export const findYourVision = {
     description:"Vi erbjuder dopservice för alla som känner ett kall att bli döpta. Dopet är ett viktigt steg i den kristna tron och ett offentligt uttryck för din tro på Jesus Kristus. Om du känner att du vill ta detta steg, tveka inte att kontakta oss. Vi hjälper gärna till att ordna en dopgudstjänst för dig och stöder dig på din resa i tron.\nKontakta oss för mer information och för att planera din dopceremoni. Vi ser fram emot att vara en del av denna speciella händelse i ditt liv!",
    
     images: Mission,
-    
+    buttonText:"Läs mer",
     links:[
         
         {
@@ -436,6 +436,7 @@ export const BKCkIDS2:CardTextSectionModel = {
       start: new Date(2024, 9, 30, 12, ),
       end:new Date(2024, 9, 30, 13, 30),
    location:"BKC",  
+   buttonText:"Läs mer",
    links: [
     {
       label: "Borås Kristna Skola",
@@ -457,7 +458,8 @@ export const BKCkYouth:CardTextSectionModel = {
     start: new Date(2024, 9, 30, 19, 30),
     end: new Date(2024, 9, 30, 21, 30),
 
- location:"BKC",  
+ location:"BKC", 
+ buttonText:"Läs mer", 
 }
 
 export const homeGroup:ImageInforSectionModel= {
@@ -467,7 +469,7 @@ export const homeGroup:ImageInforSectionModel= {
     subtitle:"",
     description: "Välkommen till vår Hemgrupp – en plats där gemenskap, tro och vardagsliv möts!\nI en värld som ofta känns stressig och isolerande vill vi erbjuda en varm och inbjudande gemenskap där vi kan dela livet tillsammans. Våra hemgrupper är smågrupper som träffas regelbundet i hem eller andra mysiga miljöer för att samtala om tro, be tillsammans och uppmuntra varandra i vardagen.\nOavsett var du befinner dig i din tro är du välkommen att vara en del av vår gemenskap. Här får du möjlighet att lära känna nya vänner, ställa frågor om livet och tron samt växa i din relation med Gud. Vi ser fram emot att träffa dig! ",
     images:HomeGroup,
-    buttonText:"Läsa Mer" 
+    buttonText:"Läs mer" 
     }
     export const seniorgroup:ImageInforSectionModel= {
         id:"seniorgrupper",
@@ -476,7 +478,7 @@ export const homeGroup:ImageInforSectionModel= {
         subtitle:"",
         description: "Välkommen till vår Seniorgrupp – en gemenskap för dig som vill dela livet, tron och glädjen tillsammans med andra i samma livsskede!\nI vår seniorgrupp träffas vi regelbundet för att umgås, samtala om tron, be tillsammans och stötta varandra i vardagen. Här finns utrymme för både djupa samtal och skratt, och vi vill skapa en varm och inkluderande miljö där alla känner sig välkomna.\nOavsett om du har varit troende länge eller är nyfiken på kristen tro, finns det en plats för dig i vår gemenskap. Kom och upplev vänskap, inspiration och meningsfulla stunder tillsammans med oss! ",
         images:SeniorGroup,
-        buttonText:"Läsa Mer" 
+        buttonText:"Läs mer" 
         }
         export const womangroup:ImageInforSectionModel= {
             id:"seniorgrupper",
@@ -485,7 +487,7 @@ export const homeGroup:ImageInforSectionModel= {
             subtitle:" ",
             description: "Välkommen till vår Kvinnogrupp – en plats för gemenskap, styrka och andlig tillväxt! \nHär samlas vi kvinnor för att dela livet, stötta varandra och inspireras i vår tro. Genom samtal, bön och gemensamma aktiviteter vill vi uppmuntra varandra att växa både andligt och personligt. Det är en trygg och varm gemenskap där vi kan dela våra erfarenheter, glädjeämnen och utmaningar.\nOavsett var du befinner dig i livet är du välkommen att vara en del av vår systergemenskap. Tillsammans stärker vi varandra och bygger relationer som bär genom livets alla säsonger! ",
             images:WomanGroup,
-            buttonText:"Läsa Mer" 
+            buttonText:"Läs mer" 
             }
 // contact page 
 export const ourVisionText = [

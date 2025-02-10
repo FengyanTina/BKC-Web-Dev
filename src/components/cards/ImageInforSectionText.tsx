@@ -21,6 +21,7 @@ export default function ImageInforSectionText({
   location,
   links,
   showSocialIcons = false,
+  buttonText,
   maxLines = 5,
 }: CardTextSectionModel) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -149,7 +150,7 @@ export default function ImageInforSectionText({
           rel="noopener"
           // underline="hover"
         >
-          Läsa Mer
+          {buttonText}
         </Link>
       </CardActions>
       <ReadMoreDialogs

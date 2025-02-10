@@ -18,6 +18,7 @@ const ImageInforCardSection = ({
   links,
   maxLines,
   showSocialIcons = false,
+buttonText
 }: ImageInforSectionModel) => {
   const renderImageGallery = () => {
     if (Array.isArray(images)) {
@@ -88,6 +89,7 @@ const ImageInforCardSection = ({
             maxLines={maxLines}
             showSocialIcons={showSocialIcons}
             links={links}
+            buttonText={buttonText}
           />
         </Grid>
 

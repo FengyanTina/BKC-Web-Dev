@@ -188,6 +188,7 @@ export default function ActivitiesMainPage() {
                   description={BKCkYouth.description}
                   start={BKCkYouth.start}
                   location={BKCkYouth.location}
+                  buttonText={BKCkYouth.buttonText}
                 />
               </Grid>
             </Grid>
