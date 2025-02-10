@@ -9,9 +9,13 @@ import Varvison from "./assets/Varvision.jpg";
 import ourvision from "./assets/ourvision.jpg";
 
 import Varhistoria from "./assets/Varhistoria.jpg"
+import welcomeNew from "./assets/welcomeNew.png"
 import davidNew from "./assets/davidNew.jpg"
 import Bible from "./assets/Bible.jpg"
 import Varvision from "./assets/Varvision.jpg"
+import HomeGroup from "./assets/homeGroup.jpg"
+import SeniorGroup from "./assets/happySenior.jpg"
+import WomanGroup from "./assets/woman.jpg"
 import socialActivity from "./assets/socialActivity.jpg"
 import { EventCategory } from "./models/Event";
 import { ImageInforSectionModel } from "./models/ImageInforSection";
@@ -131,9 +135,31 @@ export const higlightEvents:CalendarEvent[] = [
     id:'23',
     inforSectionId:"",
     title:"New here? ",
-    subtitle:"can't wait to meet you!",
+    subtitle:"",
     description:" ",
-   
+  
+  }
+  export const newHere1:ImageInforSectionModel ={
+    id:'23',
+    inforSectionId:"",
+    title:"New here? ",
+    subtitle:"",
+    description:" ",
+    links:[
+        {
+            label: "SundayService",
+            url: "/services#sundayService",
+          }, 
+        {
+            label: "Connect To Your Purpose",
+            url: "/services#serve",
+          }, 
+          {
+            label: "Find Activities For Your Family",
+            url: "/activities#groups",
+          },
+        ]
+  
   }
 
   export const socialMediaActivityCardInfor={
@@ -402,6 +428,7 @@ export const SundaySchoolImageGallary:ImageGallaryItemData [] = [
         img: SundaySchool8,
         title: '9',
       },
+      
 ];
 export const BKCkIDS2:CardTextSectionModel = {
     id:"kids",
@@ -427,7 +454,7 @@ export const BKCkIDS2:CardTextSectionModel = {
 export const BKCkYouth:CardTextSectionModel = {
     id:"youth",
     title:"Ungdomsgrupp",
-    subtitle: "Join Us Every Friday Night",
+    subtitle: "",
     description:" Vår ungdomsgrupp är en plats för unga människor att växa i sin tro, bygga vänskap och hitta stöd i en gemenskap som värdesätter både individuell och kollektiv utveckling. Vi erbjuder en trygg och öppen miljö där ungdomar kan diskutera tro, livsfrågor och framtidsdrömmar.\nGenom bibliska studier, aktiviteter, evenemang och sociala sammankomster får ungdomarna möjlighet att upptäcka och fördjupa sin relation med Gud, samtidigt som de stärker banden med andra unga i församlingen.\n Om du är ung och vill vara en del av vår ungdomsgrupp eller har frågor, tveka inte att kontakta oss. Vi ser fram emot att välkomna dig till gemenskapen och resan i tron! ", 
     start: new Date(2024, 9, 30, 19, 30),
     end: new Date(2024, 9, 30, 21, 30),
@@ -435,6 +462,33 @@ export const BKCkYouth:CardTextSectionModel = {
  location:"BKC",  
 }
 
+export const homeGroup:ImageInforSectionModel= {
+    id:"hemgrupper",
+    title:"hem",
+    inforSectionId:"Huvud Pastor",
+    subtitle:"",
+    description: "Välkommen till vår Hemgrupp – en plats där gemenskap, tro och vardagsliv möts!\nI en värld som ofta känns stressig och isolerande vill vi erbjuda en varm och inbjudande gemenskap där vi kan dela livet tillsammans. Våra hemgrupper är smågrupper som träffas regelbundet i hem eller andra mysiga miljöer för att samtala om tro, be tillsammans och uppmuntra varandra i vardagen.\nOavsett var du befinner dig i din tro är du välkommen att vara en del av vår gemenskap. Här får du möjlighet att lära känna nya vänner, ställa frågor om livet och tron samt växa i din relation med Gud. Vi ser fram emot att träffa dig! ",
+    images:HomeGroup,
+    buttonText:"Läsa Mer" 
+    }
+    export const seniorgroup:ImageInforSectionModel= {
+        id:"seniorgrupper",
+        title:"senior",
+        inforSectionId:"senior",
+        subtitle:"",
+        description: "Välkommen till vår Seniorgrupp – en gemenskap för dig som vill dela livet, tron och glädjen tillsammans med andra i samma livsskede!\nI vår seniorgrupp träffas vi regelbundet för att umgås, samtala om tron, be tillsammans och stötta varandra i vardagen. Här finns utrymme för både djupa samtal och skratt, och vi vill skapa en varm och inkluderande miljö där alla känner sig välkomna.\nOavsett om du har varit troende länge eller är nyfiken på kristen tro, finns det en plats för dig i vår gemenskap. Kom och upplev vänskap, inspiration och meningsfulla stunder tillsammans med oss! ",
+        images:SeniorGroup,
+        buttonText:"Läsa Mer" 
+        }
+        export const womangroup:ImageInforSectionModel= {
+            id:"seniorgrupper",
+            title:"woman",
+            inforSectionId:"woman",
+            subtitle:" ",
+            description: "Välkommen till vår Kvinnogrupp – en plats för gemenskap, styrka och andlig tillväxt! \nHär samlas vi kvinnor för att dela livet, stötta varandra och inspireras i vår tro. Genom samtal, bön och gemensamma aktiviteter vill vi uppmuntra varandra att växa både andligt och personligt. Det är en trygg och varm gemenskap där vi kan dela våra erfarenheter, glädjeämnen och utmaningar.\nOavsett var du befinner dig i livet är du välkommen att vara en del av vår systergemenskap. Tillsammans stärker vi varandra och bygger relationer som bär genom livets alla säsonger! ",
+            images:WomanGroup,
+            buttonText:"Läsa Mer" 
+            }
 // contact page 
 export const ourVisionText = [
     "Borås Kristna Center vill vi vara:",

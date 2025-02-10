@@ -118,6 +118,7 @@ const ImageInforCardSection = ({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              
             }}
           >
             {renderImageGallery()}

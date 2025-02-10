@@ -3,18 +3,22 @@ import { Typography } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
 import { ImageInforSectionModel } from "../../models/ImageInforSection";
 import videoFile from "../../assets/istockphoto-987329642-640_adpp_is.mp4";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ImageInforSectionText from "../cards/ImageInforSectionText";
 export default function NewHereSectionGrid({
+    id,
   title,
   description,
   images,
   subtitle,
+  links,
 }: ImageInforSectionModel) {
   return (
     <Box
       sx={{
         flexGrow: 1,
         backgroundImage: `url(${images})`,
-        
+
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -31,7 +35,7 @@ export default function NewHereSectionGrid({
         },
       }}
     >
-      <Box
+      {/* <Box
         sx={{
           width: "100%", // Ensure the container takes full width
           maxWidth: "640px", // Maximum width for large screens
@@ -44,8 +48,8 @@ export default function NewHereSectionGrid({
             lg: "20%", // Even less padding for large screens
           },
         }}
-      >
-        <video
+      > */}
+      {/* <video
           src={videoFile}
           controls
           autoPlay
@@ -58,17 +62,18 @@ export default function NewHereSectionGrid({
             width: "100%",
             height: "100%",
           }}
-        ></video>
-      </Box>
+        ></video> */}
+
+      {/* </Box> */}
 
       <Box
         sx={{
           width: "100%",
           textAlign: "center",
           justifyContent: "center",
-          alignItems: "center",
-          marginTop: "50px",
+          alignItems: "center",      
           marginBottom: "50px",
+          color: "#CED9E5",
         }}
       >
         <Typography
@@ -79,12 +84,12 @@ export default function NewHereSectionGrid({
               sm: 500,
             },
             fontSize: {
-              lg: "40px",
+              lg: "38px",
               md: "30px",
               sm: "30px",
               xs: "28px",
             },
-            color: "black",
+            
           }}
         >
           {title}
@@ -103,8 +108,6 @@ export default function NewHereSectionGrid({
               sm: "22px",
               xs: "20px",
             },
-            color: "black",
-           //textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
           {subtitle}
@@ -121,7 +124,7 @@ export default function NewHereSectionGrid({
               sm: "20px",
               xs: "18px",
             },
-            color: "black",
+            color: "#CED9E5",
             textShadow: "2px 2px 4px rgba(0,0,0,1)",
           }}
         >
@@ -132,8 +135,7 @@ export default function NewHereSectionGrid({
             marginTop: "0px",
             paddingTop: "20px",
             paddingBottom: "20px",
-            alignItems: "center",
-            justifyContent: "center",
+
             maxWidth: "1100px",
             marginLeft: "auto",
             marginRight: "auto",
@@ -143,40 +145,82 @@ export default function NewHereSectionGrid({
               sm: "20px",
               xs: "18px",
             },
+            color: "#202A44",
+            display: "flex", // Ensure flexbox is used
+            flexDirection: "column", // Stack items vertically
+            height: "100%",
+
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <HashLink
-            to="/services#sundayService"
-            style={{
-              display: "block",
-              color: "black",
-              fontWeight: "500",
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              width: "fit-content",
             }}
           >
-            SundayService
-          </HashLink>
-          <HashLink
-            to="/services#serve"
-            style={{
-              display: "block",
-
-              color: "black",
-              fontWeight: "500",
-            }}
-          >
-            Connect To Your Purpose
-          </HashLink>
-          <HashLink
-            to="/activities#groups"
-            style={{
-              display: "block",
-
-              color: "black",
-              fontWeight: "500",
-            }}
-          >
-            For Your Family
-          </HashLink>
+                  {links &&
+          links.map((link, index) => (
+            <div key={index}>
+              <Typography
+                variant="h5"
+                sx={{
+                  textAlign: "left",
+                  fontSize: "18px",
+                  lineHeight: 1.5,
+                  color: "#CED9E5",
+                  
+                }}
+              >
+                {link.url.includes("#") ? (
+                  <HashLink
+                    style={{
+                      color: "#CED9E5",
+                      fontSize: "18px",
+                      fontWeight: "800",
+                      textDecoration: "none",
+                    }}
+                    smooth
+                    to={link.url}
+                  >
+                    <ChevronRightIcon
+                      sx={{
+                        fontSize: "18px",
+                        fontWeight: "600",
+                        marginRight: "8px",
+                        color: "#CED9E5",
+                      }} // Customize icon size and spacing
+                    />
+                    {link.label}
+                  </HashLink>
+                ) : (
+                  <a
+                    href={link.url}
+                    style={{
+                      color: "#CED9E5",
+                      textDecoration: "none",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <ChevronRightIcon
+                      sx={{
+                        fontSize: "18px",
+                        marginRight: "8px",
+                        color: "#CED9E5",
+                      }} // Customize icon size and spacing
+                    />
+                    {link.label}
+                  </a>
+                )}
+              </Typography>
+            </div>
+          ))}
+            
+          </Box>
+        
         </Box>
       </Box>
     </Box>

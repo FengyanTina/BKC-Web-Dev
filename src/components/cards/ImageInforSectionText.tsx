@@ -10,7 +10,7 @@ import { Box, Link } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useState } from "react";
 import ReadMoreDialogs from "../forms/ReadMoreDialog";
-const MAX_LINES = 8;
+
 export default function ImageInforSectionText({
   category,
   title,
@@ -208,7 +208,7 @@ export default function ImageInforSectionText({
                   
                 }}
               >
-                {link.url.startsWith("#") ? (
+                {link.url.includes("#") ? (
                   <HashLink
                     style={{
                       color: "#CED9E5",

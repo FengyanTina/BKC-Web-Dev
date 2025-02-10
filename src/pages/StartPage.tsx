@@ -18,6 +18,7 @@ import {
   activityCardInfor,
   sundayServiceCardInfor,
   scheduleCardInfor,
+  newHere1,
 } from "../data";
 import Carousel from "../components/slides/Carousel";
 import NewHereSectionGrid from "../components/pageSections/NewHereSection";
@@ -27,6 +28,7 @@ import { useState } from "react";
 import MyMap from "../apis/GoogleMap";
 import CloseIcon from "@mui/icons-material/Close";
 import InstagramEmbed from "../components/instagram/InstagramEmbed";
+import ImageInforSectionText from "../components/cards/ImageInforSectionText";
 
 const StartPage = () => {
   const [openMap, setOpenMap] = useState(false);
@@ -165,21 +167,23 @@ const StartPage = () => {
 
         {/* --------------WELCOME NEW----------- */}
         <Box sx={{ backgroundColor: "#7089AC" }}>
-          <SectionLine text="Välkomna" useWhiteStroke={true} />
+          <SectionLine text="Välkomna"  useWhiteStroke={true} />
           <NewHereSectionGrid
             inforSectionId=""
-            id={newHere.id}
-            title={newHere.title}
-            description={newHere.description}
-            images={newHere.images}
-            subtitle={newHere.subtitle}
+            id={newHere1.id}
+            title={newHere1.title}
+            description={newHere1.description}
+            images={newHere1.images}
+            subtitle={newHere1.subtitle}
+            links={newHere1.links}
           />
+       
         </Box>
       </Box>
       {/* --------------ACTIVITIES and Services----------- */}
       {/* #dbe1e8*/}
-      <Box sx={{ backgroundColor: "#1B365D", px: 3, }}>
-        <SectionLine text=" Aktiviteter " />
+      <Box sx={{ backgroundColor: "#1B365D", px: 3,paddingBottom: "50px", }}>
+        <SectionLine text=" Aktiviteter " useWhiteStroke={true} />
         <ImageInforCardSection
           inforSectionId=""
           id={socialMediaActivityCardInfor.id}
@@ -234,24 +238,13 @@ const StartPage = () => {
           buttonLink="/schedules"
           links={scheduleCardInfor.links}
         />
-        {/* --------------ACTIVITIES-Groups----------- */}
-        {/* <ImageInforCardSection
-          id={homeGroupActivityCardInfor.id}
-          inforSectionId=""
-          title={homeGroupActivityCardInfor.title}
-          subtitle={homeGroupActivityCardInfor.subtitle}
-          description={homeGroupActivityCardInfor.description}
-          images={homeGroupActivityCardInfor.images}
-          category={""}
-          buttonLink="/activities#otherGroups"
-          buttonText={homeGroupActivityCardInfor.buttonText}
-        /> */}
+      
       </Box>
       {/* --------------NEWS SLIDES/Instagram Activities----------- */}
 
       {hasInstagramContent && (
         <Box sx={{ backgroundColor: "#7089AC" }}>
-          <SectionLine text="Instagram Aktivitet" />
+          <SectionLine text="Instagram Aktivitet"  useWhiteStroke={true} />
         </Box>
       )}
       <InstagramEmbed setHasContent={setHasInstagramContent} />

@@ -103,7 +103,7 @@ export default function ServicesMainPage() {
       </Grid>
       {/* -------------FindYourVision----------- */}
       <div id="serve"></div>
-      <SectionLine text="hitta din vision" />
+      <SectionLine text="hitta din vision" useWhiteStroke={true}/>
       <Box
       sx={{
       
@@ -136,7 +136,7 @@ export default function ServicesMainPage() {
         width: "100%",
       }}>
       <div id="sundayService"></div>
-      <SectionLine text="Söndagsgudstjänst" />
+      <SectionLine text="Söndagsgudstjänst" useWhiteStroke={true}/>
       < ImageInforCardSection
         inforSectionId=""
         start={sundayServiceSection.start}
@@ -156,7 +156,7 @@ export default function ServicesMainPage() {
       {/* --------------PrayerService ----------- */}
   
       <div id="prayerService"></div>
-      <SectionLine text="Bönetjänster" />
+      <SectionLine text="Bönetjänster" useWhiteStroke={true} />
       < ImageInforCardSection
         inforSectionId=""
         id={prayerService.id}
@@ -170,7 +170,7 @@ export default function ServicesMainPage() {
  
       {/* -------------BaptismService----------- */}
   
-      <SectionLine text="Doptjänster" />
+      <SectionLine text="Doptjänster" useWhiteStroke={true}/>
       <div id="baptismService"></div>
 
       < ImageInforCardSection
@@ -187,7 +187,7 @@ export default function ServicesMainPage() {
       />
  
       {/*******YoutubeVideoLink***********/}
-      <SectionLine text="Servicevideor" />
+      <SectionLine text="Servicevideor" useWhiteStroke={true}/>
 
       {/* <YouTubePlaylists/>     */}
       <Box sx={{ marginBottom: "40px", marginTop: "20px" }}>

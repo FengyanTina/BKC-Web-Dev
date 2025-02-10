@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import { useState } from "react";
 import ReadMoreDialogs from "../forms/ReadMoreDialog";
+import { CardTextSectionModel } from "../../models/CardTextSectionModel";
+import { ImageInforSectionModel } from "../../models/ImageInforSection";
 interface IntroCardProps {
   title: string;
   subTitle: string;
@@ -14,10 +16,11 @@ interface IntroCardProps {
 }
 export default function TeamIntroCard({
   title,
-  subTitle,
+  subtitle,
   description,
-  image,
-}: IntroCardProps) {
+  images,
+  buttonText,
+}:ImageInforSectionModel) {
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
@@ -27,8 +30,8 @@ export default function TeamIntroCard({
           cursor: "default", // Ensure hover does not change the cursor
         }, }}   elevation={0}>
       
-        {image && (
-          <CardMedia component="img" height="250" image={image} alt="" />
+        {images && (
+          <CardMedia component="img" height="250"  image={Array.isArray(images) ? images[0] : images}alt="" />
         )}
 
         <CardContent sx={{color:"#CED9E5"}}>
@@ -36,7 +39,7 @@ export default function TeamIntroCard({
             {title}
           </Typography>
           <Typography gutterBottom variant="h6" component="div">
-            {subTitle}
+            {subtitle}
           </Typography>
           <Typography
             variant="body1"
@@ -55,14 +58,14 @@ export default function TeamIntroCard({
       
       <CardActions>
         <Button size="small"  onClick={handleOpen}  sx={{ color: "#CED9E5",fontWeight:"800",textDecoration: "underline", }}>
-          Read More
+          {buttonText}
         </Button>
       </CardActions>
       <ReadMoreDialogs
         open={modalOpen}
         onClose={handleClose}
         title={title}
-        subtitle={subTitle}
+        subtitle={subtitle}
         content={description}
       />
     </Card>

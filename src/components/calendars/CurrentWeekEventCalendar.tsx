@@ -35,15 +35,19 @@ export default function RowAndColumnSpacing() {
         },
         overflowY: "auto", // Enable vertical scrolling
         overflowX: "hidden",
+        color:"#CED9E5"
       }}
     >
+             <Typography >
+                    Veckans events
+                </Typography>
       <Grid container columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
         {currentWeek.map((day, index) => (
           <Grid container columns={12} key={index} size={12}>
             <Grid size={3}>
               <Item>
-                <Typography  sx={{ fontWeight: "bold", color:"#CED9E5" }}>{day.date}</Typography>
-                <Typography  sx={{ fontWeight: "bold", color:"#CED9E5" }}>{day.dayName}</Typography>
+                <Typography  sx={{ fontWeight: "bold", }}>{day.date}</Typography>
+                <Typography  sx={{ fontWeight: "bold",  }}>{day.dayName}</Typography>
               </Item>
             </Grid>
 
@@ -56,6 +60,7 @@ export default function RowAndColumnSpacing() {
                 whiteSpace: "nowrap",
               }}
             >
+           
               <Item>
                 {day.events.length > 0 ? (
                   day.events.map((event, i) => (
@@ -70,10 +75,10 @@ export default function RowAndColumnSpacing() {
                       }}
                     >
                         {/* //#202A44 */}
-                      <Typography sx={{ fontWeight: "bold", color:"#CED9E5" }}> 
+                      <Typography sx={{ fontWeight: "bold", }}> 
                         {event.starTime} - {event.endTime}
                       </Typography>
-                      <Typography  sx={{ fontWeight: "bold", color:"#CED9E5" }} noWrap>{event.title}</Typography>
+                      <Typography  sx={{ fontWeight: "bold",  }} noWrap>{event.title}</Typography>
                     </Grid>
                   ))
                 ) : (

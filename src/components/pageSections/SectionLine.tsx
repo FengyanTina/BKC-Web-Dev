@@ -3,9 +3,10 @@ import { Box, Typography } from "@mui/material";
 type Props = {
   text: string;
   useWhiteStroke?: boolean;
+  darkColor?:boolean;
 };
 
-const SectionLine = ({ text, useWhiteStroke}: Props) => {
+const SectionLine = ({ text, useWhiteStroke,darkColor}: Props) => {
   return (
     <Box
       sx={{
@@ -39,7 +40,8 @@ const SectionLine = ({ text, useWhiteStroke}: Props) => {
           },
           lineHeight: "1em",
           color: "transparent", // Transparent fill to only show the stroke
-          WebkitTextStroke: `1px ${useWhiteStroke ? "#ffffff" : "#d3d3d3"}`, // Outline color
+          WebkitTextStroke: `1px ${useWhiteStroke ? "#CED9E5" : "#202A44"}`, // Outline color
+          
           textTransform: "uppercase",
         }}
       >
