@@ -25,13 +25,11 @@ const AboutUsPage = () => {
           md: "130px",
           sm: "75px",
           xs: "60px",
-        },
-        paddingBottom: "50px",
+        }, 
         backgroundColor: "#7089AC",
         px: 3,
         display: "flex",
         alignItems: "center", // Allow items to stretch and fill the container height{/* Updated */}
-        //   alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
       }}
@@ -47,6 +45,7 @@ const AboutUsPage = () => {
         category={""}
         imageLeft={false}
         maxLines={8}
+        buttonText={ourVision.buttonText}
       />
       <SectionLine text="Vår Historia" useWhiteStroke={true} />
       <TopImageSectionCard
@@ -54,9 +53,10 @@ const AboutUsPage = () => {
         title={ourHistory.title}
         description={ourHistory.description}
         images={ourHistory.images}
+        buttonText={ourHistory.buttonText}
       />
 
-      <SectionLine text="Vår team" useWhiteStroke={true} />
+      <SectionLine text="Vårt team" useWhiteStroke={true} />
       <ImageInforCardSection
         inforSectionId=""
         id={Pastor.id}
@@ -65,7 +65,8 @@ const AboutUsPage = () => {
         description={Pastor.description}
         images={Pastor.images}
         category={""}
-        maxLines={11}
+        maxLines={10}
+        buttonText={Pastor.buttonText}
       />
 
       {/* <SectionLine text="Medlemskap" />

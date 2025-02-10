@@ -177,7 +177,7 @@ const StartPage = () => {
       </Box>
       {/* --------------ACTIVITIES and Services----------- */}
       {/* #dbe1e8*/}
-      <Box sx={{ backgroundColor: "#1B365D", px: 3, paddingBottom: "50px" }}>
+      <Box sx={{ backgroundColor: "#1B365D", px: 3, paddingBottom: "10px" }}>
         <SectionLine text=" Aktiviteter " useWhiteStroke={true} />
         <ImageInforCardSection
           inforSectionId=""
@@ -187,7 +187,7 @@ const StartPage = () => {
           description={socialMediaActivityCardInfor.description}
           images={socialMediaActivityCardInfor.images}
           category={socialMediaActivityCardInfor.category}
-          buttonLink={"/activities#groups"}
+          buttonText={socialMediaActivityCardInfor.buttonText}
           showSocialIcons={true}
         />
 
@@ -203,6 +203,7 @@ const StartPage = () => {
           category={""}
           imageLeft={false}
           links={sundayServiceCardInfor.links}
+          buttonText={sundayServiceCardInfor.buttonText}
         />
 
         {/* --------------ACTIVITIES----------- */}
@@ -230,7 +231,7 @@ const StartPage = () => {
           images={scheduleCardInfor.images}
           category={""}
           imageLeft={false}
-          buttonLink="/schedules"
+          buttonText={scheduleCardInfor.buttonText}
           links={scheduleCardInfor.links}
         />
       </Box>

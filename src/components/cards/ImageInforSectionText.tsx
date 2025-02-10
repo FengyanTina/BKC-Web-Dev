@@ -36,7 +36,7 @@ export default function ImageInforSectionText({
         border: "none",
         backgroundColor: "transparent",
         boxShadow: "none",
-
+        flexGrow: 1,
         display: "flex",
         flexDirection: "column",
       }}
@@ -47,6 +47,7 @@ export default function ImageInforSectionText({
           overflow: "hidden",
           paddingLeft: "0",
           color: "#CED9E5",
+          
         }}
       >
         {category && (
@@ -144,7 +145,7 @@ export default function ImageInforSectionText({
             fontWeight: "800",
             textDecoration: "underline",
             fontSize: "18px",
-            mb: 3,
+           
           }}
           target="_blank"
           rel="noopener"
@@ -165,9 +166,10 @@ export default function ImageInforSectionText({
           <Typography
             variant="h5"
             sx={{
-              //color: "text.secondary",
+                mt: 3,
               fontSize: "18px",
               color: "#CED9E5",
+              paddingLeft:1,
             }}
           >
             <strong>Time: </strong>
@@ -182,24 +184,28 @@ export default function ImageInforSectionText({
             sx={{
               color: "#CED9E5",
               fontSize: "18px",
-              mb: 3,
+              paddingLeft:1,
             }}
           >
             <strong>Location:</strong> {location}
           </Typography>
         )}
       </Box>
-      <Box sx={{ marginBottom: links && links.length > 0 ? 5 : 0 }}>
+      <Box sx={{mt: links && links.length > 0 ? 3 : 0, 
+        
+      }}>
         {links &&
           links.map((link, index) => (
             <div key={index}>
               <Typography
                 variant="h5"
                 sx={{
+                    display: "flex",  // Ensures alignment of icon and text
+                    alignItems: "center",
                   textAlign: "left",
                   fontSize: "18px",
                   lineHeight: 1.5,
-                  color: "#CED9E5",
+                  color: "#CED9E5",    
                 }}
               >
                 {link.url.includes("#") ? (
@@ -208,6 +214,8 @@ export default function ImageInforSectionText({
                       color: "#CED9E5",
                       fontWeight: "800",
                       textDecoration: "none",
+                       display: "flex",  // Ensures alignment of icon and text
+                    alignItems: "center",
                     }}
                     smooth
                     to={link.url}
@@ -217,6 +225,7 @@ export default function ImageInforSectionText({
                         fontSize: "18px",
                         marginRight: "8px",
                         color: "#CED9E5",
+                        
                       }} // Customize icon size and spacing
                     />
                     {link.label}
@@ -228,6 +237,8 @@ export default function ImageInforSectionText({
                       color: "#CED9E5",
                       textDecoration: "none",
                       fontWeight: "bold",
+                      display: "flex",  // Ensures alignment of icon and text
+                      alignItems: "center",
                     }}
                   >
                     <ChevronRightIcon

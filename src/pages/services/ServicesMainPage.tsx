@@ -156,7 +156,7 @@ export default function ServicesMainPage() {
         {/* --------------PrayerService ----------- */}
 
         <div id="prayerService"></div>
-        <SectionLine text="Bönetjänster" useWhiteStroke={true} />
+        <SectionLine text="Vi ber för dig" useWhiteStroke={true} />
         <ImageInforCardSection
           inforSectionId=""
           id={prayerService.id}

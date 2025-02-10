@@ -30,7 +30,7 @@ export default function SchedulesMainPage() {
             width: "100%",
           }}
         >
-          <SectionLine text="KOMMAND EVENT" useWhiteStroke={true} />
+          <SectionLine text="KOMMAND EVENT" useWhiteStroke={false} />
         </Box>
         <Box
           sx={{

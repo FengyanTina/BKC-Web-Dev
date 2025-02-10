@@ -32,43 +32,12 @@ export default function NewHereSectionGrid({
         },
       }}
     >
-      {/* <Box
-        sx={{
-          width: "100%", // Ensure the container takes full width
-          maxWidth: "640px", // Maximum width for large screens
-          position: "relative",
-          display: "flex",
-          alignItems: "flex-end",
-          paddingTop: {
-            xs: "56.25%", // 16:9 aspect ratio for smaller screens
-            md: "36%", // Less padding for medium screens
-            lg: "20%", // Even less padding for large screens
-          },
-        }}
-      > */}
-      {/* <video
-          src={videoFile}
-          controls
-          autoPlay
-          loop
-          muted
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-          }}
-        ></video> */}
-
-      {/* </Box> */}
-
       <Box
         sx={{
           width: "100%",
           textAlign: "center",
           justifyContent: "center",
-          alignItems: "center",      
+          alignItems: "center",
           marginBottom: "50px",
           color: "#CED9E5",
         }}
@@ -86,7 +55,6 @@ export default function NewHereSectionGrid({
               sm: "30px",
               xs: "28px",
             },
-            
           }}
         >
           {title}
@@ -149,72 +117,67 @@ export default function NewHereSectionGrid({
             justifyContent: "center",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              width: "fit-content",
-            }}
-          >
-                  {links &&
-          links.map((link, index) => (
-            <div key={index}>
-              <Typography
-                variant="h5"
-                sx={{
-                  textAlign: "left",
-                  fontSize: "18px",
-                  lineHeight: 1.5,
-                  color: "#CED9E5",
-                  
-                }}
-              >
-                {link.url.includes("#") ? (
-                  <HashLink
-                    style={{
-                      color: "#CED9E5",
+          <Box>
+            {links &&
+              links.map((link, index) => (
+                <div key={index}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      textAlign: "left",
                       fontSize: "18px",
-                      fontWeight: "800",
-                      textDecoration: "none",
-                    }}
-                    smooth
-                    to={link.url}
-                  >
-                    <ChevronRightIcon
-                      sx={{
-                        fontSize: "18px",
-                        fontWeight: "600",
-                        marginRight: "8px",
-                        color: "#CED9E5",
-                      }} // Customize icon size and spacing
-                    />
-                    {link.label}
-                  </HashLink>
-                ) : (
-                  <a
-                    href={link.url}
-                    style={{
+                      lineHeight: 1.5,
                       color: "#CED9E5",
-                      textDecoration: "none",
-                      fontWeight: "bold",
                     }}
                   >
-                    <ChevronRightIcon
-                      sx={{
-                        fontSize: "18px",
-                        marginRight: "8px",
-                        color: "#CED9E5",
-                      }} // Customize icon size and spacing
-                    />
-                    {link.label}
-                  </a>
-                )}
-              </Typography>
-            </div>
-          ))}
-            
-          </Box>  
+                    {link.url.includes("#") ? (
+                      <HashLink
+                        style={{
+                          color: "#CED9E5",
+                          fontSize: "18px",
+                          fontWeight: "800",
+                          textDecoration: "none",
+                          display: "flex", // Ensures alignment
+                          alignItems: "center",
+                        }}
+                        smooth
+                        to={link.url}
+                      >
+                        <ChevronRightIcon
+                          sx={{
+                            fontSize: "18px",
+                            fontWeight: "600",
+                            marginRight: "8px",
+                            color: "#CED9E5",
+                          }} // Customize icon size and spacing
+                        />
+                        {link.label}
+                      </HashLink>
+                    ) : (
+                      <a
+                        href={link.url}
+                        style={{
+                          color: "#CED9E5",
+                          textDecoration: "none",
+                          fontWeight: "bold",
+                          display: "flex", // Ensures alignment of icon and text
+                          alignItems: "center",
+                        }}
+                      >
+                        <ChevronRightIcon
+                          sx={{
+                            fontSize: "18px",
+                            marginRight: "8px",
+                            color: "#CED9E5",
+                          }} // Customize icon size and spacing
+                        />
+                        {link.label}
+                      </a>
+                    )}
+                  </Typography>
+                </div>
+              ))}
+          </Box>
         </Box>
       </Box>
     </Box>

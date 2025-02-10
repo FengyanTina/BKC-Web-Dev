@@ -21,10 +21,10 @@ const TopImageSectionCard = ({
     <Box
       sx={{
         flexGrow: 1,
-        width: { lg: "75%", md: "100%", sm: "100%" },
+        width: { xl:"65%",lg: "100%", md: "100%", sm: "100%" },
         pb: {
-          xs: 0,
-          sm: 0,
+          xs: 2,
+          sm: 2,
           md: 3,
           lg: 3,
         },

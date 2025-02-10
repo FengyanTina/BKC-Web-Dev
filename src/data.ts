@@ -165,20 +165,27 @@ export const higlightEvents:CalendarEvent[] = [
     inforSectionId:"",
     title: "Buzz on Social media",
     subtitle:"You@Insta#FaceInBKC!",
-    category: EventCategory.SocialMedia,
-    description:"Följ oss på sociala medier",
+    category: "",
+    description:"Vi upderar ssöndaytjänsten och ungdom aktiviter vary vecka. Följ oss på sociala medier",
     images: socialActivity,
+    buttonText:"Läs mer",
+    links:[
+        
+        {
+            label: "Kolla mer här",
+            url: "/services",
+          }, ]
   }
   export const sundayServiceCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
-    title: "-Vad göra på en söndag? ",
+    title: "  -Vad göra på en söndag? ",
     subtitle:"Välkommen till vår kyrka nu på söndag!",
     start:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundayService,
     description:"Vi är en bibeltroende kyrka mitt i Borås, som älskar Jesus!",
     images:Varvision,
-   
+    buttonText:"Läs mer",
     links:[
         
         {
@@ -213,7 +220,7 @@ export const higlightEvents:CalendarEvent[] = [
     category: EventCategory.YouthService,
     description:"Välkommen att ta del av våra gudstjänster, aktiviteter och gemenskap! Vi har regelbundna samlingar för alla åldrar. Besök vår kalender för att se kommande evenemang och hitta en tid som passar dig. Vi ser fram emot att träffa dig!",
     images:Bible,
-    
+    buttonText:"Läs mer",
     links:[
         
         {
@@ -288,7 +295,7 @@ export const ourVision:ImageInforSectionModel={
     title:"David Byman",
     inforSectionId:"Huvud Pastor",
     subtitle:"Huvud Pastor",
-    description: "BKC Pastor, sedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.",
+    description: "BKC Pastor, sedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.\nBKC Pastor, sedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.\nnBKC Pastor, sedan november 2018. I samband med församlingens 30-årsjubileum  installeras David och Johanna Byman som pastorspar. Idag har de fyra barn och bor i utkanten av Borås. Båda känner ett kall från Gud att predika om människans omätbara värde redan från tillblivelsen.",
     images:davidNew,
     buttonText:"Läs mer" 
     }
@@ -298,7 +305,8 @@ export const ourVision:ImageInforSectionModel={
         title: "Vår historia",
         description: "Vår kyrka startades 1988, församlingen som grundades av pastorsparet Peder och Yvonne Teglund. Hade året innan -1987 startat en bibelskola som hundratals personer i Sjuhärdas med omnejd gått. Den liksom församlingen är aktiv idag och har i dag har omkring 140 medlemmar. \n 1991 startade också en förskoleverksamhet och året efter de första klasserna av Borås Kristna Skola som idag omfattas av förskola och hela grundskolan till nionde klass. Församlingen är skolans huvudman.\n Borås Kristna Center tillhör det kristna samfund som kallas Trosrörelsen som bland annat betonar betydelsen av att läsa och tro på Bibelns ord och att tron på Jesus ska levas ut i vardagen. Vi är en frikyrka och har en god och nära relation med andra kyrkor i Borås och samarbetar i olika sammanhang.\n - Kontakta oss gärna för mer information om oss och vårt ställningstagande i olika frågor.",
         
-        images:[Varvison,Varhistoria,rosWorship]
+        images:[Varvison,Varhistoria,rosWorship],
+        buttonText:"Läs mer"
       };
       
 // Tjänster page
@@ -464,7 +472,7 @@ export const BKCkYouth:CardTextSectionModel = {
 
 export const homeGroup:ImageInforSectionModel= {
     id:"hemgrupper",
-    title:"hem",
+    title:"Hemgrupper",
     inforSectionId:"Huvud Pastor",
     subtitle:"",
     description: "Välkommen till vår Hemgrupp – en plats där gemenskap, tro och vardagsliv möts!\nI en värld som ofta känns stressig och isolerande vill vi erbjuda en varm och inbjudande gemenskap där vi kan dela livet tillsammans. Våra hemgrupper är smågrupper som träffas regelbundet i hem eller andra mysiga miljöer för att samtala om tro, be tillsammans och uppmuntra varandra i vardagen.\nOavsett var du befinner dig i din tro är du välkommen att vara en del av vår gemenskap. Här får du möjlighet att lära känna nya vänner, ställa frågor om livet och tron samt växa i din relation med Gud. Vi ser fram emot att träffa dig! ",
@@ -473,7 +481,7 @@ export const homeGroup:ImageInforSectionModel= {
     }
     export const seniorgroup:ImageInforSectionModel= {
         id:"seniorgrupper",
-        title:"senior",
+        title:"Seniorgrupp",
         inforSectionId:"senior",
         subtitle:"",
         description: "Välkommen till vår Seniorgrupp – en gemenskap för dig som vill dela livet, tron och glädjen tillsammans med andra i samma livsskede!\nI vår seniorgrupp träffas vi regelbundet för att umgås, samtala om tron, be tillsammans och stötta varandra i vardagen. Här finns utrymme för både djupa samtal och skratt, och vi vill skapa en varm och inkluderande miljö där alla känner sig välkomna.\nOavsett om du har varit troende länge eller är nyfiken på kristen tro, finns det en plats för dig i vår gemenskap. Kom och upplev vänskap, inspiration och meningsfulla stunder tillsammans med oss! ",
@@ -481,8 +489,8 @@ export const homeGroup:ImageInforSectionModel= {
         buttonText:"Läs mer" 
         }
         export const womangroup:ImageInforSectionModel= {
-            id:"seniorgrupper",
-            title:"woman",
+            id:"woman",
+            title:"Kvinnogrupp",
             inforSectionId:"woman",
             subtitle:" ",
             description: "Välkommen till vår Kvinnogrupp – en plats för gemenskap, styrka och andlig tillväxt! \nHär samlas vi kvinnor för att dela livet, stötta varandra och inspireras i vår tro. Genom samtal, bön och gemensamma aktiviteter vill vi uppmuntra varandra att växa både andligt och personligt. Det är en trygg och varm gemenskap där vi kan dela våra erfarenheter, glädjeämnen och utmaningar.\nOavsett var du befinner dig i livet är du välkommen att vara en del av vår systergemenskap. Tillsammans stärker vi varandra och bygger relationer som bär genom livets alla säsonger! ",

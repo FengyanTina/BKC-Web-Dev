@@ -10,39 +10,20 @@ export default function Intro({ content }: introProp) {
       <Grid>
         <Box
           sx={{
-            paddingBottom: "40px",
-            overflow: "hidden",
-            paddingTop: {
-              md: "10px",
-              sm: "60px",
-              xs: "90px",
-            },
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: "25px",
-            }}
-            variant="h3"
-          >
-           
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            paddingBottom: { xs: "40px", sm: "50px" },
+            paddingBottom: { xs: "20px", sm: "20px", lg: "25px" },
+            pt: { xs: "55px", sm: "40px", md: "50px", lg: "0px" },
+            marginTop: "20px",
           }}
         >
           <Typography
             className="intro-p"
             sx={{
-              fontSize: "20px",
+              fontSize: { xs: "18px", sm: "18px", lg: "20px" },
               display: "-webkit-box",
               "-webkit-box-orient": "vertical",
               overflow: "hidden",
               textOverflow: "ellipsis",
               maxHeight: "calc(1.5em * 7)", // 9 lines when not expanded
-
               lineHeight: 1.3,
               scrollbarWidth: "none", // Firefox
               "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari
@@ -53,7 +34,7 @@ export default function Intro({ content }: introProp) {
               <p
                 key={index}
                 style={{
-                  marginBottom: "4px",
+                  marginBottom: "3px",
                 }}
               >
                 {paragraph}

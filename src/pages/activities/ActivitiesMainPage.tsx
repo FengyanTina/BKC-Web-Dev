@@ -26,7 +26,6 @@ export default function ActivitiesMainPage() {
           md: "130px",
           xs: "100px",
         },
-        pb: 3,
         backgroundColor: "#7089AC",
         display: "flex",
         alignItems: "center", // Allow items to stretch and fill the container height{/* Updated */
@@ -82,7 +81,6 @@ export default function ActivitiesMainPage() {
           display: "flex",
           width: "100%",
           alignItems: "center", // Allow items to stretch and fill the container height{/* Updated */}
-          //   alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
         }}
@@ -173,14 +171,15 @@ export default function ActivitiesMainPage() {
             </Box>
           </Grid>
           {/* Aligned Text Section */}
-          <Container maxWidth="lg">
+          <Container maxWidth="lg" >
             <Grid
               container
               spacing={2}
               justifyContent="center"
               alignItems="center"
+              
             >
-              <Grid>
+              <Grid >
                 <ImageInforSectionText
                   id={BKCkYouth.id}
                   title={BKCkYouth.title}

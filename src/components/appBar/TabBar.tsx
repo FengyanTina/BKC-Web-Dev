@@ -94,11 +94,14 @@ export default function TabBar() {
             <MenuIcon />
           </IconButton>
           <Box sx={{ ml: 2 }}>
-            <Typography variant="h5" sx={{
-        fontWeight: "bold",
-        whiteSpace: "nowrap", // Prevents wrapping
-        fontSize: { sm: "1.5rem", md: "1.7rem", lg: "2rem" }, // Adjust font size dynamically
-      }}>
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: "bold",
+                whiteSpace: "nowrap", // Prevents wrapping
+                fontSize: { sm: "1.5rem", md: "1.6rem", lg: "1.8rem" }, // Adjust font size dynamically
+              }}
+            >
               {" "}
               Borås Kristna Center
             </Typography>
@@ -208,7 +211,7 @@ export default function TabBar() {
                 </Box>
               ) : (
                 <Tab
-                  label="Logga in"
+                  label="Login"
                   onClick={handleLoginOpen}
                   sx={{
                     fontSize: "1.2rem",
