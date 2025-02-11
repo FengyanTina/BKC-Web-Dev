@@ -69,6 +69,7 @@ export default function TeamIntroCard({
             color: "#CED9E5",
             fontWeight: "800",
             textDecoration: "underline",
+            textTransform: "none", // Prevents all-uppercase text
           }}
         >
           {buttonText}

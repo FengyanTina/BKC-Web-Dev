@@ -15,7 +15,7 @@ import {
   higlightEvents,
   socialMediaActivityCardInfor,
   activityCardInfor,
-  sundayServiceCardInfor,
+  servicesCardInfor,
   scheduleCardInfor,
   newHere1,
 } from "../data";
@@ -177,8 +177,8 @@ const StartPage = () => {
       </Box>
       {/* --------------ACTIVITIES and Services----------- */}
       {/* #dbe1e8*/}
-      <Box sx={{ backgroundColor: "#1B365D", px: 3, paddingBottom: "10px" }}>
-        <SectionLine text=" Aktiviteter " useWhiteStroke={true} />
+      <Box sx={{ backgroundColor: "#1B365D", px: 3, paddingBottom: "10px", paddingTop: "15px"}}>
+        {/* <SectionLine text=" Aktiviteter " useWhiteStroke={true} /> */}
         <ImageInforCardSection
           inforSectionId=""
           id={socialMediaActivityCardInfor.id}
@@ -195,15 +195,15 @@ const StartPage = () => {
 
         <ImageInforCardSection
           inforSectionId=""
-          id={sundayServiceCardInfor.id}
-          title={sundayServiceCardInfor.title}
-          subtitle={sundayServiceCardInfor.subtitle}
-          description={sundayServiceCardInfor.description}
-          images={sundayServiceCardInfor.images}
+          id={servicesCardInfor.id}
+          title={servicesCardInfor.title}
+          subtitle={servicesCardInfor.subtitle}
+          description={servicesCardInfor.description}
+          images={servicesCardInfor.images}
           category={""}
           imageLeft={false}
-          links={sundayServiceCardInfor.links}
-          buttonText={sundayServiceCardInfor.buttonText}
+          links={servicesCardInfor.links}
+          buttonText={servicesCardInfor.buttonText}
         />
 
         {/* --------------ACTIVITIES----------- */}

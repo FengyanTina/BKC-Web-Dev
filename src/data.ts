@@ -176,14 +176,14 @@ export const higlightEvents:CalendarEvent[] = [
             url: "/services",
           }, ]
   }
-  export const sundayServiceCardInfor:ImageInforSectionModel={
+  export const servicesCardInfor:ImageInforSectionModel={
     id: "1",
     inforSectionId:"",
     title: "  -Vad göra på en söndag? ",
-    subtitle:"Välkommen till vår kyrka nu på söndag!",
+    subtitle:"Välkommen till vår kyrka!",
     start:new Date(2024, 9, 22, 14, 30),
     category:EventCategory.SundayService,
-    description:"Vi är en bibeltroende kyrka mitt i Borås, som älskar Jesus!",
+    description:"Vi välkomnar dig till våra gudstjänster varje söndag, öppna för alla som vill delta. Om du är intresserad av att bli döpt, erbjuder vi även dopgudstjänster. Behöver du förbön? Vi ber gärna för dig och dina behov. Vår kyrka är en plats för gemenskap, tro och hopp, och vi ser fram emot att träffa dig! ",
     images:Varvision,
     buttonText:"Läs mer",
     links:[

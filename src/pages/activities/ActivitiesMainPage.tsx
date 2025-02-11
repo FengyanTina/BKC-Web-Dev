@@ -85,9 +85,9 @@ export default function ActivitiesMainPage() {
           flexDirection: "column",
         }}
       >
-        <Container maxWidth="lg">
           <div id="sundaySchool"></div>
           <SectionLine text="BKC Barn" useWhiteStroke={true} />
+        <Container maxWidth="lg">
           <Grid
             container
             spacing={2}

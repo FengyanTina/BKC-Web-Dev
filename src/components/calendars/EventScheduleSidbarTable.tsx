@@ -28,7 +28,7 @@ const Sidebar = ({
 
   const today = new Date();
   const fourWeeksLater = new Date();
-  fourWeeksLater.setDate(today.getDate() + 28);
+  fourWeeksLater.setDate(today.getDate() + 14);
 
   const filteredEvents = events.filter((event) => {
     const eventDate = new Date(event.start);
@@ -43,7 +43,7 @@ const Sidebar = ({
   return (
     <div className="demo-app-sidebar">
       <div className="demo-app-sidebar-section">
-        <h2>Evenemang de kommande 4 veckorna ({events.length})</h2>
+        <h2>Evenemang de kommande 2 veckorna ({events.length})</h2>
         <Paper
           elevation={1}
           style={{ marginBottom: "30px", backgroundColor: "#CED9E5", borderRadius: "10px",padding:10 }}
