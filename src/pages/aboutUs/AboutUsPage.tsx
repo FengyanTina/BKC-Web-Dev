@@ -50,6 +50,7 @@ const AboutUsPage = () => {
       <SectionLine text="Vår Historia" useWhiteStroke={true} />
       <TopImageSectionCard
         id={ourHistory.id}
+        inforSectionId=""
         title={ourHistory.title}
         description={ourHistory.description}
         images={ourHistory.images}

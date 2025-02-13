@@ -113,6 +113,7 @@ export default function ServicesMainPage() {
         }}
       >
         <TopImageSectionCard
+        inforSectionId=""
           id={findYourVision.id}
           title={findYourVision.title}
           subtitle={findYourVision.subtitle}
