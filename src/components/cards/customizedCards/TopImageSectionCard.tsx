@@ -2,7 +2,7 @@ import { Box, useMediaQuery, useTheme } from "@mui/material";
 import "./customizedCards.css";
 import Grid from "@mui/material/Grid2";
 import ImageInforSectionText from "../ImageInforSectionText";
-import { TextSectionWithStepsModel } from "../../../models/TextSectionWithStepsModel";
+import { ImageInforSectionModel } from "../../../models/ImageInforSection";
 
 const TopImageSectionCard = ({
   id,
@@ -13,7 +13,7 @@ const TopImageSectionCard = ({
   buttonLink,
   buttonText,
   images,
-}: TextSectionWithStepsModel) => {
+}: ImageInforSectionModel) => {
   const theme = useTheme();
   const isSmallOrMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -35,7 +35,7 @@ const TopImageSectionCard = ({
       }}
     >
       <Grid container spacing={{ md: 1 }} columns={{ xs: 1, sm: 12, md: 12 }}>
-        {!isSmallOrMediumScreen && (
+        {!isSmallOrMediumScreen && images && images.length > 0 &&(
           <>
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Box
@@ -122,7 +122,7 @@ const TopImageSectionCard = ({
           </>
         )}
 
-        {isSmallOrMediumScreen && (
+        {isSmallOrMediumScreen && images && images.length > 0 &&(
           <>
             <Box
               sx={{

@@ -2,7 +2,7 @@
 import { BaseModel } from "./BaseModel";
 
 export interface HighlightEvent extends BaseModel{
-    subTitle?: string;
+    subtitle?: string;
     endTime?:string;
     startTime:string;
     location?: string;

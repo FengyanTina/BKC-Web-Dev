@@ -15,7 +15,6 @@ import HomeGroup from "./assets/homeGroup.jpg"
 import SeniorGroup from "./assets/happySenior.jpg"
 import WomanGroup from "./assets/woman.jpg"
 import socialActivity from "./assets/socialActivity.jpg"
-import { EventCategory } from "./models/Event";
 import { ImageInforSectionModel } from "./models/ImageInforSection";
 import SundaySchoolTeaching  from "./assets/sundaySchool/sundayTeaching.jpg"
 import SundaySchool2 from "./assets/sundaySchool/sudaySchool2.jpg"
@@ -31,6 +30,7 @@ import davidPreaching from "./assets/sundaySchool/davidPreaching.jpg"
 import { ImageGallaryItemData } from "./models/ImageGallaryItemData";
 import { CardTextSectionModel } from "./models/CardTextSectionModel";
 import { CalendarEvent } from "./models/CalendarEvent";
+import { EventCategory } from "./models/Event";
 
 export const newsImgs = [
   
