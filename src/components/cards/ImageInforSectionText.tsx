@@ -88,6 +88,7 @@ export default function ImageInforSectionText({
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",
+            maxHeight: `${maxLines * 1.5}em`, 
           }}
         >
           {description.split("\n").map((paragraph, index) => (
