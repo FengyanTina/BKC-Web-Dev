@@ -28,6 +28,7 @@ export default function ImageInforSectionText({
 
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
+  
 
   return (
     <Card
@@ -87,8 +88,8 @@ export default function ImageInforSectionText({
             WebkitLineClamp: maxLines, // Limit to 11 lines
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
+            maxHeight: `${maxLines * 1.6}em`,
             textOverflow: "ellipsis",
-            // maxHeight: `${maxLines * 1.5}em`, 
           }}
         >
           {description.split("\n").map((paragraph, index) => (
@@ -100,6 +101,7 @@ export default function ImageInforSectionText({
                   color: "#CED9E5",
                   fontSize: 18,
                   whiteSpace: "pre-line",
+                  lineHeight: "1.5em",
                 }}
               >
                 {paragraph}
@@ -107,6 +109,7 @@ export default function ImageInforSectionText({
             </Box>
           ))}
         </Box>
+       
 
         {showSocialIcons && (
           <Box
