@@ -28,29 +28,29 @@ export default function ImageInforSectionText({
 
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
-//   const truncateTextWithParagraphs = (text: string, maxWords: number): string[] => {
-//     let wordsRemaining = maxWords;
-//     let truncatedParagraphs: string[] = [];
+  //   const truncateTextWithParagraphs = (text: string, maxWords: number): string[] => {
+  //     let wordsRemaining = maxWords;
+  //     let truncatedParagraphs: string[] = [];
 
-//     for (let paragraph of text.split("\n").map(p => p.trim()).filter(p => p !== "")) {
-//       let words = paragraph.split(/\s+/); // Split paragraph into words
+  //     for (let paragraph of text.split("\n").map(p => p.trim()).filter(p => p !== "")) {
+  //       let words = paragraph.split(/\s+/); // Split paragraph into words
 
-//       if (wordsRemaining <= 0) break; // Stop if word limit reached
+  //       if (wordsRemaining <= 0) break; // Stop if word limit reached
 
-//       if (words.length > wordsRemaining) {
-//         truncatedParagraphs.push(words.slice(0, wordsRemaining).join(" ") + "...");
-//         break; // Stop after reaching the limit
-//       } else {
-//         truncatedParagraphs.push(paragraph);
-//         wordsRemaining -= words.length; // Decrease remaining words count
-//       }
-//     }
+  //       if (words.length > wordsRemaining) {
+  //         truncatedParagraphs.push(words.slice(0, wordsRemaining).join(" ") + "...");
+  //         break; // Stop after reaching the limit
+  //       } else {
+  //         truncatedParagraphs.push(paragraph);
+  //         wordsRemaining -= words.length; // Decrease remaining words count
+  //       }
+  //     }
 
-//     return truncatedParagraphs; // ✅ Return an array of paragraphs
-//   };
+  //     return truncatedParagraphs; // ✅ Return an array of paragraphs
+  //   };
 
-//   // ✅ CALL the function and store the result
-//   const truncatedText = truncateTextWithParagraphs(description, 50);
+  //   // ✅ CALL the function and store the result
+  //   const truncatedText = truncateTextWithParagraphs(description, 50);
   return (
     <Card
       sx={{
@@ -69,7 +69,6 @@ export default function ImageInforSectionText({
           overflow: "hidden",
           paddingLeft: "0",
           color: "#CED9E5",
-          
         }}
       >
         {category && (
@@ -103,41 +102,20 @@ export default function ImageInforSectionText({
         >
           {subtitle}
         </Typography>
-        <Box
-         
-        >
-          {/* {description.split("\n").map((paragraph, index) => (
-            <Box key={index} sx={{ mb: 2 }}>
-              <Typography
-                variant="body2"
-                sx={{
-                  width: "100%",
-                  color: "#CED9E5",
-                  fontSize: 18,
-                  whiteSpace: "pre-line",
-                  lineHeight: "1.5em",
-                }}
-              >
-                {paragraph}
-              </Typography>
-            </Box>
-          ))} */}
-              <Typography
-          variant="body1"
-          sx={{
-            color: "#CED9E5",
-            display: "-webkit-box",
-            overflow: "hidden",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: maxLines,
-            position: "relative",
-            whiteSpace: "pre-line", // Forces line breaks at "\n"
-          }}
-        >
-          {description}
-        </Typography>
-        </Box>
-       
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#CED9E5",
+              display: "-webkit-box",
+              overflow: "hidden",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: maxLines,
+              position: "relative",
+              whiteSpace: "pre-line", // Forces line breaks at "\n"
+            }}
+          >
+            {description}
+          </Typography>  
 
         {showSocialIcons && (
           <Box
@@ -177,7 +155,6 @@ export default function ImageInforSectionText({
             fontWeight: "800",
             textDecoration: "underline",
             fontSize: "18px",
-           
           }}
           target="_blank"
           rel="noopener"
@@ -198,10 +175,10 @@ export default function ImageInforSectionText({
           <Typography
             variant="h5"
             sx={{
-                mt: 3,
+              mt: 3,
               fontSize: "18px",
               color: "#CED9E5",
-              paddingLeft:1,
+              paddingLeft: 1,
             }}
           >
             <strong>Time: </strong>
@@ -216,28 +193,26 @@ export default function ImageInforSectionText({
             sx={{
               color: "#CED9E5",
               fontSize: "18px",
-              paddingLeft:1,
+              paddingLeft: 1,
             }}
           >
             <strong>Location:</strong> {location}
           </Typography>
         )}
       </Box>
-      <Box sx={{mt: links && links.length > 0 ? 3 : 0, 
-        
-      }}>
+      <Box sx={{ mt: links && links.length > 0 ? 3 : 0 }}>
         {links &&
           links.map((link, index) => (
             <div key={index}>
               <Typography
                 variant="h5"
                 sx={{
-                    display: "flex",  // Ensures alignment of icon and text
-                    alignItems: "center",
+                  display: "flex", // Ensures alignment of icon and text
+                  alignItems: "center",
                   textAlign: "left",
                   fontSize: "18px",
                   lineHeight: 1.5,
-                  color: "#CED9E5",    
+                  color: "#CED9E5",
                 }}
               >
                 {link.url.includes("#") ? (
@@ -246,8 +221,8 @@ export default function ImageInforSectionText({
                       color: "#CED9E5",
                       fontWeight: "800",
                       textDecoration: "none",
-                       display: "flex",  // Ensures alignment of icon and text
-                    alignItems: "center",
+                      display: "flex", // Ensures alignment of icon and text
+                      alignItems: "center",
                     }}
                     smooth
                     to={link.url}
@@ -257,7 +232,6 @@ export default function ImageInforSectionText({
                         fontSize: "18px",
                         marginRight: "8px",
                         color: "#CED9E5",
-                        
                       }} // Customize icon size and spacing
                     />
                     {link.label}
@@ -269,7 +243,7 @@ export default function ImageInforSectionText({
                       color: "#CED9E5",
                       textDecoration: "none",
                       fontWeight: "bold",
-                      display: "flex",  // Ensures alignment of icon and text
+                      display: "flex", // Ensures alignment of icon and text
                       alignItems: "center",
                     }}
                   >

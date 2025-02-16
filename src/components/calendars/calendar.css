@@ -83,7 +83,7 @@ Default styling for prev, next, and today buttons
   }
 
   .event-text {
-    font-size: 16px;
+    font-size: 14px;
     word-wrap: break-word; /* Ensures long words break into multiple lines */
     white-space: normal; /* Ensures the text wraps and doesn't overflow */
     overflow: hidden; /* Prevents text from overflowing the container */

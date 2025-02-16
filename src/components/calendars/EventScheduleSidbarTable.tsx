@@ -21,9 +21,9 @@ const Sidebar = ({
   const isAdmin = currentUser?.category === UserCategory.Admin;
 
   const dateColumnSize = isAdmin ? 2 : 2;
-  const timeColumnSize = isAdmin ? 2 : 2;
+  const timeColumnSize = isAdmin ? 3 : 3;
   const titleColumnSize = isAdmin ? 2 : 3;
-  const locationColumnSize = isAdmin ? 3 : 3;
+  const locationColumnSize = isAdmin ? 2 : 2;
   const actionColumnSize = isAdmin ? 3 : 2;
 
   const today = new Date();
@@ -59,7 +59,7 @@ const Sidebar = ({
             <Grid size={titleColumnSize}>
               <strong>Event</strong>
             </Grid>
-            <Grid size={locationColumnSize} sx={{ textAlign: "center" }}>
+            <Grid size={locationColumnSize} sx={{ textAlign: "left",display: { xs: "none", sm: "none", md: "block" }  }}>
               <strong>Location</strong>
             </Grid>
             <Grid size={actionColumnSize}>
@@ -98,32 +98,33 @@ const SidebarEvent = ({
 }) => {
   const hasActionColumn = !!(onEdit || onDelete); // Check if action buttons exist
   const dateColumnSize = hasActionColumn ? 2 : 2;
-  const timeColumnSize = hasActionColumn ? 2 : 2;
+  const timeColumnSize = hasActionColumn ? 3 : 3;
   const titleColumnSize = hasActionColumn ? 2 : 3;
-  const locationColumnSize = hasActionColumn ? 3 : 3;
+  const locationColumnSize = hasActionColumn ? 2 : 2;
   const actionColumnSize = hasActionColumn ? 3 : 2;
 
   return (
     <Grid
       container
       key={event.id}
-      style={{ padding: "10px", borderBottom: "1px solid #ddd" }}
+      sx={{ padding: "10px", borderBottom: "1px solid #ddd", fontSize:"14px"}}
     >
-      <Grid size={dateColumnSize} style={{ textAlign: "left" }}>
+      <Grid size={dateColumnSize} sx={{ textAlign: "left", }}>
         {event.start ? formatDate(event.start) : "Invalid date"}
       </Grid>
-      <Grid size={timeColumnSize} style={{ textAlign: "left" }}>
+      <Grid size={timeColumnSize} sx={{ textAlign: "left", }}>
         {event.start && event.end
           ? `${formatTime(event.start)} - ${formatTime(event.end)}`
           : "Invalid time"}
       </Grid>
       <Grid
         size={titleColumnSize}
-        style={{
+        sx={{
           textAlign: "left",
           overflow: "hidden",
           whiteSpace: "nowrap", // Prevent text from wrapping to the next line
           textOverflow: "ellipsis",
+          fontSize:"14px"
           
         }}
       >
@@ -131,29 +132,31 @@ const SidebarEvent = ({
       </Grid>
       <Grid
         size={locationColumnSize}
-        style={{
-          textAlign: "center",
+        sx={{
+            textAlign: "left",
           overflow: "hidden",
           whiteSpace: "nowrap", // Prevent text from wrapping to the next line
           textOverflow: "ellipsis",
+          display: { xs: "none",  sm: "block" } ,
+          fontSize:"14px"
         }}
       >
         {event.location}
       </Grid>
-      <Grid size={actionColumnSize} style={{ textAlign: "left" }}>
+      <Grid size={actionColumnSize} sx={{ textAlign: "left",}}>
         <Button
           onClick={() => handleDetail(event)}
-          style={{ color: "#202A44", marginRight: "5px" }}
+          sx={{ color: "#202A44", marginRight: "5px",fontSize:"12px" }}
         >
           Detail
         </Button>
         {onEdit && (
-          <Button onClick={() => onEdit(event)} style={{ marginRight: "5px" }}>
+          <Button onClick={() => onEdit(event)} sx={{ marginRight: "5px", fontSize:"12px"}}>
             Edit
           </Button>
         )}
         {onDelete && (
-          <Button onClick={() => onDelete(event)} color="error">
+          <Button onClick={() => onDelete(event)} color="error"sx={{  fontSize:"12px"}} >
             Delete
           </Button>
         )}
