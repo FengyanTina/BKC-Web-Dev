@@ -28,8 +28,29 @@ export default function ImageInforSectionText({
 
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
-  
+//   const truncateTextWithParagraphs = (text: string, maxWords: number): string[] => {
+//     let wordsRemaining = maxWords;
+//     let truncatedParagraphs: string[] = [];
 
+//     for (let paragraph of text.split("\n").map(p => p.trim()).filter(p => p !== "")) {
+//       let words = paragraph.split(/\s+/); // Split paragraph into words
+
+//       if (wordsRemaining <= 0) break; // Stop if word limit reached
+
+//       if (words.length > wordsRemaining) {
+//         truncatedParagraphs.push(words.slice(0, wordsRemaining).join(" ") + "...");
+//         break; // Stop after reaching the limit
+//       } else {
+//         truncatedParagraphs.push(paragraph);
+//         wordsRemaining -= words.length; // Decrease remaining words count
+//       }
+//     }
+
+//     return truncatedParagraphs; // ✅ Return an array of paragraphs
+//   };
+
+//   // ✅ CALL the function and store the result
+//   const truncatedText = truncateTextWithParagraphs(description, 50);
   return (
     <Card
       sx={{
@@ -83,16 +104,9 @@ export default function ImageInforSectionText({
           {subtitle}
         </Typography>
         <Box
-          sx={{
-            display: "-webkit-box",
-            WebkitLineClamp: maxLines, // Limit to 11 lines
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-            maxHeight: `${maxLines * 1.6}em`,
-            textOverflow: "ellipsis",
-          }}
+         
         >
-          {description.split("\n").map((paragraph, index) => (
+          {/* {description.split("\n").map((paragraph, index) => (
             <Box key={index} sx={{ mb: 2 }}>
               <Typography
                 variant="body2"
@@ -107,7 +121,21 @@ export default function ImageInforSectionText({
                 {paragraph}
               </Typography>
             </Box>
-          ))}
+          ))} */}
+              <Typography
+          variant="body1"
+          sx={{
+            color: "#CED9E5",
+            display: "-webkit-box",
+            overflow: "hidden",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: maxLines,
+            position: "relative",
+            whiteSpace: "pre-line", // Forces line breaks at "\n"
+          }}
+        >
+          {description}
+        </Typography>
         </Box>
        
 
