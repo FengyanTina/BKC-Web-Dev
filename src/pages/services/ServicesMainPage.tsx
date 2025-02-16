@@ -110,6 +110,8 @@ export default function ServicesMainPage() {
           flexDirection: "column",
           alignItems: "center",
           px: 3,
+          maxWidth: { xl: "65%", lg: "95%", md: "100%", sm: "100%" }, // Use maxWidth instead of width
+          width: "100%", 
         }}
       >
         <TopImageSectionCard

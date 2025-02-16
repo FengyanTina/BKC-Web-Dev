@@ -21,7 +21,7 @@ const TopImageSectionCard = ({
     <Box
       sx={{
         flexGrow: 1,
-        width: { xl:"85%",lg: "95%", md: "100%", sm: "100%" },
+       width:"100%",
         pb: {
           xs: 2,
           sm: 2,
@@ -64,7 +64,7 @@ const TopImageSectionCard = ({
                 />
               </Box>
             </Grid>
-            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Box
                 sx={{
                   width: "100%", // Ensure the container takes full width
@@ -92,7 +92,7 @@ const TopImageSectionCard = ({
               </Box>
             </Grid>
 
-            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Box
                 sx={{
                   width: "100%",

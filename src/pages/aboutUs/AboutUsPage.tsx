@@ -46,8 +46,18 @@ const AboutUsPage = () => {
         imageLeft={false}
         maxLines={8}
         buttonText={ourVision.buttonText}
-      />
+        />
       <SectionLine text="Vår Historia" useWhiteStroke={true} />
+      <Box
+        sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+            maxWidth: { xl: "65%", lg: "95%", md: "100%", sm: "100%" }, // Use maxWidth instead of width
+            width: "100%", 
+          }}
+      >
       <TopImageSectionCard
         id={ourHistory.id}
         inforSectionId=""
@@ -55,8 +65,9 @@ const AboutUsPage = () => {
         description={ourHistory.description}
         images={ourHistory.images}
         buttonText={ourHistory.buttonText}
-      />
+        />
 
+        </Box>
       <SectionLine text="Vårt team" useWhiteStroke={true} />
       <ImageInforCardSection
         inforSectionId=""
