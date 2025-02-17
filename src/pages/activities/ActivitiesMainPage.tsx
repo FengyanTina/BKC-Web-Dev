@@ -65,16 +65,7 @@ export default function ActivitiesMainPage() {
       )}
       <InstagramEmbed setHasContent={setHasInstagramContent} />
 
-      {/* <Box
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "#f0f4f8",
-         
-        }}
-      > 
-          <SlickSlider events={news} />
-      </Box> */}
+
       {/* --------------ACTIVITIES-BKC Kids----------- */}
       <Box
         sx={{
@@ -113,7 +104,28 @@ export default function ActivitiesMainPage() {
         </Container>
         {/* --------------ACTIVITIES-BKC Youth----------- */}
         <div id="youth"></div>
-
+      {/* <Box
+        sx={{
+          width: "90%",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+          justifyContent: "center",
+          backgroundColor: "#7089AC",
+         
+        }}
+      >
+        <SectionLine text="Nyheter" />
+        <Box
+          sx={{
+           
+            width: "100%",
+            marginBottom: "50px",
+          }}
+        >
+          <SlickSlider events={news} />
+        </Box>
+      </Box> */}
         <Box
           sx={{
             width: "100%",

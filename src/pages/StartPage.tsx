@@ -243,28 +243,6 @@ const StartPage = () => {
         </Box>
       )}
       <InstagramEmbed setHasContent={setHasInstagramContent} />
-
-      {/* <Box
-        sx={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-          justifyContent: "center",
-          backgroundColor: "#f0f4f8",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        }}
-      > */}
-      {/* <Box
-          sx={{
-            backgroundColor: "#f0f4f8",
-            width: "100%",
-            marginBottom: "50px",
-          }}
-        >
-          <SlickSlider  />
-        </Box> */}
-      {/* </Box> */}
     </Box>
   );
 };

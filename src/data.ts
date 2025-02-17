@@ -239,44 +239,49 @@ export const higlightEvents:CalendarEvent[] = [
 //     buttonText:"Learn More",
 //     images:bs1 
 //   }
-//   export const news:HighlightEvent[] = [
-//     {
-//       id: "1",
-//       startTime: "WE LOVE BORÅS ", // October 22, 2024, 2:30 PM
-//       title: "Mission ",
-//       category: EventCategory.Event,
-//       image: PrayerBible,
-//       description:
-//         "Vi når ut i Borås. Välkommen att höra av dig till er hemgruppsledare eller mötesledare för mer information.",
-//     },
-//     {
-//       id: "2",
-//       startTime: "new Date(2024, 9, 25, 19, 0)", // October 25, 2024, 7:00 PM
-//       title: "Alphakurs",
-//       category: EventCategory.Event,
-//       image: edward,
-//       description:
-//         "Vem som helst kan gå en Alphakurs, men den vänder sig speciellt till dig som vill utforska livet och den kristna tron lite närmare eller är lite osäker på vad du egentligen tror på. Kursen är utformad för att passa dig som inte är van att gå i kyrkan. \n - Vi börjar med att äta något gott tillsammans, därefter hålls ett kortare föredrag som tar upp ett ämne som berör livet och kristen tro. Sedan delar vi upp oss i grupper för att samtala. Många upplever samtalsgruppen som ett av de mest positiva inslagen i Alphakursen.Här är några exempel på ämnen som tas upp under en Alphakurs: Vem är Jesus? Varför måste Jesus dö? Hur kan jag tro? Vad ska vi ha kyrkan till? Finns det mer att upptäcka i livet?.",
-//     },
-//     {
-//       id: "3",
-//       startTime:" new Date(2024, 9, 27, 9, 0)", // October 27, 2024, 9:00 AM
-//       title: "Expansion",
-//       category: EventCategory.Event,
-//       image:rosWorship,
-//       description:
-//         "Tillsammans med Kidsen`s pant i vår expansions-maskin samlar vi in medel för nya lokaler ..",
-//     },
-//     {
-//       id: "4",
-//       startTime: "new Date(2024, 9, 30, 17, 30)", // October 30, 2024, 5:30 PM
-//       title: "Bön&Lovsångskväll",
-//       category: EventCategory.Event,
-//       image: BethelWorship,
-//       description:
-//         "Tillsammans över generationera leder BKC-Ung oss i bön och lovsångsgudstjänst sista torsdagen i månaden. Kom med förväntan att bli förvandlad av Den Helige Andes..",
-//     },
-//   ];
+  export const news:CalendarEvent[] = [
+    {
+      id: "1",
+      start: "new Date(2024, 9, 25, 19, 0) ", // October 22, 2024, 2:30 PM
+      end:"new Date(2024, 9, 25, 19, 0)",
+      title: "Mission ",
+      imgUrl: edward,
+      description:
+        "Vi når ut i Borås. Välkommen att höra av dig till er hemgruppsledare eller mötesledare för mer information.",
+        allDay:false
+
+    },
+    {
+      id: "2",
+      start: "new Date(2024, 9, 25, 19, 0)", // October 25, 2024, 7:00 PM
+      title: "Alphakurs",
+      end: "new Date(2024, 9, 25, 19, 0)",
+      allDay:false,
+      imgUrl: edward,
+      description:
+        "Vem som helst kan gå en Alphakurs, men den vänder sig speciellt till dig som vill utforska livet och den kristna tron lite närmare eller är lite osäker på vad du egentligen tror på. Kursen är utformad för att passa dig som inte är van att gå i kyrkan. \n - Vi börjar med att äta något gott tillsammans, därefter hålls ett kortare föredrag som tar upp ett ämne som berör livet och kristen tro. Sedan delar vi upp oss i grupper för att samtala. Många upplever samtalsgruppen som ett av de mest positiva inslagen i Alphakursen.Här är några exempel på ämnen som tas upp under en Alphakurs: Vem är Jesus? Varför måste Jesus dö? Hur kan jag tro? Vad ska vi ha kyrkan till? Finns det mer att upptäcka i livet?.",
+    },
+    {
+      id: "3",
+      start: "new Date(2024, 9, 25, 19, 0)", // October 25, 2024, 7:00 PM
+      title: "Alphakurs",
+      end: "new Date(2024, 9, 25, 19, 0)",
+      allDay:false,
+      imgUrl: edward,
+      description:
+        "Tillsammans med Kidsen`s pant i vår expansions-maskin samlar vi in medel för nya lokaler ..",
+    },
+    {
+      id: "4",
+      start: "new Date(2024, 9, 25, 19, 0)", // October 25, 2024, 7:00 PM
+      title: "Alphakurs",
+      end: "new Date(2024, 9, 25, 19, 0)",
+      allDay:false,
+      imgUrl: edward,
+      description:
+        "Tillsammans över generationera leder BKC-Ung oss i bön och lovsångsgudstjänst sista torsdagen i månaden. Kom med förväntan att bli förvandlad av Den Helige Andes..",
+    },
+  ];
 
 // About us page
 export const ourVision:ImageInforSectionModel={

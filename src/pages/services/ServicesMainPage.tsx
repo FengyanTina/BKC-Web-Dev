@@ -1,4 +1,4 @@
-import { Box, Dialog, DialogContent, Typography } from "@mui/material";
+import { Box, Container, Dialog, DialogContent, Typography } from "@mui/material";
 import { useState } from "react";
 import Grid from "@mui/material/Grid2";
 import worshipHands from "../../assets/worshipHands.jpg";
@@ -103,17 +103,7 @@ export default function ServicesMainPage() {
       {/* -------------FindYourVision----------- */}
       <div id="serve"></div>
       <SectionLine text="hitta din vision" useWhiteStroke={true} />
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-          px: 3,
-          maxWidth: { xl: "65%", lg: "95%", md: "100%", sm: "100%" }, // Use maxWidth instead of width
-          width: "100%", 
-        }}
-      >
+      <Container maxWidth="lg" >
         <TopImageSectionCard
         inforSectionId=""
           id={findYourVision.id}
@@ -124,7 +114,7 @@ export default function ServicesMainPage() {
           links={findYourVision.links}
           buttonText={findYourVision.buttonText}
         />
-      </Box>
+      </Container>
 
       {/* --------------SundayService ----------- */}
       <Box

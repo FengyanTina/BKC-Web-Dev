@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { ourHistory, ourVision, Pastor } from "../../data";
 import TopImageSectionCard from "../../components/cards/customizedCards/TopImageSectionCard.tsx";
 import SectionLine from "../../components/pageSections/SectionLine.tsx";
@@ -47,17 +47,9 @@ const AboutUsPage = () => {
         maxLines={8}
         buttonText={ourVision.buttonText}
         />
+     
       <SectionLine text="Vår Historia" useWhiteStroke={true} />
-      <Box
-        sx={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
-            maxWidth: { xl: "65%", lg: "95%", md: "100%", sm: "100%" }, // Use maxWidth instead of width
-            width: "100%", 
-          }}
-      >
+      <Container maxWidth="lg" >
       <TopImageSectionCard
         id={ourHistory.id}
         inforSectionId=""
@@ -67,7 +59,7 @@ const AboutUsPage = () => {
         buttonText={ourHistory.buttonText}
         />
 
-        </Box>
+        </Container>
       <SectionLine text="Vårt team" useWhiteStroke={true} />
       <ImageInforCardSection
         inforSectionId=""
@@ -80,7 +72,7 @@ const AboutUsPage = () => {
         maxLines={10}
         buttonText={Pastor.buttonText}
       />
-
+ 
       {/* <SectionLine text="Medlemskap" />
       <Box id="userTable"></Box>
       <UserTable /> */}

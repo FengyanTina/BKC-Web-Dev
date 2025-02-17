@@ -20,7 +20,7 @@ const TopImageSectionCard = ({
   return (
     <Box
       sx={{
-        flexGrow: 1,
+        
        width:"100%",
         pb: {
           xs: 2,
