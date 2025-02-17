@@ -17,8 +17,17 @@
     margin: 40px 0;
   }
   
+  
   .info-detail {
-    font-weight: 600;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    gap: 10px; /* Space between icon and text */
+    margin-bottom: 10px; /* Space between each contact detail */
+  }
+  
+  .info-text {
+    font-size: 16px;
+    color: white; /* Adjust color as needed */
   }
   
   .info-icons-container {

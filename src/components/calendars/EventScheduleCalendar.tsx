@@ -165,7 +165,7 @@ const EventScheduleCalendar: React.FC = () => {
   return (
     <div className="calendar-container">
       <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin,]}
         headerToolbar={{
           left: "prev,next today",
           center: "title",
@@ -196,7 +196,7 @@ const EventScheduleCalendar: React.FC = () => {
         height="100%" /* This makes the calendar take full height */
         contentHeight="auto" /* Adjusts height dynamically based on content */
         expandRows={true}
-       
+        longPressDelay={500} 
       />
       <Sidebar
         events={events}

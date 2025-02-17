@@ -22,10 +22,11 @@ const contactDetails: ContactDetail[] = [
 ];
 
 const renderContactDetails = (): JSX.Element[] =>
-  contactDetails.map((detail) => (
-    <p key={detail.value} className="info-detail">
-      {detail.icon} {detail.value}
-    </p>
+  contactDetails.map((detail,index) => (
+    <div key={index} className="info-detail">
+      {detail.icon}
+      <span className="info-text">{detail.value}</span>
+    </div>
   ));
 
 const renderIcons = (): JSX.Element[] =>

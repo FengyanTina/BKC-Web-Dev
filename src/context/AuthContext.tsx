@@ -24,7 +24,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [loading, setLoading] = useState(true);
 
   const [error, setError] = useState<string | null>(null);
-  const timeoutDuration = 20 * 60 * 1000;
+  const timeoutDuration = 1 * 60 * 1000;
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
