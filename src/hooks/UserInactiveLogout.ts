@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const useInactivityLogout = (timeoutDuration: number, onLogout: () => void) => {
-    const timeoutIdRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    // const timeoutIdRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     const resetTimer = () => {
